@@ -1,8 +1,8 @@
 <?=form_open($this->uri->uri_string(),array('class'=>'form-horizontal')); ?>
 	<fieldset>
 		<legend>Введите логин и пароль для входа в панель администрирования</legend>
-		<?php $this->load->view($language."/alert_messages/alert-error");?>
-		<?php $this->load->view($language."/alert_messages/alert-success");?>
+		<?php $this->load->view("alert_messages/alert-error");?>
+		<?php $this->load->view("alert_messages/alert-success");?>
 		<div class="control-group">
 			<label for="login" class="control-label">Логин</label>
 			<div class="controls">
