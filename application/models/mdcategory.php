@@ -43,6 +43,16 @@ class Mdcategory extends CI_Model{
 		return NULL;
 	}
 	
+	function read_showed_records(){
+		
+		$this->db->where('showitem',1);
+		$this->db->order_by('id');
+		$query = $this->db->get('category');
+		$data = $query->result_array();
+		if(count($data)) return $data;
+		return NULL;
+	}
+	
 	function count_records(){
 		
 		return $this->db->count_all('category');

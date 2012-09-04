@@ -46,19 +46,42 @@ class Users_interface extends CI_Controller{
 	public function index(){
 		
 		$pagevar = array(
-			'title'			=> 'Комфорт Лайн | Главная страница',
+			'title'			=> 'Комфорт Лайн :: Одежда для дома и отдыха',
 			'description'	=> '',
 			'author'		=> '',
 			'baseurl' 		=> base_url(),
 			'loginstatus'	=> $this->loginstatus,
 			'userinfo'		=> $this->user,
+			'category'		=> $this->mdcategory->read_showed_records(),
+			'brands'		=> $this->mdbrands->read_records_rand_limit(4),
+			'news'			=> $this->mdevents->read_records_limit(array(1),3,0),
+			'stock'			=> $this->mdevents->read_records_limit(array(2),3,0),
 			'msgs'			=> $this->session->userdata('msgs'),
 			'msgr'			=> $this->session->userdata('msgr'),
 		);
 		$this->session->unset_userdata('msgs');
 		$this->session->unset_userdata('msgr');
 		
-		$this->session->set_userdata('backpath',$pagevar['baseurl'].$this->uri->uri_string());
+		for($i=0;$i<count($pagevar['news']);$i++):
+			$pagevar['news'][$i]['date'] = $this->operation_dot_date($pagevar['news'][$i]['date']);
+			$pagevar['news'][$i]['text'] = strip_tags($pagevar['news'][$i]['text']);
+			if(mb_strlen($pagevar['news'][$i]['text'],'UTF-8') > 150):
+				$pagevar['news'][$i]['text'] = mb_substr($pagevar['news'][$i]['text'],0,150,'UTF-8');
+				$pos = mb_strrpos($pagevar['news'][$i]['text'],' ',0,'UTF-8');
+				$pagevar['news'][$i]['text'] = mb_substr($pagevar['news'][$i]['text'],0,$pos,'UTF-8');
+				$pagevar['news'][$i]['text'] .= ' ... ';
+			endif;
+		endfor;
+		for($i=0;$i<count($pagevar['stock']);$i++):
+			$pagevar['stock'][$i]['date'] = $this->operation_dot_date($pagevar['stock'][$i]['date']);
+			$pagevar['stock'][$i]['text'] = strip_tags($pagevar['stock'][$i]['text']);
+			if(mb_strlen($pagevar['stock'][$i]['text'],'UTF-8') > 150):
+				$pagevar['stock'][$i]['text'] = mb_substr($pagevar['stock'][$i]['text'],0,150,'UTF-8');
+				$pos = mb_strrpos($pagevar['stock'][$i]['text'],' ',0,'UTF-8');
+				$pagevar['stock'][$i]['text'] = mb_substr($pagevar['stock'][$i]['text'],0,$pos,'UTF-8');
+				$pagevar['stock'][$i]['text'] .= ' ... ';
+			endif;
+		endfor;
 		$this->load->view("users_interface/index",$pagevar);
 	}
 	
@@ -104,11 +127,9 @@ class Users_interface extends CI_Controller{
 		$section = $this->uri->segment(1);
 		$id = $this->uri->segment(3);
 		switch ($section):
-			case 'events' 	: $image = $this->mdevents->get_image($id,$this->language.'_events'); break;
-			case 'category' : $image = $this->mdcategory->get_image($id,$this->language.'_category'); break;
-			case 'product' 	: $image = $this->mdproducts->get_image($id,$this->language.'_products'); break;
-			case 'medals' 	: $image = $this->mdmedals->get_image($id,$this->language.'_medals'); break;
-			case 'quote' 	: $image = $this->mdquote->get_image($id,$this->language.'_quote'); break;
+			case 'news' 	: $image = $this->mdevents->get_image($id); break;
+			case 'stock' 	: $image = $this->mdevents->get_image($id); break;
+			case 'brands' 	: $image = $this->mdbrands->get_image($id); break;
 		endswitch;
 		header('Content-type: image/gif');
 		echo $image;

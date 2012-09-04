@@ -6,6 +6,7 @@ class Mdbrands extends CI_Model{
 	var $title		= '';
 	var $translit	= '';
 	var $image		= '';
+	var $pdf		= '';
 	var $text		= '';
 	
 	function __construct(){
@@ -17,6 +18,7 @@ class Mdbrands extends CI_Model{
 		$this->title	= htmlspecialchars($data['title']);
 		$this->translit	= $translit;
 		$this->image	= $data['image'];
+		$this->pdf		= $data['pdf'];
 		$this->text		= $data['text'];
 		
 		$this->db->insert('brands',$this);
@@ -27,8 +29,11 @@ class Mdbrands extends CI_Model{
 		
 		$this->db->set('title',htmlspecialchars($data['title']));
 		$this->db->set('translit',$translit);
-		if(isset($data['icon'])):
-			$this->db->set('icon',$data['icon']);
+		if(isset($data['image'])):
+			$this->db->set('image',$data['image']);
+		endif;
+		if(isset($data['pdf'])):
+			$this->db->set('pdf',$data['pdf']);
 		endif;
 		$this->db->where('id',$id);
 		$this->db->update('brands');
@@ -37,9 +42,18 @@ class Mdbrands extends CI_Model{
 	
 	function read_records(){
 		
-		$this->db->select('id,title,translit,text');
+		$this->db->select('id,title,translit,text,pdf');
 		$this->db->order_by('id');
 		$query = $this->db->get('brands');
+		$data = $query->result_array();
+		if(count($data)) return $data;
+		return NULL;
+	}
+	
+	function read_records_rand_limit($count){
+		
+		$query = "SELECT id,title,translit,text,pdf FROM brands ORDER BY RAND() LIMIT $count";
+		$query = $this->db->query($query);
 		$data = $query->result_array();
 		if(count($data)) return $data;
 		return NULL;
@@ -52,7 +66,7 @@ class Mdbrands extends CI_Model{
 	
 	function read_record($id){
 		
-		$this->db->select('id,title,translit,text');
+		$this->db->select('id,title,translit,text,pdf');
 		$this->db->where('id',$id);
 		$query = $this->db->get('brands',1);
 		$data = $query->result_array();
@@ -88,9 +102,9 @@ class Mdbrands extends CI_Model{
 	function get_image($id){
 		
 		$this->db->where('id',$id);
-		$this->db->select('images');
+		$this->db->select('image');
 		$query = $this->db->get('brands');
 		$data = $query->result_array();
-		return $data[0]['images'];
+		return $data[0]['image'];
 	}
 }

@@ -1,0 +1,246 @@
+/*
+Goldilocks Approach to Responsive Web Design Boilerplate
+
+Author: Design by Front - @designbyfront
+Version: 0.1
+URL: http://www.goldilocksapproach.com
+----------------------------------------------------------------------------------------
+
+CONTENTS - GLOBAL.CSS
+-----------------------------------------
+1. RESET
+2. ROOT
+3. CORE TYPOGRAPHY
+4. LINKS
+5. GLOBAL LAYOUT & GLOBAL CUSTOM TYPOGRAPHY
+6. CUSTOM LAYOUT & TYPOGRAPHY (Baby bear)
+7. BROWSER AND NON-SEMANTIC STYLING
+
+CONTENTS - LAYOUT.CSS
+-----------------------------------------
+8. CUSTOM LAYOUT & TYPOGRAPHY (Daddy bear)
+9. CUSTOM LAYOUT & TYPOGRAPHY (Mummy bear)
+
+*/
+
+
+/* 1. RESET
+----------------------------------------------------------------------------------------*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size:100%;
+  font: inherit;
+  vertical-align: baseline;
+  }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+  }
+  
+  
+/* 2. ROOT
+----------------------------------------------------------------------------------------*/
+html { 
+  overflow-y: scroll;
+  background: #FFF;
+  }
+
+/* /ht Ethan Marcotte - http://front.ie/l8rJaA */
+img, embed, object, video { max-width: 100%; }
+.ie6 img.full, .ie6 object.full, .ie6 embed, .ie6 video { width: 100%; }
+
+
+/* 3. CORE TYPOGRAPHY
+----------------------------------------------------------------------------------------*/
+body {
+  font-family: "PT Sans", Arial, Helvetica, "Lucida Grande", sans-serif;
+  font-size: 1em;
+  line-height: 1.618em;
+  color: #666;
+  }
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 0.809em;
+  line-height: 1em;
+  }
+
+p, ul, ol, dl, blockquote {
+    font-size: 1em;
+    line-height: 1.618em;
+    margin-bottom: 1.618em; 
+    max-width: 30em; /* Optimal width for long-form text */
+  }
+    
+ul { list-style-type: disc; margin-left: 1.618em; }
+ol { list-style-type: decimal; margin-left: 1.618em; }
+nav ul, nav ol { list-style: none; margin: 0; padding: 0;}
+
+b, strong { font-weight: bold; }
+i, em { font-style: italic; }
+small { font-size: 80%; }
+
+
+/* 4. LINKS
+----------------------------------------------------------------------------------------*/
+a, a:visited { outline: none; color: #439BBD; text-decoration: underline; }  
+a:hover { outline: none; text-decoration:none; }  
+a:active, a:focus { outline: none; }
+
+
+/* 5. GLOBAL LAYOUT & GLOBAL CUSTOM TYPOGRAPHY
+----------------------------------------------------------------------------------------*/
+html, body { background: url('../images/bg-main.png') repeat; }
+#logo { background: url('../images/logo.png') no-repeat; width: 389px; height: 157px; display: block; text-indent: -9999px; float: left; margin-left: -1.25em; }
+ul { max-width: 62em; list-style: none; }
+p { font-size: 0.85em; line-height: 1.5em; margin-bottom: 1.5em; }
+h4 { font-size: 0.85em; }
+
+header h1 { margin-bottom: 0; }
+#main-nav { float: left; list-style: none; margin: 1em 0 0 3em; }
+#main-nav li {}
+#main-nav a { border-bottom: 1px solid; color: #777; display: inline-block; font-size: 0.9em; line-height: 1.15em; margin-bottom: 0.2em; text-decoration: none; }
+#main-nav a:hover { color: #4d4d4d; }
+
+.phone { margin: 1em 0 0; }
+.phone p { font-size: 1.5em; line-height: 1.25em; margin: 0; position: relative; text-align: right; } 
+.phone .small { color: #999; display: inline-block; font-size: 0.6em; right: 8em; top: -0.2em; position: absolute; }
+.phone .dashed { border-bottom: 1px dashed; color: #999; display: inline-block; float: right; font-size: 0.85em; line-height: 1.25em; text-decoration: none; }
+
+.actions { list-style: none; width: 20em; margin: 1.4em 0 0; }
+.actions li { }
+.actions li a {
+	display: block;
+	float: right;
+	width: 138px;
+	height: 34px;
+	font-size: 0.85em;
+	line-height: 34px;
+	color: #666;
+	text-decoration: none;
+	text-align: center;
+	background: -moz-linear-gradient(top, #fff 0%, #e9e9e9 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fff), color-stop(100%,#e9e9e9));
+	background: -webkit-linear-gradient(top, #fff 0%,#e9e9e9 100%);
+	background: -o-linear-gradient(top, #fff 0%,#e9e9e9 100%);
+	background: -ms-linear-gradient(top, #fff 0%,#e9e9e9 100%);
+	background: linear-gradient(top, #fff 0%,#e9e9e9 100%);
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-box-shadow: 0 1px 5px #adadad;
+	-moz-box-shadow: 0 1px 5px #adadad;
+	box-shadow: 0 1px 5px #adadad;
+}
+.actions li a:hover {
+	background: -moz-linear-gradient(top, #fff 0%, #d7d6d6 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fff), color-stop(100%,#d7d6d6));
+	background: -webkit-linear-gradient(top, #fff 0%,#d7d6d6 100%);
+	background: -o-linear-gradient(top, #fff 0%,#d7d6d6 100%);
+	background: -ms-linear-gradient(top, #fff 0%,#d7d6d6 100%);
+	background: linear-gradient(top, #fff 0%,#d7d6d6 100%);
+	-webkit-text-shadow: 0 1px 0 #f0f0f0;
+	   -moz-text-shadow: 0 1px 0 #f0f0f0;
+			text-shadow: 0 1px 0 #f0f0f0;
+}
+
+.actions li #action-shop {
+	background: -moz-linear-gradient(top, #f3893c 0%, #dd782f 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3893c), color-stop(100%,#dd782f));
+	background: -webkit-linear-gradient(top, #f3893c 0%,#dd782f 100%);
+	background: -o-linear-gradient(top, #f3893c 0%,#dd782f 100%);
+	background: -ms-linear-gradient(top, #f3893c 0%,#dd782f 100%);
+	background: linear-gradient(top, #f3893c 0%,#dd782f 100%);
+	color: #fff;
+	-webkit-text-shadow: 0 1px 1px #666;
+	-moz-text-shadow: 0 1px 1px #666;
+	-webkit-text-shadow: 0 1px 1px #666;
+	-moz-text-shadow: 0 1px 1px #666;
+	text-shadow: 0 1px 1px #666;
+	margin-left: 0.75em;
+}
+
+.actions li #action-shop:hover {  
+	background: -moz-linear-gradient(top, #f3893c 0%, #ce6a21 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3893c), color-stop(100%,#ce6a21));
+	background: -webkit-linear-gradient(top, #f3893c 0%,#ce6a21 100%);
+	background: -o-linear-gradient(top, #f3893c 0%,#ce6a21 100%);
+	background: -ms-linear-gradient(top, #f3893c 0%,#ce6a21 100%);
+	background: linear-gradient(top, #f3893c 0%,#ce6a21 100%);
+}
+
+.slider-wrapper { position: relative; }
+.slider img { -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; -webkit-box-shadow: 0 1px 5px #ccc; -moz-box-shadow: 0 1px 5px #ccc; box-shadow: 0 1px 5px #ccc; }
+#left-arrow, #right-arrow { position: absolute; top: 11em; text-indent: -9999px; width: 28px; height: 40px; opacity: 0.5; -webkit-transition: opacity 0.5s ease-in-out; -moz-transition: opacity 0.5s ease-in-out; -o-transition: opacity 0.5s ease-in-out; }
+#left-arrow:hover, #right-arrow:hover { opacity: 1; }
+#left-arrow { background: url("../images/slider-control-left.png") 0 -43px no-repeat; left: 1.25em; z-index: 100; }
+#right-arrow { background: url('../images/slider-control-right.png') 0 -43px no-repeat; right: 1.25em; z-index: 101; } 
+
+#categories-nav { height: 148px; list-style: none; padding: 0; margin: 0.5em 0 0; margin-left: -0.4em; width: 62em; }
+#categories-nav li{ background: url('../images/category-bg_.png') no-repeat left top; float: left; height: 71px; text-align: center; width: 243px; line-height: 71px; }
+#categories-nav li a { font-size: 1.1em; font-weight: bold; text-shadow: 0px 1px #fff; color: #666; text-decoration: none; display: inline-block; width: 100%; }
+#categories-nav li a:hover { color: #444; }
+
+#brands-nav { background: #fff; -webkit-box-shadow: 0px 1px 0px 0px #cfcfcf, 0px -1px 0px 0px #fff, 0px -2px 0px 0px #cfcfcf; -moz-box-shadow: 0px 1px 0px 0px #cfcfcf, 0px -1px 0px 0px #fff, 0px -2px 0px 0px #cfcfcf; box-shadow: 0px 1px 0px 0px #cfcfcf, 0px -1px 0px 0px #fff, 0px -2px 0px 0px #cfcfcf; height: 102px; margin: 1em auto; padding-top: 1.85em; }
+#brands-nav li { display: inline-block; margin-left: 3em; text-align: center; }
+#brands-nav li a { color: #666; font-size: 0.85em; text-decoration: none; }
+.underlined { display: inline-block; border-bottom: 1px solid; line-height: 1em; }  
+
+#content-area { margin-top: 1.5em; }
+#content-area ul { margin: 0; padding: 0; }
+#content-area h2 { font-family: "Trebuchet MS"; font-size: 28px; font-weight: bold; margin: 0 0 0.7em 0.6em; -webkit-text-shadow: 0px 1px 1px #fff; -moz-text-shadow: 0px 1px 1px #fff; text-shadow: 0px 1px 1px #fff; }
+#content-area h3, #content-area h3 a { color: #F89146; font-size: 1.05em; font-weight: bold; text-decoration: none; }
+
+.column { float: left; margin-right: 2.5em; width: 19em; }
+.column:last-child { float: right; margin: 2.75em 0 0; width: 240px; }
+.news-items li { background: rgba(255, 255, 255, 0.3); margin-bottom: 0.8em; overflow: hidden; padding: 1.2em; position: relative; }
+.news-items li .descr { margin: 0.6em 0 1.5em; }
+.news-items li .descr img { margin: 0.75em 0 0; }
+.news-items li .more { bottom: 1em; color: #c0c0c0; display: inline-block; font-size: 0.8em; line-height: 1.2em; position: absolute; text-decoration: none; }
+.news-items li .more:hover { color: #999; }
+.news-items li .date { bottom: 1em; color: #c0c0c0; font-family: "Verdana"; font-size: 0.65em; margin: 0; padding: 0; position: absolute; right: 1em; }
+
+#subscribe { margin: 12px 0; }
+#subscribe #email { background: #f7f7f7; border: none; color: #999; display: inline-block; font-family: trebuchet ms; font-size: 0.8em; height: 25px; margin: 0; padding-left: 10px; width: 190px; }
+#subscribe #ok { background: #fff; border: none; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; -webkit-box-shadow: 0px 1px 2px 0px #777, 0px 1px 1px 1px #fff; -moz-box-shadow: 0px 1px 2px 0px #777, 0px 1px 1px 1px #fff; box-shadow: 0px 1px 2px 0px #777, 0px 1px 1px 1px #fff; cursor: pointer; display: inline-block; font-family: "Trebuchet MS"; font-size: 14px; margin: 0; padding: 3px 6px; vertical-align: top; }
+/* #subscribe #ok:hover { box-shadow: 0px 1px 0px 0px #fff, 0px 1px 2px 0px #777, 0px 1px 1px 1px #fff; color: #ff6600; padding: 4px 6px 2px 6px; } */
+
+footer { background: url('../images/bg-footer.png') repeat; height: 90px; }
+#footer-nav { margin: 0; list-style: none; padding: 0.9em 0 0; float: left; }
+#footer-nav li { line-height: 1.2em; }
+#footer-nav li a { color: #999; font-size: 0.75em; text-decoration: underline; line-height: 1.2em; }
+#footer-nav li a:hover { color: #666; }
+footer .copyright { color: #C0C0C0; font-size: 0.8em; margin: 0.75em 0 0; text-align: right; }
+
+.right { float: right; }
+.left { float: left; }
+
+/* 6. CUSTOM LAYOUT & TYPOGRAPHY (Baby bear)
+----------------------------------------------------------------------------------------*/
+#container {
+    padding: 0 0.809em;
+    max-width: 30em;
+    margin: auto;
+  }
+
+aside { width: 100%; }
+
+
+/* 7. BROWSER AND NON-SEMANTIC STYLING
+----------------------------------------------------------------------------------------*/
+.cf:before, .cf:after { content: ""; display: block; }
+.cf:after { clear: both; }
+.ie6 .cf { zoom: 1 }
