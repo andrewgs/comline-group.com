@@ -8,7 +8,7 @@
 	<?php $this->load->view("users_interface/includes/head");?>
 	
 <body>
-	<div id="container" class="cf">
+	<div class="container cf">
 		<?php $this->load->view("users_interface/includes/header");?>
 		
 		<div id="main" role="main">

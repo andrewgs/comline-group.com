@@ -1,5 +1,5 @@
 <footer>
-	<div id="container" class="cf">
+	<div class="container" class="cf">
 		<ul id="footer-nav">
 			<li><?=anchor('clients','Партнерам');?></li>
 			<li><?=anchor('#','Вакансии');?></li>

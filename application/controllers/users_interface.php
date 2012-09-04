@@ -85,6 +85,42 @@ class Users_interface extends CI_Controller{
 		$this->load->view("users_interface/index",$pagevar);
 	}
 	
+	public function about(){
+		
+		$pagevar = array(
+			'title'			=> 'Комфорт Лайн :: О компании',
+			'description'	=> '',
+			'author'		=> '',
+			'baseurl' 		=> base_url(),
+			'loginstatus'	=> $this->loginstatus,
+			'userinfo'		=> $this->user,
+			'msgs'			=> $this->session->userdata('msgs'),
+			'msgr'			=> $this->session->userdata('msgr'),
+		);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		$this->load->view("users_interface/about",$pagevar);
+	}
+	
+	public function clients(){
+		
+		$pagevar = array(
+			'title'			=> 'Комфорт Лайн :: Клиентам',
+			'description'	=> '',
+			'author'		=> '',
+			'baseurl' 		=> base_url(),
+			'loginstatus'	=> $this->loginstatus,
+			'userinfo'		=> $this->user,
+			'msgs'			=> $this->session->userdata('msgs'),
+			'msgr'			=> $this->session->userdata('msgr'),
+		);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		$this->load->view("users_interface/clients",$pagevar);
+	}
+	
 	public function admin_login(){
 	
 		$pagevar = array(
