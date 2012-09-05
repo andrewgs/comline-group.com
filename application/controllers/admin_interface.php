@@ -429,7 +429,6 @@ class Admin_interface extends CI_Controller{
 				endif;
 				$translit = $this->translite($_POST['title']);
 				if($_FILES['pdf']['error'] != 4):
-					
 					$_FILES['pdf']['name'] = preg_replace('/.+(.)(\.)+/',$translit."\$2", $_FILES['pdf']['name']);
 					$config['upload_path'] 		= getcwd().'/catalogs/';
 					$config['allowed_types'] 	= 'pdf';
@@ -534,6 +533,117 @@ class Admin_interface extends CI_Controller{
 		endif;
 	}
 	
+	/******************************************************* storage ************************************************************/
+	
+	public function control_storage(){
+		
+		$pagevar = array(
+			'title'			=> 'Панель администрирования | Склады',
+			'description'	=> 'Игристые вина',
+			'author'		=> '',
+			'baseurl'		=> base_url(),
+			'loginstatus'	=> $this->loginstatus,
+			'userinfo'		=> $this->user,
+			'storage'		=> $this->mdstorage->read_records(),
+			'msgs'			=> $this->session->userdata('msgs'),
+			'msgr'			=> $this->session->userdata('msgr'),
+		);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		$this->session->set_userdata('backpath',$pagevar['baseurl'].$this->uri->uri_string());
+		$this->load->view("admin_interface/storage/storage",$pagevar);
+	}
+	
+	public function control_add_storage(){
+		
+		$pagevar = array(
+			'title'			=> 'Панель администрирования | Добавдение склада',
+			'description'	=> 'Игристые вина',
+			'author'		=> '',
+			'baseurl'		=> base_url(),
+			'loginstatus'	=> $this->loginstatus,
+			'userinfo'		=> $this->user,
+			'msgs'			=> $this->session->userdata('msgs'),
+			'msgr'			=> $this->session->userdata('msgr'),
+		);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		if($this->input->post('submit')):
+			unset($_POST['submit']);
+			$this->form_validation->set_rules('title',' ','required|trim');
+			$this->form_validation->set_rules('address',' ','required|trim');
+			$this->form_validation->set_rules('metro',' ','required|trim');
+			if(!$this->form_validation->run()):
+				$this->session->set_userdata('msgr','Ошибка. Неверно заполены необходимые поля<br/>');
+				$this->control_add_storage();
+				return FALSE;
+			else:
+				$sid = $this->mdstorage->insert_record($_POST);
+				if($sid):
+					$this->session->set_userdata('msgs','Запись создана успешно.');
+				endif;
+				redirect($this->uri->uri_string());
+			endif;
+		endif;
+		
+		$this->load->view("admin_interface/storage/add-storage",$pagevar);
+	}
+	
+	public function control_edit_storage(){
+		
+		$sid = $this->uri->segment(6);
+		$pagevar = array(
+			'title'			=> 'Панель администрирования | Редактирование склада',
+			'description'	=> 'Игристые вина',
+			'author'		=> '',
+			'baseurl'		=> base_url(),
+			'loginstatus'	=> $this->loginstatus,
+			'userinfo'		=> $this->user,
+			'storage'		=> $this->mdstorage->read_record($sid),
+			'msgs'			=> $this->session->userdata('msgs'),
+			'msgr'			=> $this->session->userdata('msgr'),
+		);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		if($this->input->post('submit')):
+			unset($_POST['submit']);
+			$this->form_validation->set_rules('title',' ','required|trim');
+			$this->form_validation->set_rules('address',' ','required|trim');
+			$this->form_validation->set_rules('metro',' ','required|trim');
+			if(!$this->form_validation->run()):
+				$this->session->set_userdata('msgr','Ошибка. Неверно заполены необходимые поля<br/>');
+				$this->control_edit_storage();
+				return FALSE;
+			else:
+				$result = $this->mdstorage->update_record($sid,$_POST);
+				if($result):
+					$this->session->set_userdata('msgs','Запись сохранена успешно.');
+				endif;
+				redirect($this->session->userdata('backpath'));
+			endif;
+		endif;
+		
+		$this->load->view("admin_interface/storage/edit-storage",$pagevar);
+	}
+	
+	public function control_delete_storage(){
+		
+		$sid = $this->uri->segment(6);
+		if($sid):
+			$result = $this->mdstorage->delete_record($sid);
+			if($result):
+				$this->session->set_userdata('msgs','Склад удален успешно.');
+			else:
+				$this->session->set_userdata('msgr','Склад не удалена.');
+			endif;
+			redirect($this->session->userdata('backpath'));
+		else:
+			show_404();
+		endif;
+	}
 	
 	/******************************************************** functions ******************************************************/	
 	

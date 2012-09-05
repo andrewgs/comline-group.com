@@ -62,6 +62,22 @@ class Users_interface extends CI_Controller{
 		$this->session->unset_userdata('msgs');
 		$this->session->unset_userdata('msgr');
 		
+		if($this->input->post('ssubmit')):
+			unset($_POST['ssubmit']);
+			$this->form_validation->set_rules('email',' ','required|valid_email|trim');
+			if(!$this->form_validation->run()):
+				$this->session->set_userdata('msgr','Ошибка. Неверно заполены необходимые поля<br/>');
+				$this->index();
+				return FALSE;
+			else:
+				$sid = $this->mdrss->insert_record($_POST);
+				if($sid):
+					$this->session->set_userdata('msgs','Вы подписались. Спасибо!');
+				endif;
+				redirect($this->uri->uri_string());
+			endif;
+		endif;
+		
 		for($i=0;$i<count($pagevar['news']);$i++):
 			$pagevar['news'][$i]['date'] = $this->operation_dot_date($pagevar['news'][$i]['date']);
 			$pagevar['news'][$i]['text'] = strip_tags($pagevar['news'][$i]['text']);
@@ -118,8 +134,119 @@ class Users_interface extends CI_Controller{
 		$this->session->unset_userdata('msgs');
 		$this->session->unset_userdata('msgr');
 		
+		if($this->input->post('submit')):
+			$_POST['submit'] = NULL;
+			$this->form_validation->set_rules('name',' ','required|trim');
+			$this->form_validation->set_rules('email',' ','required|valid_email|trim');
+			$this->form_validation->set_rules('phone',' ','required|trim');
+			$this->form_validation->set_rules('company',' ','required|trim');
+			$this->form_validation->set_rules('comments',' ','required|trim');
+			if(!$this->form_validation->run()):
+				$this->session->set_userdata('msgr','Ошибка. Повторите ввод.');
+			else:
+				ob_start();
+				?>
+				<p>Сообщение от <?=$_POST['name'];?></p>
+				<p>Компания <?=$_POST['company'];?></p>
+				<p>Email <?=$_POST['email'];?></p>
+				<p>Контактный телефон <?=$_POST['phone'];?></p>
+				<p><?=$_POST['comments'];?></p>
+				<?
+				$mailtext = ob_get_clean();
+				
+				$this->email->clear(TRUE);
+				$config['smtp_host'] = 'localhost';
+				$config['charset'] = 'utf-8';
+				$config['wordwrap'] = TRUE;
+				$config['mailtype'] = 'html';
+				
+				$this->email->initialize($config);
+				$this->email->to('brand@comline-group.com');
+				$this->email->from($_POST['email'],$_POST['name']);
+				$this->email->bcc('');
+				$this->email->subject('Форма партнерства Комфорт Лайн');
+				$this->email->message($mailtext);	
+				$this->email->send();
+				$this->session->set_userdata('msgs','Сообщение отправлено');
+			endif;
+			redirect($this->uri->uri_string());
+		endif;
+		
 		$this->load->view("users_interface/clients",$pagevar);
 	}
+	
+	public function brands(){
+		
+		$pagevar = array(
+			'title'			=> 'Комфорт Лайн :: Список брендов',
+			'description'	=> '',
+			'author'		=> '',
+			'baseurl' 		=> base_url(),
+			'loginstatus'	=> $this->loginstatus,
+			'userinfo'		=> $this->user,
+			'brands'		=> $this->mdbrands->read_records(),
+			'msgs'			=> $this->session->userdata('msgs'),
+			'msgr'			=> $this->session->userdata('msgr'),
+		);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		$this->load->view("users_interface/brands",$pagevar);
+	}
+	
+	public function contacts(){
+		
+		$pagevar = array(
+			'title'			=> 'Комфорт Лайн :: Контактная информация',
+			'description'	=> '',
+			'author'		=> '',
+			'baseurl' 		=> base_url(),
+			'loginstatus'	=> $this->loginstatus,
+			'userinfo'		=> $this->user,
+			'storage'		=> $this->mdstorage->read_records(),
+			'msgs'			=> $this->session->userdata('msgs'),
+			'msgr'			=> $this->session->userdata('msgr'),
+		);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		if($this->input->post('submit')):
+			$_POST['submit'] = NULL;
+			$this->form_validation->set_rules('name',' ','required|trim');
+			$this->form_validation->set_rules('email',' ','required|valid_email|trim');
+			$this->form_validation->set_rules('comments',' ','required|trim');
+			if(!$this->form_validation->run()):
+				$this->session->set_userdata('msgr','Ошибка. Повторите ввод.');
+			else:
+				ob_start();
+				?>
+				<p>Сообщение от <?=$_POST['name'];?></p>
+				<p>Email <?=$_POST['email'];?></p>
+				<p><?=$_POST['comments'];?></p>
+				<?
+				$mailtext = ob_get_clean();
+				
+				$this->email->clear(TRUE);
+				$config['smtp_host'] = 'localhost';
+				$config['charset'] = 'utf-8';
+				$config['wordwrap'] = TRUE;
+				$config['mailtype'] = 'html';
+				
+				$this->email->initialize($config);
+				$this->email->to('brand@comline-group.com');
+				$this->email->from($_POST['email'],$_POST['name']);
+				$this->email->bcc('');
+				$this->email->subject('Форма обратной связи Комфорт Лайн');
+				$this->email->message($mailtext);	
+				$this->email->send();
+				$this->session->set_userdata('msgs','Сообщение отправлено');
+			endif;
+			redirect($this->uri->uri_string());
+		endif;
+		
+		$this->load->view("users_interface/contacts",$pagevar);
+	}
+	
 	
 	public function admin_login(){
 	

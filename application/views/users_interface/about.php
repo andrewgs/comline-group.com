@@ -54,19 +54,5 @@
 	</div>
 	<?php $this->load->view("users_interface/includes/footer");?>
 	<?php $this->load->view("users_interface/includes/scripts");?>
-	<script src="<?=$baseurl;?>js/libs/jquery.cycle.js"></script>
-	<script src="<?=$baseurl;?>js/libs/jquery.easing.js"></script>
-	<script type="text/javascript">
-	 	$(document).ready(function(){
-			$("div.slider").cycle({
-				fx: 'fade',
-				speed: '3000',
-				easing: 'easeInOutExpo',
-				timeout: 5000,
-				next:'#right-arrow',
-				prev:'#left-arrow' 
-			});
-		});
-	</script>
 </body>
 </html>

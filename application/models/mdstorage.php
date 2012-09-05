@@ -4,7 +4,7 @@ class Mdstorage extends CI_Model{
 
 	var $id			= 0;
 	var $title		= '';
-	var $adress		= '';
+	var $address		= '';
 	var $metro		= '';
 	
 	function __construct(){
@@ -14,17 +14,17 @@ class Mdstorage extends CI_Model{
 	function insert_record($data){
 			
 		$this->title	= htmlspecialchars($data['title']);
-		$this->adress	= $data['adress'];
+		$this->address	= $data['address'];
 		$this->metro	= $data['metro'];
 		
 		$this->db->insert('storage',$this);
 		return $this->db->insert_id();
 	}
 	
-	function update_record($id,$data,$translit){
+	function update_record($id,$data){
 		
 		$this->db->set('title',htmlspecialchars($data['title']));
-		$this->db->set('adress',$data['adress']);
+		$this->db->set('address',$data['address']);
 		$this->db->set('metro',$data['metro']);
 		
 		$this->db->where('id',$id);

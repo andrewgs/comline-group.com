@@ -116,7 +116,8 @@ header h1 { margin-bottom: 0; }
 #main-nav a:hover { color: #4d4d4d; }
 
 .phone { margin: 1em 0 0; }
-.phone p { font-size: 1.5em; line-height: 1.25em; margin: 0; position: relative; text-align: right; } 
+.phone p { font-size: 1.5em; line-height: 1.25em; margin: 0; position: relative; text-align: right; }
+.phone p a { text-decoration: none; color: #666; } 
 .phone .small { color: #999; display: inline-block; font-size: 0.6em; right: 8em; top: -0.2em; position: absolute; }
 .phone .dashed { border-bottom: 1px dashed; color: #999; display: inline-block; float: right; font-size: 0.85em; line-height: 1.25em; text-decoration: none; }
 
@@ -174,13 +175,40 @@ footer .copyright { color: #C0C0C0; font-size: 0.8em; margin: 0.75em 0 0; text-a
 ----------------------------------------------------------------------------------------*/
 #main.substrate { background: rgba(255, 255, 255, 0.3); padding: 2em 3.25em; margin-bottom: 1em; max-width: 46em; }
 #main.substrate.large { max-width: 60em; }
+#main.substrate.contacts { padding-right: 1.5em; }
 .substrate h1 { font-size: 28px; font-weight: bold; margin: 0 0 0.7em 0; -webkit-text-shadow: 0 1px 0 #fff; -moz-text-shadow: 0px 1px 0 #fff; text-shadow: 0 1px 0 #fff; }
 .substrate h2 { font-size: 23px; margin: 0 0 0.7em 0; -webkit-text-shadow: 0 1px 0 #fff; -moz-text-shadow: 0px 1px 0 #fff; text-shadow: 0 1px 0 #fff; letter-spacing: 0.25px; }
+.substrate h3 { font-size: 18px;  }
 .substrate ul li { color: #999;  font-size: 0.85em; line-height: 1.5em; margin-bottom: 0.5em; }
 p.em40 { max-width: 40em; }
 .substrate form input, .substrate form textarea { background: none repeat scroll 0 0 #F9F9F9; border: medium none; border-radius: 3px 3px 3px 3px; color: #999999; display: inline-block; font-family: trebuchet ms; font-size: 0.8em; height: 25px; margin: 0 0 0.5em; padding: 0.5em 0.75em; width: 22em; }
 .substrate form textarea { height: 5em; }
-.substrate form button { background: #fff; border: none; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; -webkit-box-shadow: 0px 1px 2px 0px #777, 0px 1px 1px 1px #fff; -moz-box-shadow: 0px 1px 2px 0px #777, 0px 1px 1px 1px #fff; box-shadow: 0px 1px 2px 0px #777, 0px 1px 1px 1px #fff; cursor: pointer; display: inline-block; font-family: "Trebuchet MS"; font-size: 14px; margin: 0; padding: 3px 6px; vertical-align: top; color: #666; }
+.substrate form button { background: #fff; border: none; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; -webkit-box-shadow: 0px 1px 2px 0px #777, 0px 1px 1px 1px #fff; -moz-box-shadow: 0px 1px 2px 0px #777, 0px 1px 1px 1px #fff; box-shadow: 0px 1px 2px 0px #777, 0px 1px 1px 1px #fff; cursor: pointer; display: block; font-family: "Trebuchet MS"; font-size: 14px; margin: 0; padding: 3px 6px; vertical-align: top; color: #666; }
+.show-map { color: #ccc; display: block;  font-size: 0.85em; font-weight: normal; text-decoration: none; }
+.substrate address { background: rgba(255, 255, 255, 0.5);  font-size: 0.925em; font-weight: bold; line-height: 1.5em; padding: 0.75em 1em 0.5em; 
+	-webkit-text-shadow: 0 1px 0 #fafafa; -moz-text-shadow: 0 1px 0 #fafafa; text-shadow: 0 1px 0 #fafafa; margin-bottom: 2em;
+}
+.contacts ul li .show-map { color: #c0c0c0; border-bottom: 1px dashed; display: inline-block; line-height: 1.1em; }
+.contacts ul { margin: 0 0 0 1em; padding: 0; } 
+.contacts ul li { color: #777; font-weight: bold; line-height: 1.25em; margin-bottom: 0.85em; }
+.contacts .descr { color: #888; font-size: 0.8em; line-height: 1.5em; margin: 0.5em 0 1.5em; }
+.contacts .warehouses { margin-bottom: 2.5em; }
+.contacts h1 { margin-bottom: 1.4em; }
+.contacts form { margin-bottom: 2em; }
+.contacts .mailto { display: inline-block; text-decoration: none; color: #666; border-bottom: 1px solid; margin-left: 0.25em; line-height: 1.25em; }
+
+/* BRANDS
+----------------------------------------------------------------------------------------*/
+
+#brands-list { margin: 1em 0 0; padding: 0; }
+#brands-list li { margin-bottom: 3.5em; }
+#brands-list li a { color: #f89146; font-size: 1em; text-decoration: none; display: inline-block; border-bottom: 1px solid; margin-right: 1em; line-height: 1em; }
+#brands-list li p { color: #666; font-size: 1em; margin: 1.75em 0 1.25em; } 
+.underlined { display: inline-block; border-bottom: 1px solid; line-height: 1em; }  
+
+.categories-list { margin-left: 0; padding-left: 0; }
+.product-preview { display: inline-block; margin: 0 0.5em 0.5em 0; }
+.product-preview p { margin: 0 0 0.25em 0; }
 
 .right { float: right; }
 .left { float: left; }
@@ -190,6 +218,7 @@ p.em40 { max-width: 40em; }
 .container {
     padding: 0 0.809em;
     max-width: 30em;
+    /*!!!!!*/	min-width: 60em;
     margin: auto;
   }
 

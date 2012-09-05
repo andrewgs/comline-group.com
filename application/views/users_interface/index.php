@@ -63,6 +63,9 @@
 				</div>
 				<div class="column">
 					<h4>Подписаться на новости</h4>
+					<?php $this->load->view("alert_messages/alert-error");?>
+					<?php $this->load->view("alert_messages/alert-success");?>
+					<div id="message_box"></div>
 					<?php $this->load->view("forms/frmsubscribe");?>
 					<p>Получайте уведомления о поступлениях товара, обновлениях новостей и новых акциях.</p>
 				</div>
@@ -75,6 +78,15 @@
 	<script src="<?=$baseurl;?>js/libs/jquery.easing.js"></script>
 	<script type="text/javascript">
 	 	$(document).ready(function(){
+			$("#ok").click(function(event){
+				var err = false;
+				$(".inpval").removeClass('empty-error');
+				var email = $("#email").val();
+				
+				if(email ==''){err = true;$("#email").addClass('empty-error');}
+				if(err){$("#message_box").html('<div class="alert alert-error">Поле не может быть пустым</div>'); event.preventDefault();};
+				if(!err && !isValidEmailAddress(email)){$("#message_box").html('<div class="alert alert-error">Не верный адрес E-Mail</div>');$("#email").addClass('empty-error');err = true; event.preventDefault();}
+			});
 			$("div.slider").cycle({
 				fx: 'fade',
 				speed: '3000',

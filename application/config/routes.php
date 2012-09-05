@@ -7,6 +7,8 @@ $route['404_override'] = '';
 $route[''] 			= "users_interface/index";
 $route['about'] 	= "users_interface/about";
 $route['clients'] 	= "users_interface/clients";
+$route['brands'] 	= "users_interface/brands";
+$route['contacts'] 	= "users_interface/contacts";
 
 
 $route['admin'] 	= "users_interface/admin_login";
@@ -53,6 +55,11 @@ $route['admin-panel/actions/category']			= "admin_interface/control_category";
 $route['admin-panel/actions/category/add']		= "admin_interface/control_add_category";
 $route['admin-panel/actions/category/edit/:any']= "admin_interface/control_edit_category";
 $route['admin-panel/actions/category/delete/categoryid/:num']= "admin_interface/control_delete_category";
+
+$route['admin-panel/actions/storage']			= "admin_interface/control_storage";
+$route['admin-panel/actions/storage/add']		= "admin_interface/control_add_storage";
+$route['admin-panel/actions/storage/edit/storageid/:num']= "admin_interface/control_edit_storage";
+$route['admin-panel/actions/storage/delete/storageid/:num']= "admin_interface/control_delete_storage";
 
 $route['admin-panel/actions/brands']			= "admin_interface/control_brands";
 $route['admin-panel/actions/brands/add']		= "admin_interface/control_add_brand";

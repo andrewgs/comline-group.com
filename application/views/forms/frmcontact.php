@@ -1,22 +1,6 @@
 <?=form_open($this->uri->uri_string(),array('id'=>'contacts-form','name'=>'contacts-form')); ?>
-	<legend>Форма обратной связи</legend>
-	<div class="control-group">
-		<label for="name">Представьтесь пожалуйста</label>
-		<input type="text" class="inpval" name="name" id="name" value="">
-	</div>
-	<div class="control-group">
-		<label for="email">Email</label>
-		<input type="text" class="inpval" name="email" id="email" value="">
-	</div>
-	<div class="control-group">
-		<label for="phone">Ваш контактный телефон</label>
-		<input type="text" class="inpval" name="phone" id="phone" value="">
-	</div>
-	<div class="control-group">
-		<label for="text">Сообщение или вопрос?</label>
-		<textarea class="inpval" name="text" id="text" rows="5"></textarea>
-	</div>
-	<div class="control-group">
-		<button value="send" name="submit" id="submit" type="submit">Отправить</button>
-	</div>
+	<input type="text" name="name" class="inpval" placeholder="Ваше имя" />
+	<input type="text" name="email" id="email" class="inpval" placeholder="Ваш E-mail" />
+	<textarea name="comments" class="inpval" placeholder="Текст сообщения"></textarea>
+	<button name="submit" id="send" value="send">Отправить</button>
 <?= form_close(); ?>

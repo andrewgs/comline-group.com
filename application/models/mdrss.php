@@ -15,14 +15,14 @@ class Mdrss extends CI_Model {
 		$this->email 	= $data['email'];
 		$this->date		= date("Y-m-d");
 		
-		$this->db->insert('rssevents',$this);
+		$this->db->insert('rss',$this);
 		return $this->db->insert_id();
 	}
 	
 	function read_record($id){
 		
 		$this->db->where('id',$id);
-		$query = $this->db->get('rssevents',1);
+		$query = $this->db->get('rss',1);
 		$data = $query->result_array();
 		if(isset($data[0])) return $data[0];
 		return NULL;
@@ -30,7 +30,7 @@ class Mdrss extends CI_Model {
 	
 	function read_records(){
 		
-		$query = $this->db->get('rssevents');
+		$query = $this->db->get('rss');
 		$data = $query->result_array();
 		if(count($data)) return $data;
 		return NULL;
@@ -39,7 +39,7 @@ class Mdrss extends CI_Model {
 	function read_field($id,$field){
 			
 		$this->db->where('id',$id);
-		$query = $this->db->get('rssevents',1);
+		$query = $this->db->get('rss',1);
 		$data = $query->result_array();
 		if(isset($data[0])) return $data[0][$field];
 		return FALSE;
@@ -48,7 +48,7 @@ class Mdrss extends CI_Model {
 	function delete_record($id){
 	
 		$this->db->where('id',$id);
-		$this->db->delete('rssevents');
+		$this->db->delete('rss');
 		return $this->db->affected_rows();
 	}	
 }

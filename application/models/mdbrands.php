@@ -18,7 +18,9 @@ class Mdbrands extends CI_Model{
 		$this->title	= htmlspecialchars($data['title']);
 		$this->translit	= $translit;
 		$this->image	= $data['image'];
-		$this->pdf		= $data['pdf'];
+		if(isset($data['pdf'])):
+			$this->pdf	= $data['pdf'];
+		endif;
 		$this->text		= $data['text'];
 		
 		$this->db->insert('brands',$this);

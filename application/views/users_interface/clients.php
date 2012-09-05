@@ -23,6 +23,9 @@
 				</p>
 				<aside> 
 					<h2>Станьте нашим партнером</h2>
+					<?php $this->load->view("alert_messages/alert-error");?>
+					<?php $this->load->view("alert_messages/alert-success");?>
+					<div id="message_box"></div>
 					<?php $this->load->view("forms/frmclients");?>
 				</aside>
 				<p>
@@ -67,17 +70,17 @@
 	</div>
 	<?php $this->load->view("users_interface/includes/footer");?>
 	<?php $this->load->view("users_interface/includes/scripts");?>
-	<script src="<?=$baseurl;?>js/libs/jquery.cycle.js"></script>
-	<script src="<?=$baseurl;?>js/libs/jquery.easing.js"></script>
 	<script type="text/javascript">
-	 	$(document).ready(function(){
-			$("div.slider").cycle({
-				fx: 'fade',
-				speed: '3000',
-				easing: 'easeInOutExpo',
-				timeout: 5000,
-				next:'#right-arrow',
-				prev:'#left-arrow' 
+		$(document).ready(function(){
+			$("#send").click(function(event){
+				var err = false;
+				$(".inpval").removeClass('empty-error');
+				var email = $("#email").val();
+				var phone = $("#phone").val();
+				$(".inpval").each(function(i,element){if($(this).val()==''){err = true;$(this).addClass('empty-error');}});
+				if(err){$("#message_box").html('<div class="alert alert-error">Поля не могут быть пустыми</div>'); event.preventDefault();};
+				if(!err && !isValidEmailAddress(email)){$("#message_box").html('<div class="alert alert-error">Не верный адрес E-Mail</div>');$("#email").addClass('empty-error');err = true; event.preventDefault();}
+				if(!err && !isValidPhone(phone)){$("#message_box").html('<div class="alert alert-error">Не верный номер телефона</div>');$("#phone").addClass('empty-error'); event.preventDefault();}
 			});
 		});
 	</script>
