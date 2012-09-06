@@ -37,6 +37,7 @@ class Mdbrands extends CI_Model{
 		if(isset($data['pdf'])):
 			$this->db->set('pdf',$data['pdf']);
 		endif;
+		$this->db->set('text',$data['text']);
 		$this->db->where('id',$id);
 		$this->db->update('brands');
 		return $this->db->affected_rows();

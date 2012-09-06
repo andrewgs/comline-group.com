@@ -394,6 +394,16 @@ class Admin_interface extends CI_Controller{
 		$this->session->unset_userdata('msgs');
 		$this->session->unset_userdata('msgr');
 		
+		for($i=0;$i<count($pagevar['brands']);$i++):
+			$pagevar['brands'][$i]['text'] = strip_tags($pagevar['brands'][$i]['text']);
+			if(mb_strlen($pagevar['brands'][$i]['text'],'UTF-8') > 150):
+				$pagevar['brands'][$i]['text'] = mb_substr($pagevar['brands'][$i]['text'],0,150,'UTF-8');
+				$pos = mb_strrpos($pagevar['brands'][$i]['text'],' ',0,'UTF-8');
+				$pagevar['brands'][$i]['text'] = mb_substr($pagevar['brands'][$i]['text'],0,$pos,'UTF-8');
+				$pagevar['brands'][$i]['text'] .= ' ... ';
+			endif;
+		endfor;
+		
 		$this->session->set_userdata('backpath',$pagevar['baseurl'].$this->uri->uri_string());
 		$this->load->view("admin_interface/products/brands",$pagevar);
 	}
