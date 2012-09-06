@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- /ht Paul Irish - http://front.ie/j5OMXi -->
+<!--[if lt IE 7 ]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="no-js" lang="en"><!--<![endif]-->
+	<?php $this->load->view("users_interface/includes/head");?>
+	
+<body>
+	<div class="container cf">
+		<?php $this->load->view("users_interface/includes/header");?>
+		
+		<div id="main" class="substrate categories large">
+			<aside class="sorting">
+				<ul class="categories-list gender">
+					<li><input type="checkbox" id="woman" class="chGender chInput" checked="checked" name="woman" value="0" /><label>Женская одежда</label></li>
+					<li><input type="checkbox" id="man" class="chGender chInput" checked="checked" name="man" value="1" /><label>Мужская одежда</label></li>
+				</ul>
+				<ul class="categories-list brands">
+				<?php for($i=0;$i<count($brands);$i++):?>
+					<li><input type="checkbox" class="chBrands chInput" name="brand<?=$i;?>" <?=($brands[$i]['checked'])? 'checked="checked"' : '';?> value="<?=$brands[$i]['id'];?>" /><label><?=$brands[$i]['title'];?></label></li>
+				<?php endfor;?>
+				</ul>
+				<ul class="categories-list category">
+				<?php for($i=0;$i<count($category);$i++):?>
+					<li><input type="checkbox" class="chCategory chInput" name="category<?=$i;?>" <?=($category[$i]['checked'])? 'checked="checked"' : '';?> value="<?=$category[$i]['id'];?>" /><label><?=$category[$i]['title'];?></label></li>
+				<?php endfor;?>
+				</ul>
+			</aside>
+			<div class="products-by-categories" id="product-list">
+				
+			</div>
+		</div>
+	</div>
+	<?php $this->load->view("users_interface/includes/footer");?>
+	<?php $this->load->view("users_interface/includes/scripts");?>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var gender = $(".chGender:checkbox:checked").serialize();
+			var brands = $(".chBrands:checkbox:checked").serialize();
+			var category = $(".chCategory:checkbox:checked").serialize();
+			offer_list(gender,brands,category);
+			
+			$(".chInput").click(function(){
+				var objGender = $(".chGender:checkbox:checked");
+				var objBrands = $(".chBrands:checkbox:checked");
+				var objCategory = $(".chCategory:checkbox:checked");
+				if($(objGender).length == 0){$(this).attr('checked','checked');}
+				if($(objBrands).length == 0){$(this).attr('checked','checked');}
+				if($(objCategory).length == 0){$(this).attr('checked','checked');}
+				gender = $(objGender).serialize();
+				brands = $(objBrands).serialize();
+				category = $(objCategory).serialize();
+				offer_list(gender,brands,category);
+			});
+			function offer_list(gender,brands,category){
+				$("#product-list").load("<?=$baseurl;?>catalog/load-products",{'gender':gender,'brands':brands,'category':category});
+			}
+		});
+	</script>
+</body>
+</html>

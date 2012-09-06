@@ -2,7 +2,7 @@
 	<h1><?=anchor('','Comfort Line - одежда для дома и отдыха',array('id'=>'logo'));?></h1>
 	<ul id="main-nav">
 		<li><?=anchor('about','О компании');?></li>
-		<li><?=anchor('catalogs','Каталоги');?></li>
+		<li><?=anchor('brands','Каталоги');?></li>
 		<li><?=anchor('clients','Клиентам');?></li>
 		<li><?=anchor('contacts','Контактная информация');?></li>
 	</ul>

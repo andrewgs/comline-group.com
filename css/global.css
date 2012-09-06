@@ -207,8 +207,17 @@ p.em40 { max-width: 40em; }
 .underlined { display: inline-block; border-bottom: 1px solid; line-height: 1em; }  
 
 .categories-list { margin-left: 0; padding-left: 0; }
-.product-preview { display: inline-block; margin: 0 0.5em 0.5em 0; }
+.substrate ul.categories-list li { color: #666; }
+.substrate ul.categories-list li.disabled { color: #bdbdbd; }
+.product-preview { display: inline-block; margin: 0 0.725em 1.75em 0; }
+.product-preview:nth-child(4n) { margin-right: 0; }
 .product-preview p { margin: 0 0 0.25em 0; }
+.product-preview p.title { color: #333; margin: 0; }
+.product-preview p.articul { }
+.product-preview img { border: 1px solid #E5E5E5; } 
+.categories h2 { border-bottom: 1px solid #D8D8D8; padding-bottom: 0.25em; } 
+.categories h2 { border-bottom: 1px solid #D8D8D8; padding-bottom: 0.25em; }
+.products-group { margin-bottom: 1.75em; }
 
 .right { float: right; }
 .left { float: left; }

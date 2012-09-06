@@ -24,11 +24,8 @@ aside#map {
 	padding: 0.75em;
 	width: 28.1em;
 }
-aside.sorting {
-	float: left;
-	margin: 0 2em 0 0;
-	width: 11em;
-}
+aside.sorting { float: left; margin: 0; width: 11em; clear: left; }
+.products-by-categories { margin-left: 12.5em; }
   
 
 /* 9. CUSTOM LAYOUT & TYPOGRAPHY (Mummy bear)

@@ -9,6 +9,7 @@ class Mdproducts extends CI_Model{
 	var $showitem	= '';
 	var $art		= '';
 	var $text		= '';
+	var $gender		= 2;
 	var $category	= '';
 	var $brand		= '';
 	
@@ -24,6 +25,7 @@ class Mdproducts extends CI_Model{
 		$this->showitem = $data['showitem'];
 		$this->art		= $data['art'];
 		$this->text		= $data['text'];
+		$this->gender	= $data['gender'];
 		$this->category	= $data['category'];
 		$this->brand	= $data['brand'];
 		
@@ -38,6 +40,7 @@ class Mdproducts extends CI_Model{
 		$this->db->set('showitem',$data['showitem']);
 		$this->db->set('art',$data['art']);
 		$this->db->set('text',$data['text']);
+		$this->db->set('gender',$data['gender']);
 		$this->db->set('category',$data['category']);
 		$this->db->set('brand',$data['brand']);
 		

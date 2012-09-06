@@ -16,19 +16,20 @@
 				<div class="slider">
 					<img src="<?=$baseurl;?>images/banner-1.jpg" alt="Одежда для беременных" title="Always Land. Одежда для беременных">
 					<img src="<?=$baseurl;?>images/banner-2.jpg" alt="Одежда для беременных" title="Always Land. Одежда для беременных">
+					<img src="<?=$baseurl;?>images/banner-3.jpg" alt="Пижамы" title="Always Land. Пижамы">
 				</div>
 				<a id="left-arrow" href="#">Пред.</a>
 				<a id="right-arrow" href="#">След.</a>
 			</div>
 			<ul id="categories-nav" class="cf">
 			<?php for($i=0;$i<count($category);$i++):?>
-				<li><?=anchor('category/'.$category[$i]['translit'],$category[$i]['title'],array('title'=>$category[$i]['title']));?></li>
+				<li><?=anchor('catalog/category/'.$category[$i]['translit'],$category[$i]['title'],array('title'=>$category[$i]['title']));?></li>
 			<?php endfor;?>
 			</ul>
 			<ul id="brands-nav">
 				<?php for($i=0;$i<count($brands);$i++):?>
 					<li>
-						<?=anchor('brands/'.$brands[$i]['translit'],'<img src="'.$baseurl.'brands/viewimage/'.$brands[$i]['id'].'" /><br/><span class="underlined">'.$brands[$i]['title'].'</span>');?>
+						<?=anchor('catalog/brands/'.$brands[$i]['translit'],'<img src="'.$baseurl.'brands/viewimage/'.$brands[$i]['id'].'" /><br/><span class="underlined">'.$brands[$i]['title'].'</span>');?>
 					</li>
 				<?php endfor;?>
 			</ul>

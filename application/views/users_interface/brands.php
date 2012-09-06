@@ -19,7 +19,7 @@
 					<span class="underlined"><?=$brands[$i]['title'];?></span>
 					<?=$brands[$i]['text'];?>
 					<?=anchor('','Просмотреть каталоги &raquo;');?>
-					<?=anchor('','Продукция бренда &raquo;');?>
+					<?=anchor('catalog/brands/'.$brands[$i]['translit'],'Продукция бренда &raquo;');?>
 				</li>
 			<?php endfor;?>
 			</ul>

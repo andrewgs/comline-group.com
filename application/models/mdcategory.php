@@ -91,4 +91,15 @@ class Mdcategory extends CI_Model{
 		$this->db->delete('category');
 		return $this->db->affected_rows();
 	}
+	
+	function read_in_records($ids){
+		
+		$this->db->where('showitem',1);
+		$this->db->where_in('id',$ids);
+		$this->db->order_by('id');
+		$query = $this->db->get('category');
+		$data = $query->result_array();
+		if(count($data)) return $data;
+		return NULL;
+	}
 }

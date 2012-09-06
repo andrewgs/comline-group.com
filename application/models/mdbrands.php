@@ -52,6 +52,16 @@ class Mdbrands extends CI_Model{
 		return NULL;
 	}
 	
+	function read_records_notext(){
+		
+		$this->db->select('id,title,translit');
+		$this->db->order_by('id');
+		$query = $this->db->get('brands');
+		$data = $query->result_array();
+		if(count($data)) return $data;
+		return NULL;
+	}
+	
 	function read_records_rand_limit($count){
 		
 		$query = "SELECT id,title,translit,text,pdf FROM brands ORDER BY RAND() LIMIT $count";

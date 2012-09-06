@@ -247,6 +247,111 @@ class Users_interface extends CI_Controller{
 		$this->load->view("users_interface/contacts",$pagevar);
 	}
 	
+	public function catalog(){
+	
+		$pagevar = array(
+			'title'			=> 'Комфорт Лайн :: Каталог продукции',
+			'description'	=> '',
+			'author'		=> '',
+			'baseurl' 		=> base_url(),
+			'loginstatus'	=> $this->loginstatus,
+			'userinfo'		=> $this->user,
+			'brands'		=> $this->mdbrands->read_records_notext(),
+			'category'		=> $this->mdcategory->read_showed_records(),
+			'msgs'			=> $this->session->userdata('msgs'),
+			'msgr'			=> $this->session->userdata('msgr'),
+		);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		if($this->uri->total_segments() > 1):
+			$this->session->sess_destroy();
+			switch ($this->uri->segment(2)):
+				case 'category': 	$categoryid = $this->mdcategory->read_field_translit($this->uri->segment(3),'id');
+									if(!$categoryid):
+										redirect('');
+									endif;
+									$this->session->unset_userdata('bid');
+									$this->session->set_userdata('cid',$categoryid);
+									break;
+				case 'brands'	:	$brandid = $this->mdbrands->read_field_translit($this->uri->segment(3),'id');
+									if(!$brandid):
+										redirect('');
+									endif;
+									$this->session->unset_userdata('cid');
+									$this->session->set_userdata('bid',$brandid);
+									break;
+				default			: redirect('');
+			endswitch;
+			
+			redirect('catalog');
+		else:
+			if(!$this->session->userdata('cid') && !$this->session->userdata('bid')):
+				redirect('');
+			endif;
+			if($this->session->userdata('cid')):
+				for($i=0;$i<count($pagevar['category']);$i++):
+					if($pagevar['category'][$i]['id'] == $this->session->userdata('cid')):
+						$pagevar['category'][$i]['checked'] = 1;
+					else:
+						$pagevar['category'][$i]['checked'] = 0;
+					endif;
+				endfor;
+				for($i=0;$i<count($pagevar['brands']);$i++):
+					$pagevar['brands'][$i]['checked'] = 1;
+				endfor;
+			endif;
+			if($this->session->userdata('bid')):
+				for($i=0;$i<count($pagevar['category']);$i++):
+					$pagevar['category'][$i]['checked'] = 1;
+				endfor;
+				for($i=0;$i<count($pagevar['brands']);$i++):
+					if($pagevar['brands'][$i]['id'] == $this->session->userdata('bid')):
+						$pagevar['brands'][$i]['checked'] = 1;
+					else:
+						$pagevar['brands'][$i]['checked'] = 0;
+					endif;
+				endfor;
+			endif;
+		endif;
+		
+		$this->load->view("users_interface/catalog",$pagevar);
+	}
+	
+	public function catalog_load(){
+		
+		$pagevar = array('baseurl'=>base_url(),'category'=>array(),'products'=>array());
+		$gender = $this->input->post('gender');
+		$brands = $this->input->post('brands');
+		$category = $this->input->post('category');
+		if(!$gender || !$brands || !$category):
+			show_404();
+		endif;
+		$gender = preg_split("/&/",$gender);
+		for($i=0;$i<count($gender);$i++):
+			$genid = preg_split("/=/",$gender[$i]);
+			$gender[$i] = $genid[1];
+		endfor;
+		if(count($gender) == 2):
+			$gender = 2;
+		else:
+			$gender = $gender[0];
+		endif;
+		$brands = preg_split("/&/",$brands);
+		for($i=0;$i<count($brands);$i++):
+			$brid = preg_split("/=/",$brands[$i]);
+			$brands[$i] = $brid[1];
+		endfor;
+		$category = preg_split("/&/",$category);
+		for($i=0;$i<count($category);$i++):
+			$catid = preg_split("/=/",$category[$i]);
+			$category[$i] = $catid[1];
+		endfor;
+		$pagevar['category'] = $this->mdcategory->read_in_records($category);
+		$pagevar['products'] = $this->mdunion->read_products_in_brends($gender,$brands,$category);
+		print_r($pagevar['products']);
+//		$this->load->view('users_interface/products/products-list',$pagevar);
+	}
 	
 	public function admin_login(){
 	
