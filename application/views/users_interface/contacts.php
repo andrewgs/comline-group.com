@@ -29,7 +29,7 @@
 			<ul class="warehouses">
 			<?php for($i=0;$i<count($storage);$i++):?>
 				<li>
-					<?=$storage[$i]['title'];?> на <?=$storage[$i]['address'];?><br />
+					<?=$storage[$i]['title'];?> на м.<?=$storage[$i]['metro'];?>, <?=$storage[$i]['address'];?><br />
 					<a class="show-map" data-address="<?=$storage[$i]['address'];?>" href="#">Показать на карте</a>
 				</li>
 			<?php endfor;?>

@@ -9,9 +9,9 @@ class Mdcolors extends CI_Model{
 		parent::__construct();
 	}
 	
-	function insert_record($data,$code){
+	function insert_record($code){
 			
-		$this->title = htmlspecialchars($code);
+		$this->code = $code;
 		
 		$this->db->insert('colors',$this);
 		return $this->db->insert_id();

@@ -4732,7 +4732,39 @@
 		</csfile><csfile name="S:\home\comline-group.com\www\js\libs\jquery.easing.js" crc="-105818004">
 		</csfile><csfile name="S:\home\comline-group.com\www\js\libs\jquery.cycle.js" crc="-833306657">
 		</csfile><csfile name="S:\home\comline-group.com\www\js\libs\jquery-1.7.2.min.js" crc="809892054">
-		</csfile><csfile name="S:\home\comline-group.com\www\js\scripts.js" crc="-55466473">
+		</csfile><csfile name="S:\home\comline-group.com\www\js\scripts.js" crc="993115475">
+			<jstree>
+				<treenode node="backpath;JS:Function Name;0;14;46;14;34;;;v;;r;;d23,14;;b0,0;;mpath;;p">
+					<treenode node="path;JS:JS Var Name;18;14;22;14;34;;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="window;JS:JS Var Name;24;14;30;14;34;;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="isValidEmailAddress;JS:Function Name;0;4;1;7;34;;;v;;r;;d42,4;;b0,0;;memailAddress;;p">
+					<treenode node="emailAddress;JS:JS Var Name;29;4;41;4;34;;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="pattern;JS:JS Var Name;5;5;12;5;34;Object;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="isValidPhone;JS:Function Name;0;9;1;12;34;;;v;;r;;d34,9;;b0,0;;mphoneNumber;;p">
+					<treenode node="pattern;JS:JS Var Name;5;10;12;10;34;Object;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="phoneNumber;JS:JS Var Name;22;9;33;9;34;;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="e;JS:JS Var Name;33;18;34;18;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="element;JS:JS Var Name;36;23;43;23;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="err;JS:JS Var Name;6;22;9;22;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="event;JS:JS Var Name;27;19;32;19;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="i;JS:JS Var Name;34;23;35;23;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="window;JS:JS Var Name;3;25;9;25;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+			</jstree>
 		</csfile><csfile name="S:\home\comline-group.com\www\js\bootstrap.min.js" crc="-1867824230">
 		</csfile><csfile name="S:\home\comline-group.com\www\js\bootstrap.js" crc="-1820906410">
 			<jstree>
@@ -5139,7 +5171,7 @@
 				</treenode>
 			</phptree>
 		</csfile><csfile name="S:\home\comline-group.com\www\application\views\users_interface\includes\footer.php" crc="665288948">
-		</csfile><csfile name="S:\home\comline-group.com\www\application\views\users_interface\index.php" crc="344126368">
+		</csfile><csfile name="S:\home\comline-group.com\www\application\views\users_interface\index.php" crc="1202881888">
 			<phptree>
 				<treenode node="baseurl;Php:Var Name;18;16;26;16;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
@@ -5244,18 +5276,42 @@
 				<treenode node="phone;JS:JS Var Name;8;78;13;78;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</jstree>
-		</csfile><csfile name="S:\home\comline-group.com\www\application\views\users_interface\catalog.php" crc="1435657300">
+		</csfile><csfile name="S:\home\comline-group.com\www\application\views\users_interface\catalog.php" crc="1906639837">
 			<phptree>
 				<treenode node="brands;Php:Var Name;28;20;35;20;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="category;Php:Var Name;29;25;38;25;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="category;Php:Var Name;28;25;37;25;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 				<treenode node="i;Php:Var Name;14;20;16;20;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 				<treenode node="this;Php:Var Name;7;7;12;7;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</phptree>
-		</csfile><csfile name="S:\home\comline-group.com\www\application\views\users_interface\brands.php" crc="429971778">
+			<jstree>
+				<treenode node="offer_list;JS:Function Name;3;56;4;58;34;;;v;;r;;d46,56;;b0,0;;mgender;;pbrands;;pcategory;;p">
+					<treenode node="brands;JS:JS Var Name;30;56;36;56;34;;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="category;JS:JS Var Name;37;56;45;56;34;;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="gender;JS:JS Var Name;23;56;29;56;34;;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="brands;JS:JS Var Name;7;40;13;40;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="category;JS:JS Var Name;7;41;15;41;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="document;JS:JS Var Name;4;38;12;38;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="gender;JS:JS Var Name;7;39;13;39;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="objBrands;JS:JS Var Name;8;46;17;46;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="objCategory;JS:JS Var Name;8;47;19;47;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="objGender;JS:JS Var Name;8;45;17;45;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+			</jstree>
+		</csfile><csfile name="S:\home\comline-group.com\www\application\views\users_interface\brands.php" crc="-365609402">
 			<phptree>
 				<treenode node="baseurl;Php:Var Name;18;17;26;17;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
@@ -5266,22 +5322,6 @@
 				<treenode node="this;Php:Var Name;7;7;12;7;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</phptree>
-			<jstree>
-				<treenode node="document;JS:JS Var Name;5;32;13;32;34;;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="easing;JS:JS Var Name;4;36;10;36;34;;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="fx;JS:JS Var Name;4;34;6;34;34;;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="next;JS:JS Var Name;4;38;8;38;34;;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="prev;JS:JS Var Name;4;39;8;39;34;;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="speed;JS:JS Var Name;4;35;9;35;34;;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="timeout;JS:JS Var Name;4;37;11;37;34;;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-			</jstree>
 		</csfile><csfile name="S:\home\comline-group.com\www\application\views\users_interface\about.php" crc="-2090059238">
 			<phptree>
 				<treenode node="this;Php:Var Name;7;7;12;7;34;;;v;;r;;d-1,-1;;b0,0;;m">
@@ -5302,6 +5342,21 @@
 				<treenode node="storage;Php:Var Name;72;6;80;6;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 				<treenode node="this;Php:Var Name;13;0;18;0;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+			</phptree>
+		</csfile><csfile name="S:\home\comline-group.com\www\application\views\forms\frmeditproduct.php" crc="-463164890">
+			<phptree>
+				<treenode node="category;Php:Var Name;28;51;37;51;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="i;Php:Var Name;14;51;16;51;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="j;Php:Var Name;15;53;17;53;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="product;Php:Var Name;72;6;80;6;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="series;Php:Var Name;29;53;36;53;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="this;Php:Var Name;23;0;28;0;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</phptree>
 		</csfile><csfile name="S:\home\comline-group.com\www\application\views\forms\frmeditevent.php" crc="1404954170">
@@ -5337,6 +5392,17 @@
 			</phptree>
 		</csfile><csfile name="S:\home\comline-group.com\www\application\views\forms\frmaddstorage.php" crc="30707000">
 			<phptree>
+				<treenode node="this;Php:Var Name;13;0;18;0;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+			</phptree>
+		</csfile><csfile name="S:\home\comline-group.com\www\application\views\forms\frmaddproduct.php" crc="990888142">
+			<phptree>
+				<treenode node="brands;Php:Var Name;28;51;35;51;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="category;Php:Var Name;28;41;37;41;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="i;Php:Var Name;14;41;16;41;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
 				<treenode node="this;Php:Var Name;13;0;18;0;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</phptree>
@@ -5394,19 +5460,40 @@
 				<treenode node="this;Php:Var Name;6;2;11;2;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</phptree>
-		</csfile><csfile name="S:\home\comline-group.com\www\application\views\admin_interface\products\products.php" crc="-182624856">
+		</csfile><csfile name="S:\home\comline-group.com\www\application\views\admin_interface\products\products.php" crc="-1641704136">
 			<phptree>
 				<treenode node="baseurl;Php:Var Name;36;33;44;33;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 				<treenode node="i;Php:Var Name;15;31;17;31;34;;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="language;Php:Var Name;24;2;33;2;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 				<treenode node="pages;Php:Var Name;13;17;19;17;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 				<treenode node="products;Php:Var Name;29;31;38;31;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 				<treenode node="this;Php:Var Name;6;2;11;2;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+			</phptree>
+			<jstree>
+				<treenode node="document;JS:JS Var Name;4;72;12;72;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="location;JS:JS Var Name;37;76;45;76;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="Param;JS:JS Var Name;44;75;49;75;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="pID;JS:JS Var Name;7;73;10;73;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+			</jstree>
+		</csfile><csfile name="S:\home\comline-group.com\www\application\views\admin_interface\products\products-list.php" crc="528869082">
+			<phptree>
+				<treenode node="baseurl;Php:Var Name;16;6;24;6;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="category;Php:Var Name;24;0;33;0;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="i;Php:Var Name;10;0;12;0;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="j;Php:Var Name;11;3;13;3;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="products;Php:Var Name;25;3;34;3;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</phptree>
 		</csfile><csfile name="S:\home\comline-group.com\www\application\views\admin_interface\products\edit-product.php" crc="195871680">
@@ -5478,15 +5565,21 @@
 				<treenode node="Param;JS:JS Var Name;42;50;47;50;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</jstree>
-		</csfile><csfile name="S:\home\comline-group.com\www\application\views\admin_interface\products\add-product.php" crc="191430382">
+		</csfile><csfile name="S:\home\comline-group.com\www\application\views\admin_interface\products\add-product.php" crc="448380868">
 			<phptree>
 				<treenode node="baseurl;Php:Var Name;17;24;25;24;34;;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
-				<treenode node="language;Php:Var Name;24;2;33;2;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 				<treenode node="this;Php:Var Name;6;2;11;2;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</phptree>
+			<jstree>
+				<treenode node="document;JS:JS Var Name;4;26;12;26;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="lang;JS:JS Var Name;46;27;50;27;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="toolbar;JS:JS Var Name;28;27;35;27;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+			</jstree>
 		</csfile><csfile name="S:\home\comline-group.com\www\application\views\admin_interface\products\add-category.php" crc="2133433428">
 			<phptree>
 				<treenode node="this;Php:Var Name;6;2;11;2;34;;;v;;r;;d-1,-1;;b0,0;;m">
@@ -5508,6 +5601,7 @@
 				</treenode>
 			</jstree>
 		</csfile><csfile name="S:\home\comline-group.com\www\application\views\admin_interface\modal\delete-storage.php" crc="1879958841">
+		</csfile><csfile name="S:\home\comline-group.com\www\application\views\admin_interface\modal\delete-product.php" crc="412852475">
 		</csfile><csfile name="S:\home\comline-group.com\www\application\views\admin_interface\modal\delete-news.php" crc="-1585335975">
 		</csfile><csfile name="S:\home\comline-group.com\www\application\views\admin_interface\modal\delete-category.php" crc="-883070844">
 		</csfile><csfile name="S:\home\comline-group.com\www\application\views\admin_interface\modal\delete-brands.php" crc="1301229252">
@@ -5599,9 +5693,9 @@
 			</phptree>
 		</csfile><csfile name="S:\home\comline-group.com\www\application\views\index.html" crc="-1574479902">
 		</csfile><csfile name="S:\home\comline-group.com\www\application\third_party\index.html" crc="-1574479902">
-		</csfile><csfile name="S:\home\comline-group.com\www\application\models\mdunion.php" crc="-388086070">
+		</csfile><csfile name="S:\home\comline-group.com\www\application\models\mdunion.php" crc="1492811897">
 			<phptree>
-				<treenode node="Mdunion;Php:Class Name;0;2;1;34;34;;;vCI_Model;;c;;r;;d30,2;;b0,0;;m">
+				<treenode node="Mdunion;Php:Class Name;0;2;1;57;34;;;vCI_Model;;c;;r;;d30,2;;b0,0;;m">
 					<treenode node="__construct;Php:Function Name;1;4;2;6;34;;;v;;r;;d23,4;;b0,0;;m">
 					</treenode>
 					<treenode node="events_limit;Php:Function Name;1;8;2;15;34;;;v;;r;;d36,8;;b0,0;;mcount;;pfrom;;p">
@@ -5609,6 +5703,8 @@
 					<treenode node="events_type_limit;Php:Function Name;1;17;2;24;34;;;v;;r;;d47,17;;b0,0;;mtype;;pcount;;pfrom;;p">
 					</treenode>
 					<treenode node="events_type_without_limit;Php:Function Name;1;26;2;33;34;;;v;;r;;d64,26;;b0,0;;mtype;;pwithout;;pcount;;pfrom;;p">
+					</treenode>
+					<treenode node="read_products_in_brends;Php:Function Name;1;35;2;56;34;;;v;;r;;d60,35;;b0,0;;mgender;;pbrands;;pcategory;;p">
 					</treenode>
 				</treenode>
 			</phptree>
@@ -5770,34 +5866,42 @@
 					</treenode>
 				</treenode>
 			</phptree>
-		</csfile><csfile name="S:\home\comline-group.com\www\application\models\mdproducts.php" crc="-1578967153">
+		</csfile><csfile name="S:\home\comline-group.com\www\application\models\mdproducts.php" crc="1755233210">
 			<phptree>
-				<treenode node="Mdproducts;Php:Class Name;0;2;1;95;34;;;vCI_Model;;c;;r;;d33,2;;b0,0;;m">
-					<treenode node="__construct;Php:Function Name;1;14;2;16;34;;;v;;r;;d23,14;;b0,0;;m">
+				<treenode node="Mdproducts;Php:Class Name;0;2;1;132;34;;;vCI_Model;;c;;r;;d33,2;;b0,0;;m">
+					<treenode node="__construct;Php:Function Name;1;15;2;17;34;;;v;;r;;d23,15;;b0,0;;m">
 					</treenode>
-					<treenode node="count_records;Php:Function Name;1;57;2;60;34;;;v;;r;;d25,57;;b0,0;;m">
+					<treenode node="count_records;Php:Function Name;1;61;2;64;34;;;v;;r;;d25,61;;b0,0;;m">
 					</treenode>
-					<treenode node="delete_record;Php:Function Name;1;89;2;94;34;;;v;;r;;d28,89;;b0,0;;mid;;p">
+					<treenode node="delete_record;Php:Function Name;1;94;2;99;34;;;v;;r;;d28,94;;b0,0;;mid;;p">
 					</treenode>
-					<treenode node="insert_record;Php:Function Name;1;18;2;31;34;;;v;;r;;d40,18;;b0,0;;mdata;;ptranslit;;p">
+					<treenode node="insert_record;Php:Function Name;1;19;2;33;34;;;v;;r;;d40,19;;b0,0;;mdata;;ptranslit;;p">
 					</treenode>
-					<treenode node="read_field;Php:Function Name;1;71;2;78;34;;;v;;r;;d32,71;;b0,0;;mid;;pfield;;p">
+					<treenode node="read_admin_limit_records;Php:Function Name;1;113;2;122;34;;;v;;r;;d48,113;;b0,0;;mcount;;pfrom;;p">
 					</treenode>
-					<treenode node="read_field_translit;Php:Function Name;1;80;2;87;34;;;v;;r;;d47,80;;b0,0;;mtranslit;;pfield;;p">
+					<treenode node="read_admin_record;Php:Function Name;1;124;2;131;34;;;v;;r;;d32,124;;b0,0;;mid;;p">
 					</treenode>
-					<treenode node="read_record;Php:Function Name;1;62;2;69;34;;;v;;r;;d26,62;;b0,0;;mid;;p">
+					<treenode node="read_field;Php:Function Name;1;76;2;83;34;;;v;;r;;d32,76;;b0,0;;mid;;pfield;;p">
 					</treenode>
-					<treenode node="read_records;Php:Function Name;1;48;2;55;34;;;v;;r;;d24,48;;b0,0;;m">
+					<treenode node="read_field_translit;Php:Function Name;1;85;2;92;34;;;v;;r;;d47,85;;b0,0;;mtranslit;;pfield;;p">
 					</treenode>
-					<treenode node="update_record;Php:Function Name;1;33;2;46;34;;;v;;r;;d44,33;;b0,0;;mid;;pdata;;ptranslit;;p">
+					<treenode node="read_limit_records;Php:Function Name;1;101;2;111;34;;;v;;r;;d42,101;;b0,0;;mcount;;pfrom;;p">
+					</treenode>
+					<treenode node="read_record;Php:Function Name;1;66;2;74;34;;;v;;r;;d26,66;;b0,0;;mid;;p">
+					</treenode>
+					<treenode node="read_records;Php:Function Name;1;51;2;59;34;;;v;;r;;d24,51;;b0,0;;m">
+					</treenode>
+					<treenode node="update_record;Php:Function Name;1;35;2;49;34;;;v;;r;;d44,35;;b0,0;;mid;;pdata;;ptranslit;;p">
 					</treenode>
 					<treenode node="art;Php:Var Name;5;9;9;9;34;;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="brand;Php:Var Name;5;12;11;12;34;;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="brand;Php:Var Name;5;13;11;13;34;;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="category;Php:Var Name;5;11;14;11;34;;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="category;Php:Var Name;5;12;14;12;34;;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 					<treenode node="date;Php:Var Name;5;7;10;7;34;;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="gender;Php:Var Name;5;11;12;11;34;;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 					<treenode node="id;Php:Var Name;5;4;8;4;34;;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
@@ -5907,9 +6011,9 @@
 				</treenode>
 			</phptree>
 		</csfile><csfile name="S:\home\comline-group.com\www\application\models\mdcolors.php" crc="1225681684">
-		</csfile><csfile name="S:\home\comline-group.com\www\application\models\mdcategory.php" crc="-1997406404">
+		</csfile><csfile name="S:\home\comline-group.com\www\application\models\mdcategory.php" crc="2093326163">
 			<phptree>
-				<treenode node="Mdcategory;Php:Class Name;0;2;1;93;34;;;vCI_Model;;c;;r;;d33,2;;b0,0;;m">
+				<treenode node="Mdcategory;Php:Class Name;0;2;1;104;34;;;vCI_Model;;c;;r;;d33,2;;b0,0;;m">
 					<treenode node="__construct;Php:Function Name;1;10;2;12;34;;;v;;r;;d23,10;;b0,0;;m">
 					</treenode>
 					<treenode node="count_records;Php:Function Name;1;55;2;58;34;;;v;;r;;d25,55;;b0,0;;m">
@@ -5921,6 +6025,8 @@
 					<treenode node="read_field;Php:Function Name;1;69;2;76;34;;;v;;r;;d32,69;;b0,0;;mid;;pfield;;p">
 					</treenode>
 					<treenode node="read_field_translit;Php:Function Name;1;78;2;85;34;;;v;;r;;d47,78;;b0,0;;mtranslit;;pfield;;p">
+					</treenode>
+					<treenode node="read_in_records;Php:Function Name;1;94;2;103;34;;;v;;r;;d31,94;;b0,0;;mids;;p">
 					</treenode>
 					<treenode node="read_record;Php:Function Name;1;60;2;67;34;;;v;;r;;d26,60;;b0,0;;mid;;p">
 					</treenode>
@@ -5942,30 +6048,32 @@
 					</treenode>
 				</treenode>
 			</phptree>
-		</csfile><csfile name="S:\home\comline-group.com\www\application\models\mdbrands.php" crc="-675322641">
+		</csfile><csfile name="S:\home\comline-group.com\www\application\models\mdbrands.php" crc="-504539831">
 			<phptree>
-				<treenode node="Mdbrands;Php:Class Name;0;2;1;111;34;;;vCI_Model;;c;;r;;d31,2;;b0,0;;m">
+				<treenode node="Mdbrands;Php:Class Name;0;2;1;122;34;;;vCI_Model;;c;;r;;d31,2;;b0,0;;m">
 					<treenode node="__construct;Php:Function Name;1;11;2;13;34;;;v;;r;;d23,11;;b0,0;;m">
 					</treenode>
-					<treenode node="count_records;Php:Function Name;1;63;2;66;34;;;v;;r;;d25,63;;b0,0;;m">
+					<treenode node="count_records;Php:Function Name;1;74;2;77;34;;;v;;r;;d25,74;;b0,0;;m">
 					</treenode>
-					<treenode node="delete_record;Php:Function Name;1;96;2;101;34;;;v;;r;;d28,96;;b0,0;;mid;;p">
+					<treenode node="delete_record;Php:Function Name;1;107;2;112;34;;;v;;r;;d28,107;;b0,0;;mid;;p">
 					</treenode>
-					<treenode node="get_image;Php:Function Name;1;103;2;110;34;;;v;;r;;d24,103;;b0,0;;mid;;p">
+					<treenode node="get_image;Php:Function Name;1;114;2;121;34;;;v;;r;;d24,114;;b0,0;;mid;;p">
 					</treenode>
 					<treenode node="insert_record;Php:Function Name;1;15;2;27;34;;;v;;r;;d40,15;;b0,0;;mdata;;ptranslit;;p">
 					</treenode>
-					<treenode node="read_field;Php:Function Name;1;78;2;85;34;;;v;;r;;d32,78;;b0,0;;mid;;pfield;;p">
+					<treenode node="read_field;Php:Function Name;1;89;2;96;34;;;v;;r;;d32,89;;b0,0;;mid;;pfield;;p">
 					</treenode>
-					<treenode node="read_field_translit;Php:Function Name;1;87;2;94;34;;;v;;r;;d47,87;;b0,0;;mtranslit;;pfield;;p">
+					<treenode node="read_field_translit;Php:Function Name;1;98;2;105;34;;;v;;r;;d47,98;;b0,0;;mtranslit;;pfield;;p">
 					</treenode>
-					<treenode node="read_record;Php:Function Name;1;68;2;76;34;;;v;;r;;d26,68;;b0,0;;mid;;p">
+					<treenode node="read_record;Php:Function Name;1;79;2;87;34;;;v;;r;;d26,79;;b0,0;;mid;;p">
 					</treenode>
-					<treenode node="read_records;Php:Function Name;1;44;2;52;34;;;v;;r;;d24,44;;b0,0;;m">
+					<treenode node="read_records;Php:Function Name;1;45;2;53;34;;;v;;r;;d24,45;;b0,0;;m">
 					</treenode>
-					<treenode node="read_records_rand_limit;Php:Function Name;1;54;2;61;34;;;v;;r;;d41,54;;b0,0;;mcount;;p">
+					<treenode node="read_records_notext;Php:Function Name;1;55;2;63;34;;;v;;r;;d31,55;;b0,0;;m">
 					</treenode>
-					<treenode node="update_record;Php:Function Name;1;29;2;42;34;;;v;;r;;d44,29;;b0,0;;mid;;pdata;;ptranslit;;p">
+					<treenode node="read_records_rand_limit;Php:Function Name;1;65;2;72;34;;;v;;r;;d41,65;;b0,0;;mcount;;p">
+					</treenode>
+					<treenode node="update_record;Php:Function Name;1;29;2;43;34;;;v;;r;;d44,29;;b0,0;;mid;;pdata;;ptranslit;;p">
 					</treenode>
 					<treenode node="id;Php:Var Name;5;4;8;4;34;;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
@@ -6100,7 +6208,7 @@
 				<treenode node="message;Php:Var Name;13;58;21;58;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</phptree>
-		</csfile><csfile name="S:\home\comline-group.com\www\application\errors\error_404.php" crc="1631448776">
+		</csfile><csfile name="S:\home\comline-group.com\www\application\errors\error_404.php" crc="-619807995">
 			<phptree>
 				<treenode node="heading;Php:Var Name;17;57;25;57;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
@@ -6108,18 +6216,20 @@
 				</treenode>
 			</phptree>
 		</csfile><csfile name="S:\home\comline-group.com\www\application\core\index.html" crc="-1574479902">
-		</csfile><csfile name="S:\home\comline-group.com\www\application\controllers\users_interface.php" crc="-926259679">
+		</csfile><csfile name="S:\home\comline-group.com\www\application\controllers\users_interface.php" crc="1045900435">
 			<phptree>
-				<treenode node="Users_interface;Php:Class Name;0;2;1;344;34;;;vCI_Controller;;c;;r;;d43,2;;b0,0;;m">
+				<treenode node="Users_interface;Php:Class Name;0;2;1;430;34;;;vCI_Controller;;c;;r;;d43,2;;b0,0;;m">
 					<treenode node="__construct;Php:Function Name;1;8;2;43;34;;;v;;r;;d23,8;;b0,0;;m">
 					</treenode>
 					<treenode node="about;Php:Function Name;8;103;2;119;34;;;v;;r;;d24,103;;b1,0;;m">
 					</treenode>
-					<treenode node="admin_login;Php:Function Name;8;269;2;302;34;;;v;;r;;d30,269;;b1,0;;m">
+					<treenode node="admin_login;Php:Function Name;8;355;2;388;34;;;v;;r;;d30,355;;b1,0;;m">
 					</treenode>
 					<treenode node="brands;Php:Function Name;8;177;2;194;34;;;v;;r;;d25,177;;b1,0;;m">
 					</treenode>
-					<treenode node="catalog;Php:Function Name;8;249;2;266;34;;;v;;r;;d26,249;;b1,0;;m">
+					<treenode node="catalog;Php:Function Name;8;249;2;318;34;;;v;;r;;d26,249;;b1,0;;m">
+					</treenode>
+					<treenode node="catalog_load;Php:Function Name;8;320;2;353;34;;;v;;r;;d31,320;;b1,0;;m">
 					</treenode>
 					<treenode node="clients;Php:Function Name;8;121;2;175;34;;;v;;r;;d26,121;;b1,0;;m">
 					</treenode>
@@ -6127,13 +6237,13 @@
 					</treenode>
 					<treenode node="index;Php:Function Name;8;45;2;101;34;;;v;;r;;d24,45;;b1,0;;m">
 					</treenode>
-					<treenode node="operation_date;Php:Function Name;8;319;2;326;34;;;v;;r;;d39,319;;b1,0;;mfield;;p">
+					<treenode node="operation_date;Php:Function Name;8;405;2;412;34;;;v;;r;;d39,405;;b1,0;;mfield;;p">
 					</treenode>
-					<treenode node="operation_dot_date;Php:Function Name;8;328;2;334;34;;;v;;r;;d43,328;;b1,0;;mfield;;p">
+					<treenode node="operation_dot_date;Php:Function Name;8;414;2;420;34;;;v;;r;;d43,414;;b1,0;;mfield;;p">
 					</treenode>
-					<treenode node="operation_no_year;Php:Function Name;8;336;2;342;34;;;v;;r;;d42,336;;b1,0;;mfield;;p">
+					<treenode node="operation_no_year;Php:Function Name;8;422;2;428;34;;;v;;r;;d42,422;;b1,0;;mfield;;p">
 					</treenode>
-					<treenode node="viewimage;Php:Function Name;8;306;2;317;34;;;v;;r;;d28,306;;b1,0;;m">
+					<treenode node="viewimage;Php:Function Name;8;392;2;403;34;;;v;;r;;d28,392;;b1,0;;m">
 					</treenode>
 					<treenode node="loginstatus;Php:Var Name;5;5;17;5;34;;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
@@ -6144,9 +6254,9 @@
 				</treenode>
 			</phptree>
 		</csfile><csfile name="S:\home\comline-group.com\www\application\controllers\index.html" crc="-1574479902">
-		</csfile><csfile name="S:\home\comline-group.com\www\application\controllers\admin_interface.php" crc="974736070">
+		</csfile><csfile name="S:\home\comline-group.com\www\application\controllers\admin_interface.php" crc="959698229">
 			<phptree>
-				<treenode node="Admin_interface;Php:Class Name;0;2;1;680;34;;;vCI_Controller;;c;;r;;d43,2;;b0,0;;m">
+				<treenode node="Admin_interface;Php:Class Name;0;2;1;869;34;;;vCI_Controller;;c;;r;;d43,2;;b0,0;;m">
 					<treenode node="__construct;Php:Function Name;1;9;2;54;34;;;v;;r;;d23,9;;b0,0;;m">
 					</treenode>
 					<treenode node="admin_baners;Php:Function Name;8;96;2;99;34;;;v;;r;;d31,96;;b1,0;;m">
@@ -6163,43 +6273,51 @@
 					</treenode>
 					<treenode node="admin_storage;Php:Function Name;8;91;2;94;34;;;v;;r;;d32,91;;b1,0;;m">
 					</treenode>
-					<treenode node="control_add_brand;Php:Function Name;8;400;2;452;34;;;v;;r;;d36,400;;b1,0;;m">
+					<treenode node="control_add_brand;Php:Function Name;8;410;2;462;34;;;v;;r;;d36,410;;b1,0;;m">
 					</treenode>
 					<treenode node="control_add_category;Php:Function Name;8;280;2;316;34;;;v;;r;;d39,280;;b1,0;;m">
 					</treenode>
 					<treenode node="control_add_events;Php:Function Name;8;156;2;196;34;;;v;;r;;d37,156;;b1,0;;m">
 					</treenode>
-					<treenode node="control_add_storage;Php:Function Name;8;557;2;591;34;;;v;;r;;d38,557;;b1,0;;m">
+					<treenode node="control_add_product;Php:Function Name;8;708;2;759;34;;;v;;r;;d38,708;;b1,0;;m">
 					</treenode>
-					<treenode node="control_brands;Php:Function Name;8;380;2;398;34;;;v;;r;;d33,380;;b1,0;;m">
+					<treenode node="control_add_storage;Php:Function Name;8;567;2;601;34;;;v;;r;;d38,567;;b1,0;;m">
+					</treenode>
+					<treenode node="control_brands;Php:Function Name;8;380;2;408;34;;;v;;r;;d33,380;;b1,0;;m">
 					</treenode>
 					<treenode node="control_category;Php:Function Name;8;260;2;278;34;;;v;;r;;d35,260;;b1,0;;m">
 					</treenode>
-					<treenode node="control_delete_brand;Php:Function Name;8;514;2;533;34;;;v;;r;;d39,514;;b1,0;;m">
+					<treenode node="control_delete_brand;Php:Function Name;8;524;2;543;34;;;v;;r;;d39,524;;b1,0;;m">
 					</treenode>
 					<treenode node="control_delete_category;Php:Function Name;8;361;2;376;34;;;v;;r;;d42,361;;b1,0;;m">
 					</treenode>
 					<treenode node="control_delete_events;Php:Function Name;8;242;2;256;34;;;v;;r;;d40,242;;b1,0;;m">
 					</treenode>
-					<treenode node="control_delete_storage;Php:Function Name;8;631;2;645;34;;;v;;r;;d41,631;;b1,0;;m">
+					<treenode node="control_delete_product;Php:Function Name;8;818;2;834;34;;;v;;r;;d41,818;;b1,0;;m">
 					</treenode>
-					<treenode node="control_edit_brand;Php:Function Name;8;454;2;512;34;;;v;;r;;d37,454;;b1,0;;m">
+					<treenode node="control_delete_storage;Php:Function Name;8;641;2;655;34;;;v;;r;;d41,641;;b1,0;;m">
+					</treenode>
+					<treenode node="control_edit_brand;Php:Function Name;8;464;2;522;34;;;v;;r;;d37,464;;b1,0;;m">
 					</treenode>
 					<treenode node="control_edit_category;Php:Function Name;8;318;2;359;34;;;v;;r;;d40,318;;b1,0;;m">
 					</treenode>
 					<treenode node="control_edit_events;Php:Function Name;8;198;2;240;34;;;v;;r;;d38,198;;b1,0;;m">
 					</treenode>
-					<treenode node="control_edit_storage;Php:Function Name;8;593;2;629;34;;;v;;r;;d39,593;;b1,0;;m">
+					<treenode node="control_edit_product;Php:Function Name;8;761;2;816;34;;;v;;r;;d39,761;;b1,0;;m">
+					</treenode>
+					<treenode node="control_edit_storage;Php:Function Name;8;603;2;639;34;;;v;;r;;d39,603;;b1,0;;m">
 					</treenode>
 					<treenode node="control_events;Php:Function Name;8;108;2;154;34;;;v;;r;;d33,108;;b1,0;;m">
 					</treenode>
-					<treenode node="control_storage;Php:Function Name;8;537;2;555;34;;;v;;r;;d34,537;;b1,0;;m">
+					<treenode node="control_products;Php:Function Name;8;659;2;706;34;;;v;;r;;d35,659;;b1,0;;m">
 					</treenode>
-					<treenode node="operation_date;Php:Function Name;8;664;2;671;34;;;v;;r;;d39,664;;b1,0;;mfield;;p">
+					<treenode node="control_storage;Php:Function Name;8;547;2;565;34;;;v;;r;;d34,547;;b1,0;;m">
 					</treenode>
-					<treenode node="operation_dot_date;Php:Function Name;8;673;2;679;34;;;v;;r;;d43,673;;b1,0;;mfield;;p">
+					<treenode node="operation_date;Php:Function Name;8;853;2;860;34;;;v;;r;;d39,853;;b1,0;;mfield;;p">
 					</treenode>
-					<treenode node="translite;Php:Function Name;8;649;2;662;34;;;v;;r;;d35,649;;b1,0;;mstring;;p">
+					<treenode node="operation_dot_date;Php:Function Name;8;862;2;868;34;;;v;;r;;d43,862;;b1,0;;mfield;;p">
+					</treenode>
+					<treenode node="translite;Php:Function Name;8;838;2;851;34;;;v;;r;;d35,838;;b1,0;;mstring;;p">
 					</treenode>
 					<treenode node="language;Php:Var Name;5;4;14;4;34;;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
@@ -6227,7 +6345,7 @@
 				<treenode node="smileys;Php:Var Name;0;14;8;14;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</phptree>
-		</csfile><csfile name="S:\home\comline-group.com\www\application\config\routes.php" crc="2055537394">
+		</csfile><csfile name="S:\home\comline-group.com\www\application\config\routes.php" crc="-1862470482">
 			<phptree>
 				<treenode node="route;Php:Var Name;0;2;6;2;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
@@ -6287,6 +6405,4 @@
 				</treenode>
 			</phptree>
 		</csfile><csfile name="S:\home\comline-group.com\www\.htaccess" crc="139727451">
-		</csfile></codestructure><dbgurls>
-	</dbgurls>
-</project>
+		</csfile></codestructure></project>

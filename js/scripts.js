@@ -18,4 +18,9 @@ function backpath(path){window.location=path;}
 	$("#msgsclose").click(function(){$("#msgdsalert").fadeOut(1000,function(){$(this).remove();});});
 	$(".digital").keypress(function(e){if(e.which!=8 && e.which!=46 && e.which!=0 && (e.which<48 || e.which>57)){return false;}});
 	$(".none").click(function(event){event.preventDefault();});
+	
+	$("#send").click(function(event){
+		var err = false;$(".control-group").removeClass('error');$(".help-inline").hide();
+		$(".input-valid").each(function(i,element){if($(this).val()==''){$(this).parents(".control-group").addClass('error');$(this).siblings(".help-inline").html("Поле не может быть пустым").show();err = true;}});if(err){event.preventDefault();}
+	});
 })(window.jQuery);

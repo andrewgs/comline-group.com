@@ -17,7 +17,7 @@ class Mdproducts extends CI_Model{
 		parent::__construct();
 	}
 	
-	function insert_record($data,$translit){
+	function insert_record($data,$gender,$translit){
 			
 		$this->title	= htmlspecialchars($data['title']);
 		$this->translit	= $translit;
@@ -25,7 +25,7 @@ class Mdproducts extends CI_Model{
 		$this->showitem = $data['showitem'];
 		$this->art		= $data['art'];
 		$this->text		= $data['text'];
-		$this->gender	= $data['gender'];
+		$this->gender	= $gender;
 		$this->category	= $data['category'];
 		$this->brand	= $data['brand'];
 		
@@ -52,6 +52,7 @@ class Mdproducts extends CI_Model{
 	function read_records(){
 		
 		$this->db->order_by('id');
+		$this->db->where('showitem',1);
 		$query = $this->db->get('products');
 		$data = $query->result_array();
 		if(count($data)) return $data;
@@ -66,6 +67,7 @@ class Mdproducts extends CI_Model{
 	function read_record($id){
 		
 		$this->db->where('id',$id);
+		$this->db->where('showitem',1);
 		$query = $this->db->get('products',1);
 		$data = $query->result_array();
 		if(isset($data[0])) return $data[0];
@@ -81,9 +83,12 @@ class Mdproducts extends CI_Model{
 		return FALSE;
 	}
 	
-	function read_field_translit($translit,$field){
+	function read_field_translit($translit,$field,$gender,$category,$brand){
 			
 		$this->db->where('translit',$translit);
+		$this->db->where('gender',$gender);
+		$this->db->where('category',$category);
+		$this->db->where('brand',$brand);
 		$query = $this->db->get('products',1);
 		$data = $query->result_array();
 		if(isset($data[0])) return $data[0][$field];
@@ -95,5 +100,51 @@ class Mdproducts extends CI_Model{
 		$this->db->where('id',$id);
 		$this->db->delete('products');
 		return $this->db->affected_rows();
+	}
+	
+	function delete_records_category($category){
+	
+		$this->db->where('category',$category);
+		$this->db->delete('products');
+		return $this->db->affected_rows();
+	}
+	
+	function delete_records_brand($brand){
+	
+		$this->db->where('brand',$brand);
+		$this->db->delete('products');
+		return $this->db->affected_rows();
+	}
+
+	function read_limit_records($count,$from){
+		
+		$this->db->limit($count,$from);
+		$this->db->where('showitem',1);
+		$this->db->order_by('category');
+		$this->db->order_by('brand');
+		$query = $this->db->get('products');
+		$data = $query->result_array();
+		if(count($data)) return $data;
+		return NULL;
+	}
+	
+	function read_admin_limit_records($count,$from){
+		
+		$this->db->limit($count,$from);
+		$this->db->order_by('category');
+		$this->db->order_by('brand');
+		$query = $this->db->get('products');
+		$data = $query->result_array();
+		if(count($data)) return $data;
+		return NULL;
+	}
+	
+	function read_admin_record($id){
+		
+		$this->db->where('id',$id);
+		$query = $this->db->get('products',1);
+		$data = $query->result_array();
+		if(isset($data[0])) return $data[0];
+		return NULL;
 	}
 }

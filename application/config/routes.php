@@ -70,4 +70,17 @@ $route['admin-panel/actions/brands/add']		= "admin_interface/control_add_brand";
 $route['admin-panel/actions/brands/edit/:any']	= "admin_interface/control_edit_brand";
 $route['admin-panel/actions/brands/delete/brandsid/:num']= "admin_interface/control_delete_brand";
 
+$route['admin-panel/actions/colors']			= "admin_interface/control_colors";
+$route['admin-panel/actions/color/add']			= "admin_interface/control_add_color";
+$route['admin-panel/actions/colors/delete/colorid/:num']= "admin_interface/control_delete_colors";
+
+$route['admin-panel/actions/products']			= "admin_interface/control_products";
+$route['admin-panel/actions/products/from']		= "admin_interface/control_products";
+$route['admin-panel/actions/products/from/:num']= "admin_interface/control_products";
+
+$route['admin-panel/actions/products/add']		= "admin_interface/control_add_product";
+$route['admin-panel/actions/products/delete/productid/:num']= "admin_interface/control_delete_product";
+$route['admin-panel/actions/products/edit/:num']	= "admin_interface/control_edit_product";
+$route['admin-panel/actions/products/productid/:num/colors']= "admin_interface/control_product_colors";
+$route['admin-panel/actions/products/productid/:num/sizes']	= "admin_interface/control_product_sizes";
 ?>

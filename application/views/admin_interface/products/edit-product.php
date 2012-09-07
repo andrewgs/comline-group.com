@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php $this->load->view($language."/admin_interface/includes/head");?>
+<?php $this->load->view("admin_interface/includes/head");?>
 <body>
-	<?php $this->load->view($language."/admin_interface/includes/header");?>
+	<?php $this->load->view("admin_interface/includes/header");?>
 	<div class="container">
 		<div class="row">
 			<div class="span9">
@@ -14,19 +14,23 @@
 						Редактирование
 					</li>
 				</ul>
-				<?php $this->load->view($language."/alert_messages/alert-error");?>
-				<?php $this->load->view($language."/alert_messages/alert-success");?>
-				<?php $this->load->view($language."/forms/frmeditproduct");?>
+				<?php $this->load->view("alert_messages/alert-error");?>
+				<?php $this->load->view("alert_messages/alert-success");?>
+				<?php $this->load->view("forms/frmeditproduct");?>
 			</div>
-		<?php $this->load->view($language."/admin_interface/includes/rightbar");?>
+		<?php $this->load->view("admin_interface/includes/rightbar");?>
 		</div>
 	</div>
-	<?php $this->load->view($language."/admin_interface/includes/scripts");?>
+	<?php $this->load->view("admin_interface/includes/scripts");?>
 	<script src="<?=$baseurl;?>js/redactor/redactor.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$(".redactor").redactor({toolbar:'default',lang: 'ru','fixed': true});
-			$("#SetSeries [value='<?=$product['series'];?>']").attr("selected", "selected");
+			$(".redactor").redactor({toolbar:'default',lang: 'ru','fixed': false});
+			$("#SetCategory [value='<?=$product['category'];?>']").attr("selected", "selected");
+			$("#SetBrand [value='<?=$product['brand'];?>']").attr("selected", "selected");
+			$(".chInput").click(function(){
+				if($(".chGender:checkbox:checked").length == 0){$(this).attr('checked','checked');}
+			});
 		});
 	</script>
 </body>

@@ -4,6 +4,7 @@ class Mdproductssizes extends CI_Model{
 
 	var $id			= 0;
 	var $product_id	= 0;
+	var $sizes_id	= 0;
 	var $code		= '';
 	
 	function __construct(){
@@ -14,14 +15,26 @@ class Mdproductssizes extends CI_Model{
 			
 		$this->title = htmlspecialchars($code);
 		$this->product_id = $product_id;
+		$this->sizes_id = $product_id;
 		
 		$this->db->insert('products_sizes',$this);
 		return $this->db->insert_id();
 	}
 	
-	function read_records(){
+	function group_insert($product_id,$data){
+		$query = '';
+		for($i=0;$i<count($data);$i++):
+			$query .= '('.$product_id.','.$data[$i]['sizes_id'].',"'.$data[$i]['code'].'")';
+			if($i+1<count($data)):
+				$query.=',';
+			endif;
+		endfor;
+		$this->db->query("INSERT INTO products_sizes (product_id,sizes_id,code) VALUES ".$query);
+	}
+	
+	function read_records($product_id){
 		
-		$this->db->order_by('id');
+		$this->db->where('product_id',$product_id);
 		$query = $this->db->get('products_sizes');
 		$data = $query->result_array();
 		if(count($data)) return $data;
@@ -54,6 +67,13 @@ class Mdproductssizes extends CI_Model{
 	function delete_record($id){
 	
 		$this->db->where('id',$id);
+		$this->db->delete('products_sizes');
+		return $this->db->affected_rows();
+	}
+	
+	function delete_product_records($product_id){
+	
+		$this->db->where('product_id',$product_id);
 		$this->db->delete('products_sizes');
 		return $this->db->affected_rows();
 	}

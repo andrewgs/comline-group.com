@@ -111,7 +111,7 @@ class Admin_interface extends CI_Controller{
 		$from = intval($this->uri->segment(5));
 		$pagevar = array(
 			'title'			=> 'Панель администрирования | Новости',
-			'description'	=> 'Игристые вина',
+			'description'	=> '',
 			'author'		=> '',
 			'baseurl'		=> base_url(),
 			'loginstatus'	=> $this->loginstatus,
@@ -158,7 +158,7 @@ class Admin_interface extends CI_Controller{
 		
 		$pagevar = array(
 			'title'			=> 'Панель администрирования | Добавление новости или события',
-			'description'	=> 'Игристые вина',
+			'description'	=> '',
 			'author'		=> '',
 			'baseurl'		=> base_url(),
 			'loginstatus'	=> $this->loginstatus,
@@ -204,7 +204,7 @@ class Admin_interface extends CI_Controller{
 		endif;
 		$pagevar = array(
 			'title'			=> 'Панель администрирования | Редактирование новости или события',
-			'description'	=> 'Игристые вина',
+			'description'	=> '',
 			'author'		=> '',
 			'baseurl'		=> base_url(),
 			'loginstatus'	=> $this->loginstatus,
@@ -262,7 +262,7 @@ class Admin_interface extends CI_Controller{
 		
 		$pagevar = array(
 			'title'			=> 'Панель администрирования | Категории продуктов',
-			'description'	=> 'Игристые вина',
+			'description'	=> '',
 			'author'		=> '',
 			'baseurl'		=> base_url(),
 			'loginstatus'	=> $this->loginstatus,
@@ -282,7 +282,7 @@ class Admin_interface extends CI_Controller{
 		
 		$pagevar = array(
 			'title'			=> 'Панель администрирования | Добавдение категории',
-			'description'	=> 'Игристые вина',
+			'description'	=> '',
 			'author'		=> '',
 			'baseurl'		=> base_url(),
 			'loginstatus'	=> $this->loginstatus,
@@ -324,7 +324,7 @@ class Admin_interface extends CI_Controller{
 		endif;
 		$pagevar = array(
 			'title'			=> 'Панель администрирования | Редактирование категории товара',
-			'description'	=> 'Игристые вина',
+			'description'	=> '',
 			'author'		=> '',
 			'baseurl'		=> base_url(),
 			'loginstatus'	=> $this->loginstatus,
@@ -365,7 +365,7 @@ class Admin_interface extends CI_Controller{
 		if($cid):
 			$result = $this->mdcategory->delete_record($cid);
 			if($result):
-//				$this->mdproducts->delete_records_category($cid);
+				$this->mdproducts->delete_records_category($cid);
 				$this->session->set_userdata('msgs','Категория удалена успешно.');
 			else:
 				$this->session->set_userdata('msgr','Категория не удалена.');
@@ -470,7 +470,7 @@ class Admin_interface extends CI_Controller{
 		endif;
 		$pagevar = array(
 			'title'			=> 'Панель администрирования | Редактирование категории товара',
-			'description'	=> 'Игристые вина',
+			'description'	=> '',
 			'author'		=> '',
 			'baseurl'		=> base_url(),
 			'loginstatus'	=> $this->loginstatus,
@@ -532,10 +532,84 @@ class Admin_interface extends CI_Controller{
 			endif;
 			$result = $this->mdbrands->delete_record($bid);
 			if($result):
-//				$this->mdproducts->delete_records_category($bid);
+				$this->mdproducts->delete_records_category($bid);
 				$this->session->set_userdata('msgs','Бренд удален успешно.');
 			else:
 				$this->session->set_userdata('msgr','Бренд не удален.');
+			endif;
+			redirect($this->session->userdata('backpath'));
+		else:
+			show_404();
+		endif;
+	}
+	
+	/******************************************************* colors ************************************************************/
+	
+	public function control_colors(){
+		
+		$pagevar = array(
+			'title'			=> 'Панель администрирования | Цвета',
+			'description'	=> '',
+			'author'		=> '',
+			'baseurl'		=> base_url(),
+			'loginstatus'	=> $this->loginstatus,
+			'userinfo'		=> $this->user,
+			'colors'		=> $this->mdcolors->read_records(),
+			'msgs'			=> $this->session->userdata('msgs'),
+			'msgr'			=> $this->session->userdata('msgr'),
+		);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		$this->session->set_userdata('backpath',$pagevar['baseurl'].$this->uri->uri_string());
+		$this->load->view("admin_interface/products/colors",$pagevar);
+	}
+	
+	public function control_add_color(){
+		
+		$pagevar = array(
+			'title'			=> 'Панель администрирования | Добавление цвета',
+			'description'	=> '',
+			'author'		=> '',
+			'baseurl'		=> base_url(),
+			'loginstatus'	=> $this->loginstatus,
+			'userinfo'		=> $this->user,
+			'colors'		=> $this->mdcolors->read_records(),
+			'msgs'			=> $this->session->userdata('msgs'),
+			'msgr'			=> $this->session->userdata('msgr'),
+		);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		if($this->input->post('submit')):
+			unset($_POST['submit']);
+			$this->form_validation->set_rules('code',' ','required|trim');
+			if(!$this->form_validation->run()):
+				$this->session->set_userdata('msgr','Ошибка. Неверно заполены необходимые поля<br/>');
+				$this->control_add_color();
+				return FALSE;
+			else:
+				$cid = $this->mdcolors->insert_record($_POST['code']);
+				if($cid):
+					$this->session->set_userdata('msgs','Запись создана успешно.');
+				endif;
+				redirect($this->uri->uri_string());
+			endif;
+		endif;
+		
+		$this->load->view("admin_interface/products/add-colors",$pagevar);
+	}
+	
+	public function control_delete_colors(){
+		
+		$cid = $this->uri->segment(6);
+		if($cid):
+			$result = $this->mdcolors->delete_record($cid);
+			if($result):
+				$this->mdproductscolors->delete_color_records($cid);
+				$this->session->set_userdata('msgs','Цвет удален успешно.');
+			else:
+				$this->session->set_userdata('msgr','Цвет не удален.');
 			endif;
 			redirect($this->session->userdata('backpath'));
 		else:
@@ -549,7 +623,7 @@ class Admin_interface extends CI_Controller{
 		
 		$pagevar = array(
 			'title'			=> 'Панель администрирования | Склады',
-			'description'	=> 'Игристые вина',
+			'description'	=> '',
 			'author'		=> '',
 			'baseurl'		=> base_url(),
 			'loginstatus'	=> $this->loginstatus,
@@ -569,7 +643,7 @@ class Admin_interface extends CI_Controller{
 		
 		$pagevar = array(
 			'title'			=> 'Панель администрирования | Добавдение склада',
-			'description'	=> 'Игристые вина',
+			'description'	=> '',
 			'author'		=> '',
 			'baseurl'		=> base_url(),
 			'loginstatus'	=> $this->loginstatus,
@@ -606,7 +680,7 @@ class Admin_interface extends CI_Controller{
 		$sid = $this->uri->segment(6);
 		$pagevar = array(
 			'title'			=> 'Панель администрирования | Редактирование склада',
-			'description'	=> 'Игристые вина',
+			'description'	=> '',
 			'author'		=> '',
 			'baseurl'		=> base_url(),
 			'loginstatus'	=> $this->loginstatus,
@@ -648,6 +722,310 @@ class Admin_interface extends CI_Controller{
 				$this->session->set_userdata('msgs','Склад удален успешно.');
 			else:
 				$this->session->set_userdata('msgr','Склад не удалена.');
+			endif;
+			redirect($this->session->userdata('backpath'));
+		else:
+			show_404();
+		endif;
+	}
+	
+	/******************************************************* products ************************************************************/
+	
+	public function control_products(){
+		
+		$from = intval($this->uri->segment(5));
+		$pagevar = array(
+			'title'			=> 'Панель администрирования | Продукты',
+			'description'	=> '',
+			'author'		=> '',
+			'baseurl'		=> base_url(),
+			'loginstatus'	=> $this->loginstatus,
+			'userinfo'		=> $this->user,
+			'category'		=> $this->mdcategory->read_records(),
+			'brands'		=> $this->mdbrands->read_records(),
+			'products'		=> $this->mdproducts->read_admin_limit_records(7,$from),
+			'pages'			=> array(),
+			'msgs'			=> $this->session->userdata('msgs'),
+			'msgr'			=> $this->session->userdata('msgr'),
+		);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		for($i=0;$i<count($pagevar['products']);$i++):
+			$pagevar['products'][$i]['text'] = strip_tags($pagevar['products'][$i]['text']);
+			if(mb_strlen($pagevar['products'][$i]['text'],'UTF-8') > 250):
+				$pagevar['products'][$i]['text'] = mb_substr($pagevar['products'][$i]['text'],0,250,'UTF-8');	
+				$pos = mb_strrpos($pagevar['products'][$i]['text'],' ',0,'UTF-8');
+				$pagevar['products'][$i]['text'] = mb_substr($pagevar['products'][$i]['text'],0,$pos,'UTF-8');
+				$pagevar['products'][$i]['text'] .= ' ... ';
+			endif;
+		endfor;
+		
+		$config['base_url'] 		= $pagevar['baseurl'].'admin-panel/actions/products/from/';
+		$config['uri_segment'] 		= 5;
+		$config['total_rows'] 		= $this->mdproducts->count_records();
+		$config['per_page'] 		= 7;
+		$config['num_links'] 		= 4;
+		$config['first_link']		= 'В начало';
+		$config['last_link'] 		= 'В конец';
+		$config['next_link'] 		= 'Далее &raquo;';
+		$config['prev_link'] 		= '&laquo; Назад';
+		$config['cur_tag_open']		= '<span class="actpage">';
+		$config['cur_tag_close'] 	= '</span>';
+		
+		$this->pagination->initialize($config);
+		$pagevar['pages'] = $this->pagination->create_links();
+		
+		$this->session->set_userdata('backpath',$pagevar['baseurl'].$this->uri->uri_string());
+		$this->load->view("admin_interface/products/products",$pagevar);
+	}
+	
+	public function control_add_product(){
+		
+		$pagevar = array(
+			'title'			=> 'Панель администрирования | Добавдение продукта',
+			'description'	=> '',
+			'author'		=> '',
+			'baseurl'		=> base_url(),
+			'loginstatus'	=> $this->loginstatus,
+			'userinfo'		=> $this->user,
+			'category'		=> $this->mdcategory->read_records(),
+			'brands'		=> $this->mdbrands->read_records(),
+			'msgs'			=> $this->session->userdata('msgs'),
+			'msgr'			=> $this->session->userdata('msgr'),
+		);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		if($this->input->post('submit')):
+			unset($_POST['submit']);
+			$this->form_validation->set_rules('title',' ','required|trim');
+			$this->form_validation->set_rules('art',' ','required|trim');
+			$this->form_validation->set_rules('text',' ','required|trim');
+			$this->form_validation->set_rules('gender[]',' ','required');
+			$this->form_validation->set_rules('category',' ','required');
+			$this->form_validation->set_rules('brand',' ','required');
+			if(!$this->form_validation->run()):
+				$this->session->set_userdata('msgr','Ошибка. Неверно заполены необходимые поля<br/>');
+				$this->control_add_product();
+				return FALSE;
+			else:
+				if(count($_POST['gender']) == 2):
+					$gender = 2;
+				else:
+					$gender = $_POST['gender'][0];
+				endif;
+				if(!isset($_POST['showitem'])):
+					$_POST['showitem'] = 0;
+				endif;
+				$translit = $this->translite($_POST['title']);
+				$cid = $this->mdproducts->insert_record($_POST,$gender,$translit);
+				if($cid):
+					$this->session->set_userdata('msgs','Продукт создан успешно.');
+				endif;
+				redirect($this->uri->uri_string());
+			endif;
+		endif;
+		
+		$this->load->view("admin_interface/products/add-product",$pagevar);
+	}
+	
+	public function control_product_colors(){
+		
+		$pid = $this->uri->segment(5);
+		$pagevar = array(
+			'title'			=> 'Панель администрирования | Цвета продукта',
+			'description'	=> '',
+			'author'		=> '',
+			'baseurl'		=> base_url(),
+			'loginstatus'	=> $this->loginstatus,
+			'userinfo'		=> $this->user,
+			'colors'		=> $this->mdcolors->read_records(),
+			'prcolors'		=> $this->mdproductscolors->read_records($pid),
+			'msgs'			=> $this->session->userdata('msgs'),
+			'msgr'			=> $this->session->userdata('msgr'),
+		);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		if($this->input->post('submit')):
+			unset($_POST['submit']);
+			$this->form_validation->set_rules('code[]',' ','required');
+			if(!$this->form_validation->run()):
+				$this->session->set_userdata('msgr','Ошибка. Вы должны выбрать хотя бы один цвет<br/>');
+				redirect($this->uri->uri_string());
+			else:
+				$colors = array();
+				for($i=0;$i<count($pagevar['colors']);$i++):
+					$colors[$pagevar['colors'][$i]['id']] = $pagevar['colors'][$i]['code'];
+				endfor;
+				$colorslist = array();
+				for($i=0,$j=0;$i<count($_POST['code']);$i++):
+					$colorslist[$j]['color_id'] = $_POST['code'][$i];
+					$colorslist[$j]['code']= $colors[$_POST['code'][$i]];
+					$j++;
+				endfor;
+				if(count($colorslist)):
+					$this->mdproductscolors->delete_product_records($pid);
+					$this->mdproductscolors->group_insert($pid,$colorslist);
+					$this->session->set_userdata('msgs','Цвета сохранены');
+				endif;
+				redirect($this->uri->uri_string());
+			endif;
+		endif;
+		for($i=0;$i<count($pagevar['colors']);$i++):
+			$pagevar['colors'][$i]['checked'] = 0;
+			for($j=0;$j<count($pagevar['prcolors']);$j++):
+				if($pagevar['prcolors'][$j]['color_id'] == $pagevar['colors'][$i]['id']):
+					$pagevar['colors'][$i]['checked'] = 1;
+				endif;
+			endfor;
+		endfor;
+		
+		$this->load->view("admin_interface/products/product-colors",$pagevar);
+	}
+	
+	public function control_product_sizes(){
+		
+		$pid = $this->uri->segment(5);
+		$pagevar = array(
+			'title'			=> 'Панель администрирования | Размеры продукта',
+			'description'	=> '',
+			'author'		=> '',
+			'baseurl'		=> base_url(),
+			'loginstatus'	=> $this->loginstatus,
+			'userinfo'		=> $this->user,
+			'sizes'			=> array(),
+			'prsizes'		=> $this->mdproductssizes->read_records($pid),
+			'msgs'			=> $this->session->userdata('msgs'),
+			'msgr'			=> $this->session->userdata('msgr'),
+		);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		for($i=0;$i<9;$i++):
+			$pagevar['sizes'][$i]['id'] = $i;
+			$pagevar['sizes'][$i]['code'] = '';
+		endfor;
+		$pagevar['sizes'][0]['code'] = '40(s)';
+		$pagevar['sizes'][1]['code'] = '42(M)';
+		$pagevar['sizes'][2]['code'] = '44(L)';
+		$pagevar['sizes'][3]['code'] = '46(XL)';
+		$pagevar['sizes'][4]['code'] = '48(XXL)';
+		$pagevar['sizes'][5]['code'] = '50(3XL)';
+		$pagevar['sizes'][6]['code'] = '52(4XL)';
+		$pagevar['sizes'][7]['code'] = '54(5XL)';
+		$pagevar['sizes'][8]['code'] = '56(6XL)';
+		
+		if($this->input->post('submit')):
+			unset($_POST['submit']);
+			
+			$this->form_validation->set_rules('sizes[]',' ','required');
+			if(!$this->form_validation->run()):
+				$this->session->set_userdata('msgr','Ошибка. Вы должны выбрать хотя бы один размер<br/>');
+				redirect($this->uri->uri_string());
+			else:
+				$sizeslist = array();
+				for($i=0,$j=0;$i<count($_POST['sizes']);$i++):
+					$sizeslist[$j]['sizes_id'] = $_POST['sizes'][$i];
+					$sizeslist[$j]['code']= $pagevar['sizes'][$_POST['sizes'][$i]]['code'];
+					$j++;
+				endfor;
+				if(count($sizeslist)):
+					$this->mdproductssizes->delete_product_records($pid);
+					$this->mdproductssizes->group_insert($pid,$sizeslist);
+					$this->session->set_userdata('msgs','Размеры сохранены');
+				endif;
+				redirect($this->uri->uri_string());
+			endif;
+		endif;
+		for($i=0;$i<count($pagevar['sizes']);$i++):
+			$pagevar['sizes'][$i]['checked'] = 0;
+			for($j=0;$j<count($pagevar['prsizes']);$j++):
+				if($pagevar['prsizes'][$j]['sizes_id'] == $pagevar['sizes'][$i]['id']):
+					$pagevar['sizes'][$i]['checked'] = 1;
+				endif;
+			endfor;
+		endfor;
+		
+		$this->load->view("admin_interface/products/product-sizes",$pagevar);
+	}
+	
+	public function control_edit_product(){
+		
+		$pid = $this->uri->segment(5);
+		$pagevar = array(
+			'title'			=> 'Панель администрирования | Редактирование продукта',
+			'description'	=> '',
+			'author'		=> '',
+			'baseurl'		=> base_url(),
+			'loginstatus'	=> $this->loginstatus,
+			'userinfo'		=> $this->user,
+			'product'		=> $this->mdproducts->read_admin_record($pid),
+			'gender'		=> array(),
+			'category'		=> $this->mdcategory->read_records(),
+			'brands'		=> $this->mdbrands->read_records(),
+			'msgs'			=> $this->session->userdata('msgs'),
+			'msgr'			=> $this->session->userdata('msgr'),
+		);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		$pagevar['gender'][0]['title'] = 'Женская одежда';
+		$pagevar['gender'][0]['checked'] = 0;
+		$pagevar['gender'][1]['title'] = 'Мужская одежда';
+		$pagevar['gender'][1]['checked'] = 0;
+		$gender = $this->mdproducts->read_field($pid,'gender');
+		if($gender == 2):
+			$pagevar['gender'][0]['checked'] = 1;
+			$pagevar['gender'][1]['checked'] = 1;
+		else:
+			$pagevar['gender'][$gender]['checked'] = 1;
+		endif;
+		
+		if($this->input->post('submit')):
+			unset($_POST['submit']);
+			$this->form_validation->set_rules('title',' ','required|trim');
+			$this->form_validation->set_rules('art',' ','required|trim');
+			$this->form_validation->set_rules('text',' ','required|trim');
+			$this->form_validation->set_rules('gender[]',' ','required');
+			$this->form_validation->set_rules('category',' ','required');
+			$this->form_validation->set_rules('brand',' ','required');
+			if(!$this->form_validation->run()):
+				$this->session->set_userdata('msgr','Ошибка. Неверно заполены необходимые поля<br/>');
+				$this->control_edit_product();
+				return FALSE;
+			else:
+				if(count($_POST['gender']) == 2):
+					$gender = 2;
+				else:
+					$gender = $_POST['gender'][0];
+				endif;
+				$_POST['gender'] = $gender;
+				if(!isset($_POST['showitem'])):
+					$_POST['showitem'] = 0;
+				endif;
+				$translit = $this->translite($_POST['title']);
+				$id = $this->mdproducts->update_record($pid,$_POST,$translit);
+				if($id):
+					$this->session->set_userdata('msgs','Продукт сохранен успешно.');
+				endif;
+				redirect($this->session->userdata('backpath'));
+			endif;
+		endif;
+		
+		$this->load->view("admin_interface/products/edit-product",$pagevar);
+	}
+	
+	public function control_delete_product(){
+		
+		$pid = $this->uri->segment(6);
+		if($pid):
+			$result = $this->mdproducts->delete_record($pid);
+			if($result):
+				//удаляем цвета и размеры
+				$this->session->set_userdata('msgs','Товар удален успешно.');
+			else:
+				$this->session->set_userdata('msgr','Товар не удалена.');
 			endif;
 			redirect($this->session->userdata('backpath'));
 		else:
