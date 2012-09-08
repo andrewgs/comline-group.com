@@ -14,8 +14,8 @@
 		<div id="main" class="substrate categories large">
 			<aside class="sorting">
 				<ul class="categories-list gender">
-					<li <?=($urlparam[0] == 1)?'class="disabled"':'';?>><input type="checkbox" id="woman" class="chInput" <?=($urlparam[0] == 1)?'disabled="disabled"':'checked="checked"';?> name="woman" value="0" /><label>Женская одежда</label></li>
-					<li <?=($urlparam[0] == 0)?'class="disabled"':'';?>><input type="checkbox" id="man" class="chInput" <?=($urlparam[0] == 0)?'disabled="disabled"':'checked="checked"';?> name="man" value="1" /><label>Мужская одежда</label></li>
+					<li <?=($urlparam[0] == 1)?'class="disabled"':'';?>><input type="checkbox" id="woman" class="chGender chInput" <?=($urlparam[0] == 1)?'disabled="disabled"':'checked="checked"';?> name="woman" value="0" /><label>Женская одежда</label></li>
+					<li <?=($urlparam[0] == 0)?'class="disabled"':'';?>><input type="checkbox" id="man" class="chGender chInput" <?=($urlparam[0] == 0)?'disabled="disabled"':'checked="checked"';?> name="man" value="1" /><label>Мужская одежда</label></li>
 				</ul>
 				<ul class="categories-list brands">
 				<?php for($i=0;$i<count($brands);$i++):?>
@@ -31,7 +31,7 @@
 			<div class="product-page cf">
 					<div class="photos cf">
 						<div class="nav-links">
-							<?=anchor('catalog/come-back/'.$this->uri->segment(2),'&laquo; Вернуться к списку товаров');?>
+							<?=anchor('catalog/come-back/'.$this->uri->segment(2),'&laquo; Вернуться к списку товаров',array('id'=>'comeBack'));?>
 						</div>
 						<div class="main-photo">
 						<?php for($i=0;$i<count($primages);$i++):?>
@@ -50,7 +50,7 @@
 					</div>
 					<div class="attributes">
 						<div class="nav-links">
-							<a href="#">&laquo;  Предыдущий</a> &nbsp;|&nbsp; <a href="#">Следующий  &raquo;</a>
+							<a href="<?=($prslide['prew'])?$baseurl.'product/'.$this->uri->segment(2).'/'.$prslide['prew']:'#'?>" class="prSlide<?=(!$prslide['prew'])?' blockLink none':''?>" id="prPrew">&laquo;  Предыдущий</a> &nbsp;|&nbsp; <a href="<?=($prslide['next'])?$baseurl.'product/'.$this->uri->segment(2).'/'.$prslide['next']:'#'?>" class="prSlide<?=(!$prslide['next'])?' blockLink none':''?>" id="prNext">Следующий  &raquo;</a>
 						</div>
 						<h1 class="product-title"><?=$product['title'];?></h1>
 						<span class="articul">арт.<?=$product['art'];?></span>
@@ -84,26 +84,7 @@
 	<?php $this->load->view("users_interface/includes/scripts");?>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			var gender = $(".chGender:checkbox:checked").serialize();
-			var brands = $(".chBrands:checkbox:checked").serialize();
-			var category = $(".chCategory:checkbox:checked").serialize();
-			offer_list(gender,brands,category);
-			
-			$(".chInput").click(function(){
-				var objGender = $(".chGender:checkbox:checked");
-				var objBrands = $(".chBrands:checkbox:checked");
-				var objCategory = $(".chCategory:checkbox:checked");
-				if($(objGender).length == 0){$(this).attr('checked','checked');}
-				if($(objBrands).length == 0){$(this).attr('checked','checked');}
-				if($(objCategory).length == 0){$(this).attr('checked','checked');}
-				gender = $(objGender).serialize();
-				brands = $(objBrands).serialize();
-				category = $(objCategory).serialize();
-				offer_list(gender,brands,category);
-			});
-			function offer_list(gender,brands,category){
-				$("#product-list").load("<?=$baseurl;?>catalog/load-products",{'gender':gender,'brands':brands,'category':category});
-			}
+			$(".chInput").click(function(){$(this).attr('checked','checked');});
 		});
 	</script>
 </body>

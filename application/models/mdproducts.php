@@ -77,9 +77,16 @@ class Mdproducts extends CI_Model{
 		return NULL;
 	}
 	
-	function read_all_ids(){
+	function read_slider($gender,$brand,$category){
 		
-		$this->db->select('id,0 AS curid',FALSE);
+		$this->db->select('id,translit');
+		if($gender == 2):
+			$this->db->where_in('gender',array(0,1,2));
+		else:
+			$this->db->where('gender',$gender);
+		endif;
+		$this->db->where('category',$category);
+		$this->db->where('brand',$brand);
 		$this->db->where('showitem',1);
 		$query = $this->db->get('products');
 		$data = $query->result_array();
@@ -99,7 +106,11 @@ class Mdproducts extends CI_Model{
 	function read_field_translit($translit,$field,$gender,$brand,$category){
 			
 		$this->db->where('translit',$translit);
-		$this->db->where('gender',$gender);
+		if($gender == 2):
+			$this->db->where_in('gender',array(0,1,2));
+		else:
+			$this->db->where('gender',$gender);
+		endif;
 		$this->db->where('category',$category);
 		$this->db->where('brand',$brand);
 		$query = $this->db->get('products',1);

@@ -379,18 +379,33 @@ class Users_interface extends CI_Controller{
 			'userinfo'		=> $this->user,
 			'urlparam'		=> $urlparam,
 			'product'		=> $this->mdproducts->read_record($product),
-			'products'		=> $this->mdproducts->read_all_ids(),
 			'primages'		=> $this->mdproductsimages->read_records($product),
 			'prsizes'		=> $this->mdproductssizes->read_records($product),
 			'prcolors'		=> $this->mdproductscolors->read_records($product),
 			'brands'		=> $this->mdbrands->read_records_notext(),
 			'category'		=> $this->mdcategory->read_showed_records(),
+			'prslide'		=> array('prew'=>FALSE,'next'=>FALSE),
 			'msgs'			=> $this->session->userdata('msgs'),
 			'msgr'			=> $this->session->userdata('msgr'),
 		);
 		$this->session->unset_userdata('msgs');
 		$this->session->unset_userdata('msgr');
 		
+		$products = $this->mdproducts->read_slider($urlparam[0],$urlparam[1],$urlparam[2]);
+		
+		for($i=0;$i<count($products);$i++):
+			if($products[$i]['id'] == $product):
+				if(isset($products[$i-1]['id'])):
+					$pagevar['prslide']['prew'] = $products[$i-1]['translit'];
+				endif;
+				if(isset($products[$i+1]['id'])):
+					$pagevar['prslide']['next'] = $products[$i+1]['translit'];
+				endif;
+			endif;
+		endfor;
+		
+//		print_r($pagevar['prslide']);exit;
+//		print_r($products);exit;
 		
 		$this->load->view("users_interface/product",$pagevar);
 		
