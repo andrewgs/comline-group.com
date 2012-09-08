@@ -14,6 +14,7 @@ $route['catalog/category/:any']	= "users_interface/catalog";
 $route['catalog/brands/:any']	= "users_interface/catalog";
 $route['catalog'] 				= "users_interface/catalog";
 $route['catalog/load-products'] = "users_interface/catalog_load";
+$route['catalog/come-back/:num-:num-:num'] = "users_interface/catalog";
 
 $route['admin'] 	= "users_interface/admin_login";
 
@@ -25,9 +26,12 @@ $route['news']				= "users_interface/news";
 $route['news/from']			= "users_interface/news";
 $route['news/from/:num']	= "users_interface/news";
 
+$route['product/:num-:num-:num/:any'] = "users_interface/product";
+
 $route['news/viewimage/:num']		= "users_interface/viewimage";
 $route['stock/viewimage/:num']		= "users_interface/viewimage";
 $route['brands/viewimage/:num']		= "users_interface/viewimage";
+$route['productimage/viewimage/:num']		= "users_interface/viewimage";
 
 $route['events/:any'] 	= "users_interface/view_events";
 $route['news/:any'] 	= "users_interface/view_news";
@@ -83,4 +87,8 @@ $route['admin-panel/actions/products/delete/productid/:num']= "admin_interface/c
 $route['admin-panel/actions/products/edit/:num']	= "admin_interface/control_edit_product";
 $route['admin-panel/actions/products/productid/:num/colors']= "admin_interface/control_product_colors";
 $route['admin-panel/actions/products/productid/:num/sizes']	= "admin_interface/control_product_sizes";
+
+$route['admin-panel/actions/products/productid/:num/images']= "admin_interface/control_product_images";
+$route['admin-panel/actions/products/productid/:num/images/add']= "admin_interface/control_product_images_add";
+$route['admin-panel/actions/products/image-delete/imagesid/:num']= "admin_interface/control_product_images_delete";
 ?>

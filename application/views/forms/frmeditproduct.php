@@ -14,8 +14,13 @@
 				<input type="text" class="span3 input-valid" name="art" value="<?=$product['art'];?>">
 				<span class="help-inline" style="display:none;">&nbsp;</span>
 			</div>
+		</div><div class="control-group">
+			<label for="composition" class="control-label">Состав: </label>
+			<div class="controls">
+				<input type="text" class="span5 input-valid" name="composition" value="<?=$product['composition'];?>">
+				<span class="help-inline" style="display:none;">&nbsp;</span>
+			</div>
 		</div>
-		<div class="control-group">
 		<div class="control-group">
 			<label for="text" class="control-label">Описание: </label>
 			<div class="controls">

@@ -48,8 +48,7 @@ class Mdunion extends CI_Model{
 				$cin .= ',';
 			endif;
 		endfor;
-		$query = "SELECT products.id,products.translit,products.title,brands.id  AS bid, brands.title  AS btitle FROM products INNER JOIN brands ON products.brand = brands.id WHERE products.gender = $gender AND products.brand IN ($bin) AND products.category IN ($cin) ORDER BY products.category, products.date DESC,products.title";
-		return $query;
+		$query = "SELECT products.id,products.translit,products.title,products.category,products.gender,products.brand,brands.title AS btitle,products_images.id AS imgid FROM products INNER JOIN brands ON products.brand = brands.id INNER JOIN products_images ON products.id = products_images.product_id WHERE products.gender = $gender AND products.brand IN ($bin) AND products.category IN ($cin) AND products_images.main = 1 ORDER BY products.category, products.date DESC,products.title";
 		$query = $this->db->query($query);
 		$data = $query->result_array();
 		if(count($data)) return $data;

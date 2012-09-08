@@ -14,8 +14,13 @@
 		<div id="main" class="substrate categories large">
 			<aside class="sorting">
 				<ul class="categories-list gender">
+				<?php if($this->session->userdata('gender')):?>
+					<li><input type="checkbox" id="woman" class="chGender chInput" <?=($this->session->userdata('gender') == 1)?'':'checked="checked"';?> name="woman" value="0" /><label>Женская одежда</label></li>
+					<li><input type="checkbox" id="man" class="chGender chInput" <?=($this->session->userdata('gender') == 0)?'':'checked="checked"';?> name="man" value="1" /><label>Мужская одежда</label></li>
+				<?php else:?>
 					<li><input type="checkbox" id="woman" class="chGender chInput" checked="checked" name="woman" value="0" /><label>Женская одежда</label></li>
 					<li><input type="checkbox" id="man" class="chGender chInput" checked="checked" name="man" value="1" /><label>Мужская одежда</label></li>
+				<?php endif;?>
 				</ul>
 				<ul class="categories-list brands">
 				<?php for($i=0;$i<count($brands);$i++):?>

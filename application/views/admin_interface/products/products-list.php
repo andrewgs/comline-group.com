@@ -4,7 +4,7 @@
 	<?php for($j=0;$j<count($products);$j++):?>
 		<?php if($products[$j]['category'] == $category[$i]['if']):?>
 		<div class="product-preview">
-			<img src="<?=$baseurl;?>images/product.jpg" alt="" />
+			<img src="<?=$baseurl;?>productimage/viewimage/<?=$products[$i]['imgid'];?>" />
 			<p class="title"><?=$products[$j]['title'];?></p>
 			<p class="articul"><?=$products[$j]['brand'];?></p>
 		</div>

@@ -16,6 +16,13 @@
 			</div>
 		</div>
 		<div class="control-group">
+			<label for="composition" class="control-label">Состав: </label>
+			<div class="controls">
+				<input type="text" class="span5 input-valid" name="composition" value="<?=set_value('composition');?>">
+				<span class="help-inline" style="display:none;">&nbsp;</span>
+			</div>
+		</div>
+		<div class="control-group">
 			<label for="text" class="control-label">Описание: </label>
 			<div class="controls">
 				<textarea rows="10" class="span7 input-valid redactor" name="text"><?=set_value('text');?></textarea>

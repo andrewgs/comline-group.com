@@ -265,25 +265,31 @@ class Users_interface extends CI_Controller{
 		$this->session->unset_userdata('msgr');
 		
 		if($this->uri->total_segments() > 1):
-			$this->session->sess_destroy();
 			switch ($this->uri->segment(2)):
 				case 'category': 	$categoryid = $this->mdcategory->read_field_translit($this->uri->segment(3),'id');
 									if(!$categoryid):
 										redirect('');
 									endif;
 									$this->session->unset_userdata('bid');
+									$this->session->unset_userdata('gender');
 									$this->session->set_userdata('cid',$categoryid);
 									break;
 				case 'brands'	:	$brandid = $this->mdbrands->read_field_translit($this->uri->segment(3),'id');
 									if(!$brandid):
 										redirect('');
 									endif;
+									$this->session->unset_userdata('gender');
 									$this->session->unset_userdata('cid');
 									$this->session->set_userdata('bid',$brandid);
 									break;
+				case 'come-back':	$urlparam = preg_split('/-/',$this->uri->segment(3));
+									
+									$this->session->set_userdata('gender',$urlparam[0]);
+									$this->session->set_userdata('bid',$urlparam[1]);
+									$this->session->set_userdata('cid',$urlparam[2]);
+									break;
 				default			: redirect('');
 			endswitch;
-			
 			redirect('catalog');
 		else:
 			if(!$this->session->userdata('cid') && !$this->session->userdata('bid')):
@@ -297,14 +303,18 @@ class Users_interface extends CI_Controller{
 						$pagevar['category'][$i]['checked'] = 0;
 					endif;
 				endfor;
-				for($i=0;$i<count($pagevar['brands']);$i++):
-					$pagevar['brands'][$i]['checked'] = 1;
-				endfor;
+				if(!$this->session->userdata('bid')):
+					for($i=0;$i<count($pagevar['brands']);$i++):
+						$pagevar['brands'][$i]['checked'] = 1;
+					endfor;
+				endif;
 			endif;
 			if($this->session->userdata('bid')):
-				for($i=0;$i<count($pagevar['category']);$i++):
-					$pagevar['category'][$i]['checked'] = 1;
-				endfor;
+				if(!$this->session->userdata('cid')):
+					for($i=0;$i<count($pagevar['category']);$i++):
+						$pagevar['category'][$i]['checked'] = 1;
+					endfor;
+				endif;
 				for($i=0;$i<count($pagevar['brands']);$i++):
 					if($pagevar['brands'][$i]['id'] == $this->session->userdata('bid')):
 						$pagevar['brands'][$i]['checked'] = 1;
@@ -314,7 +324,7 @@ class Users_interface extends CI_Controller{
 				endfor;
 			endif;
 		endif;
-		
+//		print_r($pagevar['category']);exit;
 		$this->load->view("users_interface/catalog",$pagevar);
 	}
 	
@@ -349,8 +359,41 @@ class Users_interface extends CI_Controller{
 		endfor;
 		$pagevar['category'] = $this->mdcategory->read_in_records($category);
 		$pagevar['products'] = $this->mdunion->read_products_in_brends($gender,$brands,$category);
-		print_r($pagevar['products']);
-//		$this->load->view('users_interface/products/products-list',$pagevar);
+//		print_r($pagevar['products']);
+		$this->load->view('users_interface/products-list',$pagevar);
+	}
+	
+	public function product(){
+		
+		$urlparam = preg_split('/-/',$this->uri->segment(2));
+		$product = $this->mdproducts->read_field_translit($this->uri->segment(3),'id',$urlparam[0],$urlparam[1],$urlparam[2]);
+		/*if(!$product):
+			redirect('');
+		endif;*/
+		$pagevar = array(
+			'title'			=> 'Комфорт Лайн :: ',
+			'description'	=> '',
+			'author'		=> '',
+			'baseurl' 		=> base_url(),
+			'loginstatus'	=> $this->loginstatus,
+			'userinfo'		=> $this->user,
+			'urlparam'		=> $urlparam,
+			'product'		=> $this->mdproducts->read_record($product),
+			'products'		=> $this->mdproducts->read_all_ids(),
+			'primages'		=> $this->mdproductsimages->read_records($product),
+			'prsizes'		=> $this->mdproductssizes->read_records($product),
+			'prcolors'		=> $this->mdproductscolors->read_records($product),
+			'brands'		=> $this->mdbrands->read_records_notext(),
+			'category'		=> $this->mdcategory->read_showed_records(),
+			'msgs'			=> $this->session->userdata('msgs'),
+			'msgr'			=> $this->session->userdata('msgr'),
+		);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		
+		$this->load->view("users_interface/product",$pagevar);
+		
 	}
 	
 	public function admin_login(){
@@ -398,6 +441,7 @@ class Users_interface extends CI_Controller{
 			case 'news' 	: $image = $this->mdevents->get_image($id); break;
 			case 'stock' 	: $image = $this->mdevents->get_image($id); break;
 			case 'brands' 	: $image = $this->mdbrands->get_image($id); break;
+			case 'productimage' : $image = $this->mdproductsimages->get_image($id); break;
 		endswitch;
 		header('Content-type: image/gif');
 		echo $image;

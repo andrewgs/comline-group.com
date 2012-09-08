@@ -800,6 +800,7 @@ class Admin_interface extends CI_Controller{
 		if($this->input->post('submit')):
 			unset($_POST['submit']);
 			$this->form_validation->set_rules('title',' ','required|trim');
+			$this->form_validation->set_rules('composition',' ','required|trim');
 			$this->form_validation->set_rules('art',' ','required|trim');
 			$this->form_validation->set_rules('text',' ','required|trim');
 			$this->form_validation->set_rules('gender[]',' ','required');
@@ -950,6 +951,104 @@ class Admin_interface extends CI_Controller{
 		$this->load->view("admin_interface/products/product-sizes",$pagevar);
 	}
 	
+	public function control_product_images(){
+		
+		$pid = $this->uri->segment(5);
+		$pagevar = array(
+			'title'			=> 'Панель администрирования | Рисунки продукта',
+			'description'	=> '',
+			'author'		=> '',
+			'baseurl'		=> base_url(),
+			'loginstatus'	=> $this->loginstatus,
+			'userinfo'		=> $this->user,
+			'primages'		=> $this->mdproductsimages->read_records($pid),
+			'msgs'			=> $this->session->userdata('msgs'),
+			'msgr'			=> $this->session->userdata('msgr'),
+		);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		$this->load->view("admin_interface/products/product-images",$pagevar);
+	}
+	
+	public function control_product_images_add(){
+		
+		$pagevar = array(
+			'title'			=> 'Панель администрирования | Добавдение рисунка товара',
+			'description'	=> '',
+			'author'		=> '',
+			'baseurl'		=> base_url(),
+			'loginstatus'	=> $this->loginstatus,
+			'userinfo'		=> $this->user,
+			'msgs'			=> $this->session->userdata('msgs'),
+			'msgr'			=> $this->session->userdata('msgr'),
+		);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		if($this->input->post('submit')):
+			unset($_POST['submit']);
+			$cnt = 0;
+			if(!count($_POST)):
+				if(!$this->mdproductsimages->read_main($this->uri->segment(5))):
+					$this->session->set_userdata('msgr','Ошибка. Не указано основное изображение');
+					redirect($this->uri->uri_string());
+				endif;
+			else:
+				$imain = $this->mdproductsimages->read_main($this->uri->segment(5));
+				if($imain):
+					$this->mdproductsimages->update_field($imain,'main',0);
+					$this->session->set_userdata('msgr','Внимание. Смена основного изображения.');
+				endif;
+			endif;
+			for($i=0;$i<count($_FILES);$i++):
+				if($_FILES['image'.$i]['error'] != 4):
+					if(!$this->case_image($_FILES['image'.$i]['tmp_name'])):
+						continue;
+					endif;
+					$img = getimagesize($_FILES['image'.$i]['tmp_name']);
+					if(($img[0] < $img[1]) && ($img[1] > 800)):
+						$data['image'] = $this->resize_image($_FILES['image'.$i]['tmp_name'],600,800,'height',TRUE);
+					elseif(($img[0] > $img[1]) && ($img[0] > 800)):
+						$data['image'] = $this->resize_image($_FILES['image'.$i]['tmp_name'],800,600,'width',TRUE);
+					else:
+						$data['image'] = file_get_contents($_FILES['image'.$i]['tmp_name']);
+					endif;
+					
+					$data['main'] = 0;
+					if(isset($_POST['image'.$i])):
+						$data['main'] = 1;
+					endif;
+					$this->mdproductsimages->insert_record($data,$this->uri->segment(5));
+					$cnt++;
+				endif;
+			endfor;
+			if($cnt):
+				$this->session->set_userdata('msgs','Загружено '.$cnt.' изображений!');
+			endif;
+			redirect($this->uri->uri_string());
+		endif;
+		
+		$this->load->view("admin_interface/products/add-image",$pagevar);
+	}
+	
+	public function control_product_images_delete(){
+		
+		$imgid = $this->uri->segment(6);
+		if($imgid):
+			$pid = $this->mdproductsimages->read_field($imgid,'product_id');
+			$result = $this->mdproductsimages->delete_record($imgid);
+			if($result):
+				$this->session->set_userdata('msgs','Изображение удалено успешно.');
+			else:
+				$this->session->set_userdata('msgr','Изображение не удалено.');
+			endif;
+			redirect('admin-panel/actions/products/productid/'.$pid.'/images');
+		else:
+			redirect($this->session->userdata('backpath'));
+		endif;
+	}
+	
 	public function control_edit_product(){
 		
 		$pid = $this->uri->segment(5);
@@ -985,6 +1084,7 @@ class Admin_interface extends CI_Controller{
 		if($this->input->post('submit')):
 			unset($_POST['submit']);
 			$this->form_validation->set_rules('title',' ','required|trim');
+			$this->form_validation->set_rules('composition',' ','required|trim');
 			$this->form_validation->set_rules('art',' ','required|trim');
 			$this->form_validation->set_rules('text',' ','required|trim');
 			$this->form_validation->set_rules('gender[]',' ','required');
@@ -1022,7 +1122,9 @@ class Admin_interface extends CI_Controller{
 		if($pid):
 			$result = $this->mdproducts->delete_record($pid);
 			if($result):
-				//удаляем цвета и размеры
+				$this->mdproductsimages->delete_records($pid);
+				$this->mdproductscolors->delete_product_records($pid);
+				$this->mdproductssizes->delete_product_records($pid);
 				$this->session->set_userdata('msgs','Товар удален успешно.');
 			else:
 				$this->session->set_userdata('msgr','Товар не удалена.');
@@ -1034,6 +1136,38 @@ class Admin_interface extends CI_Controller{
 	}
 	
 	/******************************************************** functions ******************************************************/	
+	
+	function resize_image($tmpName,$wgt,$hgt,$dim,$ratio){
+			
+		chmod($tmpName,0777);
+		$img = getimagesize($tmpName);
+		$this->load->library('image_lib');
+		$this->image_lib->clear();
+		$config['image_library'] 	= 'gd2';
+		$config['source_image']		= $tmpName; 
+		$config['create_thumb'] 	= FALSE;
+		$config['maintain_ratio'] 	= $ratio;
+		$config['quality'] 			= 100;
+		$config['master_dim'] 		= $dim;
+		$config['width'] 			= $wgt;
+		$config['height'] 			= $hgt;
+		$this->image_lib->initialize($config);
+		$this->image_lib->resize();
+		
+		$image = file_get_contents($tmpName);
+		return $image;
+	}
+	
+	function case_image($file){
+			
+		$info = getimagesize($file);
+		switch ($info[2]):
+			case 1	: return TRUE;
+			case 2	: return TRUE;
+			case 3	: return TRUE;
+			default	: return FALSE;	
+		endswitch;
+	}
 	
 	public function translite($string){
 		

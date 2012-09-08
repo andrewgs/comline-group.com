@@ -8,6 +8,7 @@ class Mdproducts extends CI_Model{
 	var $date		= '';
 	var $showitem	= '';
 	var $art		= '';
+	var $composition= '';
 	var $text		= '';
 	var $gender		= 2;
 	var $category	= '';
@@ -20,6 +21,7 @@ class Mdproducts extends CI_Model{
 	function insert_record($data,$gender,$translit){
 			
 		$this->title	= htmlspecialchars($data['title']);
+		$this->composition	= htmlspecialchars($data['composition']);
 		$this->translit	= $translit;
 		$this->date		= date("Y-m-d");
 		$this->showitem = $data['showitem'];
@@ -36,6 +38,7 @@ class Mdproducts extends CI_Model{
 	function update_record($id,$data,$translit){
 		
 		$this->db->set('title',htmlspecialchars($data['title']));
+		$this->db->set('composition',htmlspecialchars($data['composition']));
 		$this->db->set('translit',$translit);
 		$this->db->set('showitem',$data['showitem']);
 		$this->db->set('art',$data['art']);
@@ -74,6 +77,16 @@ class Mdproducts extends CI_Model{
 		return NULL;
 	}
 	
+	function read_all_ids(){
+		
+		$this->db->select('id,0 AS curid',FALSE);
+		$this->db->where('showitem',1);
+		$query = $this->db->get('products');
+		$data = $query->result_array();
+		if(count($data)) return $data;
+		return NULL;
+	}
+	
 	function read_field($id,$field){
 			
 		$this->db->where('id',$id);
@@ -83,7 +96,7 @@ class Mdproducts extends CI_Model{
 		return FALSE;
 	}
 	
-	function read_field_translit($translit,$field,$gender,$category,$brand){
+	function read_field_translit($translit,$field,$gender,$brand,$category){
 			
 		$this->db->where('translit',$translit);
 		$this->db->where('gender',$gender);
