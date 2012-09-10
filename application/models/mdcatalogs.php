@@ -4,6 +4,7 @@ class Mdcatalogs extends CI_Model{
 
 	var $id		= 0;
 	var $title	= '';
+	var $translit= '';
 	var $text	= '';
 	var $html	= '';
 	var $brand	= 0;
@@ -12,9 +13,10 @@ class Mdcatalogs extends CI_Model{
 		parent::__construct();
 	}
 	
-	function insert_record($data,$brand){
+	function insert_record($data,$translit,$brand){
 			
 		$this->title = htmlspecialchars($data['title']);
+		$this->translit = $translit;
 		$this->text = $data['text'];
 		$this->html = $data['html'];
 		$this->brand = $brand;
@@ -23,9 +25,10 @@ class Mdcatalogs extends CI_Model{
 		return $this->db->insert_id();
 	}
 	
-	function update_record($id,$data,$brand){
+	function update_record($id,$data,$translit,$brand){
 		
 		$this->db->set('title',htmlspecialchars($data['title']));
+		$this->db->set('translit',$translit);
 		$this->db->set('text',$data['text']);
 		$this->db->set('html',$data['html']);
 		$this->db->where('id',$id);
@@ -55,6 +58,16 @@ class Mdcatalogs extends CI_Model{
 		$data = $query->result_array();
 		if(isset($data[0])) return $data[0];
 		return NULL;
+	}
+	
+	function read_field_translit($translit,$field,$brand){
+			
+		$this->db->where('translit',$translit);
+		$this->db->where('brand',$brand);
+		$query = $this->db->get('catalogs',1);
+		$data = $query->result_array();
+		if(isset($data[0])) return $data[0][$field];
+		return FALSE;
 	}
 	
 	function read_field($id,$field){

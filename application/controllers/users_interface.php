@@ -468,8 +468,44 @@ class Users_interface extends CI_Controller{
 				endfor;
 			endif;
 		endif;
-//		print_r($pagevar['category']);exit;
 		$this->load->view("users_interface/catalog",$pagevar);
+	}
+	
+	public function catalogs(){
+		
+		$brandid = $this->mdbrands->read_field_translit($this->uri->segment(3),'id');
+		if(!$brandid):
+			redirect('');
+		endif;
+		$pagevar = array(
+			'title'			=> 'Комфорт Лайн :: Каталоги бренда',
+			'description'	=> '',
+			'author'		=> '',
+			'baseurl' 		=> base_url(),
+			'loginstatus'	=> $this->loginstatus,
+			'userinfo'		=> $this->user,
+			'brand'			=> $this->mdbrands->read_record($brandid),
+			'catalogs'		=> $this->mdcatalogs->read_records($brandid),
+			'catalog'		=> array(),
+			'msgs'			=> $this->session->userdata('msgs'),
+			'msgr'			=> $this->session->userdata('msgr'),
+		);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		if($this->uri->total_segments() == 3):
+			if(isset($pagevar['catalogs'][0]['id'])):
+				redirect('catalogs/brands/'.$this->uri->segment(3).'/catalog/'.$pagevar['catalogs'][0]['translit']);
+			endif;
+		else:
+			$catalogid = $this->mdcatalogs->read_field_translit($this->uri->segment(5),'id',$brandid);
+			if(!$catalogid):
+				redirect('');
+			endif;
+			$pagevar['catalog'] = $this->mdcatalogs->read_record($catalogid);
+		endif;
+		
+		$this->load->view("users_interface/catalogs",$pagevar);
 	}
 	
 	public function catalog_load(){

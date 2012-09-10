@@ -16,9 +16,9 @@
 			<?php for($i=0;$i<count($brands);$i++):?>
 				<li>
 					<img src="<?=$baseurl;?>brands/viewimage/<?=$brands[$i]['id'];?>" /><br />
-					<span class="underlined"><?=$brands[$i]['title'];?></span>
+					<span class="underlined"><?=$brands[$i]['title'];?></span> <?=$brands[$i]['status_string'];?>
 					<?=$brands[$i]['text'];?>
-					<?=anchor('','Просмотреть каталоги &raquo;');?>
+					<?=anchor('catalogs/brands/'.$brands[$i]['translit'],'Просмотреть каталоги &raquo;');?>
 					<?=anchor('catalog/brands/'.$brands[$i]['translit'],'Продукция бренда &raquo;');?>
 				</li>
 			<?php endfor;?>

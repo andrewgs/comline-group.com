@@ -1,7 +1,7 @@
 <?php if(!defined('BASEPATH')) exit('No direct script access allowed');
 
 class Admin_interface extends CI_Controller{
-	
+
 	var $language = 'ru';
 	var $user = array('uid'=>0,'ulogin'=>'','uemail'=>'');
 	var $loginstatus = array('status'=>FALSE);
@@ -582,7 +582,8 @@ class Admin_interface extends CI_Controller{
 				$this->admin_add_catalogs();
 				return FALSE;
 			else:
-				$cid = $this->mdcatalogs->insert_record($_POST,$this->uri->segment(5));
+				$translit = $this->translite($_POST['title']);
+				$cid = $this->mdcatalogs->insert_record($_POST,$translit,$this->uri->segment(5));
 				if($cid):
 					$this->session->set_userdata('msgs','Каталог создан успешно.');
 				endif;
@@ -665,7 +666,8 @@ class Admin_interface extends CI_Controller{
 				$this->admin_edit_catalogs();
 				return FALSE;
 			else:
-				$result = $this->mdcatalogs->update_record($cid,$_POST,$this->uri->segment(5));
+				$translit = $this->translite($_POST['title']);
+				$result = $this->mdcatalogs->update_record($cid,$_POST,$translit,$this->uri->segment(5));
 				if($result):
 					$this->session->set_userdata('msgs','Каталог сохранен успешно.');
 				endif;
@@ -1425,7 +1427,7 @@ class Admin_interface extends CI_Controller{
 		$eng = array("1","2","3","4","5","6","7","8","9","0","yo","iy","yu","","ch","sh","c","u","k","e","n","g","sh","z","h","","f","y","v","a","p","r","o","l","d","j","е","ya","s","m","i","t","b","Yo","Iy","Yu","CH","","SH","C","U","K","E","N","G","SH","Z","H","","F","Y","V","A","P","R","O","L","D","J","E","YA","S","M","I","T","B","-");
 		$string = str_replace($rus,$eng,$string);
 		if(!empty($string)):
-			$string = preg_replace('/[^a-z,-]/','',strtolower($string));
+			$string = preg_replace('/[^a-z0-9,-]/','',strtolower($string));
 			$string = preg_replace('/[-]+/','-',$string);
 			$string = preg_replace('/[\.\?\!\)\(\,\:\;]/','',$string);
 			return $string;

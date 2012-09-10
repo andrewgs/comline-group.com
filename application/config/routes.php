@@ -12,6 +12,9 @@ $route['contacts'] 	= "users_interface/contacts";
 
 $route['catalog/category/:any']	= "users_interface/catalog";
 $route['catalog/brands/:any']	= "users_interface/catalog";
+$route['catalogs/brands/:any']				= "users_interface/catalogs";
+$route['catalogs/brands/:any/catalog/:any']	= "users_interface/catalogs";
+
 $route['catalog'] 				= "users_interface/catalog";
 $route['catalog/load-products'] = "users_interface/catalog_load";
 $route['catalog/come-back/:num-:num-:num'] = "users_interface/catalog";
