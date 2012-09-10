@@ -14,9 +14,9 @@
 		<div id="main" role="main">
 			<div class="slider-wrapper">
 				<div class="slider">
-					<img src="<?=$baseurl;?>images/banner-1.jpg" alt="Одежда для беременных" title="Always Land. Одежда для беременных">
-					<img src="<?=$baseurl;?>images/banner-2.jpg" alt="Одежда для беременных" title="Always Land. Одежда для беременных">
-					<img src="<?=$baseurl;?>images/banner-3.jpg" alt="Пижамы" title="Always Land. Пижамы">
+				<?php for($i=0;$i<count($baners);$i++):?>
+					<img src="<?=$baseurl;?>baner/viewimage/<?=$baners[$i]['id'];?>" alt="<?=$baners[$i]['title'];?>" title="<?=$baners[$i]['title'];?>">
+				<?php endfor;?>
 				</div>
 				<a id="left-arrow" href="#">Пред.</a>
 				<a id="right-arrow" href="#">След.</a>
@@ -29,7 +29,7 @@
 			<ul id="brands-nav">
 				<?php for($i=0;$i<count($brands);$i++):?>
 					<li>
-						<?=anchor('catalog/brands/'.$brands[$i]['translit'],'<img src="'.$baseurl.'brands/viewimage/'.$brands[$i]['id'].'" /><br/><span class="underlined">'.$brands[$i]['title'].'</span>');?>
+						<?=anchor('catalog/brands/'.$brands[$i]['translit'],'<img src="'.$baseurl.'brands/viewimage/'.$brands[$i]['id'].'" /><br/><span class="underlined">'.$brands[$i]['title'].'</span> '.$brands[$i]['status_string']);?>
 					</li>
 				<?php endfor;?>
 			</ul>

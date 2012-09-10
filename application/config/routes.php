@@ -22,9 +22,13 @@ $route['events']			= "users_interface/events";
 $route['events/from']		= "users_interface/events";
 $route['events/from/:num']	= "users_interface/events";
 
-$route['news']				= "users_interface/news";
-$route['news/from']			= "users_interface/news";
-$route['news/from/:num']	= "users_interface/news";
+$route['all-news']				= "users_interface/all_news";
+$route['all-news/from']			= "users_interface/all_news";
+$route['all-news/from/:num']	= "users_interface/all_news";
+
+$route['all-stock']				= "users_interface/all_stock";
+$route['all-stock/from']		= "users_interface/all_stock";
+$route['all-stock/from/:num']	= "users_interface/all_stock";
 
 $route['product/:num-:num-:num/:any'] = "users_interface/product";
 
@@ -32,20 +36,30 @@ $route['news/viewimage/:num']		= "users_interface/viewimage";
 $route['stock/viewimage/:num']		= "users_interface/viewimage";
 $route['brands/viewimage/:num']		= "users_interface/viewimage";
 $route['productimage/viewimage/:num']		= "users_interface/viewimage";
+$route['baner/viewimage/:num']		= "users_interface/viewimage";
 
-$route['events/:any'] 	= "users_interface/view_events";
+$route['stock/:any'] 	= "users_interface/view_stock";
 $route['news/:any'] 	= "users_interface/view_news";
 
 /***************************************************	ADMIN INTRERFACE	***********************************************/
+$route['admin-panel/actions/profile']	= "admin_interface/profile";
+
+$route['admin-panel/actions/baners'] 	= "admin_interface/control_baners";
+$route['admin-panel/actions/baners/add']= "admin_interface/control_baners_add";
+$route['admin-panel/actions/baners/delete/banersid/:num']= "admin_interface/control_baners_delete";
+
 $route['admin-panel/actions/logoff']	= "admin_interface/admin_logoff";
 $route['admin-panel/actions/control']	= "admin_interface/admin_panel";
 
 $route['admin-panel/actions/category']	= "admin_interface/admin_category";
 $route['admin-panel/actions/brands']	= "admin_interface/admin_brands";
 
-$route['admin-panel/actions/storage']	= "admin_interface/admin_storage";
+$route['admin-panel/actions/brands/brandsid/:num/catalogs']	= "admin_interface/admin_brands_catalogs";
+$route['admin-panel/actions/brands/brandid/:num/add-catalog']	= "admin_interface/admin_add_catalogs";
+$route['admin-panel/actions/brands/brandid/:num/edit-catalog/catalogid/:num']	= "admin_interface/admin_edit_catalogs";
+$route['admin-panel/actions/brands/brandid/:num/delete-catalog/catalogid/:num']	= "admin_interface/admin_delete_catalogs";
 
-$route['admin-panel/actions/baners']	= "admin_interface/admin_baners";
+$route['admin-panel/actions/storage']	= "admin_interface/admin_storage";
 
 $route['admin-panel/actions/contacts']	= "admin_interface/admin_edit_text";
 $route['admin-panel/actions/clients']	= "admin_interface/admin_edit_text";

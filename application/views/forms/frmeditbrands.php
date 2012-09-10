@@ -4,7 +4,14 @@
 		<div class="control-group">
 			<label for="title" class="control-label">Название: </label>
 			<div class="controls">
-				<input type="text" class="span7 input-valid" name="title" value="<?=$brand['title'];?>">
+				<input type="text" class="input-xlarge input-valid" name="title" value="<?=$brand['title'];?>">
+				<span class="help-inline" style="display:none;">&nbsp;</span>
+			</div>
+		</div>
+		<div class="control-group">
+			<label for="status_string" class="control-label">Статусная строка: </label>
+			<div class="controls">
+				<input type="text" class="input-xlarge" name="status_string" value="<?=$brand['status_string'];?>">
 				<span class="help-inline" style="display:none;">&nbsp;</span>
 			</div>
 		</div>
@@ -14,14 +21,6 @@
 				<input type="file" class="input-file" name="image" size="50">
 				<span class="help-inline" style="display:none;">&nbsp;</span>
 				<p class="help-block">Поддерживаются форматы: JPG,PNG,GIF</p>
-			</div>
-		</div>
-		<div class="control-group">
-			<label for="pdf" class="control-label">PDF-каталог: </label>
-			<div class="controls">
-				<input type="file" class="input-file" name="pdf" size="30">
-				<span class="help-inline" style="display:none;">&nbsp;</span>
-				<p class="help-block">Поддерживаются форматы: PDF</p>
 			</div>
 		</div>
 		<div class="control-group">

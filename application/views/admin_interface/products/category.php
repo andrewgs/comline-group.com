@@ -16,23 +16,23 @@
 				<table class="table table-striped table-bordered">
 					<thead>
 						<tr>
-							<th class="w600"><center>Название</center></th>
-							<th class="w50">&nbsp;</th>
+							<th class="w600">Категории товаров</th>
+							<th class="w100">&nbsp;</th>
 						</tr>
 					</thead>
 					<tbody>
 					<?php for($i=0;$i<count($category);$i++):?>
 						<tr class="align-center">
-							<td class="w500">
-								<i><b><?=$category[$i]['title'];?></b></i>
+							<td>
+								<?=$category[$i]['title'];?>
 								<?php if(!$category[$i]['showitem']):?>
 									<i class="icon-eye-close" title="Не показывать" style="float:right;"></i>
 								<?php endif;?>
 							</td>
-							<td class="w50">
+							<td>
 								<div id="params<?=$i;?>" style="display:none" data-cid="<?=$category[$i]['id'];?>"></div>
-								<?=anchor('admin-panel/actions/category/edit/'.$category[$i]['translit'],'Редактировать',array('title'=>'Редактировать'));?>
-								<a class="deleteCategory" data-param="<?=$i;?>" data-toggle="modal" href="#deleteCategory" title="Удалить">Удалить</a>
+								<?=anchor('admin-panel/actions/category/edit/'.$category[$i]['translit'],'<i class="icon-pencil"></i>',array('title'=>'Редактировать', 'class'=>'btn'));?>
+								<a class="deleteCategory btn" data-param="<?=$i;?>" data-toggle="modal" href="#deleteCategory" title="Удалить"><i class="icon-trash"></i></a>
 							</td>
 						</tr>
 					<?php endfor; ?>

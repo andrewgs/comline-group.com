@@ -23,6 +23,8 @@ class Users_interface extends CI_Controller{
 		$this->load->model('mdtexts');
 		$this->load->model('mdstorage');
 		$this->load->model('mdmails');
+		$this->load->model('mdimages');
+		$this->load->model('mdcatalogs');
 		
 		$cookieuid = $this->session->userdata('logon');
 		if(isset($cookieuid) and !empty($cookieuid)):
@@ -52,6 +54,7 @@ class Users_interface extends CI_Controller{
 			'baseurl' 		=> base_url(),
 			'loginstatus'	=> $this->loginstatus,
 			'userinfo'		=> $this->user,
+			'baners'		=> $this->mdimages->read_records(),
 			'category'		=> $this->mdcategory->read_showed_records(),
 			'brands'		=> $this->mdbrands->read_records_rand_limit(4),
 			'news'			=> $this->mdevents->read_records_limit(array(1),3,0),
@@ -110,6 +113,7 @@ class Users_interface extends CI_Controller{
 			'baseurl' 		=> base_url(),
 			'loginstatus'	=> $this->loginstatus,
 			'userinfo'		=> $this->user,
+			'text'			=> $this->mdtexts->read_field(5,'text'),
 			'msgs'			=> $this->session->userdata('msgs'),
 			'msgr'			=> $this->session->userdata('msgr'),
 		);
@@ -117,6 +121,144 @@ class Users_interface extends CI_Controller{
 		$this->session->unset_userdata('msgr');
 		
 		$this->load->view("users_interface/about",$pagevar);
+	}
+	
+	public function view_news(){
+		
+		$news = $this->mdevents->read_field_translit($this->uri->segment(2),'id');
+		if(!$news):
+			redirect('');
+		endif;
+		$pagevar = array(
+			'title'			=> 'Комфорт Лайн :: ',
+			'description'	=> '',
+			'author'		=> '',
+			'baseurl' 		=> base_url(),
+			'loginstatus'	=> $this->loginstatus,
+			'userinfo'		=> $this->user,
+			'events'		=> $this->mdevents->read_record($news,array(1)),
+			'msgs'			=> $this->session->userdata('msgs'),
+			'msgr'			=> $this->session->userdata('msgr'),
+		);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		$pagevar['title'] .= $pagevar['events']['title'];
+		$pagevar['events']['date'] = $this->operation_dot_date($pagevar['events']['date']);
+		$this->load->view("users_interface/view-events",$pagevar);
+	}
+	
+	public function view_stock(){
+		
+		$stock = $this->mdevents->read_field_translit($this->uri->segment(2),'id');
+		if(!$stock):
+			redirect('');
+		endif;
+		$pagevar = array(
+			'title'			=> 'Комфорт Лайн :: ',
+			'description'	=> '',
+			'author'		=> '',
+			'baseurl' 		=> base_url(),
+			'loginstatus'	=> $this->loginstatus,
+			'userinfo'		=> $this->user,
+			'events'		=> $this->mdevents->read_record($stock,array(2)),
+			'msgs'			=> $this->session->userdata('msgs'),
+			'msgr'			=> $this->session->userdata('msgr'),
+		);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		$pagevar['title'] .= $pagevar['events']['title'];
+		$pagevar['events']['date'] = $this->operation_dot_date($pagevar['events']['date']);
+		$this->load->view("users_interface/view-events",$pagevar);
+	}
+	
+	public function all_news(){
+		
+		$from = intval($this->uri->segment(3));
+		$pagevar = array(
+			'title'			=> 'Комфорт Лайн :: Новости',
+			'description'	=> '',
+			'author'		=> '',
+			'baseurl' 		=> base_url(),
+			'loginstatus'	=> $this->loginstatus,
+			'userinfo'		=> $this->user,
+			'events'		=> $this->mdevents->read_records_limit(array(1),5,$from),
+			'msgs'			=> $this->session->userdata('msgs'),
+			'msgr'			=> $this->session->userdata('msgr'),
+		);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		$config['base_url'] 		= $pagevar['baseurl'].'all-news/from/';
+		$config['uri_segment'] 		= 3;
+		$config['total_rows'] 		= $this->mdevents->count_records(array(1));
+		$config['per_page'] 		= 5;
+		$config['num_links'] 		= 4;
+		$config['first_link']		= 'В начало';
+		$config['last_link'] 		= 'В конец';
+		$config['next_link'] 		= 'Далее &raquo;';
+		$config['prev_link'] 		= '&laquo; Назад';
+		$config['cur_tag_open']		= '<span class="actpage">';
+		$config['cur_tag_close'] 	= '</span>';
+		
+		$this->pagination->initialize($config);
+		$pagevar['pages'] = $this->pagination->create_links();
+		
+		for($i=0;$i<count($pagevar['events']);$i++):
+			$pagevar['events'][$i]['date'] = $this->operation_dot_date($pagevar['events'][$i]['date']);
+			$pagevar['events'][$i]['text'] = strip_tags($pagevar['events'][$i]['text']);
+			if(mb_strlen($pagevar['events'][$i]['text'],'UTF-8') > 250):
+				$pagevar['events'][$i]['text'] = mb_substr($pagevar['events'][$i]['text'],0,250,'UTF-8');
+				$pos = mb_strrpos($pagevar['events'][$i]['text'],' ',0,'UTF-8');
+				$pagevar['events'][$i]['text'] = mb_substr($pagevar['events'][$i]['text'],0,$pos,'UTF-8');
+				$pagevar['events'][$i]['text'] .= ' ... ';
+			endif;
+		endfor;
+		$this->load->view("users_interface/all-events",$pagevar);
+	}
+	
+	public function all_stock(){
+		
+		$from = intval($this->uri->segment(3));
+		$pagevar = array(
+			'title'			=> 'Комфорт Лайн :: Акции',
+			'description'	=> '',
+			'author'		=> '',
+			'baseurl' 		=> base_url(),
+			'loginstatus'	=> $this->loginstatus,
+			'userinfo'		=> $this->user,
+			'events'		=> $this->mdevents->read_records_limit(array(2),5,$from),
+			'msgs'			=> $this->session->userdata('msgs'),
+			'msgr'			=> $this->session->userdata('msgr'),
+		);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		$config['base_url'] 		= $pagevar['baseurl'].'all-stock/from/';
+		$config['uri_segment'] 		= 3;
+		$config['total_rows'] 		= $this->mdevents->count_records(array(2));
+		$config['per_page'] 		= 5;
+		$config['num_links'] 		= 4;
+		$config['first_link']		= 'В начало';
+		$config['last_link'] 		= 'В конец';
+		$config['next_link'] 		= 'Далее &raquo;';
+		$config['prev_link'] 		= '&laquo; Назад';
+		$config['cur_tag_open']		= '<span class="actpage">';
+		$config['cur_tag_close'] 	= '</span>';
+		
+		$this->pagination->initialize($config);
+		$pagevar['pages'] = $this->pagination->create_links();
+		
+		for($i=0;$i<count($pagevar['events']);$i++):
+			$pagevar['events'][$i]['date'] = $this->operation_dot_date($pagevar['events'][$i]['date']);
+			$pagevar['events'][$i]['text'] = strip_tags($pagevar['events'][$i]['text']);
+			if(mb_strlen($pagevar['events'][$i]['text'],'UTF-8') > 250):
+				$pagevar['events'][$i]['text'] = mb_substr($pagevar['events'][$i]['text'],0,250,'UTF-8');
+				$pos = mb_strrpos($pagevar['events'][$i]['text'],' ',0,'UTF-8');
+				$pagevar['events'][$i]['text'] = mb_substr($pagevar['events'][$i]['text'],0,$pos,'UTF-8');
+				$pagevar['events'][$i]['text'] .= ' ... ';
+			endif;
+		endfor;
+		$this->load->view("users_interface/all-events",$pagevar);
 	}
 	
 	public function clients(){
@@ -128,6 +270,7 @@ class Users_interface extends CI_Controller{
 			'baseurl' 		=> base_url(),
 			'loginstatus'	=> $this->loginstatus,
 			'userinfo'		=> $this->user,
+			'text'			=> array($this->mdtexts->read_field(3,'text'),$this->mdtexts->read_field(4,'text')),
 			'msgs'			=> $this->session->userdata('msgs'),
 			'msgr'			=> $this->session->userdata('msgr'),
 		);
@@ -203,6 +346,7 @@ class Users_interface extends CI_Controller{
 			'baseurl' 		=> base_url(),
 			'loginstatus'	=> $this->loginstatus,
 			'userinfo'		=> $this->user,
+			'text'			=> array($this->mdtexts->read_field(1,'text'),$this->mdtexts->read_field(2,'text')),
 			'storage'		=> $this->mdstorage->read_records(),
 			'msgs'			=> $this->session->userdata('msgs'),
 			'msgr'			=> $this->session->userdata('msgr'),
@@ -233,7 +377,7 @@ class Users_interface extends CI_Controller{
 				$config['mailtype'] = 'html';
 				
 				$this->email->initialize($config);
-				$this->email->to('brand@comline-group.com');
+				$this->email->to($pagevar['text'][1]);
 				$this->email->from($_POST['email'],$_POST['name']);
 				$this->email->bcc('');
 				$this->email->subject('Форма обратной связи Комфорт Лайн');
@@ -367,9 +511,9 @@ class Users_interface extends CI_Controller{
 		
 		$urlparam = preg_split('/-/',$this->uri->segment(2));
 		$product = $this->mdproducts->read_field_translit($this->uri->segment(3),'id',$urlparam[0],$urlparam[1],$urlparam[2]);
-		/*if(!$product):
+		if(!$product):
 			redirect('');
-		endif;*/
+		endif;
 		$pagevar = array(
 			'title'			=> 'Комфорт Лайн :: ',
 			'description'	=> '',
@@ -390,9 +534,8 @@ class Users_interface extends CI_Controller{
 		);
 		$this->session->unset_userdata('msgs');
 		$this->session->unset_userdata('msgr');
-		
+		$pagevar['title'] .= $pagevar['product']['title'];
 		$products = $this->mdproducts->read_slider($urlparam[0],$urlparam[1],$urlparam[2]);
-		
 		for($i=0;$i<count($products);$i++):
 			if($products[$i]['id'] == $product):
 				if(isset($products[$i-1]['id'])):
@@ -403,10 +546,6 @@ class Users_interface extends CI_Controller{
 				endif;
 			endif;
 		endfor;
-		
-//		print_r($pagevar['prslide']);exit;
-//		print_r($products);exit;
-		
 		$this->load->view("users_interface/product",$pagevar);
 		
 	}
@@ -457,6 +596,7 @@ class Users_interface extends CI_Controller{
 			case 'stock' 	: $image = $this->mdevents->get_image($id); break;
 			case 'brands' 	: $image = $this->mdbrands->get_image($id); break;
 			case 'productimage' : $image = $this->mdproductsimages->get_image($id); break;
+			case 'baner' 	: $image = $this->mdimages->get_image($id); break;
 		endswitch;
 		header('Content-type: image/gif');
 		echo $image;

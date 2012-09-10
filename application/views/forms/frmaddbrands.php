@@ -9,7 +9,14 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="image" class="control-label">Картинка: </label>
+			<label for="status_string" class="control-label">Статусная строка: </label>
+			<div class="controls">
+				<input type="text" class="input-xlarge" name="status_string" value="<?=set_value('status_string');?>">
+				<span class="help-inline" style="display:none;">&nbsp;</span>
+			</div>
+		</div>
+		<div class="control-group">
+			<label for="image" class="control-label">Логотип: </label>
 			<div class="controls">
 				<input type="file" class="input-file" name="image" size="30">
 				<span class="help-inline" style="display:none;">&nbsp;</span>
@@ -17,15 +24,7 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="pdf" class="control-label">PDF-каталог: </label>
-			<div class="controls">
-				<input type="file" class="input-file" name="pdf" size="30">
-				<span class="help-inline" style="display:none;">&nbsp;</span>
-				<p class="help-block">Поддерживаются форматы: PDF</p>
-			</div>
-		</div>
-		<div class="control-group">
-			<label for="content" class="control-label">Содержание: </label>
+			<label for="text" class="control-label">Описание: </label>
 			<div class="controls">
 				<textarea rows="10" class="span7 input-valid redactor" name="text"><?=set_value('text');?></textarea>
 				<span class="help-inline" style="display:none;">&nbsp;</span>

@@ -16,29 +16,28 @@
 				<?php if($pages): ?>
 					<?=$pages;?>
 				<?php endif;?>
-				<hr/>
 				<table class="table table-striped table-bordered">
 					<thead>
 						<tr>
-							<th class="w85"><center>Тип / Дата</center></th>
-							<th class="w600"><center>Содержание</center></th>
-							<th class="w50">&nbsp;</th>
+							<th class="w85">Тип / Дата</th>
+							<th class="w600">Содержание</th>
+							<th class="w110">&nbsp;</th>
 						</tr>
 					</thead>
 					<tbody>
 					<?php for($i=0;$i<count($events);$i++):?>
 						<tr class="align-center">
-							<td class="w85"><nobr><?=($events[$i]['type']==1) ? 'Новость' : 'Событие' ;?><br/><?=$events[$i]['date'];?></nobr></td>
-							<td class="w500">
+							<td><nobr><?=($events[$i]['type']==1) ? 'Новость' : 'Акция' ;?><br/><?=$events[$i]['date'];?></nobr></td>
+							<td>
 								<p>
-									<b><?=$events[$i]['title'];?></b> <br />
+									<strong><?=$events[$i]['title'];?></strong> <br />
 									<?=$events[$i]['text'];?>
 								</p>
 							</td>
-							<td class="w50">
+							<td>
 								<div id="params<?=$i;?>" style="display:none" data-nid="<?=$events[$i]['id'];?>"></div>
-								<?=anchor('admin-panel/actions/events/edit/'.$events[$i]['translit'],'Редактировать',array('title'=>'Редактировать'));?>
-								<a class="deleteNews" data-param="<?=$i;?>" data-toggle="modal" href="#deleteNews" title="Удалить">Удалить</a>
+								<?=anchor('admin-panel/actions/events/edit/'.$events[$i]['translit'],'<i class="icon-pencil"></i>',array('title'=>'Редактировать', 'class'=>'btn'));?>
+								<a class="deleteNews btn" data-param="<?=$i;?>" data-toggle="modal" href="#deleteNews" title="Удалить"><i class="icon-trash"></i></a>
 							</td>
 						</tr>
 					<?php endfor; ?>
@@ -47,7 +46,6 @@
 				<?php if($pages): ?>
 					<?=$pages;?>
 				<?php endif;?>
-				<hr/>
 				<?=anchor('admin-panel/actions/events/add','<nobr><i class="icon-plus icon-white"></i> Добавить</nobr>',array('class'=>'btn btn-info'));?>
 			</div>
 		<?php $this->load->view("admin_interface/includes/rightbar");?>

@@ -74,5 +74,13 @@ var $email			= '';
 		$this->db->where('id',$id);
 		$this->db->delete('admins');
 		return $this->db->affected_rows();
-	}	
+	}
+	
+	function update_field($id,$field,$value){
+			
+		$this->db->set($field,$value);
+		$this->db->where('id',$id);
+		$this->db->update('admins');
+		return $this->db->affected_rows();
+	}
 }

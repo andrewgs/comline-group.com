@@ -24,6 +24,8 @@ class Admin_interface extends CI_Controller{
 		$this->load->model('mdtexts');
 		$this->load->model('mdstorage');
 		$this->load->model('mdmails');
+		$this->load->model('mdimages');
+		$this->load->model('mdcatalogs');
 		
 		$cookieuid = $this->session->userdata('logon');
 		if(isset($cookieuid) and !empty($cookieuid)):
@@ -73,35 +75,111 @@ class Admin_interface extends CI_Controller{
 		$this->load->view("admin_interface/admin-panel",$pagevar);
 	}
 	
+	public function profile(){
+		
+		$pagevar = array(
+					'description'	=> '',
+					'author'		=> '',
+					'title'			=> 'Панель администрирования | Смена пароля',
+					'baseurl' 		=> base_url(),
+					'userinfo'		=> $this->user,
+					'user'			=> $this->mdadmins->read_record($this->user['uid']),
+					'msgs'			=> $this->session->userdata('msgs'),
+					'msgr'			=> $this->session->userdata('msgr')
+			);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		if($this->input->post('submit')):
+			$_POST['submit'] = NULL;
+			$this->form_validation->set_rules('oldpas',' ','trim');
+			$this->form_validation->set_rules('password',' ','trim');
+			$this->form_validation->set_rules('confpass',' ','trim');
+			if(!$this->form_validation->run()):
+				$this->session->set_userdata('msgr','Ошибка. Неверно заполены необходимые поля<br/>');
+				redirect($this->uri->uri_string());
+			else:
+				if(!empty($_POST['oldpas']) && !empty($_POST['password']) && !empty($_POST['confpass'])):
+					if(!$this->mdadmins->user_exist('password',md5($_POST['oldpas']))):
+						$this->session->set_userdata('msgr',' Не верный старый пароль!');
+					elseif($_POST['password']!=$_POST['confpass']):
+						$this->session->set_userdata('msgr',' Пароли не совпадают.');
+					else:
+						$this->mdadmins->update_field($this->user['uid'],'password',md5($_POST['password']));
+						$this->mdadmins->update_field($this->user['uid'],'cryptpassword',$this->encrypt->encode($_POST['password']));
+						$this->session->set_userdata('msgs',' Пароль успешно изменен');
+					endif;
+				endif;
+				redirect($this->uri->uri_string());
+			endif;
+		endif;
+		$this->load->view("admin_interface/admin-profile",$pagevar);
+	}
+	
 	public function admin_logoff(){
 		
 		$this->session->sess_destroy();
 			redirect('');
 	}
 	
-	public function admin_category(){
-		
-		
-	}
-	
-	public function admin_events(){
-		
-		
-	}
-	
-	public function admin_storage(){
-		
-		
-	}
-	
-	public function admin_baners(){
-		
-		
-	}
+	/******************************************************* text ************************************************************/
 	
 	public function admin_edit_text(){
 		
+		$pagevar = array(
+					'description'	=> '',
+					'author'		=> '',
+					'title'			=> 'Панель администрирования | Смена пароля',
+					'baseurl' 		=> base_url(),
+					'userinfo'		=> $this->user,
+					'text'			=> array(),
+					'text'			=> $this->mdadmins->read_record($this->user['uid']),
+					'msgs'			=> $this->session->userdata('msgs'),
+					'msgr'			=> $this->session->userdata('msgr')
+			);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
 		
+		switch($this->uri->segment(3)):
+			case 'contacts' : 	$pagevar['text']['vname1'] = $this->mdtexts->read_field(1,'text');
+								$pagevar['text']['lname1'] = 'Адрес';
+								$pagevar['text']['fname1'] = 'address';
+								$pagevar['text']['vname2'] = $this->mdtexts->read_field(2,'text');
+								$pagevar['text']['lname2'] = 'E-mail';
+								$pagevar['text']['fname2'] = 'email';
+								$id1 = 1; $id2 = 2;
+								break;
+			case 'clients' : 	$pagevar['text']['vname1'] = $this->mdtexts->read_field(3,'text');
+								$pagevar['text']['lname1'] = 'Прелог';
+								$pagevar['text']['fname1'] = 'part1';
+								$pagevar['text']['vname2'] = $this->mdtexts->read_field(4,'text');
+								$pagevar['text']['lname2'] = 'Содержание';
+								$pagevar['text']['fname2'] = 'part2';
+								$id1 = 3; $id2 = 4;
+								break;
+			case 'about' : 		$pagevar['text']['vname1'] = $this->mdtexts->read_field(5,'text');
+								$pagevar['text']['lname1'] = 'О компании';
+								$pagevar['text']['fname1'] = 'about';
+								$id1 = 5; $id2 = NULL;
+								break;
+			default : redirect($this->session->userdata('backpath'));
+		endswitch;
+		
+		if($this->input->post('submit')):
+			unset($_POST['submit']);
+			$text = array(); $i = 0;
+			foreach($_POST as $post):
+				$text[$i] = $post;
+				$i++;
+			endforeach;
+			$this->mdtexts->update_field($id1,'text',$text[0]);
+			if(isset($id2)):
+				$this->mdtexts->update_field($id2,'text',$text[1]);
+			endif;
+			$this->session->set_userdata('msgs','Текс сохранен успешно.');
+			redirect($this->uri->uri_string());
+		endif;
+		$this->load->view("admin_interface/texts/edit-text",$pagevar);
 	}
 	
 	/******************************************************* events ************************************************************/
@@ -116,7 +194,7 @@ class Admin_interface extends CI_Controller{
 			'baseurl'		=> base_url(),
 			'loginstatus'	=> $this->loginstatus,
 			'userinfo'		=> $this->user,
-			'events'		=> $this->mdunion->events_limit(7,$from),
+			'events'		=> $this->mdunion->events_limit(5,$from),
 			'pages'			=> array(),
 			'msgs'			=> $this->session->userdata('msgs'),
 			'msgr'			=> $this->session->userdata('msgr'),
@@ -138,7 +216,7 @@ class Admin_interface extends CI_Controller{
 		$config['base_url'] 		= $pagevar['baseurl'].'admin-panel/actions/events/from/';
 		$config['uri_segment'] 		= 5;
 		$config['total_rows'] 		= $this->mdevents->count_records(array(1,2));
-		$config['per_page'] 		= 7;
+		$config['per_page'] 		= 5;
 		$config['num_links'] 		= 4;
 		$config['first_link']		= 'В начало';
 		$config['last_link'] 		= 'В конец';
@@ -408,6 +486,35 @@ class Admin_interface extends CI_Controller{
 		$this->load->view("admin_interface/products/brands",$pagevar);
 	}
 	
+	public function admin_brands_catalogs(){
+		
+		$pagevar = array(
+			'title'			=> 'Панель администрирования | Каталоги бренда',
+			'description'	=> '',
+			'author'		=> '',
+			'baseurl'		=> base_url(),
+			'loginstatus'	=> $this->loginstatus,
+			'userinfo'		=> $this->user,
+			'catalogs'		=> $this->mdcatalogs->read_records($this->uri->segment(5)),
+			'msgs'			=> $this->session->userdata('msgs'),
+			'msgr'			=> $this->session->userdata('msgr'),
+		);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		for($i=0;$i<count($pagevar['catalogs']);$i++):
+			$pagevar['catalogs'][$i]['text'] = strip_tags($pagevar['catalogs'][$i]['text']);
+			if(mb_strlen($pagevar['catalogs'][$i]['text'],'UTF-8') > 150):
+				$pagevar['catalogs'][$i]['text'] = mb_substr($pagevar['catalogs'][$i]['text'],0,150,'UTF-8');
+				$pos = mb_strrpos($pagevar['catalogs'][$i]['text'],' ',0,'UTF-8');
+				$pagevar['catalogs'][$i]['text'] = mb_substr($pagevar['catalogs'][$i]['text'],0,$pos,'UTF-8');
+				$pagevar['catalogs'][$i]['text'] .= ' ... ';
+			endif;
+		endfor;
+		
+		$this->load->view("admin_interface/products/catalogs",$pagevar);
+	}
+	
 	public function control_add_brand(){
 		
 		$pagevar = array(
@@ -426,6 +533,7 @@ class Admin_interface extends CI_Controller{
 		if($this->input->post('submit')):
 			unset($_POST['submit']);
 			$this->form_validation->set_rules('title',' ','required|trim');
+			$this->form_validation->set_rules('status_string',' ','trim');
 			$this->form_validation->set_rules('text',' ','trim');
 			if(!$this->form_validation->run()):
 				$this->session->set_userdata('msgr','Ошибка. Неверно заполены необходимые поля<br/>');
@@ -438,19 +546,6 @@ class Admin_interface extends CI_Controller{
 					$_POST['image'] = file_get_contents(base_url().'images/noimages/no_icon.jpg');
 				endif;
 				$translit = $this->translite($_POST['title']);
-				if($_FILES['pdf']['error'] != 4):
-					$_FILES['pdf']['name'] = preg_replace('/.+(.)(\.)+/',$translit."\$2", $_FILES['pdf']['name']);
-					$config['upload_path'] 		= getcwd().'/catalogs/';
-					$config['allowed_types'] 	= 'pdf';
-					$config['remove_spaces'] 	= TRUE;
-					$config['overwrite'] 		= TRUE;
-					$this->load->library('upload',$config);
-					if(!$this->upload->do_upload('pdf')):
-						$this->session->set_userdata('msgr','Ошибка при загрузке документа.');
-					else:
-						$_POST['pdf'] = 'catalogs/'.$_FILES['pdf']['name'];
-					endif;
-				endif;
 				$cid = $this->mdbrands->insert_record($_POST,$translit);
 				if($cid):
 					$this->session->set_userdata('msgs','Запись создана успешно.');
@@ -462,6 +557,42 @@ class Admin_interface extends CI_Controller{
 		$this->load->view("admin_interface/products/add-brand",$pagevar);
 	}
 	
+	public function admin_add_catalogs(){
+		
+		$pagevar = array(
+			'title'			=> 'Панель администрирования | Добавдение каталога',
+			'description'	=> '',
+			'author'		=> '',
+			'baseurl'		=> base_url(),
+			'loginstatus'	=> $this->loginstatus,
+			'userinfo'		=> $this->user,
+			'msgs'			=> $this->session->userdata('msgs'),
+			'msgr'			=> $this->session->userdata('msgr'),
+		);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		if($this->input->post('submit')):
+			unset($_POST['submit']);
+			$this->form_validation->set_rules('title',' ','required|trim');
+			$this->form_validation->set_rules('text',' ','required|trim');
+			$this->form_validation->set_rules('html',' ','required|trim');
+			if(!$this->form_validation->run()):
+				$this->session->set_userdata('msgr','Ошибка. Неверно заполены необходимые поля<br/>');
+				$this->admin_add_catalogs();
+				return FALSE;
+			else:
+				$cid = $this->mdcatalogs->insert_record($_POST,$this->uri->segment(5));
+				if($cid):
+					$this->session->set_userdata('msgs','Каталог создан успешно.');
+				endif;
+				redirect('admin-panel/actions/brands/brandsid/'.$this->uri->segment(5).'/catalogs');
+			endif;
+		endif;
+		
+		$this->load->view("admin_interface/products/add-catalog",$pagevar);
+	}
+	
 	public function control_edit_brand(){
 		
 		$bid = $this->mdbrands->read_field_translit($this->uri->segment(5),'id');
@@ -469,7 +600,7 @@ class Admin_interface extends CI_Controller{
 			redirect($this->session->userdata('backpath'));
 		endif;
 		$pagevar = array(
-			'title'			=> 'Панель администрирования | Редактирование категории товара',
+			'title'			=> 'Панель администрирования | Редактирование бренда',
 			'description'	=> '',
 			'author'		=> '',
 			'baseurl'		=> base_url(),
@@ -485,6 +616,7 @@ class Admin_interface extends CI_Controller{
 		if($this->input->post('submit')):
 			unset($_POST['submit']);
 			$this->form_validation->set_rules('title',' ','required|trim');
+			$this->form_validation->set_rules('status_string',' ','trim');
 			$this->form_validation->set_rules('text',' ','trim');
 			if(!$this->form_validation->run()):
 				$this->session->set_userdata('msgr','Ошибка. Неверно заполены необходимые поля<br/>');
@@ -495,22 +627,6 @@ class Admin_interface extends CI_Controller{
 					$_POST['image'] = file_get_contents($_FILES['image']['tmp_name']);
 				endif;
 				$translit = $this->translite($_POST['title']);
-				if($_FILES['pdf']['error'] != 4):
-					$_FILES['pdf']['name'] = preg_replace('/.+(.)(\.)+/',$translit."\$2", $_FILES['pdf']['name']);
-					$config['upload_path'] 		= getcwd().'/catalogs/';
-					$config['allowed_types'] 	= 'pdf';
-					$config['remove_spaces'] 	= TRUE;
-					$config['overwrite'] 		= TRUE;
-					$this->load->library('upload',$config);
-					if(file_exists(getcwd().'/'.$pagevar['brand']['pdf'])):
-						unlink(getcwd().'/'.$pagevar['brand']['pdf']);
-					endif;
-					if(!$this->upload->do_upload('pdf')):
-						$this->session->set_userdata('msgr','Ошибка при загрузке документа.');
-					else:
-						$_POST['pdf'] = 'catalogs/'.$_FILES['pdf']['name'];
-					endif;
-				endif;
 				$result = $this->mdbrands->update_record($bid,$_POST,$translit);
 				if($result):
 					$this->session->set_userdata('msgs','Запись сохранена успешно.');
@@ -522,17 +638,52 @@ class Admin_interface extends CI_Controller{
 		$this->load->view("admin_interface/products/edit-brand",$pagevar);
 	}
 	
+	public function admin_edit_catalogs(){
+		
+		$cid = $this->uri->segment(8);
+		$pagevar = array(
+			'title'			=> 'Панель администрирования | Редактирование каталога',
+			'description'	=> '',
+			'author'		=> '',
+			'baseurl'		=> base_url(),
+			'loginstatus'	=> $this->loginstatus,
+			'userinfo'		=> $this->user,
+			'catalog'		=> $this->mdcatalogs->read_record($cid),
+			'msgs'			=> $this->session->userdata('msgs'),
+			'msgr'			=> $this->session->userdata('msgr'),
+		);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		if($this->input->post('submit')):
+			unset($_POST['submit']);
+			$this->form_validation->set_rules('title',' ','required|trim');
+			$this->form_validation->set_rules('text',' ','required|trim');
+			$this->form_validation->set_rules('html',' ','required|trim');
+			if(!$this->form_validation->run()):
+				$this->session->set_userdata('msgr','Ошибка. Неверно заполены необходимые поля<br/>');
+				$this->admin_edit_catalogs();
+				return FALSE;
+			else:
+				$result = $this->mdcatalogs->update_record($cid,$_POST,$this->uri->segment(5));
+				if($result):
+					$this->session->set_userdata('msgs','Каталог сохранен успешно.');
+				endif;
+				redirect('admin-panel/actions/brands/brandsid/'.$this->uri->segment(5).'/catalogs');
+			endif;
+		endif;
+		
+		$this->load->view("admin_interface/products/edit-catalog",$pagevar);
+	}
+	
 	public function control_delete_brand(){
 		
 		$bid = $this->uri->segment(6);
 		if($bid):
-			$filepath = getcwd().'/'.$this->mdbrands->read_field($bid,'pdf');
-			if(file_exists($filepath)):
-				unlink($filepath);
-			endif;
 			$result = $this->mdbrands->delete_record($bid);
 			if($result):
 				$this->mdproducts->delete_records_category($bid);
+				$this->mdcatalogs->delete_records($bid);
 				$this->session->set_userdata('msgs','Бренд удален успешно.');
 			else:
 				$this->session->set_userdata('msgr','Бренд не удален.');
@@ -540,6 +691,22 @@ class Admin_interface extends CI_Controller{
 			redirect($this->session->userdata('backpath'));
 		else:
 			show_404();
+		endif;
+	}
+	
+	public function admin_delete_catalogs(){
+		
+		$cid = $this->uri->segment(8);
+		if($cid):
+			$result = $this->mdcatalogs->delete_record($cid);
+			if($result):
+				$this->session->set_userdata('msgs','Каталог удален успешно.');
+			else:
+				$this->session->set_userdata('msgr','Каталог не удален.');
+			endif;
+			redirect('admin-panel/actions/brands/brandsid/'.$this->uri->segment(5).'/catalogs');
+		else:
+			redirect($this->session->userdata('backpath'));
 		endif;
 	}
 	
@@ -729,6 +896,88 @@ class Admin_interface extends CI_Controller{
 		endif;
 	}
 	
+	/******************************************************* baners ************************************************************/
+	
+	public function control_baners(){
+		
+		$pagevar = array(
+			'title'			=> 'Панель администрирования | Слайдшоу на главной',
+			'description'	=> '',
+			'author'		=> '',
+			'baseurl'		=> base_url(),
+			'loginstatus'	=> $this->loginstatus,
+			'userinfo'		=> $this->user,
+			'baners'		=> $this->mdimages->read_records(),
+			'msgs'			=> $this->session->userdata('msgs'),
+			'msgr'			=> $this->session->userdata('msgr'),
+		);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		$this->session->set_userdata('backpath',$pagevar['baseurl'].$this->uri->uri_string());
+		$this->load->view("admin_interface/baners/images",$pagevar);
+	}
+	
+	public function control_baners_add(){
+		
+		$pagevar = array(
+			'title'			=> 'Панель администрирования | Слайдшоу на главной | Добавление изображени',
+			'description'	=> '',
+			'author'		=> '',
+			'baseurl'		=> base_url(),
+			'loginstatus'	=> $this->loginstatus,
+			'userinfo'		=> $this->user,
+			'msgs'			=> $this->session->userdata('msgs'),
+			'msgr'			=> $this->session->userdata('msgr'),
+		);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		if($this->input->post('submit')):
+			unset($_POST['submit']);
+			$this->form_validation->set_rules('title',' ','required|trim');
+			$this->form_validation->set_rules('link',' ','prep_url|required|trim');
+			if(!$this->form_validation->run()):
+				$this->session->set_userdata('msgr','Ошибка. Неверно заполены необходимые поля<br/>');
+				$this->control_baners_add();
+				return FALSE;
+			else:
+				if($_FILES['image']['error'] != 4):
+					if(!$this->case_image($_FILES['image']['tmp_name'])):
+						continue;
+					endif;
+					$img = getimagesize($_FILES['image']['tmp_name']);
+					if(($img[0] > $img[1]) && ($img[0] >= 960)):
+						$data['image'] = $this->resize_image($_FILES['image']['tmp_name'],960,410,'width',TRUE);
+						$data['title'] = $_POST['title'];
+						$data['link'] = $_POST['link'];
+						$this->mdimages->insert_record($data);
+						$this->session->set_userdata('msgs','Изображение загруженно успешно');
+					else:
+						$this->session->set_userdata('msgr','Ошибка. Изображение должно быть не менее 960px по ширене');
+					endif;
+				endif;
+				redirect($this->uri->uri_string());
+			endif;
+		endif;
+		$this->load->view("admin_interface/baners/add-image",$pagevar);
+	}
+	
+	public function control_baners_delete(){
+		
+		$imgid = $this->uri->segment(6);
+		if($imgid):
+			$result = $this->mdimages->delete_record($imgid);
+			if($result):
+				$this->session->set_userdata('msgs','Изображение удалено успешно.');
+			else:
+				$this->session->set_userdata('msgr','Изображение не удалено.');
+			endif;
+			redirect($this->session->userdata('backpath'));
+		else:
+			redirect($this->session->userdata('backpath'));
+		endif;
+	}
+	
 	/******************************************************* products ************************************************************/
 	
 	public function control_products(){
@@ -743,7 +992,7 @@ class Admin_interface extends CI_Controller{
 			'userinfo'		=> $this->user,
 			'category'		=> $this->mdcategory->read_records(),
 			'brands'		=> $this->mdbrands->read_records(),
-			'products'		=> $this->mdproducts->read_admin_limit_records(7,$from),
+			'products'		=> $this->mdproducts->read_admin_limit_records(5,$from),
 			'pages'			=> array(),
 			'msgs'			=> $this->session->userdata('msgs'),
 			'msgr'			=> $this->session->userdata('msgr'),
@@ -753,6 +1002,7 @@ class Admin_interface extends CI_Controller{
 		
 		for($i=0;$i<count($pagevar['products']);$i++):
 			$pagevar['products'][$i]['text'] = strip_tags($pagevar['products'][$i]['text']);
+			$pagevar['products'][$i]['imgid'] = $this->mdproductsimages->read_main($pagevar['products'][$i]['id']);
 			if(mb_strlen($pagevar['products'][$i]['text'],'UTF-8') > 250):
 				$pagevar['products'][$i]['text'] = mb_substr($pagevar['products'][$i]['text'],0,250,'UTF-8');	
 				$pos = mb_strrpos($pagevar['products'][$i]['text'],' ',0,'UTF-8');
@@ -764,7 +1014,7 @@ class Admin_interface extends CI_Controller{
 		$config['base_url'] 		= $pagevar['baseurl'].'admin-panel/actions/products/from/';
 		$config['uri_segment'] 		= 5;
 		$config['total_rows'] 		= $this->mdproducts->count_records();
-		$config['per_page'] 		= 7;
+		$config['per_page'] 		= 5;
 		$config['num_links'] 		= 4;
 		$config['first_link']		= 'В начало';
 		$config['last_link'] 		= 'В конец';
@@ -870,7 +1120,7 @@ class Admin_interface extends CI_Controller{
 					$this->mdproductscolors->group_insert($pid,$colorslist);
 					$this->session->set_userdata('msgs','Цвета сохранены');
 				endif;
-				redirect($this->uri->uri_string());
+				redirect($this->session->userdata('backpath'));
 			endif;
 		endif;
 		for($i=0;$i<count($pagevar['colors']);$i++):
@@ -936,7 +1186,7 @@ class Admin_interface extends CI_Controller{
 					$this->mdproductssizes->group_insert($pid,$sizeslist);
 					$this->session->set_userdata('msgs','Размеры сохранены');
 				endif;
-				redirect($this->uri->uri_string());
+				redirect($this->session->userdata('backpath'));
 			endif;
 		endif;
 		for($i=0;$i<count($pagevar['sizes']);$i++):
@@ -1026,7 +1276,7 @@ class Admin_interface extends CI_Controller{
 			if($cnt):
 				$this->session->set_userdata('msgs','Загружено '.$cnt.' изображений!');
 			endif;
-			redirect($this->uri->uri_string());
+			redirect('admin-panel/actions/products/productid/'.$this->uri->segment(5).'/images');
 		endif;
 		
 		$this->load->view("admin_interface/products/add-image",$pagevar);

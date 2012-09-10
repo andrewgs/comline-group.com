@@ -15,8 +15,8 @@
 			<h1>Контактная информация</h1>
 			<h3>Офис компании и шоу-рум находятся по адресу:</h3>
 			<address>
-				ул.Скаковая, 32, корпус 2, офис 55, 5 этаж
-				<a class="show-map" data-address="Скаковая, 32, корпус 2" href="#">Показать на карте</a>
+				<?=$text[0];?>
+				<a class="show-map" data-address="<?=$text[0];?>" href="#">Показать на карте</a>
 			</address>
 			<aside id="map">
 				<!-- Этот блок кода нужно вставить в ту часть страницы, где вы хотите разместить карту (начало) -->
@@ -43,7 +43,7 @@
 			<div id="message_box"></div>
 			<?php $this->load->view("forms/frmcontact");?>
 			<p>
-				E-mail: <?=safe_mailto('brand@comline-group.com','brand@comline-group.com');?>
+				E-mail: <?=safe_mailto($text[1],$text[1]);?>
 			</p>
 		</div>
 	</div>

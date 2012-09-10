@@ -22,34 +22,32 @@
 				<table class="table table-striped table-bordered">
 					<thead>
 						<tr>
-							<th class="w30"><center>Фото</center></th>
-							<th class="w100"><center>Название/Свойства</center></th>
-							<th class="w400"><center>Описание</center></th>
-							<th class="w50">&nbsp;</th>
+							<th class="w80">Фото</th>
+							<th class="w100">Название/Свойства</th>
+							<th class="w400">Описание</th>
+							<th>&nbsp;</th>
 						</tr>
 					</thead>
 					<tbody>
 					<?php for($i=0;$i<count($products);$i++):?>
 						<tr class="align-center">
-							<td class="w30"><img src="<?=$baseurl;?>product/viewimage/<?=$products[$i]['id'];?>" alt="" style="width:30px;" /></td>
-							<td class="w100">
+							<td><img src="<?=$baseurl;?>productimage/viewimage/<?=$products[$i]['imgid'];?>" alt="" style="width:80px;" /></td>
+							<td>
 								<nobr><b><?=$products[$i]['title'];?></b></nobr><br/>
 								арт.<?=$products[$i]['art'];?><br/>
 							</td>
-							<td class="w400">
+							<td>
 								<p><?=$products[$i]['text'];?></p>
 								<p>
-									<?=anchor('admin-panel/actions/products/productid/'.$products[$i]['id'].'/images','[Рисунки]');?>
-									<span class="divider"> / </span>
-									<?=anchor('admin-panel/actions/products/productid/'.$products[$i]['id'].'/colors','[Цвета]');?>
-									<span class="divider"> / </span>
-									<?=anchor('admin-panel/actions/products/productid/'.$products[$i]['id'].'/sizes','[Размеры]');?>
+									<?=anchor('admin-panel/actions/products/productid/'.$products[$i]['id'].'/images','Фотографии');?>&nbsp;
+									<?=anchor('admin-panel/actions/products/productid/'.$products[$i]['id'].'/colors','Цвета');?>&nbsp;
+									<?=anchor('admin-panel/actions/products/productid/'.$products[$i]['id'].'/sizes','Размеры');?>
 								</p>
 							</td>
-							<td class="w50">
+							<td>
 								<div id="params<?=$i;?>" style="display:none" data-pid="<?=$products[$i]['id'];?>"></div>
-								<?=anchor('admin-panel/actions/products/edit/'.$products[$i]['id'],'[Редакт.]',array('title'=>'Редактировать'));?>
-								<a class="deleteProduct" data-param="<?=$i;?>" data-toggle="modal" href="#deleteProduct" title="Удалить">[Удалить]</a>
+								<?=anchor('admin-panel/actions/products/edit/'.$products[$i]['id'],'<i class="icon-pencil"></i>',array('title'=>'Редактировать','class'=>'btn'));?>
+								<a class="deleteProduct btn" data-param="<?=$i;?>" data-toggle="modal" href="#deleteProduct" title="Удалить"><i class="icon-trash"></i></a>
 								<?php if(!$products[$i]['showitem']):?>
 									<i class="icon-eye-close"></i>
 								<?php endif;?>

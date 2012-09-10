@@ -9,7 +9,7 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="art" class="control-label">Артикл: </label>
+			<label for="art" class="control-label">Артикул: </label>
 			<div class="controls">
 				<input type="text" class="span3 input-valid" name="art" value="<?=set_value('art');?>">
 				<span class="help-inline" style="display:none;">&nbsp;</span>
@@ -68,7 +68,7 @@
 			<div class="controls">
 				<label class="checkbox">
 					<input type="checkbox" value="1" id="showitem" name="showitem" checked="checked">
-					Показывать товара</label>
+					Показывать товар</label>
 			</div>
 		</div>
 	</fieldset>

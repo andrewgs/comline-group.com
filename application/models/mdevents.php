@@ -74,10 +74,11 @@ class Mdevents extends CI_Model{
 		return 0;
 	}
 	
-	function read_record($id){
+	function read_record($id,$types){
 		
 		$this->db->select('id,title,text,date,translit');
 		$this->db->where('id',$id);
+		$this->db->where_in('type',$types);
 		$query = $this->db->get('events',1);
 		$data = $query->result_array();
 		if(isset($data[0])) return $data[0];

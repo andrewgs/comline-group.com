@@ -3,6 +3,7 @@
 <?php $this->load->view("admin_interface/includes/head");?>
 <body>
 	<?php $this->load->view("admin_interface/includes/header");?>
+	
 	<div class="container">
 		<div class="row">
 			<div class="span9">
@@ -16,23 +17,26 @@
 				<table class="table table-striped table-bordered">
 					<thead>
 						<tr>
-							<th class="w100"><center>Фото</center></th>
-							<th class="w600"><center>Название</center></th>
-							<th class="w50">&nbsp;</th>
+							<th class="w100">Логотип</th>
+							<th class="w600">Описание</th>
+							<th>&nbsp;</th>
 						</tr>
 					</thead>
 					<tbody>
 					<?php for($i=0;$i<count($brands);$i++):?>
 						<tr class="align-center">
-							<td class="w100"><img src="<?=$baseurl;?>brands/viewimage/<?=$brands[$i]['id'];?>" alt="" /></td>
-							<td class="w500">
-								<i><b><?=$brands[$i]['title'];?></b></i>
+							<td><img src="<?=$baseurl;?>brands/viewimage/<?=$brands[$i]['id'];?>" alt="" /></td>
+							<td>
+								<strong><?=$brands[$i]['title'];?></strong>
 								<p><?=$brands[$i]['text'];?></p>
+								<p>
+									<?=anchor('admin-panel/actions/brands/brandsid/'.$brands[$i]['id'].'/catalogs','Каталоги');?>&nbsp;
+								</p>
 							</td>
-							<td class="w50">
+							<td>
 								<div id="params<?=$i;?>" style="display:none" data-bid="<?=$brands[$i]['id'];?>"></div>
-								<?=anchor('admin-panel/actions/brands/edit/'.$brands[$i]['translit'],'Редактировать',array('title'=>'Редактировать'));?>
-								<a class="deleteBrand" data-param="<?=$i;?>" data-toggle="modal" href="#deleteBrand" title="Удалить">Удалить</a>
+								<?=anchor('admin-panel/actions/brands/edit/'.$brands[$i]['translit'],'<i class="icon-pencil"></i>',array('title'=>'Редактировать', 'class'=>'btn'));?>
+								<a class="deleteBrand btn" data-param="<?=$i;?>" data-toggle="modal" href="#deleteBrand" title="Удалить"><i class="icon-trash"></i></a>
 							</td>
 						</tr>
 					<?php endfor; ?>

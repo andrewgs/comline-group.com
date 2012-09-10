@@ -5,26 +5,25 @@ class Mdimages extends CI_Model{
 	var $id			= 0;
 	var $image		= '';
 	var $title		= '';
-	var $pageid		= '';
+	var $link		= '';
 	
 	function __construct(){
 		parent::__construct();
 	}
 	
-	function insert_record($data,$pageid){
+	function insert_record($data){
 			
 		$this->title	= htmlspecialchars($data['title']);
 		$this->image	= $data['image'];
-		$this->pageid	= $pageid;
+		$this->link		= $data['link'];
 		
 		$this->db->insert('images',$this);
 		return $this->db->insert_id();
 	}
 	
-	function read_records($pageid){
+	function read_records(){
 		
-		$this->db->select('id,title,pageid');
-		$this->db->where_in('pageid',$pageid);
+		$this->db->select('id,title,link');
 		$query = $this->db->get('images');
 		$data = $query->result_array();
 		if(count($data)) return $data;
@@ -33,7 +32,7 @@ class Mdimages extends CI_Model{
 	
 	function read_record($id){
 		
-		$this->db->select('id,title,pageid');
+		$this->db->select('id,title,link');
 		$this->db->where('id',$id);
 		$query = $this->db->get('images',1);
 		$data = $query->result_array();

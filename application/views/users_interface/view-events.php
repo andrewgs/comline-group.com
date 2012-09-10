@@ -12,8 +12,19 @@
 		<?php $this->load->view("users_interface/includes/header");?>
 		
 		<div id="main" class="substrate">
-			<h1>О компании</h1>
-			<?=$text;?>
+			<h1><?=$events['title'];?></h1>
+			<?php if($this->uri->segment(1) == 'news'):?>
+				<img src="<?=$baseurl;?>news/viewimage/<?=$events['id'];?>" alt="" width="150"/><br/><br/>
+			<?php else:?>
+				<img src="<?=$baseurl;?>stock/viewimage/<?=$events['id'];?>" alt="" width="150"/><br/><br/>
+			<?php endif;?>
+			<p class="descr"><?=$events['text'];?></p>
+			<p class="date"><?=$events['date'];?></p>
+			<?php if($this->uri->segment(1) == 'news'):?>
+				<?=anchor('all-news','Весь список &raquo;',array('class'=>'more'));?>
+			<?php else:?>
+				<?=anchor('all-stock','Весь список &raquo;',array('class'=>'more'));?>
+			<?php endif;?>
 		</div>
 	</div>
 	<?php $this->load->view("users_interface/includes/footer");?>

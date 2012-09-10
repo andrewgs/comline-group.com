@@ -16,23 +16,22 @@
 				<table class="table table-striped table-bordered">
 					<thead>
 						<tr>
-							<th class="w600"><center>Название</center></th>
-							<th class="w50">&nbsp;</th>
+							<th class="w500">Название</th>
+							<th class="w100">&nbsp;</th>
 						</tr>
 					</thead>
 					<tbody>
 					<?php for($i=0;$i<count($storage);$i++):?>
 						<tr class="align-center">
-							<td class="w500">
-								<i><b><?=$storage[$i]['title'];?></b></i><br/>
-								<?=$storage[$i]['address'];?><br/>
-								<?=$storage[$i]['metro'];?>
-								
+							<td>
+								<?=$storage[$i]['title'];?> <br />
+								м.<?=$storage[$i]['metro'];?> <br /> 
+								<?=$storage[$i]['address'];?>
 							</td>
-							<td class="w50">
+							<td>
 								<div id="params<?=$i;?>" style="display:none" data-sid="<?=$storage[$i]['id'];?>"></div>
-								<?=anchor('admin-panel/actions/storage/edit/storageid/'.$storage[$i]['id'],'Редактировать',array('title'=>'Редактировать'));?>
-								<a class="deleteStorage" data-param="<?=$i;?>" data-toggle="modal" href="#deleteStorage" title="Удалить">Удалить</a>
+								<?=anchor('admin-panel/actions/storage/edit/storageid/'.$storage[$i]['id'],'<i class="icon-pencil"></i>',array('title'=>'Редактировать', 'class'=>'btn'));?>
+								<a class="deleteStorage btn" data-param="<?=$i;?>" data-toggle="modal" href="#deleteStorage" title="Удалить"><i class="icon-trash"></i></a>
 							</td>
 						</tr>
 					<?php endfor; ?>

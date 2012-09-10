@@ -208,30 +208,41 @@ p.em40 { max-width: 40em; }
 
 .categories-list { margin-bottom: 2em; margin-left: 0; margin-top: 0.4em; padding-left: 0; }
 .substrate ul.categories-list li { color: #666; }
+.substrate ul.categories-list li label { margin-left: 0.25em; position: relative; top: -2px; }
 .substrate ul.categories-list li.disabled { color: #bdbdbd; }
 .product-preview { display: inline-block; margin: 0 0.725em 1.75em 0; }
 .product-preview:nth-child(4n) { margin-right: 0; }
 .product-preview p { margin: 0 0 0.25em 0; }
 .product-preview p.title { color: #333; margin: 0; }
+.product-preview p.title a { color: #333; text-decoration: none; }
+.product-preview p.title a:hover { text-decoration: underline; }
 .product-preview p.articul { }
-.product-preview img { border: 1px solid #E5E5E5; }
+.product-preview img { border: 1px solid #E5E5E5; width: 150px; height: auto; }
 #main.substrate.categories { padding: 2em; } 
 .categories h2 { border-bottom: 1px solid #D8D8D8; padding-bottom: 0.25em; } 
 .categories h2 { border-bottom: 1px solid #D8D8D8; padding-bottom: 0.25em; }
 .products-group { margin-bottom: 1.75em; }
 
 .photos, .attributes { float: left; }
-.photos { margin: 0 2em 7em 0; width: 26em; }
+.photos { margin: 0 0 7em 0; width: 28em; }
+
 .photos .main-photo { float: left; margin: 0 0.85em 0 0; }
+	.photos .main-photo img { width: 298px; height: auto; }
 .photos .pager { float: left; }
-.photos .pager img { margin-bottom: 0.4em; }
+.photos .pager img { margin-bottom: 0.4em; width: 93px; height: 140px; }
+
+.product-photos img { margin: 0 0.85em 0.4em 0; width: 93px; height: 140px; }
+.product-photos img.main-photo { float: left; margin: 0 0.85em 0 0; width: 298px; height: auto; }
+
 .attributes { width: 240px; }
 .attributes .product-title { font-size: 1.5em; font-weight: normal; margin-bottom: 0; }
 .attributes .articul { color: #999; display: inline-block; font-size: 0.75em; margin-bottom: 1.5em; }
 .attributes .attr { margin-bottom: 0.5em; }
-.attributes .product-color { width: 12px; height: 12px; display: inline-block; margin: 0 0.5em; line-height: 1em; border: 1px solid #e5e5e5; position: relative; top: 0.15em; }
+.attributes .attr strong { margin-right: 0.5em; }
+.attributes .product-color { width: 12px; height: 12px; display: inline-block; margin: 0; line-height: 1em; border: 1px solid #e5e5e5; position: relative; top: 0.15em; }
 .nav-links a { color: #666; text-decoration: none; border-bottom: 1px solid; display: inline-block; font-size: 0.85em; line-height: 1.1em; margin-bottom: 1.75em; }
 .product-page .nav-links a { margin-bottom: 2.5em; }
+.product-page .nav-links a.blockLink { border-bottom: 0 none; color: #BDBDBD; cursor: default; }
 
 .brand-wrapper .brand-logo { float: left; font-size: 0.85em; line-height: 1.5em; margin-right: 1em; }
 .brand-wrapper .catalog-list { float: left; margin: 0.7em 0 0 1.25em; width: 30em; }

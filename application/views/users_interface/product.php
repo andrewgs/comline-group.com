@@ -14,17 +14,17 @@
 		<div id="main" class="substrate categories large">
 			<aside class="sorting">
 				<ul class="categories-list gender">
-					<li <?=($urlparam[0] == 1)?'class="disabled"':'';?>><input type="checkbox" id="woman" class="chGender chInput" <?=($urlparam[0] == 1)?'disabled="disabled"':'checked="checked"';?> name="woman" value="0" /><label>Женская одежда</label></li>
-					<li <?=($urlparam[0] == 0)?'class="disabled"':'';?>><input type="checkbox" id="man" class="chGender chInput" <?=($urlparam[0] == 0)?'disabled="disabled"':'checked="checked"';?> name="man" value="1" /><label>Мужская одежда</label></li>
+					<li <?=($urlparam[0] == 1)?'class="disabled"':'';?>><input type="checkbox" id="woman" class="chGender chInput" <?=($urlparam[0] == 1)?'disabled="disabled"':'disabled="disabled" checked="checked"';?> name="woman" value="0" /><label>Женская одежда</label></li>
+					<li <?=($urlparam[0] == 0)?'class="disabled"':'';?>><input type="checkbox" id="man" class="chGender chInput" <?=($urlparam[0] == 0)?'disabled="disabled"':'disabled="disabled" checked="checked"';?> name="man" value="1" /><label>Мужская одежда</label></li>
 				</ul>
 				<ul class="categories-list brands">
 				<?php for($i=0;$i<count($brands);$i++):?>
-					<li <?=($urlparam[1] != $brands[$i]['id'])?'class="disabled"':'';?>><input type="checkbox" class="chInput" name="brand" <?=($urlparam[1] != $brands[$i]['id'])?'disabled="disabled"':'checked="checked"';?> value="<?=$brands[$i]['id'];?>" /><label><?=$brands[$i]['title'];?></label></li>
+					<li <?=($urlparam[1] != $brands[$i]['id'])?'class="disabled"':'';?>><input type="checkbox" class="chInput" name="brand" <?=($urlparam[1] != $brands[$i]['id'])?'disabled="disabled"':'disabled="disabled" checked="checked"';?> value="<?=$brands[$i]['id'];?>" /><label><?=$brands[$i]['title'];?></label></li>
 				<?php endfor;?>
 				</ul>
 				<ul class="categories-list category">
 				<?php for($i=0;$i<count($category);$i++):?>
-					<li <?=($urlparam[2] != $category[$i]['id'])?'class="disabled"':'';?>><input type="checkbox" class="chCategory chInput" name="category" <?=($urlparam[2] != $category[$i]['id'])?'disabled="disabled"':'checked="checked"';?> value="<?=$category[$i]['id'];?>" /><label><?=$category[$i]['title'];?></label></li>
+					<li <?=($urlparam[2] != $category[$i]['id'])?'class="disabled"':'';?>><input type="checkbox" class="chCategory chInput" name="category" <?=($urlparam[2] != $category[$i]['id'])?'disabled="disabled"':'disabled="disabled" checked="checked"';?> value="<?=$category[$i]['id'];?>" /><label><?=$category[$i]['title'];?></label></li>
 				<?php endfor;?>
 				</ul>
 			</aside>
@@ -33,17 +33,15 @@
 						<div class="nav-links">
 							<?=anchor('catalog/come-back/'.$this->uri->segment(2),'&laquo; Вернуться к списку товаров',array('id'=>'comeBack'));?>
 						</div>
-						<div class="main-photo">
+						<div class="product-photos">
 						<?php for($i=0;$i<count($primages);$i++):?>
 							<?php if($primages[$i]['main']):?>
-							<img src="<?=$baseurl;?>productimage/viewimage/<?=$primages[$i]['id'];?>" />
+							<img class="main-photo" src="<?=$baseurl;?>productimage/viewimage/<?=$primages[$i]['id'];?>" />
 							<?php endif;?>
 						<?php endfor;?>
-						</div>
-						<div class="pager">
 						<?php for($i=0;$i<count($primages);$i++):?>
 							<?php if(!$primages[$i]['main']):?>
-							<img src="<?=$baseurl;?>productimage/viewimage/<?=$primages[$i]['id'];?>" /><br />
+							<img src="<?=$baseurl;?>productimage/viewimage/<?=$primages[$i]['id'];?>" />	
 							<?php endif;?>
 						<?php endfor;?>
 						</div>

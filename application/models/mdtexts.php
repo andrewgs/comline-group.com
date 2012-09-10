@@ -61,6 +61,14 @@ class Mdtexts extends CI_Model{
 		return FALSE;
 	}
 	
+	function update_field($id,$field,$value){
+			
+		$this->db->set($field,$value);
+		$this->db->where('id',$id);
+		$this->db->update('texts');
+		return $this->db->affected_rows();
+	}
+	
 	function delete_record($id){
 	
 		$this->db->where('id',$id);
