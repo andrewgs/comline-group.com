@@ -18,7 +18,9 @@
 					<img src="<?=$baseurl;?>brands/viewimage/<?=$brands[$i]['id'];?>" /><br />
 					<span class="underlined"><?=$brands[$i]['title'];?></span> <?=$brands[$i]['status_string'];?>
 					<?=$brands[$i]['text'];?>
+				<?php if($brands[$i]['catalogs']):?>
 					<?=anchor('catalogs/brands/'.$brands[$i]['translit'],'Просмотреть каталоги &raquo;');?>
+				<?php endif;?>
 					<?=anchor('catalog/brands/'.$brands[$i]['translit'],'Продукция бренда &raquo;');?>
 				</li>
 			<?php endfor;?>

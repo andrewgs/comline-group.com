@@ -334,6 +334,10 @@ class Users_interface extends CI_Controller{
 		$this->session->unset_userdata('msgs');
 		$this->session->unset_userdata('msgr');
 		
+		for($i=0;$i<count($pagevar['brands']);$i++):
+			$pagevar['brands'][$i]['catalogs'] = $this->mdcatalogs->catalog_exist($pagevar['brands'][$i]['id']);
+		endfor;
+		
 		$this->load->view("users_interface/brands",$pagevar);
 	}
 	
@@ -500,9 +504,12 @@ class Users_interface extends CI_Controller{
 		else:
 			$catalogid = $this->mdcatalogs->read_field_translit($this->uri->segment(5),'id',$brandid);
 			if(!$catalogid):
-				redirect('');
+				redirect('brands');
 			endif;
 			$pagevar['catalog'] = $this->mdcatalogs->read_record($catalogid);
+			if(!count($pagevar['catalog'])):
+				redirect('brands');
+			endif;
 		endif;
 		
 		$this->load->view("users_interface/catalogs",$pagevar);

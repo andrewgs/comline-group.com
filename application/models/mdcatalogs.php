@@ -46,6 +46,15 @@ class Mdcatalogs extends CI_Model{
 		return NULL;
 	}
 	
+	function catalog_exist($brand){
+		
+		$this->db->where('brand',$brand);
+		$query = $this->db->get('catalogs');
+		$data = $query->result_array();
+		if(count($data)) return TRUE;
+		return FALSE;
+	}
+	
 	function count_records(){
 		
 		return $this->db->count_all('catalogs');
