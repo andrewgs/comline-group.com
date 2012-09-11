@@ -1,11 +1,11 @@
 <header class="cf">
 	<h1><?=anchor('','Comfort Line - одежда для дома и отдыха',array('id'=>'logo'));?></h1>
 	<ul id="main-nav">
-		<li><?=anchor('','Главная');?></li>
-		<li><?=anchor('about','О компании');?></li>
-		<li><?=anchor('brands','Каталоги');?></li>
-		<li><?=anchor('clients','Клиентам');?></li>
-		<li><?=anchor('contacts','Контактная информация');?></li>
+		<li class="home"><?=anchor('','Главная');?></li>
+		<li class="about"><?=anchor('about','О компании');?></li>
+		<li class="brands"><?=anchor('brands','Каталоги');?></li>
+		<li class="clients"><?=anchor('clients','Клиентам');?></li>
+		<li class="contacts"><?=anchor('contacts','Контактная информация');?></li>
 	</ul>
 	<div class="right">
 		<div class="phone cf">

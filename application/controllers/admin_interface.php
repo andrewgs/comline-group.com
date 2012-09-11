@@ -764,13 +764,15 @@ class Admin_interface extends CI_Controller{
 		
 		if($this->input->post('submit')):
 			unset($_POST['submit']);
+			$this->form_validation->set_rules('title',' ','required|trim');
+			$this->form_validation->set_rules('number',' ','required|trim');
 			$this->form_validation->set_rules('code',' ','required|trim');
 			if(!$this->form_validation->run()):
 				$this->session->set_userdata('msgr','Ошибка. Неверно заполены необходимые поля<br/>');
 				$this->control_add_color();
 				return FALSE;
 			else:
-				$cid = $this->mdcolors->insert_record($_POST['code']);
+				$cid = $this->mdcolors->insert_record($_POST);
 				if($cid):
 					$this->session->set_userdata('msgs','Запись создана успешно.');
 				endif;
@@ -1267,8 +1269,18 @@ class Admin_interface extends CI_Controller{
 			$cnt = 0;
 			if(!count($_POST)):
 				if(!$this->mdproductsimages->read_main($this->uri->segment(5))):
-					$this->session->set_userdata('msgr','Ошибка. Не указано основное изображение');
-					redirect($this->uri->uri_string());
+					$first = 0;
+					for($i=0;$i<count($_FILES);$i++):
+						if($_FILES['image'.$i]['error'] != 4):
+							if(!$this->case_image($_FILES['image'.$i]['tmp_name'])):
+								continue;
+							endif;
+							if(!$first):
+								$first = $i;
+							endif;
+						endif;
+					endfor;
+					$_POST['image'.$first] = 1;
 				endif;
 			else:
 				$imain = $this->mdproductsimages->read_main($this->uri->segment(5));
@@ -1290,7 +1302,6 @@ class Admin_interface extends CI_Controller{
 					else:
 						$data['image'] = file_get_contents($_FILES['image'.$i]['tmp_name']);
 					endif;
-					
 					$data['main'] = 0;
 					if(isset($_POST['image'.$i])):
 						$data['main'] = 1;

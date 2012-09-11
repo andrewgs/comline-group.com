@@ -4,14 +4,18 @@ class Mdcolors extends CI_Model{
 
 	var $id			= 0;
 	var $code		= '';
+	var $title		= '';
+	var $number		= '';
 	
 	function __construct(){
 		parent::__construct();
 	}
 	
-	function insert_record($code){
+	function insert_record($data){
 			
-		$this->code = $code;
+		$this->title = htmlspecialchars($data['title']);
+		$this->number = $data['number'];
+		$this->code = $data['code'];
 		
 		$this->db->insert('colors',$this);
 		return $this->db->insert_id();

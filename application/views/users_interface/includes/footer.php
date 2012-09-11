@@ -1,9 +1,9 @@
 <footer>
 	<div class="container cf">
 		<ul id="footer-nav">
-			<li><?=anchor('clients','Партнерам');?></li>
+			<li class="clients"><?=anchor('clients','Партнерам');?></li>
 			<li><?=anchor('#','Вакансии');?></li>
-			<li><?=anchor('contacts','Контактная информация');?></li>
+			<li class="contacts"><?=anchor('contacts','Контактная информация');?></li>
 		</ul>
 		<div class="right">
 			<div class="phone cf">

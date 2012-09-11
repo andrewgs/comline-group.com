@@ -2,10 +2,24 @@
 	<legend>Форма добавления брендов</legend>
 	<fieldset>
 		<div class="control-group">
+			<label for="title" class="control-label">Название: </label>
+			<div class="controls">
+				<input type="text" class="input-xlarge input-valid" name="title" value="<?=set_value('title');?>">
+				<span class="help-inline" style="display:none;">&nbsp;</span>
+			</div>
+		</div>
+		<div class="control-group">
+			<label for="number" class="control-label">Номер: </label>
+			<div class="controls">
+				<input type="text" class="input-small input-valid digital" name="number" value="<?=set_value('number');?>">
+				<span class="help-inline" style="display:none;">&nbsp;</span>
+			</div>
+		</div>
+		<div class="control-group">
 			<label for="code" class="control-label">Код цвета:</label>
 			<div class="controls">
 				<div class="input-prepend input-append">
-					<span class="add-on">#</span><input type="text" class="input-small input-valid"  id="ColorCode" name="code">
+					<span class="add-on">#</span><input type="text" class="input-small input-valid" value="<?=set_value('code');?>" id="ColorCode" name="code">
 				</div>
 			</div>
 		</div>
