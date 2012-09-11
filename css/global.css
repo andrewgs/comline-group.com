@@ -109,8 +109,10 @@ ul { max-width: 62em; list-style: none; }
 p { font-size: 0.85em; line-height: 1.5em; margin-bottom: 1.5em; max-width: 50em; }
 h4 { font-size: 0.85em; }
 
+header { position: relative; } 
 header h1 { margin-bottom: 0; }
-#main-nav { float: left; list-style: none; margin: 1em 0 0 3em; }
+#main-nav { float: left; list-style: none outside none; margin: 0.7em 0 0 3em; }
+#main-nav li { line-height: 1.4em; }
 #main-nav li.active a { color: #333; border-bottom: 0 none; }
 #main-nav a { border-bottom: 1px solid; color: #777; display: inline-block; font-size: 0.9em; line-height: 1.15em; margin-bottom: 0.2em; text-decoration: none; }
 #main-nav a:hover { color: #4d4d4d; }
@@ -129,6 +131,7 @@ header h1 { margin-bottom: 0; }
 .actions li #action-shop:hover { background: -moz-linear-gradient(top, #f3893c 0%, #ce6a21 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3893c), color-stop(100%,#ce6a21)); background: -webkit-linear-gradient(top, #f3893c 0%,#ce6a21 100%); background: -o-linear-gradient(top, #f3893c 0%,#ce6a21 100%); background: -ms-linear-gradient(top, #f3893c 0%,#ce6a21 100%); background: linear-gradient(top, #f3893c 0%,#ce6a21 100%); }
 
 .slider-wrapper { position: relative; }
+.slider { width: 960px; height: 410px; }
 .slider img { -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; -webkit-box-shadow: 0 1px 5px #ccc; -moz-box-shadow: 0 1px 5px #ccc; box-shadow: 0 1px 5px #ccc; }
 #left-arrow, #right-arrow { position: absolute; top: 11em; text-indent: -9999px; width: 28px; height: 40px; opacity: 0.5; -webkit-transition: opacity 0.5s ease-in-out; -moz-transition: opacity 0.5s ease-in-out; -o-transition: opacity 0.5s ease-in-out; }
 #left-arrow:hover, #right-arrow:hover { opacity: 1; }
@@ -254,6 +257,29 @@ p.em40 { max-width: 40em; }
 
 .right { float: right; }
 .left { float: left; }
+
+.overlay { background-color: rgba(0, 0, 0, 0.5); height: 100%; left: 0; position: fixed; top: 0; width: 100%; z-index: 105; display: none; }
+.overlay p { background: #777; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; -webkit-box-shadow: 0 0 7px #333; -moz-box-shadow: 0 0 7px #333; box-shadow: 0 0 7px #333; color: #fff; left: 50%; margin: 0 0 0 -15em; padding: 1em 1.5em; position: absolute; top: 25%; width: 30em; }
+.popup { z-index: 199; display: none; position: absolute; }
+.popup.become-partner { right: 6.3em; top: 7.9em; }
+.popup.get-call { right: 0; top: 4.4em; }
+.popup-form { background: #FAFAFA; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; -webkit-box-shadow: 1px 3px 5px #555; -moz-box-shadow: 1px 3px 5px #555; box-shadow: 1px 3px 5px #555; color: #3E3E3E; font-size: 0.75em; padding: 1em; width: 13.4em; }
+.popup-form fieldset { padding-bottom: 10px }
+.popup-form label span { color: #70b611 }
+.popup-form .validate label,
+.popup-form .validate label span { font-weight: 700; color: #d10000; }
+.popup-form input,
+.popup-form textarea { display: block; width: 152px; }
+.popup-form textarea { height: 51px; padding: 2px 3px; }
+.popup-form .submit button { width: 162px; line-height: 24px; padding-bottom: 0.1em; display: block; color: #fff; text-align: center; border: 0 none; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; background: -moz-linear-gradient(top, #f3893c 0%, #dd782f 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3893c), color-stop(100%,#dd782f)); background: -webkit-linear-gradient(top, #f3893c 0%,#dd782f 100%); background: -o-linear-gradient(top, #f3893c 0%,#dd782f 100%); background: -ms-linear-gradient(top, #f3893c 0%,#dd782f 100%); background: linear-gradient(top, #f3893c 0%,#dd782f 100%); color: #fff; -webkit-text-shadow: 0 1px 1px #666; -moz-text-shadow: 0 1px 1px #666; -webkit-text-shadow: 0 1px 1px #666; -moz-text-shadow: 0 1px 1px #666; text-shadow: 0 1px 1px #666; }
+.popup-form .submit button:hover { background: -moz-linear-gradient(top, #f3893c 0%, #ce6a21 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f3893c), color-stop(100%,#ce6a21)); background: -webkit-linear-gradient(top, #f3893c 0%,#ce6a21 100%); background: -o-linear-gradient(top, #f3893c 0%,#ce6a21 100%); background: -ms-linear-gradient(top, #f3893c 0%,#ce6a21 100%); background: linear-gradient(top, #f3893c 0%,#ce6a21 100%); }
+.popup-form .submit:active { position: relative; top: 1px; }
+.popup-form .submitted { background: none }
+.popup-form .submitted button { display: none }
+.popup-form .submit.disabled button { cursor: default }
+.popup-form em { display: none; text-align: center; }
+.popup-form .submitted em { display: block; padding-top: 2px; }
+
 
 /* 6. CUSTOM LAYOUT & TYPOGRAPHY (Baby bear)
 ----------------------------------------------------------------------------------------*/
