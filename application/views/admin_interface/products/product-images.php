@@ -18,20 +18,15 @@
 				<?php $this->load->view("alert_messages/alert-success");?>
 				<ul class="thumbnails">
 				<?php for($i=0;$i<count($primages);$i++):?>
-					<li class="span3">
-						<div class="thumbnail">
-							<img src="<?=$baseurl;?>productimage/viewimage/<?=$primages[$i]['id'];?>" />
-							<hr />
-							<div class="caption">
-								<p>
-									<div id="params<?=$i;?>" style="display:none" data-imgID="<?=$primages[$i]['id'];?>" data-main="<?=$primages[$i]['main'];?>"></div>
-									<a class="btn btn-danger deleteImage" data-param="<?=$i;?>" data-toggle="modal" href="#deleteImage">Удалить</a>
-								<?php if($primages[$i]['main']):?>
-									<button class="btn btn-primary" disabled="disabled" type="button">Основная</button>
-								<?php endif;?>
-								</p>
-							</div>
-						</div>
+					<li class="span2">
+						<img width="150px" class="img-polaroid" src="<?=$baseurl;?>productimage/viewimage/<?=$primages[$i]['id'];?>" />
+						<p>
+							<div id="params<?=$i;?>" style="display:none" data-imgID="<?=$primages[$i]['id'];?>" data-main="<?=$primages[$i]['main'];?>"></div>
+							<a class="btn btn-danger btn-small deleteImage" data-param="<?=$i;?>" data-toggle="modal" href="#deleteImage">Удалить</a>
+							<?php if($primages[$i]['main']):?>
+							<span class="label label-info">Основное</span>
+							<?php endif;?>							
+						</p>
 					</li>
 				<?php endfor;?>
 				</ul>

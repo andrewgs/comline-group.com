@@ -23,9 +23,9 @@
 					<thead>
 						<tr>
 							<th class="w80">Фото</th>
-							<th class="w100">Название/Свойства</th>
+							<th class="w100">Название</th>
 							<th class="w400">Описание</th>
-							<th>&nbsp;</th>
+							<th class="w100">&nbsp;</th>
 						</tr>
 					</thead>
 					<tbody>

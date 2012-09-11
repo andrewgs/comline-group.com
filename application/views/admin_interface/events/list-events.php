@@ -13,9 +13,6 @@
 				</ul>
 				<?php $this->load->view("alert_messages/alert-error");?>
 				<?php $this->load->view("alert_messages/alert-success");?>
-				<?php if($pages): ?>
-					<?=$pages;?>
-				<?php endif;?>
 				<table class="table table-striped table-bordered">
 					<thead>
 						<tr>
