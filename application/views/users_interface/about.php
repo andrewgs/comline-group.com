@@ -11,7 +11,7 @@
 	<div class="container cf">
 		<?php $this->load->view("users_interface/includes/header");?>
 		
-		<div id="main" class="substrate">
+		<div id="main" class="substrate large">
 			<h1>О компании</h1>
 			<?=$text;?>
 		</div>

@@ -107,7 +107,7 @@ html, body { background: url('../images/bg-main.png') repeat; }
 #logo { background: url('../images/logo.png') no-repeat; width: 389px; height: 148px; display: block; text-indent: -9999px; float: left; margin-left: -1.25em; }
 #slogan { text-align: center; margin: 0.1em 0 0.15em 0.5em; }
 ul { max-width: 62em; list-style: none; }
-p { font-size: 0.85em; line-height: 1.5em; margin-bottom: 1.5em; max-width: 50em; }
+p { font-size: 0.85em; line-height: 1.5em; margin-bottom: 1.5em; max-width: 54em; }
 h4 { font-size: 0.85em; }
 
 header { position: relative; } 
