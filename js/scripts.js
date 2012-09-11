@@ -63,15 +63,18 @@ function backpath(path){window.location=path;}
 		event.preventDefault();
 	});
 	
-	$('#action-partner').click(function(){
+	$('#action-partner').click(function(e){
+		e.preventDefault();
 		$('div.popup:not(.become-partner)').hide();
 		$('div.become-partner').toggle();
 	});
-	$('.phone a.dashed').click(function(){
+	$('.phone a.dashed').click(function(e){
+		e.preventDefault();
 		$('div.popup:not(.get-call)').hide();
 		$('div.get-call').toggle();
 	}); 
-	$('#action-shop').click(function(){
+	$('#action-shop').click(function(e){
+		e.preventDefault();
 		$('div.popup').hide();
 		$('div.overlay').show();
 		setTimeout( function() { $('div.overlay').fadeOut(1000);},3000);
