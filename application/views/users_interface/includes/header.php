@@ -20,53 +20,49 @@
 		</ul>
 	</div>
 	<div class="popup become-partner">
-		<form id="form-feedback-default" class="popup-form" action="/forms/feedback/">
+		<?=form_open($this->uri->uri_string(),array('id'=>'form-feedback-default','class'=>'popup-form')); ?>
 			<fieldset>
 				<label for="feedback-company">Название вашей компании <span>*</span></label>
-				<input type="text" class="valid-required" name="data[company]" id="feedback-company">
+				<input type="text" class="valid-required FieldSend" name="company" id="feedback-company">
 			</fieldset>
 			<fieldset>
 				<label for="feedback-name">Ваше имя <span>*</span></label>
-				<input type="text" class="valid-required" name="data[name]" id="feedback-name">
+				<input type="text" class="valid-required FieldSend" name="name" id="feedback-name">
 			</fieldset>
 			<fieldset>
 				<label for="feedback-mail">Эл. почта <span>*</span></label>
-				<input type="text" class="valid-required valid-email" name="data[email]" id="feedback-mail">
+				<input type="text" class="valid-required valid-email FieldSend" name="email" id="feedback-mail">
 			</fieldset>
 			<fieldset>
 				<label for="feedback-phone">Телефон <span>*</span></label>
-				<input type="text" class="valid-required valid-phone" name="data[phone]" id="feedback-phone">
+				<input type="text" class="valid-required valid-phone FieldSend" name="phone" id="feedback-phone">
 			</fieldset>
 			<fieldset>
 				<label for="feedback-message">Ваше сообщение</label>
-				<textarea class="resetted" name="data[message]" id="feedback-message"></textarea>
+				<textarea class="FieldSend" name="message" id="feedback-message"></textarea>
 			</fieldset>
 			<fieldset class="submit">
-				<button type="submit">
-					Отправить
-				</button>
+				<button type="submit" name="partner" value="" id="PartnerSend">Отправить</button>
 				<em>Сообщение отправлено!</em>
 			</fieldset>
-		</form>
+		<?= form_close(); ?>
 	</div>
 	<div class="popup get-call">
 		<form id="form-feedback-default" class="popup-form" action="/forms/feedback/">
 			<fieldset>
 				<label for="feedback-name">Ваше имя <span>*</span></label>
-				<input type="text" class="valid-required" name="data[name]" id="feedback-name">
+				<input type="text" class="valid-required FieldSend" name="name" id="feedback-name">
 			</fieldset>
 			<fieldset>
 				<label for="feedback-phone">Телефон <span>*</span></label>
-				<input type="text" class="valid-required valid-phone" name="data[phone]" id="feedback-phone">
+				<input type="text" class="valid-required valid-phone FieldSend" name="phone" id="feedback-phone">
 			</fieldset>
 			<fieldset>
 				<label for="feedback-message">Ваше сообщение</label>
-				<textarea class="resetted" name="data[message]" id="feedback-message"></textarea>
+				<textarea class="FieldSend" name="message" id="feedback-message"></textarea>
 			</fieldset>
 			<fieldset class="submit">
-				<button type="submit">
-					Отправить
-				</button>
+				<button type="submit" name="call" value="send" id="CallSend">Отправить</button>
 				<em>Сообщение отправлено!</em>
 			</fieldset>
 		</form>

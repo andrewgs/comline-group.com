@@ -104,6 +104,62 @@ class Users_interface extends CI_Controller{
 		$this->load->view("users_interface/index",$pagevar);
 	}
 	
+	public function send_mail(){
+		
+		$statusval = array('status'=>FALSE,'message'=>'Сообщение не отправлено');
+		$data = trim($this->input->post('postdata'));
+		if(!$data):
+			show_404();
+		endif;
+		$data = preg_split("/&/",$data);
+		for($i=0;$i<count($data);$i++):
+			$dataid = preg_split("/=/",$data[$i]);
+			$dataval[$i] = $dataid[1];
+		endfor;
+		if($dataval):
+			ob_start();
+			if($this->uri->segment(2) == 'partners'):
+				?>
+				<p>Сообщение от <?=$dataval[1];?></p>
+				<p>Компания: <?=$dataval[0];?></p>
+				<p>Email: <?=$dataval[2];?></p>
+				<p>Контактный номер: <?=$dataval[3];?></p>
+				<p>Сообщение: <?=$dataval[4];?></p>
+				<?
+				$uemail = $dataval[2];
+			else:
+				?>
+				<p>Сообщение от <?=$dataval[0];?></p>
+				<p>Контактный номер: <?=$dataval[1];?></p>
+				<p>Сообщение: <?=$dataval[2];?></p>
+				<?
+				$uemail = 'robot@comfline.ru';
+			endif;
+			$mailtext = ob_get_clean();
+			$this->email->clear(TRUE);
+			$config['smtp_host'] = 'localhost';
+			$config['charset'] = 'utf-8';
+			$config['wordwrap'] = TRUE;
+			$config['mailtype'] = 'html';
+			
+			$this->email->initialize($config);
+			$this->email->to('vkharseev@gmail.com');
+			$this->email->from('robot@comfline.ru','Пользователь сайта');
+			$this->email->bcc('');
+			$this->email->subject('Сообщение от пользователя');
+			if($this->uri->segment(2) == 'partners'):
+				$this->email->subject('Форма "Стать партнером"');
+			else:
+				$this->email->subject('Форма "Заказать звонок"');
+			endif;
+			$this->email->message($mailtext);
+			if($this->email->send()):
+				$statusval['status'] = TRUE;
+			endif;
+		endif;
+		echo json_encode($statusval);
+	}
+	
 	public function about(){
 		
 		$pagevar = array(
@@ -385,7 +441,7 @@ class Users_interface extends CI_Controller{
 				$this->email->from($_POST['email'],$_POST['name']);
 				$this->email->bcc('');
 				$this->email->subject('Форма обратной связи Комфорт Лайн');
-				$this->email->message($mailtext);	
+				$this->email->message($mailtext);
 				$this->email->send();
 				$this->session->set_userdata('msgs','Сообщение отправлено');
 			endif;
