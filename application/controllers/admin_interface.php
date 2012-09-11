@@ -287,7 +287,7 @@ class Admin_interface extends CI_Controller{
 			'baseurl'		=> base_url(),
 			'loginstatus'	=> $this->loginstatus,
 			'userinfo'		=> $this->user,
-			'event'			=> $this->mdevents->read_record($nid),
+			'event'			=> $this->mdevents->read_record($nid,array(1,2)),
 			'msgs'			=> $this->session->userdata('msgs'),
 			'msgr'			=> $this->session->userdata('msgr'),
 		);
