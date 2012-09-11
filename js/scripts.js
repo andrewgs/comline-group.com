@@ -23,4 +23,23 @@ function backpath(path){window.location=path;}
 		var err = false;$(".control-group").removeClass('error');$(".help-inline").hide();
 		$(".input-valid").each(function(i,element){if($(this).val()==''){$(this).parents(".control-group").addClass('error');$(this).siblings(".help-inline").html("Поле не может быть пустым").show();err = true;}});if(err){event.preventDefault();}
 	});
+	
+	$('#action-partner').click(function(){
+		$('div.popup:not(.become-partner)').hide();
+		$('div.become-partner').toggle();
+	});
+	$('.phone a.dashed').click(function(){
+		$('div.popup:not(.get-call)').hide();
+		$('div.get-call').toggle();
+	}); 
+	$('#action-shop').click(function(){
+		$('div.popup').hide();
+		$('div.overlay').show();
+		setTimeout( function() { $('div.overlay').fadeOut(1000); }, 3000 );
+	});
+	$(document.body).click(function(e){
+		if ( e.target == this ) {
+			$('div.popup').hide();
+		}
+	});
 })(window.jQuery);

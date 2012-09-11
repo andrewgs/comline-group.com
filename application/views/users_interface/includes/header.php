@@ -19,4 +19,56 @@
 			<li><?=anchor('#','Стать партнером',array('id'=>'action-partner'));?></li>
 		</ul>
 	</div>
+	<div class="popup become-partner">
+		<form id="form-feedback-default" class="popup-form" action="/forms/feedback/">
+			<fieldset>
+				<label for="feedback-company">Название вашей компании <span>*</span></label>
+				<input type="text" class="valid-required" name="data[company]" id="feedback-company">
+			</fieldset>
+			<fieldset>
+				<label for="feedback-name">Ваше имя <span>*</span></label>
+				<input type="text" class="valid-required" name="data[name]" id="feedback-name">
+			</fieldset>
+			<fieldset>
+				<label for="feedback-mail">Эл. почта <span>*</span></label>
+				<input type="text" class="valid-required valid-email" name="data[email]" id="feedback-mail">
+			</fieldset>
+			<fieldset>
+				<label for="feedback-phone">Телефон <span>*</span></label>
+				<input type="text" class="valid-required valid-phone" name="data[phone]" id="feedback-phone">
+			</fieldset>
+			<fieldset>
+				<label for="feedback-message">Ваше сообщение</label>
+				<textarea class="resetted" name="data[message]" id="feedback-message"></textarea>
+			</fieldset>
+			<fieldset class="submit">
+				<button type="submit">
+					Отправить
+				</button>
+				<em>Сообщение отправлено!</em>
+			</fieldset>
+		</form>
+	</div>
+	<div class="popup get-call">
+		<form id="form-feedback-default" class="popup-form" action="/forms/feedback/">
+			<fieldset>
+				<label for="feedback-name">Ваше имя <span>*</span></label>
+				<input type="text" class="valid-required" name="data[name]" id="feedback-name">
+			</fieldset>
+			<fieldset>
+				<label for="feedback-phone">Телефон <span>*</span></label>
+				<input type="text" class="valid-required valid-phone" name="data[phone]" id="feedback-phone">
+			</fieldset>
+			<fieldset>
+				<label for="feedback-message">Ваше сообщение</label>
+				<textarea class="resetted" name="data[message]" id="feedback-message"></textarea>
+			</fieldset>
+			<fieldset class="submit">
+				<button type="submit">
+					Отправить
+				</button>
+				<em>Сообщение отправлено!</em>
+			</fieldset>
+		</form>
+	</div>	
 </header>
