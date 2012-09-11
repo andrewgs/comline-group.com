@@ -104,7 +104,8 @@ a:active, a:focus { outline: none; }
 /* 5. GLOBAL LAYOUT & GLOBAL CUSTOM TYPOGRAPHY
 ----------------------------------------------------------------------------------------*/
 html, body { background: url('../images/bg-main.png') repeat; }
-#logo { background: url('../images/logo.png') no-repeat; width: 389px; height: 157px; display: block; text-indent: -9999px; float: left; margin-left: -1.25em; }
+#logo { background: url('../images/logo.png') no-repeat; width: 389px; height: 148px; display: block; text-indent: -9999px; float: left; margin-left: -1.25em; }
+#slogan { text-align: center; margin: 0.1em 0 0.15em 0.5em; }
 ul { max-width: 62em; list-style: none; }
 p { font-size: 0.85em; line-height: 1.5em; margin-bottom: 1.5em; max-width: 50em; }
 h4 { font-size: 0.85em; }
@@ -132,7 +133,7 @@ header h1 { margin-bottom: 0; }
 
 .slider-wrapper { position: relative; }
 .slider { width: 960px; height: 410px; }
-.slider img { -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; -webkit-box-shadow: 0 1px 5px #ccc; -moz-box-shadow: 0 1px 5px #ccc; box-shadow: 0 1px 5px #ccc; }
+.slider img { -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; -webkit-box-shadow: 0 1px 5px #ccc; -moz-box-shadow: 0 1px 5px #ccc; box-shadow: 0 1px 5px #ccc; width: 960px !important; height: 410px !important; }
 #left-arrow, #right-arrow { position: absolute; top: 11em; text-indent: -9999px; width: 28px; height: 40px; opacity: 0.5; -webkit-transition: opacity 0.5s ease-in-out; -moz-transition: opacity 0.5s ease-in-out; -o-transition: opacity 0.5s ease-in-out; }
 #left-arrow:hover, #right-arrow:hover { opacity: 1; }
 #left-arrow { background: url("../images/slider-control-left.png") 0 -43px no-repeat; left: 1.25em; z-index: 100; }
@@ -176,7 +177,7 @@ footer .copyright { color: #C0C0C0; font-size: 0.8em; margin: 0.75em 0 0; text-a
 
 /* ABOUT PAGE
 ----------------------------------------------------------------------------------------*/
-#main.substrate { background: rgba(255, 255, 255, 0.3); padding: 2em 3.25em; margin-bottom: 1em; max-width: 46em; }
+#main.substrate { background: rgba(255, 255, 255, 0.3); padding: 2em 3.25em; margin-bottom: 1em; max-width: 46em; min-height: 30em; }
 #main.substrate.large { max-width: 60em; }
 #main.substrate.contacts { padding-right: 1.5em; }
 .substrate h1 { font-size: 28px; font-weight: bold; margin: 0 0 0.7em 0; -webkit-text-shadow: 0 1px 0 #fff; -moz-text-shadow: 0px 1px 0 #fff; text-shadow: 0 1px 0 #fff; }
@@ -248,7 +249,7 @@ p.em40 { max-width: 40em; }
 .product-page .nav-links a.blockLink { border-bottom: 0 none; color: #BDBDBD; cursor: default; }
 
 .brand-wrapper .brand-logo { float: left; font-size: 0.85em; line-height: 1.5em; margin-right: 1em; }
-.brand-wrapper .catalog-list { float: left; margin: 0.7em 0 0 1.25em; width: 30em; }
+.brand-wrapper .catalog-list { float: left; margin: 0.7em 0 0 1.25em; width: 40em; }
 .brand-wrapper .catalog-list li { display: inline-block; margin-right: 2em; }
 .brand-wrapper .catalog-list li a { text-decoration: none; color: #666; border-bottom: 1px solid; line-height: 1em; font-size: 1.6em; }
 .brand-wrapper .catalog-list li.active a { color: #f89146; border-bottom: 0 none; }

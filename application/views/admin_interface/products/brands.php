@@ -17,9 +17,9 @@
 				<table class="table table-striped table-bordered">
 					<thead>
 						<tr>
-							<th class="w100">Логотип</th>
+							<th class="w130">Логотип</th>
 							<th class="w600">Описание</th>
-							<th>&nbsp;</th>
+							<th class="w130">&nbsp;</th>
 						</tr>
 					</thead>
 					<tbody>

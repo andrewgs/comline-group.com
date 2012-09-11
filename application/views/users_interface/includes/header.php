@@ -19,6 +19,12 @@
 			<li><?=anchor('#','Стать партнером',array('id'=>'action-partner'));?></li>
 		</ul>
 	</div>
+	<div class="cf"></div>
+	
+	<div id="slogan">
+		<img src="images/slogan.png" alt="Комфорт в каждой линии" />
+	</div>
+	
 	<div class="popup become-partner">
 		<?=form_open($this->uri->uri_string(),array('id'=>'form-feedback-default','class'=>'popup-form')); ?>
 			<fieldset>
