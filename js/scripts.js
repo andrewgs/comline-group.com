@@ -44,6 +44,7 @@ function backpath(path){window.location=path;}
 		if(!err && !isValidEmailAddress($(".become-partner .valid-email").val())){$(".become-partner .valid-email").parents("fieldset").addClass('validate');err = true; event.preventDefault();}
 		if(!err && !isValidPhone($(".become-partner .valid-phone").val())){$(".become-partner .valid-phone").parents("fieldset").addClass('validate');err = true; event.preventDefault();}
 		if(!err){var postdata = myserialize($(".become-partner .FieldSend"));
+			console.log(postdata);
 			$.post(baseurl+"send-mail/partners",{'postdata':postdata},
 			function(data){if(data.status){$(".become-partner em").show();$(".become-partner .submit").addClass("submitted");}else{$(".become-partner em").html(data.message).show();}},"json");
 		}
