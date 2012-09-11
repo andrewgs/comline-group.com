@@ -20,6 +20,8 @@ $route['catalog/load-products'] = "users_interface/catalog_load";
 $route['catalog/come-back/:num-:num-:num'] = "users_interface/catalog";
 
 $route['admin'] 	= "users_interface/admin_login";
+$route['send-mail/partners'] 	= "users_interface/send_mail";
+$route['send-mail/call'] 	= "users_interface/send_mail";
 
 $route['events']			= "users_interface/events";
 $route['events/from']		= "users_interface/events";
