@@ -22,7 +22,7 @@
 	<div class="cf"></div>
 	
 	<div id="slogan">
-		<img src="images/slogan.png" alt="Комфорт в каждой линии" />
+		<img src="<?=base_url();?>images/slogan.png" alt="Комфорт в каждой линии" />
 	</div>
 	
 	<div class="popup become-partner">
