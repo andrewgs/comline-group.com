@@ -11,7 +11,7 @@
 						<?=anchor('',"Продукты",array('class'=>'none backpath'));?><span class="divider">/</span>
 					</li>
 					<li class="active">
-						Размер продукта
+						<?=$product;?><span class="divider">/</span>Размер продукта
 					</li>
 				</ul>
 				<?php $this->load->view("alert_messages/alert-error");?>

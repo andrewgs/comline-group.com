@@ -11,7 +11,7 @@
 						<?=anchor('',"Продукты",array('class'=>'none backpath'));?><span class="divider">/</span>
 					</li>
 					<li class="active">
-						Изображения продукта
+						<?=$product;?><span class="divider">/</span>Изображения продукта
 					</li>
 				</ul>
 				<?php $this->load->view("alert_messages/alert-error");?>
