@@ -24,12 +24,12 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="image" class="control-label">Текущее Изображение: </label>
+			<label for="image" class="control-label">Текущее изображение: </label>
 			<div class="controls">
 			<?php if($event['type'] == 1):?>
 				<img src="<?=$baseurl;?>news/viewimage/<?=$event['id'];?>" alt="" width="150"/><br/><br/>
 			<?php else:?>
-				<img src="<?=$baseurl;?>stock/viewimage/<?=$event[$i]['id'];?>" alt="" width="150"/><br/><br/>
+				<img src="<?=$baseurl;?>stock/viewimage/<?=$event['id'];?>" alt="" width="150"/><br/><br/>
 			<?php endif;?>
 			</div>
 		</div>
