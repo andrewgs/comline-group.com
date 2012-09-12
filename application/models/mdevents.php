@@ -9,6 +9,7 @@ class Mdevents extends CI_Model{
 	var $text 		= '';
 	var $date		= '';
 	var $image		= '';
+	var $noimage	= 0;
 	
 	function __construct(){
 		parent::__construct();
@@ -21,17 +22,24 @@ class Mdevents extends CI_Model{
 		$this->translit	= $translit;
 		$this->text		= $data['text'];
 		$this->date		= date("Y-m-d");
-		$this->image	= $data['image'];
+		if($data['image']):
+			$this->image	= $data['image'];
+			$this->noimage = 1;
+		else:
+			$this->image = '';
+			$this->noimage = 1;
+		endif;
 		
 		$this->db->insert('events',$this);
 		return $this->db->insert_id();
 	}
 	
-	function update_record($id,$data,$translit){
+	function update_record($id,$data,$translit,$noimage){
 		
 		$this->db->set('title',htmlspecialchars($data['title']));
 		$this->db->set('translit',$translit);
 		$this->db->set('text',$data['text']);
+		$this->db->set('noimage',$noimage);
 		if(isset($data['image'])):
 			$this->db->set('image',$data['image']);
 		endif;
@@ -42,7 +50,7 @@ class Mdevents extends CI_Model{
 	
 	function read_records($types){
 		
-		$this->db->select('id,title,text,date,translit');
+		$this->db->select('id,title,text,date,translit,noimage,type');
 		$this->db->where_in('type',$types);
 		$this->db->order_by('date','DESC');
 		$query = $this->db->get('events');
@@ -53,7 +61,7 @@ class Mdevents extends CI_Model{
 	
 	function read_records_limit($types,$count,$from){
 		
-		$this->db->select('id,title,text,date,translit');
+		$this->db->select('id,title,text,date,translit,noimage,type');
 		$this->db->where_in('type',$types);
 		$this->db->order_by('date','DESC');
 		$this->db->limit($count,$from);
@@ -76,7 +84,7 @@ class Mdevents extends CI_Model{
 	
 	function read_record($id,$types){
 		
-		$this->db->select('id,title,text,date,translit');
+		$this->db->select('id,title,text,date,translit,noimage,type');
 		$this->db->where('id',$id);
 		$this->db->where_in('type',$types);
 		$query = $this->db->get('events',1);

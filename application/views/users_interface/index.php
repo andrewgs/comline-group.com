@@ -41,7 +41,9 @@
 						<li>
 							<h3><?=anchor('news/'.$news[$i]['translit'],$news[$i]['title']);?></h3>
 							<p class="descr"><?=$news[$i]['text'];?></p>
+						<?php if(!$news[$i]['noimage']):?>
 							<img src="<?=$baseurl;?>news/viewimage/<?=$news[$i]['id'];?>" alt="" width="150"/><br/><br/>
+						<?php endif;?>
 							<?=anchor('news/'.$news[$i]['translit'],'Подробнее &raquo;',array('class'=>'more'));?>
 							<p class="date"><?=$news[$i]['date'];?></p>
 						</li>
@@ -55,7 +57,9 @@
 							<li>
 								<h3><?=anchor('stock/'.$stock[$i]['translit'],$stock[$i]['title']);?></h3>
 								<p class="descr"><?=$stock[$i]['text'];?></p>
+							<?php if(!$stock[$i]['noimage']):?>
 								<img src="<?=$baseurl;?>stock/viewimage/<?=$stock[$i]['id'];?>" alt="" width="150" /><br/><br/>
+							<?php endif;?>
 								<?=anchor('stock/'.$stock[$i]['translit'],'Подробнее &raquo;',array('class'=>'more'));?>
 								<p class="date"><?=$stock[$i]['date'];?></p>
 							</li>

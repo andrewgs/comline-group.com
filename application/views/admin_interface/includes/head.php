@@ -11,5 +11,7 @@
 	<link href="<?=$baseurl;?>js/redactor/css/redactor.css" rel="stylesheet">
 	<link href="<?=$baseurl;?>css/bootstrap.css" rel="stylesheet">
 	<link href="<?=$baseurl;?>css/style.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="<?=$baseurl;?>markitup/skins/markitup/style.css" />
+	<link rel="stylesheet" type="text/css" href="<?=$baseurl;?>markitup/sets/html/style.css" />
 	<script src="<?=$baseurl;?>js/libs/modernizr-1.7.min.js"></script>
 </head>

@@ -13,11 +13,15 @@
 		
 		<div id="main" class="substrate">
 			<h1><?=$events['title'];?></h1>
-			<?php if($this->uri->segment(1) == 'news'):?>
-				<img src="<?=$baseurl;?>news/viewimage/<?=$events['id'];?>" alt="" width="150"/><br/><br/>
-			<?php else:?>
-				<img src="<?=$baseurl;?>stock/viewimage/<?=$events['id'];?>" alt="" width="150"/><br/><br/>
+		<?php if($events['type'] == 1):?>
+			<?php if(!$events['noimage']):?>
+			<img src="<?=$baseurl;?>news/viewimage/<?=$events['id'];?>" alt="" width="150"/><br/><br/>
 			<?php endif;?>
+		<?php else:?>
+			<?php if(!$events['noimage']):?>
+			<img src="<?=$baseurl;?>stock/viewimage/<?=$events['id'];?>" alt="" width="150"/><br/><br/>
+			<?php endif;?>
+		<?php endif;?>
 			<p class="descr"><?=$events['text'];?></p>
 			<p class="date"><?=$events['date'];?></p>
 			<?php if($this->uri->segment(1) == 'news'):?>

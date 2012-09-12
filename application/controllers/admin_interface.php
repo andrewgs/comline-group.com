@@ -272,7 +272,7 @@ class Admin_interface extends CI_Controller{
 				if($_FILES['image']['error'] != 4):
 					$_POST['image'] = file_get_contents($_FILES['image']['tmp_name']);
 				else:
-					$_POST['image'] = file_get_contents(base_url().'images/noimages/no_events.png');
+					$_POST['image'] = FALSE;
 				endif;
 				$translit = $this->translite($_POST['title']);
 				$result = $this->mdevents->insert_record($_POST,$translit);
@@ -318,8 +318,13 @@ class Admin_interface extends CI_Controller{
 				if($_FILES['image']['error'] != 4):
 					$_POST['image'] = file_get_contents($_FILES['image']['tmp_name']);
 				endif;
+				if(isset($_POST['noimage'])):
+					$noimage = 1;
+				else:
+					$noimage = 0;
+				endif;
 				$translit = $this->translite($_POST['title']);
-				$result = $this->mdevents->update_record($nid,$_POST,$translit);
+				$result = $this->mdevents->update_record($nid,$_POST,$translit,$noimage);
 				if($result):
 					$this->session->set_userdata('msgs','Запись сохранена успешно.');
 				endif;

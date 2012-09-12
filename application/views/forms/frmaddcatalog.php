@@ -2,23 +2,23 @@
 	<legend>Форма добавления каталога</legend>
 	<fieldset>
 		<div class="control-group">
-			<label for="title" class="control-label">Название: </label>
+			<label for="title" class="control-label" style="text-align: left;">Название: </label>
 			<div class="controls">
 				<input type="text" class="input-xlarge input-valid" name="title" value="<?=set_value('title');?>">
 				<span class="help-inline" style="display:none;">&nbsp;</span>
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="text" class="control-label">Описание: </label>
-			<div class="controls">
-				<textarea rows="10" class="span7 input-valid redactor" name="text"><?=set_value('text');?></textarea>
+			<label for="text">Описание: </label>
+			<div class="controls" style=" margin-left: 0px;">
+				<textarea rows="10" class="span9 input-valid redactor" name="text"><?=set_value('text');?></textarea>
 				<span class="help-inline" style="display:none;">&nbsp;</span>
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="html" class="control-label">HTML-код: </label>
-			<div class="controls">
-				<textarea rows="10" class="span7 input-valid" name="html"><?=set_value('html');?></textarea>
+			<label for="html">HTML-код: </label>
+			<div class="controls" style=" margin-left: 0px;">
+				<textarea rows="10" class="input-valid mrkRedactor" name="html"><?=set_value('html');?></textarea>
 				<span class="help-inline" style="display:none;">&nbsp;</span>
 			</div>
 		</div>

@@ -16,11 +16,29 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label for="image" class="control-label">Картинка: </label>
+			<label for="image" class="control-label">Изображение: </label>
 			<div class="controls">
 				<input type="file" class="input-file" name="image" size="50">
 				<span class="help-inline" style="display:none;">&nbsp;</span>
 				<p class="help-block">Поддерживаются форматы: JPG,PNG,GIF</p>
+			</div>
+		</div>
+		<div class="control-group">
+			<label for="image" class="control-label">Текущее Изображение: </label>
+			<div class="controls">
+			<?php if($event['type'] == 1):?>
+				<img src="<?=$baseurl;?>news/viewimage/<?=$event['id'];?>" alt="" width="150"/><br/><br/>
+			<?php else:?>
+				<img src="<?=$baseurl;?>stock/viewimage/<?=$event[$i]['id'];?>" alt="" width="150"/><br/><br/>
+			<?php endif;?>
+			</div>
+		</div>
+		<div class="control-group">
+			<label for="showitem" class="control-label">&nbsp;</label>
+			<div class="controls">
+				<label class="checkbox">
+					<input type="checkbox" value="1" id="noimage" name="noimage" <?=($event['noimage'])? 'checked="checked"' : '';?>>
+					Не показывать изображение</label>
 			</div>
 		</div>
 	</fieldset>
