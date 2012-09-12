@@ -23,7 +23,7 @@
 			</div>
 			<ul id="categories-nav" class="cf">
 			<?php for($i=0;$i<count($category);$i++):?>
-				<li><?=anchor('catalog/category/'.$category[$i]['translit'],$category[$i]['title'],array('title'=>$category[$i]['title']));?></li>
+				<li><?=anchor('catalog/category/'.$category[$i]['translit'],$category[$i]['title']);?></li>
 			<?php endfor;?>
 			</ul>
 			<ul id="brands-nav">
