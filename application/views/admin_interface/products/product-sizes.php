@@ -11,7 +11,7 @@
 						<?=anchor('',"Продукты",array('class'=>'none backpath'));?><span class="divider">/</span>
 					</li>
 					<li class="active">
-						Размер продукта
+						<?=$product;?><span class="divider">/</span>Размер продукта
 					</li>
 				</ul>
 				<?php $this->load->view("alert_messages/alert-error");?>
@@ -29,7 +29,7 @@
 						</tr>
 					</thead>
 					<tbody>
-					<?php for($i=0;$i<count($sizes);$i+=3):?>
+				<?php for($i=0;$i<9;$i+=3):?>
 						<tr>
 						<?php if(isset($sizes[$i]['id'])):?>
 							<td class="w85"><?=$sizes[$i]['code'];?></td>
@@ -53,7 +53,61 @@
 							<td class="w85">&nbsp;</td>
 						<?php endif;?>
 						</tr>
-					<?php endfor; ?>
+				<?php endfor; ?>
+						<tr><td colspan="6">&nbsp;</td></tr>
+				<?php for($i=9;$i<17;$i+=3):?>
+						<tr>
+						<?php if(isset($sizes[$i]['id'])):?>
+							<td class="w85"><?=$sizes[$i]['code'];?></td>
+							<td class="w85">
+								<input type="checkbox" class="chInput" <?=($sizes[$i]['checked'])?'checked="checked"':'';?> name="sizes[]" value="<?=$sizes[$i]['id'];?>" />
+							</td>
+						<?php endif;?>
+						<?php if(isset($sizes[$i+1]['id'])):?>
+							<td class="w85"><?=$sizes[$i+1]['code'];?></td>
+							<td class="w85">
+								<input type="checkbox" class="chInput" <?=($sizes[$i+1]['checked'])?'checked="checked"':'';?> name="sizes[]" value="<?=$sizes[$i+1]['id'];?>" />
+							</td>
+						<?php endif;?>
+						<?php if(isset($sizes[$i+2]['id'])):?>
+							<td class="w85"><?=$sizes[$i+2]['code'];?></td>
+							<td class="w85">
+								<input type="checkbox" class="chInput" <?=($sizes[$i+2]['checked'])?'checked="checked"':'';?> name="sizes[]" value="<?=$sizes[$i+2]['id'];?>" />
+							</td>
+						<?php else:?>
+							<td class="w85">&nbsp;</td>
+							<td class="w85">&nbsp;</td>
+						<?php endif;?>
+						</tr>
+				<?php endfor; ?>
+						<tr><td colspan="6">&nbsp;</td></tr>
+						<?php for($i=17;$i<count($sizes);$i+=3):?>
+						<tr>
+						<?php if(isset($sizes[$i]['id'])):?>
+							<td class="w85"><?=$sizes[$i]['code'];?></td>
+							<td class="w85">
+								<input type="checkbox" class="chInput" <?=($sizes[$i]['checked'])?'checked="checked"':'';?> name="sizes[]" value="<?=$sizes[$i]['id'];?>" />
+							</td>
+						<?php endif;?>
+						<?php if(isset($sizes[$i+1]['id'])):?>
+							<td class="w85"><?=$sizes[$i+1]['code'];?></td>
+							<td class="w85">
+								<input type="checkbox" class="chInput" <?=($sizes[$i+1]['checked'])?'checked="checked"':'';?> name="sizes[]" value="<?=$sizes[$i+1]['id'];?>" />
+							</td>
+						<?php endif;?>
+						<?php if(isset($sizes[$i+2]['id'])):?>
+							<td class="w85"><?=$sizes[$i+2]['code'];?></td>
+							<td class="w85">
+								<input type="checkbox" class="chInput" <?=($sizes[$i+2]['checked'])?'checked="checked"':'';?> name="sizes[]" value="<?=$sizes[$i+2]['id'];?>" />
+							</td>
+						<?php else:?>
+							<td class="w85">&nbsp;</td>
+							<td class="w85">&nbsp;</td>
+							<td class="w85">&nbsp;</td>
+							<td class="w85">&nbsp;</td>
+						<?php endif;?>
+						</tr>
+				<?php endfor; ?>
 					</tbody>
 				</table>
 				<hr/>

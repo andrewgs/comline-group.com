@@ -12,7 +12,7 @@
 						<?=anchor('',"Бренды",array('class'=>'none backpath'));?><span class="divider">/</span>
 					</li>
 					<li class="active">
-						Каталоги
+						<?=$brand;?><span class="divider">/</span>Каталоги
 					</li>
 				</ul>
 				</ul>

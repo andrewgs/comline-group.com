@@ -64,10 +64,7 @@
 						<p>
 							<strong>Размеры:</strong> <br />
 						<?php for($i=0;$i<count($prsizes);$i++):?>
-							<?=$prsizes[$i]['code'];?>
-							<?php if($i+1<count($prsizes)):?>
-								,
-							<?php endif;?>
+							<?=$prsizes[$i]['code'];?><?php if($i+1<count($prsizes)):?>,<?php endif;?>
 						<?php endfor;?>
 						</p>
 						<p>

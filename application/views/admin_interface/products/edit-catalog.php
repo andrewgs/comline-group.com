@@ -14,7 +14,7 @@
 						<?=anchor('admin-panel/actions/brands/brandsid/'.$this->uri->segment(5).'/catalogs',"Каталоги");?><span class="divider">/</span>
 					</li>
 					<li class="active">
-						Редактирование
+						<?=$brand;?><span class="divider">/</span>Редактирование
 					</li>
 				</ul>
 				<?php $this->load->view("alert_messages/alert-error");?>

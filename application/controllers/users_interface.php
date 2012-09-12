@@ -678,7 +678,7 @@ class Users_interface extends CI_Controller{
 		endif;
 		
 		if($this->loginstatus['status']):
-			redirect('admin-panel/actions/control');
+			redirect('admin-panel/actions/events');
 		endif;
 		
 		$this->load->view("admin_interface/login",$pagevar);

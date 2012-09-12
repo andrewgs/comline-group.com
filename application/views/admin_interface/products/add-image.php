@@ -14,7 +14,7 @@
 						<?=anchor('admin-panel/actions/products/productid/'.$this->uri->segment(5).'/images',"Изображения продукта");?><span class="divider">/</span>
 					</li>
 					<li class="active">
-						Добавление изображения
+						<?=$product;?><span class="divider">/</span>Добавление изображения
 					</li>
 				</ul>
 				<?php $this->load->view("alert_messages/alert-error");?>

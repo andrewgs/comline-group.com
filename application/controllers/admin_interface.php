@@ -512,6 +512,7 @@ class Admin_interface extends CI_Controller{
 			'baseurl'		=> base_url(),
 			'loginstatus'	=> $this->loginstatus,
 			'userinfo'		=> $this->user,
+			'brand'			=> $this->mdbrands->read_field($this->uri->segment(5),'title'),
 			'catalogs'		=> $this->mdcatalogs->read_records($this->uri->segment(5)),
 			'msgs'			=> $this->session->userdata('msgs'),
 			'msgr'			=> $this->session->userdata('msgr'),
@@ -583,6 +584,7 @@ class Admin_interface extends CI_Controller{
 			'baseurl'		=> base_url(),
 			'loginstatus'	=> $this->loginstatus,
 			'userinfo'		=> $this->user,
+			'brand'			=> $this->mdbrands->read_field($this->uri->segment(5),'title'),
 			'msgs'			=> $this->session->userdata('msgs'),
 			'msgr'			=> $this->session->userdata('msgr'),
 		);
@@ -666,6 +668,7 @@ class Admin_interface extends CI_Controller{
 			'baseurl'		=> base_url(),
 			'loginstatus'	=> $this->loginstatus,
 			'userinfo'		=> $this->user,
+			'brand'			=> $this->mdbrands->read_field($this->uri->segment(5),'title'),
 			'catalog'		=> $this->mdcatalogs->read_record($cid),
 			'msgs'			=> $this->session->userdata('msgs'),
 			'msgr'			=> $this->session->userdata('msgr'),
@@ -1125,6 +1128,7 @@ class Admin_interface extends CI_Controller{
 			'loginstatus'	=> $this->loginstatus,
 			'userinfo'		=> $this->user,
 			'colors'		=> $this->mdcolors->read_records(),
+			'product'		=> $this->mdproducts->read_field($pid,'title'),
 			'prcolors'		=> $this->mdproductscolors->read_records($pid),
 			'msgs'			=> $this->session->userdata('msgs'),
 			'msgr'			=> $this->session->userdata('msgr'),
@@ -1179,6 +1183,7 @@ class Admin_interface extends CI_Controller{
 			'loginstatus'	=> $this->loginstatus,
 			'userinfo'		=> $this->user,
 			'sizes'			=> array(),
+			'product'		=> $this->mdproducts->read_field($pid,'title'),
 			'prsizes'		=> $this->mdproductssizes->read_records($pid),
 			'msgs'			=> $this->session->userdata('msgs'),
 			'msgr'			=> $this->session->userdata('msgr'),
@@ -1186,7 +1191,7 @@ class Admin_interface extends CI_Controller{
 		$this->session->unset_userdata('msgs');
 		$this->session->unset_userdata('msgr');
 		
-		for($i=0;$i<9;$i++):
+		for($i=0;$i<21;$i++):
 			$pagevar['sizes'][$i]['id'] = $i;
 			$pagevar['sizes'][$i]['code'] = '';
 		endfor;
@@ -1199,6 +1204,20 @@ class Admin_interface extends CI_Controller{
 		$pagevar['sizes'][6]['code'] = '52(4XL)';
 		$pagevar['sizes'][7]['code'] = '54(5XL)';
 		$pagevar['sizes'][8]['code'] = '56(6XL)';
+		
+		$pagevar['sizes'][9]['code'] = '44(s)';
+		$pagevar['sizes'][10]['code'] = '48(M)';
+		$pagevar['sizes'][11]['code'] = '52(L)';
+		$pagevar['sizes'][12]['code'] = '56(XL)';
+		$pagevar['sizes'][13]['code'] = '60(XXL)';
+		$pagevar['sizes'][14]['code'] = '64(3XL)';
+		$pagevar['sizes'][15]['code'] = '68(4XL)';
+		$pagevar['sizes'][16]['code'] = '72(5XL)';
+		
+		$pagevar['sizes'][17]['code'] = '44-46(s)';
+		$pagevar['sizes'][18]['code'] = '48-50(M)';
+		$pagevar['sizes'][19]['code'] = '52-54(L)';
+		$pagevar['sizes'][20]['code'] = '56-58(XL)';
 		
 		if($this->input->post('submit')):
 			unset($_POST['submit']);
@@ -1244,6 +1263,7 @@ class Admin_interface extends CI_Controller{
 			'baseurl'		=> base_url(),
 			'loginstatus'	=> $this->loginstatus,
 			'userinfo'		=> $this->user,
+			'product'		=> $this->mdproducts->read_field($pid,'title'),
 			'primages'		=> $this->mdproductsimages->read_records($pid),
 			'msgs'			=> $this->session->userdata('msgs'),
 			'msgr'			=> $this->session->userdata('msgr'),
@@ -1263,6 +1283,7 @@ class Admin_interface extends CI_Controller{
 			'baseurl'		=> base_url(),
 			'loginstatus'	=> $this->loginstatus,
 			'userinfo'		=> $this->user,
+			'product'		=> $this->mdproducts->read_field($this->uri->segment(5),'title'),
 			'msgs'			=> $this->session->userdata('msgs'),
 			'msgr'			=> $this->session->userdata('msgr'),
 		);
