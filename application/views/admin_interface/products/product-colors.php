@@ -20,11 +20,13 @@
 				<table class="table table-striped table-bordered">
 					<thead>
 						<tr>
-							<th class="w100"><center><nobr>Цвет</nobr></center></th>
-							<th class="w100"><center><nobr>Код</nobr></center></th>
+							<th class="w50"><center><nobr>Цвет</nobr></center></th>
+							<th class="w50"><center><nobr>Код</nobr></center></th>
+							<th class="w100">Название<br/>номер</th>
 							<th class="w50">&nbsp;</th>
-							<th class="w100"><center><nobr>Цвет</nobr></center></th>
-							<th class="w100"><center><nobr>Код</nobr></center></th>
+							<th class="w50"><center><nobr>Цвет</nobr></center></th>
+							<th class="w50"><center><nobr>Код</nobr></center></th>
+							<th class="w100">Название<br/>номер</th>
 							<th class="w50">&nbsp;</th>
 						</tr>
 					</thead>
@@ -32,22 +34,25 @@
 					<?php for($i=0;$i<count($colors);$i+=2):?>
 						<tr>
 						<?php if(isset($colors[$i]['id'])):?>
-							<td class="w85" style="background-color:#<?=$colors[$i]['code'];?>;"></td>
-							<td class="w85">#<?=$colors[$i]['code'];?></td>
-							<td class="w85">
+							<td class="w50"><div style="background-color:<?=$colors[$i]['code'];?>; width: 50px; height: 20px;"></div></td>
+							<td class="w50"><?=$colors[$i]['code'];?></td>
+							<td class="w100"><?=$colors[$i]['title'];?><br/><?=$colors[$i]['number'];?></td>
+							<td class="w50">
 								<input type="checkbox" class="chInput" <?=($colors[$i]['checked'])?'checked="checked"':'';?> name="code[]" value="<?=$colors[$i]['id'];?>" />
 							</td>
 						<?php endif;?>
 						<?php if(isset($colors[$i+1]['id'])):?>
-							<td class="w85" style="background-color:#<?=$colors[$i+1]['code'];?>;"></td>
-							<td class="w85">#<?=$colors[$i+1]['code'];?></td>
-							<td class="w85">
+							<td class="w50"><div style="background-color:<?=$colors[$i+1]['code'];?>; width: 50px; height: 20px;"></div></td>
+							<td class="w50"><?=$colors[$i+1]['code'];?></td>
+							<td class="w100"><?=$colors[$i+1]['title'];?><br/><?=$colors[$i+1]['number'];?></td>
+							<td class="w50">
 								<input type="checkbox" class="chInput" <?=($colors[$i+1]['checked'])?'checked="checked"':'';?> name="code[]" value="<?=$colors[$i+1]['id'];?>" />
 							</td>
 						<?php else:?>
-							<td class="w85">&nbsp;</td>
-							<td class="w85">&nbsp;</td>
-							<td class="w85">&nbsp;</td>
+							<td class="w50">&nbsp;</td>
+							<td class="w50">&nbsp;</td>
+							<td class="w100">&nbsp;</td>
+							<td class="w50">&nbsp;</td>
 						<?php endif;?>
 						</tr>
 					<?php endfor; ?>

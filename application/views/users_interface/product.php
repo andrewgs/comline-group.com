@@ -58,7 +58,7 @@
 						<p class="attr">
 							<strong>Цвет:</strong>
 						<?php for($i=0;$i<count($prcolors);$i++):?>
-							<span class="product-color" style="background: #<?=$prcolors[$i]['code'];?>;"> </span>
+							<span class="product-color" style="background: <?=$prcolors[$i]['code'];?>;"> </span>
 						<?php endfor;?>
 						</p>
 						<p>

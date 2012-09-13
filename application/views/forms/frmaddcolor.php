@@ -18,9 +18,8 @@
 		<div class="control-group">
 			<label for="code" class="control-label">Код цвета:</label>
 			<div class="controls">
-				<div class="input-prepend input-append">
-					<span class="add-on">#</span><input type="text" class="input-small input-valid" value="<?=set_value('code');?>" id="ColorCode" name="code">
-				</div>
+				<input type="text" class="input-small input-valid color" value="<?=set_value('code');?>" readonly="readonly" name="code">
+				<span class="help-inline" style="display:none;">&nbsp;</span>
 			</div>
 		</div>
 	</fieldset>

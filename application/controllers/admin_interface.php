@@ -1219,6 +1219,12 @@ class Admin_interface extends CI_Controller{
 		$pagevar['sizes'][19]['code'] = '52-54(L)';
 		$pagevar['sizes'][20]['code'] = '56-58(XL)';
 		
+		
+		$pagevar['sizes'][17]['code'] = '44-46(s)';
+		$pagevar['sizes'][18]['code'] = '48-50(M)';
+		$pagevar['sizes'][19]['code'] = '52-54(L)';
+		$pagevar['sizes'][20]['code'] = '56-58(XL)';
+		
 		if($this->input->post('submit')):
 			unset($_POST['submit']);
 			
