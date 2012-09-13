@@ -144,16 +144,16 @@ header h1 { margin-bottom: 0; }
 #categories-nav li a { color: #666; display: inline-block; font-size: 1em; font-weight: bold; text-decoration: none; text-shadow: 0 1px #fff; width: 100%; }
 #categories-nav li a:hover { color: #444; }
 
-#brands-nav { background: #fff; -webkit-box-shadow: 0px 1px 0px 0px #cfcfcf, 0px -1px 0px 0px #fff, 0px -2px 0px 0px #cfcfcf; -moz-box-shadow: 0px 1px 0px 0px #cfcfcf, 0px -1px 0px 0px #fff, 0px -2px 0px 0px #cfcfcf; box-shadow: 0px 1px 0px 0px #cfcfcf, 0px -1px 0px 0px #fff, 0px -2px 0px 0px #cfcfcf; height: 5.75em; margin: 0.2em auto 0.75em; padding-top: 1em; }
+#brands-nav { background: #fff; -webkit-box-shadow: 0px 1px 0px 0px #cfcfcf, 0px -1px 0px 0px #fff, 0px -2px 0px 0px #cfcfcf; -moz-box-shadow: 0px 1px 0px 0px #cfcfcf, 0px -1px 0px 0px #fff, 0px -2px 0px 0px #cfcfcf; box-shadow: 0px 1px 0px 0px #cfcfcf, 0px -1px 0px 0px #fff, 0px -2px 0px 0px #cfcfcf; height: 5.5em; margin: 0.5em auto 0.75em; padding-top: 0.75em; }
 #brands-nav li { display: inline-block; line-height: 1.2em; margin-left: 3em; text-align: center; }
 #brands-nav li img { border: 0 none; max-height: 3.75em; }
 #brands-nav li a { color: #666; font-size: 0.85em; text-decoration: none; }
 .underlined { display: inline-block; border-bottom: 1px solid; line-height: 1em; }  
 
-#content-area { margin-top: 1.5em; }
+#content-area { margin-top: 1em; }
 #content-area ul { margin: 0; padding: 0; }
-#content-area h2 { font-family: "Trebuchet MS"; font-size: 28px; font-weight: bold; margin: 0 0 0.5em 0.6em; -webkit-text-shadow: 0 1px 0 #fff; -moz-text-shadow: 0 1px 0 #fff; text-shadow: 0 1px 0 #fff; }
-#content-area h3, #content-area h3 a { color: #F89146; font-size: 0.95em; font-weight: bold; line-height: 1.15em; text-decoration: none; }
+#content-area h2 { font-family: "Trebuchet MS"; font-size: 21px; font-weight: bold; margin: 0 0 0.5em 0.6em; -webkit-text-shadow: 0 1px 0 #fff; -moz-text-shadow: 0 1px 0 #fff; text-shadow: 0 1px 0 #fff; }
+#content-area h3, #content-area h3 a { color: #F89146; font-size: 1em; font-weight: bold; line-height: 1.15em; text-decoration: none; }
 
 .column { float: left; margin-right: 2.5em; width: 19em; }
 .column:last-child { float: right; margin: 2.75em 0 0; width: 240px; }
@@ -261,7 +261,7 @@ p.em40 { max-width: 40em; }
 .left { float: left; }
 
 .overlay { background-color: rgba(0, 0, 0, 0.5); height: 100%; left: 0; position: fixed; top: 0; width: 100%; z-index: 105; display: none; }
-.overlay p { background: #777; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; -webkit-box-shadow: 0 0 7px #333; -moz-box-shadow: 0 0 7px #333; box-shadow: 0 0 7px #333; color: #fff; left: 50%; margin: 0 0 0 -15em; padding: 1em 1.5em; position: absolute; top: 25%; width: 30em; }
+.overlay p { background: #777; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; -webkit-box-shadow: 0 0 7px #333; -moz-box-shadow: 0 0 7px #333; box-shadow: 0 0 7px #333; color: #fff; left: 50%; margin: 0 0 0 -15em; padding: 1em 1.5em; position: absolute; top: 25%; width: 32em; text-align: center; }
 .popup { z-index: 199; display: none; position: absolute; }
 .popup.become-partner { right: 6.3em; top: 7.9em; }
 .popup.get-call { right: 0; top: 4.4em; }

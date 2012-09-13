@@ -19,5 +19,4 @@
 		<?php endfor;?>
 		</div>
 	<?php endif;?>
-	
 <?php endfor;?>

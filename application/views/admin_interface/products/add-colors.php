@@ -22,21 +22,10 @@
 		</div>
 	</div>
 	<?php $this->load->view("admin_interface/includes/scripts");?>
-	<script src="<?=$baseurl;?>js/colorpicker.js"></script>
+	<script src="<?=$baseurl;?>colorpicker/mcColorPicker.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			$("#ColorCode").ColorPicker({
-				onSubmit: function(hsb,hex,rgb,el){
-					$(el).val(hex);
-					$(el).ColorPickerHide();
-				},
-				onBeforeShow: function (){
-					$(this).ColorPickerSetColor(this.value);
-				}
-			})
-			.bind("keyup", function(){
-				$(this).ColorPickerSetColor(this.value);
-			});
+
 		});
 	</script>
 </body>

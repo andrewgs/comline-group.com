@@ -39,5 +39,11 @@
 		</div>
 	</div>
 	<?php $this->load->view("admin_interface/includes/scripts");?>
+	<script src="<?=$baseurl;?>js/redactor/redactor.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".redactor").redactor({toolbar:'default',lang: 'ru','fixed': false});
+		});
+	</script>
 </body>
 </html>

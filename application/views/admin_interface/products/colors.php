@@ -16,11 +16,13 @@
 				<table class="table table-striped table-bordered">
 					<thead>
 						<tr>
-							<th class="w100">Цвет</th>
-							<th class="w100">Код</th>
+							<th class="w50">Цвет</th>
+							<th class="w50">Код</th>
+							<th class="w100">Название<br/>номер</th>
 							<th class="w50">&nbsp;</th>
-							<th class="w100">Цвет</th>
-							<th class="w100">Код</th>
+							<th class="w50">Цвет</th>
+							<th class="w85">Код</th>
+							<th class="w100">Название<br/>номер</th>
 							<th class="w50">&nbsp;</th>
 						</tr>
 					</thead>
@@ -28,24 +30,27 @@
 					<?php for($i=0;$i<count($colors);$i+=2):?>
 						<tr>
 						<?php if(isset($colors[$i]['id'])):?>
-							<td class="w85"><div style="background-color:#<?=$colors[$i]['code'];?>; width: 100px; height: 20px;"></div></td>
-							<td class="w85">#<?=$colors[$i]['code'];?></td>
+							<td class="w50"><div style="background-color:<?=$colors[$i]['code'];?>; width: 50px; height: 20px;"></div></td>
+							<td class="w50"><?=$colors[$i]['code'];?></td>
+							<td class="w100"><?=$colors[$i]['title'];?><br/><?=$colors[$i]['number'];?></td>
 							<td class="w50">
 								<div id="params<?=$i;?>" style="display:none" data-cid="<?=$colors[$i]['id'];?>" data-code="<?=$colors[$i]['code'];?>"></div>
 								<a class="deleteColor btn" data-param="<?=$i;?>" data-toggle="modal" href="#deleteColor" title="Удалить цвет"><i class="icon-trash"></i></a>
 							</td>
 						<?php endif;?>
 						<?php if(isset($colors[$i+1]['id'])):?>
-							<td class="w85"><div style="background-color:#<?=$colors[$i+1]['code'];?>; width: 100px; height: 20px;"></div></td>
-							<td class="w85"><b>#<?=$colors[$i+1]['code'];?></b></td>
+							<td class="w50"><div style="background-color:<?=$colors[$i+1]['code'];?>; width: 50px; height: 20px;"></div></td>
+							<td class="w50"><?=$colors[$i+1]['code'];?></td>
+							<td class="w100"><?=$colors[$i+1]['title'];?><br/><?=$colors[$i+1]['number'];?></td>
 							<td class="w50">
 								<div id="params<?=$i+1;?>" style="display:none" data-cid="<?=$colors[$i+1]['id'];?>" data-code="<?=$colors[$i+1]['code'];?>"></div>
 								<a class="deleteColor btn" data-param="<?=$i+1;?>" data-toggle="modal" href="#deleteColor" title="Удалить цвет"><i class="icon-trash"></i></a>
 							</td>
 						<?php else:?>
-							<td class="w85">&nbsp;</td>
-							<td class="w85">&nbsp;</td>
-							<td class="w85">&nbsp;</td>
+							<td class="w50">&nbsp;</td>
+							<td class="w50">&nbsp;</td>
+							<td class="w100">&nbsp;</td>
+							<td class="w50">&nbsp;</td>
 						<?php endif;?>
 						</tr>
 					<?php endfor; ?>

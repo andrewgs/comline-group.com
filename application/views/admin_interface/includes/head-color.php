@@ -11,7 +11,6 @@
 	<link href="<?=$baseurl;?>js/redactor/css/redactor.css" rel="stylesheet">
 	<link href="<?=$baseurl;?>css/bootstrap.css" rel="stylesheet">
 	<link href="<?=$baseurl;?>css/style.css" rel="stylesheet">
-	<link rel="stylesheet" href="<?=$baseurl;?>css/colorpicker/colorpicker.css" type="text/css" />
-	<link rel="stylesheet" href="<?=$baseurl;?>css/colorpicker/layout.css" type="text/css" />
+	<link href="<?=$baseurl;?>colorpicker/mcColorPicker.css" rel="stylesheet" type="text/css" />
 	<script src="<?=$baseurl;?>js/libs/modernizr-1.7.min.js"></script>
 </head>
