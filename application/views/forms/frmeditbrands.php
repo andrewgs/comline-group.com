@@ -30,6 +30,13 @@
 				<span class="help-inline" style="display:none;">&nbsp;</span>
 			</div>
 		</div>
+		<div class="control-group">
+			<label for="sort" class="control-label">Пордковый номер: </label>
+			<div class="controls">
+				<input type="text" class="span1 digital" name="sort" value="<?=($brand['sort'] == 100000)? '':$brand['sort'];?>">
+				<span class="help-inline" style="display:none;">&nbsp;</span>
+			</div>
+		</div>
 	</fieldset>
 	<div class="form-actions">
 		<button class="btn btn-success" type="submit" id="send" name="submit" value="send">Сохранить</button>

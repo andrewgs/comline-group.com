@@ -553,6 +553,7 @@ class Admin_interface extends CI_Controller{
 			$this->form_validation->set_rules('title',' ','required|trim');
 			$this->form_validation->set_rules('status_string',' ','trim');
 			$this->form_validation->set_rules('text',' ','trim');
+			$this->form_validation->set_rules('sort',' ','trim');
 			if(!$this->form_validation->run()):
 				$this->session->set_userdata('msgr','Ошибка. Неверно заполены необходимые поля<br/>');
 				$this->control_add_brand();
@@ -638,6 +639,7 @@ class Admin_interface extends CI_Controller{
 			$this->form_validation->set_rules('title',' ','required|trim');
 			$this->form_validation->set_rules('status_string',' ','trim');
 			$this->form_validation->set_rules('text',' ','trim');
+			$this->form_validation->set_rules('sort',' ','trim');
 			if(!$this->form_validation->run()):
 				$this->session->set_userdata('msgr','Ошибка. Неверно заполены необходимые поля<br/>');
 				$this->control_edit_brand();
