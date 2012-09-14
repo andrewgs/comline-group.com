@@ -13,8 +13,31 @@
 				</ul>
 				<?php $this->load->view("alert_messages/alert-error");?>
 				<?php $this->load->view("alert_messages/alert-success");?>
-				<?=form_open($this->uri->uri_string(),array('class'=>'form-horizontal')); ?>
+				<?=form_open_multipart($this->uri->uri_string(),array('class'=>'form-horizontal')); ?>
 				<fieldset>
+					<div class="control-group">
+						<label for="image" class="control-label">Изображение: </label>
+						<div class="controls">
+							<input type="file" class="input-file" name="image" size="50">
+							<span class="help-inline" style="display:none;">&nbsp;</span>
+							<p class="help-block">Поддерживаются форматы: JPG,PNG,GIF</p>
+						</div>
+					</div>
+					<div class="control-group">
+						<label for="image" class="control-label">Текущее изображение: </label>
+						<div class="controls">
+							<img src="<?=$baseurl;?>text/viewimage/<?=$text['id'];?>" alt="" width="150"/><br/><br/>
+						</div>
+					</div>
+					<div class="control-group">
+						<label for="showitem" class="control-label">&nbsp;</label>
+						<div class="controls">
+							<label class="checkbox">
+								<input type="checkbox" value="1" id="noimage" name="noimage" <?=($text['noimage'])? 'checked="checked"' : '';?>>
+								Не показывать изображение
+							</label>
+						</div>
+					</div>
 					<div class="control-group">
 						<label for="title" class="control-label"><?=$text['lname1'];?>: </label>
 						<div class="controls">

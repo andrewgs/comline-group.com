@@ -9,6 +9,7 @@ $route['about'] 	= "users_interface/about";
 $route['clients'] 	= "users_interface/clients";
 $route['brands'] 	= "users_interface/brands";
 $route['contacts'] 	= "users_interface/contacts";
+$route['vakansii'] 	= "users_interface/vakansii";
 
 $route['catalog/category/:any']	= "users_interface/catalog";
 $route['catalog/brands/:any']	= "users_interface/catalog";
@@ -40,8 +41,9 @@ $route['product/:num-:num-:num/:any'] = "users_interface/product";
 $route['news/viewimage/:num']		= "users_interface/viewimage";
 $route['stock/viewimage/:num']		= "users_interface/viewimage";
 $route['brands/viewimage/:num']		= "users_interface/viewimage";
-$route['productimage/viewimage/:num']		= "users_interface/viewimage";
+$route['productimage/viewimage/:num']= "users_interface/viewimage";
 $route['baner/viewimage/:num']		= "users_interface/viewimage";
+$route['text/viewimage/:num']		= "users_interface/viewimage";
 
 $route['stock/:any'] 	= "users_interface/view_stock";
 $route['news/:any'] 	= "users_interface/view_news";
@@ -69,6 +71,7 @@ $route['admin-panel/actions/storage']	= "admin_interface/admin_storage";
 $route['admin-panel/actions/contacts']	= "admin_interface/admin_edit_text";
 $route['admin-panel/actions/clients']	= "admin_interface/admin_edit_text";
 $route['admin-panel/actions/about']		= "admin_interface/admin_edit_text";
+$route['admin-panel/actions/vakansii']	= "admin_interface/admin_edit_text";
 
 $route['admin-panel/actions/events']		= "admin_interface/control_events";
 $route['admin-panel/actions/events/from']	= "admin_interface/control_events";

@@ -141,40 +141,56 @@ class Admin_interface extends CI_Controller{
 		$this->session->unset_userdata('msgr');
 		
 		switch($this->uri->segment(3)):
-			case 'contacts' : 	$pagevar['text']['vname1'] = $this->mdtexts->read_field(1,'text');
+			case 'contacts' : 	$pagevar['text']['id'] = $id1 = 1;
+								$pagevar['text']['vname1'] = $this->mdtexts->read_field($id1,'text');
+								$pagevar['text']['noimage'] = $this->mdtexts->read_field($id1,'noimage');
 								$pagevar['text']['lname1'] = 'Адрес';
-								$pagevar['text']['fname1'] = 'address';
-								$pagevar['text']['vname2'] = $this->mdtexts->read_field(2,'text');
+								$pagevar['text']['fname1'] = 'text1';
+								$id2 = 2;
+								$pagevar['text']['vname2'] = $this->mdtexts->read_field($id2,'text');
 								$pagevar['text']['lname2'] = 'E-mail';
-								$pagevar['text']['fname2'] = 'email';
-								$id1 = 1; $id2 = 2;
+								$pagevar['text']['fname2'] = 'text2';
 								break;
-			case 'clients' : 	$pagevar['text']['vname1'] = $this->mdtexts->read_field(3,'text');
+			case 'clients' : 	$pagevar['text']['id'] = $id1 = 3;
+								$pagevar['text']['vname1'] = $this->mdtexts->read_field($id1,'text');
+								$pagevar['text']['noimage'] = $this->mdtexts->read_field($id1,'noimage');
 								$pagevar['text']['lname1'] = 'Прелог';
-								$pagevar['text']['fname1'] = 'part1';
-								$pagevar['text']['vname2'] = $this->mdtexts->read_field(4,'text');
+								$pagevar['text']['fname1'] = 'text1';
+								$id2 = 4;
+								$pagevar['text']['vname2'] = $this->mdtexts->read_field($id2,'text');
 								$pagevar['text']['lname2'] = 'Содержание';
-								$pagevar['text']['fname2'] = 'part2';
-								$id1 = 3; $id2 = 4;
+								$pagevar['text']['fname2'] = 'text2';
 								break;
-			case 'about' : 		$pagevar['text']['vname1'] = $this->mdtexts->read_field(5,'text');
+			case 'about' : 		$pagevar['text']['id'] = $id1 = 5;
+								$pagevar['text']['vname1'] = $this->mdtexts->read_field($id1,'text');
+								$pagevar['text']['noimage'] = $this->mdtexts->read_field($id1,'noimage');
 								$pagevar['text']['lname1'] = 'О компании';
-								$pagevar['text']['fname1'] = 'about';
-								$id1 = 5; $id2 = NULL;
+								$pagevar['text']['fname1'] = 'text1';
+								$id2 = NULL;
+								break;
+			case 'vakansii' : 	$pagevar['text']['id'] = $id1 = 6;
+								$pagevar['text']['vname1'] = $this->mdtexts->read_field($id1,'text');
+								$pagevar['text']['noimage'] = $this->mdtexts->read_field($id1,'noimage');
+								$pagevar['text']['lname1'] = 'Вакансии';
+								$pagevar['text']['fname1'] = 'text1';
+								$id2 = NULL;
 								break;
 			default : redirect($this->session->userdata('backpath'));
 		endswitch;
-		
 		if($this->input->post('submit')):
 			unset($_POST['submit']);
 			$text = array(); $i = 0;
-			foreach($_POST as $post):
-				$text[$i] = $post;
-				$i++;
-			endforeach;
-			$this->mdtexts->update_field($id1,'text',$text[0]);
+			if(!isset($_POST['noimage'])):
+				$_POST['noimage'] = 0;
+			endif;
+			if($_FILES['image']['error'] != 4):
+				$this->mdtexts->update_field($id1,'image',file_get_contents($_FILES['image']['tmp_name']));
+			endif;
+			$this->mdtexts->update_field($id1,'noimage',$_POST['noimage']);
+			$this->mdtexts->update_field($id1,'text',$_POST['text1']);
 			if(isset($id2)):
-				$this->mdtexts->update_field($id2,'text',$text[1]);
+				$this->mdtexts->update_field($id2,'noimage',1);
+				$this->mdtexts->update_field($id2,'text',$_POST['text2']);
 			endif;
 			$this->session->set_userdata('msgs','Текс сохранен успешно.');
 			redirect($this->uri->uri_string());

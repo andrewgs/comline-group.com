@@ -13,6 +13,7 @@
 			<li num="contacts"><?=anchor('admin-panel/actions/contacts','Контакты ');?></li>
 			<li num="clients"><?=anchor('admin-panel/actions/clients','Клиентам ');?></li>
 			<li num="about"><?=anchor('admin-panel/actions/about','О компании ');?></li>
+			<li num="vakansii"><?=anchor('admin-panel/actions/vakansii','Вакансии ');?></li>
 			<!--<li num="control"><?=anchor('admin-panel/actions/control','Сообщения ');?></li>-->
 			<li num="profile"><?=anchor('admin-panel/actions/profile','Смена пароля ');?></li>
 			<li><?=anchor('admin-panel/actions/logoff','Завершить сеанс');?></li>
