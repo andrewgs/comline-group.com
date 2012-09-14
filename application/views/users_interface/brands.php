@@ -15,6 +15,7 @@
 			<ul id="brands-list">
 			<?php for($i=0;$i<count($brands);$i++):?>
 				<li>
+					<a name="<?=$brands[$i]['translit'];?>"></a>
 					<img src="<?=$baseurl;?>brands/viewimage/<?=$brands[$i]['id'];?>" /><br />
 					<span class="underlined"><?=$brands[$i]['title'];?></span> <?=$brands[$i]['status_string'];?>
 					<?=$brands[$i]['text'];?>

@@ -29,7 +29,7 @@
 			<ul id="brands-nav">
 				<?php for($i=0;$i<count($brands);$i++):?>
 					<li>
-						<?=anchor('catalog/brands/'.$brands[$i]['translit'],'<img src="'.$baseurl.'brands/viewimage/'.$brands[$i]['id'].'" /><br/><span class="underlined">'.$brands[$i]['title'].'</span> '.$brands[$i]['status_string']);?>
+						<?=anchor('brands#'.$brands[$i]['translit'],'<img src="'.$baseurl.'brands/viewimage/'.$brands[$i]['id'].'" /><br/><span class="underlined">'.$brands[$i]['title'].'</span> '.$brands[$i]['status_string']);?>
 					</li>
 				<?php endfor;?>
 			</ul>

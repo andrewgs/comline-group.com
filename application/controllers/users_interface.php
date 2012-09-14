@@ -179,6 +179,27 @@ class Users_interface extends CI_Controller{
 		$this->load->view("users_interface/about",$pagevar);
 	}
 	
+	public function vakansii(){
+		
+		$pagevar = array(
+			'title'			=> 'Комфорт Лайн :: Вакансии',
+			'description'	=> '',
+			'author'		=> '',
+			'baseurl' 		=> base_url(),
+			'loginstatus'	=> $this->loginstatus,
+			'userinfo'		=> $this->user,
+			'text'			=> $this->mdtexts->read_field(6,'text'),
+			'noimage'		=> $this->mdtexts->read_field(6,'noimage'),
+			'image'			=> 6,
+			'msgs'			=> $this->session->userdata('msgs'),
+			'msgr'			=> $this->session->userdata('msgr'),
+		);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		$this->load->view("users_interface/vakansii",$pagevar);
+	}
+	
 	public function view_news(){
 		
 		$news = $this->mdevents->read_field_translit($this->uri->segment(2),'id');
@@ -696,6 +717,7 @@ class Users_interface extends CI_Controller{
 			case 'brands' 	: $image = $this->mdbrands->get_image($id); break;
 			case 'productimage' : $image = $this->mdproductsimages->get_image($id); break;
 			case 'baner' 	: $image = $this->mdimages->get_image($id); break;
+			case 'text' 	: $image = $this->mdtexts->get_image($id); break;
 		endswitch;
 		header('Content-type: image/gif');
 		echo $image;

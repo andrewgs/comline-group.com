@@ -24,7 +24,7 @@ class Mdevents extends CI_Model{
 		$this->date		= date("Y-m-d");
 		if($data['image']):
 			$this->image	= $data['image'];
-			$this->noimage = 1;
+			$this->noimage = 0;
 		else:
 			$this->image = '';
 			$this->noimage = 1;
