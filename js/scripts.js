@@ -26,7 +26,7 @@ function myserialize(objects){
 
 function backpath(path){window.location=path;}
 (function($){
-	var baseurl = "http://comline-group.com/";
+	var baseurl = "http://comfline.ru/";
 	$("#msgeclose").click(function(){$("#msgdealert").fadeOut(1000,function(){$(this).remove();});});
 	$("#msgsclose").click(function(){$("#msgdsalert").fadeOut(1000,function(){$(this).remove();});});
 	$(".digital").keypress(function(e){if(e.which!=8 && e.which!=46 && e.which!=0 && (e.which<48 || e.which>57)){return false;}});
@@ -44,7 +44,6 @@ function backpath(path){window.location=path;}
 		if(!err && !isValidEmailAddress($(".become-partner .valid-email").val())){$(".become-partner .valid-email").parents("fieldset").addClass('validate');err = true; event.preventDefault();}
 		if(!err && !isValidPhone($(".become-partner .valid-phone").val())){$(".become-partner .valid-phone").parents("fieldset").addClass('validate');err = true; event.preventDefault();}
 		if(!err){var postdata = myserialize($(".become-partner .FieldSend"));
-			console.log(postdata);
 			$.post(baseurl+"send-mail/partners",{'postdata':postdata},
 			function(data){if(data.status){$(".become-partner em").show();$(".become-partner .submit").addClass("submitted");}else{$(".become-partner em").html(data.message).show();}},"json");
 		}
