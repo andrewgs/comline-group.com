@@ -20,19 +20,19 @@
 	background: none repeat scroll 0 0 #F2DEDE;
 }
 #message_box{
-	margin: 10px;
-	width: 340px;
-	text-align: center;
-	vertical-align:middle;
+	margin: 0.25em 0;
+	font-size: 1em;
 }
 
 .alert {
 	background-color: #FCF8E3;
 	border: 1px solid #FBEED5;
 	border-radius: 4px 4px 4px 4px;
-	margin: 7px 18px 18px 7px;
-	padding: 8px 35px 8px 14px;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	font-size: 0.85em;
+	margin: 0 0 0.5em;
+	padding: 0.25em 0.75em;
+	width: 20.4em;	
 }
 .alert, .alert-heading {
 	color: #C09853;
