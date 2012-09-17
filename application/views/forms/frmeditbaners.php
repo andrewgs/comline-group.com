@@ -31,7 +31,7 @@
 		</div>
 	</fieldset>
 	<div class="form-actions">
-		<button class="btn btn-success" type="submit" id="send" name="submit" value="send">Добавить</button>
-		<button class="btn btn-inverse backpath" type="button">Отменить</button>
+		<button class="btn btn-success" type="submit" id="send" name="submit" value="send">Сохранить</button>
+		<button class="btn btn-inverse backpath" type="button">Отмена</button>
 	</div>
 <?= form_close(); ?>

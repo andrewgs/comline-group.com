@@ -27,7 +27,7 @@
 .alert {
 	background-color: #FCF8E3;
 	border: 1px solid #FBEED5;
-	border-radius: 4px 4px 4px 4px;
+	border-radius: 4px;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 	font-size: 0.85em;
 	margin: 0 0 0.5em;

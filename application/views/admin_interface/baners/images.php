@@ -16,17 +16,12 @@
 				<ul class="thumbnails">
 				<?php for($i=0;$i<count($baners);$i++):?>
 					<li class="span3">
-						<div class="thumbnail">
-							<img src="<?=$baseurl;?>baner/viewimage/<?=$baners[$i]['id'];?>" />
-							<hr />
-							<div class="caption">
-								<p>
-									<div id="params<?=$i;?>" style="display:none" data-imgID="<?=$baners[$i]['id'];?>"></div>
-									<?=anchor('admin-panel/actions/baners/edit/imageid/'.$baners[$i]['id'],'<i class="icon-pencil icon-white"></i>',array('class'=>'btn btn-success','title'=>'Редактировать'));?>
-									<a class="btn btn-danger deleteImage" data-param="<?=$i;?>" data-toggle="modal" href="#deleteImage">Удалить</a>
-								</p>
-							</div>
-						</div>
+						<img class="img-polaroid" src="<?=$baseurl;?>baner/viewimage/<?=$baners[$i]['id'];?>" />
+						<p>
+							<div id="params<?=$i;?>" style="display:none" data-imgID="<?=$baners[$i]['id'];?>"></div>
+							<?=anchor('admin-panel/actions/baners/edit/imageid/'.$baners[$i]['id'],'<i class="icon-pencil icon-white"></i>',array('class'=>'btn btn-success','title'=>'Редактировать'));?>
+							<a class="btn btn-danger deleteImage" data-param="<?=$i;?>" data-toggle="modal" href="#deleteImage"><i class="icon-trash icon-white"></i></a>
+						</p>
 					</li>
 				<?php endfor;?>
 				</ul>
