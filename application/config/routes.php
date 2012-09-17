@@ -53,6 +53,7 @@ $route['admin-panel/actions/profile']	= "admin_interface/profile";
 
 $route['admin-panel/actions/baners'] 	= "admin_interface/control_baners";
 $route['admin-panel/actions/baners/add']= "admin_interface/control_baners_add";
+$route['admin-panel/actions/baners/edit/imageid/:num']= "admin_interface/control_baners_edit";
 $route['admin-panel/actions/baners/delete/banersid/:num']= "admin_interface/control_baners_delete";
 
 $route['admin-panel/actions/logoff']	= "admin_interface/admin_logoff";

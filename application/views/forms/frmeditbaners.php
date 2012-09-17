@@ -1,5 +1,5 @@
 <?=form_open_multipart($this->uri->uri_string(),array('class'=>'form-horizontal')); ?>
-	<legend>Форма добавления изображений</legend>
+	<legend>Форма редактирования изображений</legend>
 	<fieldset>
 		<div class="control-group">
 			<label for="image" class="control-label">Картинка: </label>
@@ -11,21 +11,21 @@
 		<div class="control-group">
 			<label for="title" class="control-label">Название: </label>
 			<div class="controls">
-				<input type="text" class="input-xlarge input-valid" name="title" value="<?=set_value('title');?>">
+				<input type="text" class="input-xlarge input-valid" name="title" value="<?=$image['title'];?>">
 				<span class="help-inline" style="display:none;">&nbsp;</span>
 			</div>
 		</div>
 		<div class="control-group">
 			<label for="link" class="control-label">Ссылка: </label>
 			<div class="controls">
-				<input type="text" class="input-xlarge input-valid" name="link" value="<?=set_value('link');?>">
+				<input type="text" class="input-xlarge input-valid" name="link" value="<?=$image['link'];?>">
 				<span class="help-inline" style="display:none;">&nbsp;</span>
 			</div>
 		</div>
 		<div class="control-group">
 			<label for="sort" class="control-label">Пордковый номер: </label>
 			<div class="controls">
-				<input type="text" class="span1 digital" name="sort" value="<?=set_value('sort');?>">
+				<input type="text" class="span1 digital" name="sort" value="<?=($image['sort'] == 100000)? '':$image['sort'];?>">
 				<span class="help-inline" style="display:none;">&nbsp;</span>
 			</div>
 		</div>

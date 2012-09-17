@@ -962,7 +962,7 @@ class Admin_interface extends CI_Controller{
 	public function control_baners_add(){
 		
 		$pagevar = array(
-			'title'			=> 'Панель администрирования | Слайдшоу на главной | Добавление изображени',
+			'title'			=> 'Панель администрирования | Слайдшоу на главной | Добавление изображения',
 			'description'	=> '',
 			'author'		=> '',
 			'baseurl'		=> base_url(),
@@ -992,6 +992,7 @@ class Admin_interface extends CI_Controller{
 						$data['image'] = $this->resize_image($_FILES['image']['tmp_name'],960,410,'width',TRUE);
 						$data['title'] = $_POST['title'];
 						$data['link'] = $_POST['link'];
+						$data['sort'] = $_POST['sort'];
 						$this->mdimages->insert_record($data);
 						$this->session->set_userdata('msgs','Изображение загруженно успешно');
 					else:
@@ -1002,6 +1003,55 @@ class Admin_interface extends CI_Controller{
 			endif;
 		endif;
 		$this->load->view("admin_interface/baners/add-image",$pagevar);
+	}
+	
+	public function control_baners_edit(){
+		
+		$image = $this->uri->segment(6);
+		$pagevar = array(
+			'title'			=> 'Панель администрирования | Слайдшоу на главной | Редактирование изображения',
+			'description'	=> '',
+			'author'		=> '',
+			'baseurl'		=> base_url(),
+			'loginstatus'	=> $this->loginstatus,
+			'image'			=> $this->mdimages->read_record($image),
+			'userinfo'		=> $this->user,
+			'msgs'			=> $this->session->userdata('msgs'),
+			'msgr'			=> $this->session->userdata('msgr'),
+		);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		if($this->input->post('submit')):
+			unset($_POST['submit']);
+			$this->form_validation->set_rules('title',' ','required|trim');
+			$this->form_validation->set_rules('link',' ','prep_url|required|trim');
+			$this->form_validation->set_rules('sort',' ','trim');
+			if(!$this->form_validation->run()):
+				$this->session->set_userdata('msgr','Ошибка. Неверно заполены необходимые поля<br/>');
+				$this->control_baners_edit();
+				return FALSE;
+			else:
+				if($_FILES['image']['error'] != 4):
+					if(!$this->case_image($_FILES['image']['tmp_name'])):
+						continue;
+					endif;
+					$img = getimagesize($_FILES['image']['tmp_name']);
+					if(($img[0] > $img[1]) && ($img[0] >= 960)):
+						$data['image'] = $this->resize_image($_FILES['image']['tmp_name'],960,410,'width',TRUE);
+					else:
+						$this->session->set_userdata('msgr','Ошибка. Изображение должно быть не менее 960px по ширене');
+					endif;
+				endif;
+				$data['title'] = $_POST['title'];
+				$data['link'] = $_POST['link'];
+				$data['sort'] = $_POST['sort'];
+				$this->mdimages->update_record($image,$data);
+				$this->session->set_userdata('msgs','Данные успешно сохранены');
+				redirect('admin-panel/actions/baners');
+			endif;
+		endif;
+		$this->load->view("admin_interface/baners/edit-image",$pagevar);
 	}
 	
 	public function control_baners_delete(){

@@ -6,6 +6,7 @@ class Mdimages extends CI_Model{
 	var $image		= '';
 	var $title		= '';
 	var $link		= '';
+	var $sort		= 100000;
 	
 	function __construct(){
 		parent::__construct();
@@ -16,14 +17,36 @@ class Mdimages extends CI_Model{
 		$this->title	= htmlspecialchars($data['title']);
 		$this->image	= $data['image'];
 		$this->link		= $data['link'];
+		if(!empty($data['sort'])):
+			$this->sort = $data['sort'];
+		endif;
 		
 		$this->db->insert('images',$this);
 		return $this->db->insert_id();
 	}
 	
+	function update_record($id,$data){
+		
+		$this->db->set('title',htmlspecialchars($data['title']));
+		$this->db->set('link',$data['link']);
+		if(isset($data['image'])):
+			$this->db->set('image',$data['image']);
+		endif;
+		if(empty($data['sort'])):
+			$this->db->set('sort',100000);
+		else:
+			$this->db->set('sort',$data['sort']);
+		endif;
+		$this->db->where('id',$id);
+		$this->db->update('images');
+		return $this->db->affected_rows();
+	}
+	
 	function read_records(){
 		
-		$this->db->select('id,title,link');
+		$this->db->select('id,title,link,sort');
+		$this->db->order_by('sort');
+		$this->db->order_by('id');
 		$query = $this->db->get('images');
 		$data = $query->result_array();
 		if(count($data)) return $data;
@@ -32,7 +55,7 @@ class Mdimages extends CI_Model{
 	
 	function read_record($id){
 		
-		$this->db->select('id,title,link');
+		$this->db->select('id,title,link,sort');
 		$this->db->where('id',$id);
 		$query = $this->db->get('images',1);
 		$data = $query->result_array();

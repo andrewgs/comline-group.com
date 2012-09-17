@@ -22,6 +22,7 @@
 							<div class="caption">
 								<p>
 									<div id="params<?=$i;?>" style="display:none" data-imgID="<?=$baners[$i]['id'];?>"></div>
+									<?=anchor('admin-panel/actions/baners/edit/imageid/'.$baners[$i]['id'],'<i class="icon-pencil icon-white"></i>',array('class'=>'btn btn-success','title'=>'Редактировать'));?>
 									<a class="btn btn-danger deleteImage" data-param="<?=$i;?>" data-toggle="modal" href="#deleteImage">Удалить</a>
 								</p>
 							</div>

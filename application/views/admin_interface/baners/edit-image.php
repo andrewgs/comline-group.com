@@ -11,12 +11,12 @@
 						<?=anchor('',"Слайдшоу на главной",array('class'=>'none backpath'));?><span class="divider">/</span>
 					</li>
 					<li class="active">
-						Добавление изображения
+						Редактирование изображения
 					</li>
 				</ul>
 				<?php $this->load->view("alert_messages/alert-error");?>
 				<?php $this->load->view("alert_messages/alert-success");?>
-				<?php $this->load->view("forms/frmaddbaners");?>
+				<?php $this->load->view("forms/frmeditbaners");?>
 			</div>
 		<?php $this->load->view("admin_interface/includes/rightbar");?>
 		</div>
