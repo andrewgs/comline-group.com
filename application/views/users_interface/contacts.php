@@ -20,12 +20,10 @@
 			</address>
 			<aside id="map">
 				<!-- Этот блок кода нужно вставить в ту часть страницы, где вы хотите разместить карту (начало) -->
-				<div id="ymaps-map-id_134679524533177719355" style="width: 450px; height: 505px;"></div>
-				<script type="text/javascript">function fid_134679524533177719355(ymaps) {var map = new ymaps.Map("ymaps-map-id_134679524533177719355", {center: [37.57648693445605, 55.77801272351318], zoom: 15, type: "yandex#map"});map.controls.add("zoomControl").add("mapTools").add(new ymaps.control.TypeSelector(["yandex#map", "yandex#satellite", "yandex#hybrid", "yandex#publicMap"]));map.geoObjects.add(new ymaps.Placemark([37.571372, 55.778279], {balloonContent: ""}, {preset: "twirl#blueDotIcon"})).add(new ymaps.Polyline([[37.58200727814918, 55.77743263249227], [37.57986151093737, 55.77677956638348], [37.57707201356189, 55.77677956638348], [37.57320963258039, 55.77910152941231], [37.57149301881082, 55.77835174403129]], {balloonContent: ""}, {strokeColor: "ff0000", strokeWidth: 5, strokeOpacity: 0.8}));};</script>
-				<script type="text/javascript" src="http://api-maps.yandex.ru/2.0/?coordorder=longlat&load=package.full&wizard=constructor&lang=ru-RU&onload=fid_134679524533177719355"></script>
+				<div id="ya-map" style="width: 450px; height: 505px;"></div>
 				<!-- Этот блок кода нужно вставить в ту часть страницы, где вы хотите разместить карту (конец) -->
 			</aside>
-			<h3>Склады:</h3>
+			<h3>Склад<?php if (count($storage)>1): ?>ы<?php endif; ?></h3>
 			<ul class="warehouses">
 			<?php for($i=0;$i<count($storage);$i++):?>
 				<li>
@@ -49,6 +47,7 @@
 	</div>
 	<?php $this->load->view("users_interface/includes/footer");?>
 	<?php $this->load->view("users_interface/includes/scripts");?>
+	<script src="http://api-maps.yandex.ru/2.0/?coordorder=longlat&load=package.full&lang=ru-RU" type="text/javascript"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$("#send").click(function(event){
@@ -59,7 +58,61 @@
 				if(err){$("#message_box").html('<div class="alert alert-error">Поля не могут быть пустыми</div>'); event.preventDefault();};
 				if(!err && !isValidEmailAddress(email)){$("#message_box").html('<div class="alert alert-error">Не верный адрес E-Mail</div>');$("#email").addClass('empty-error');err = true; event.preventDefault();}
 			});
+			
+			$('address a.show-map').click(function(e){
+				//myMap.destroy();// Деструктор карты
+                //myMap = null;
+                e.preventDefault();
+                $('#ya-map').html('');
+            	init();                 
+			});
+			
+			$('ul.warehouses li:first a.show-map').click(function(e){
+				//myMap.destroy();// Деструктор карты
+                //myMap = null;
+                e.preventDefault();
+                $('#ya-map').html('');
+				
+				var map = new ymaps.Map("ya-map", {
+					center : [37.59321899999998, 55.79945197388315],
+					zoom : 14
+				});
+				map.controls.add("zoomControl").add("mapTools").add(new ymaps.control.TypeSelector(["yandex#map", "yandex#satellite", "yandex#hybrid", "yandex#publicMap"]));
+				map.geoObjects.add(new ymaps.Placemark([37.57086, 55.778021], {
+					balloonContent : ""
+				}, {
+					preset : "twirl#darkblueDotIcon"
+				})).add(new ymaps.Placemark([37.593219, 55.798763], {
+					balloonContent : ""
+				}, {
+					preset : "twirl#darkblueDotIcon"
+				}));
+			});
 		});
-	</script>
+
+		// Как только будет загружен API и готов DOM, выполняем инициализацию
+		ymaps.ready(init);
+
+		// Инициализация и уничтожение карты при нажатии на кнопку.
+		function init() {
+			var myMap = new ymaps.Map("ya-map", {
+				center : [37.57648693445605, 55.77801272351318],
+				zoom : 15,
+				type : "yandex#map"
+			});
+			myMap.controls.add("zoomControl").add("mapTools").add(new ymaps.control.TypeSelector(["yandex#map", "yandex#satellite", "yandex#hybrid", "yandex#publicMap"]));
+			myMap.geoObjects.add(new ymaps.Placemark([37.571372, 55.778279], {
+				balloonContent : ""
+			}, {
+				preset : "twirl#blueDotIcon"
+			})).add(new ymaps.Polyline([[37.58200727814918, 55.77743263249227], [37.57986151093737, 55.77677956638348], [37.57707201356189, 55.77677956638348], [37.57320963258039, 55.77910152941231], [37.57149301881082, 55.77835174403129]], {
+				balloonContent : ""
+			}, {
+				strokeColor : "ff0000",
+				strokeWidth : 5,
+				strokeOpacity : 0.8
+			}));
+		}
+	</script>	
 </body>
 </html>

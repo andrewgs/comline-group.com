@@ -189,7 +189,7 @@ p.em40 { max-width: 40em; }
 .substrate form input, .substrate form textarea { background: none repeat scroll 0 0 #F9F9F9; border: medium none; border-radius: 3px 3px 3px 3px; color: #999999; display: inline-block; font-family: trebuchet ms; font-size: 0.8em; height: 25px; margin: 0 0 0.5em; padding: 0.5em 0.75em; width: 22em; }
 .substrate form textarea { height: 5em; }
 .substrate form button { background: #fff; border: none; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; -webkit-box-shadow: 0px 1px 2px 0px #777, 0px 1px 1px 1px #fff; -moz-box-shadow: 0px 1px 2px 0px #777, 0px 1px 1px 1px #fff; box-shadow: 0px 1px 2px 0px #777, 0px 1px 1px 1px #fff; cursor: pointer; display: block; font-family: "Trebuchet MS"; font-size: 14px; margin: 0; padding: 3px 6px; vertical-align: top; color: #666; }
-.show-map { color: #ccc; display: block;  font-size: 0.85em; font-weight: normal; text-decoration: none; }
+.show-map, .show-map:visited { color: #ccc; display: block;  font-size: 0.85em; font-weight: normal; text-decoration: none; }
 .substrate address { background: rgba(255, 255, 255, 0.5);  font-size: 0.925em; font-weight: bold; line-height: 1.5em; padding: 0.75em 1em 0.5em; 
 	-webkit-text-shadow: 0 1px 0 #fafafa; -moz-text-shadow: 0 1px 0 #fafafa; text-shadow: 0 1px 0 #fafafa; margin-bottom: 2em;
 }
@@ -250,7 +250,7 @@ p.em40 { max-width: 40em; }
 .product-page .nav-links a.blockLink { border-bottom: 0 none; color: #BDBDBD; cursor: default; }
 
 .brand-wrapper .brand-logo { float: left; font-size: 0.85em; line-height: 1.5em; margin-right: 1em; }
-.brand-wrapper .catalog-list { float: left; margin: 0.7em 0 0 1.25em; width: 40em; }
+.brand-wrapper .catalog-list { float: left; margin: 0.7em 0 0 1.25em; width: 38.5em; }
 .brand-wrapper .catalog-list li { display: inline-block; margin-right: 2em; }
 .brand-wrapper .catalog-list li a { text-decoration: none; color: #666; border-bottom: 1px solid; line-height: 1em; font-size: 1.6em; }
 .brand-wrapper .catalog-list li.active a { color: #f89146; border-bottom: 0 none; }
