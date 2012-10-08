@@ -27,17 +27,6 @@
 		$(document).ready(function(){
 			$(".redactor").redactor();
 			
-			$(".product-li").click(function(){
-				var nav = $(this).attr("data-nav");
-				var number = $(this).index();
-				$(".dispnone").hide();
-				$("#"+nav).show();
-				$(".product-li").removeClass('inactive').addClass('active');
-				$(".product-li").not(this).removeClass('active').addClass('inactive');
-			});
-				
-			$(".dispnone").not(':first').hide();
-
 			$(".chGender").click(function(){
 				if($(".chGender:checkbox:checked").length == 0){$(this).attr('checked','checked');}
 			});
