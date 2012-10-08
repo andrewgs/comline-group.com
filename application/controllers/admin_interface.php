@@ -1145,6 +1145,8 @@ class Admin_interface extends CI_Controller{
 			'userinfo'		=> $this->user,
 			'category'		=> $this->mdcategory->read_records(),
 			'brands'		=> $this->mdbrands->read_records(),
+			'colors'		=> $this->mdcolors->read_records(),
+			'sizes'			=> $this->get_sizes(),
 			'msgs'			=> $this->session->userdata('msgs'),
 			'msgr'			=> $this->session->userdata('msgr'),
 		);
@@ -1158,6 +1160,8 @@ class Admin_interface extends CI_Controller{
 			$this->form_validation->set_rules('art',' ','required|trim');
 			$this->form_validation->set_rules('text',' ','required|trim');
 			$this->form_validation->set_rules('gender[]',' ','required');
+			$this->form_validation->set_rules('sizes[]',' ','required');
+			$this->form_validation->set_rules('colors[]',' ','required');
 			$this->form_validation->set_rules('category',' ','required');
 			$this->form_validation->set_rules('brand',' ','required');
 			if(!$this->form_validation->run()):
@@ -1174,8 +1178,35 @@ class Admin_interface extends CI_Controller{
 					$_POST['showitem'] = 0;
 				endif;
 				$translit = $this->translite($_POST['title']);
-				$cid = $this->mdproducts->insert_record($_POST,$gender,$translit);
-				if($cid):
+				$pid = $this->mdproducts->insert_record($_POST,$gender,$translit);
+				if($pid):
+					/**************************************************************/
+					$colors = array();
+					for($i=0;$i<count($pagevar['colors']);$i++):
+						$colors[$pagevar['colors'][$i]['id']] = $pagevar['colors'][$i]['code'];
+					endfor;
+					$colorslist = array();
+					for($i=0,$j=0;$i<count($_POST['colors']);$i++):
+						$colorslist[$j]['color_id'] = $_POST['colors'][$i];
+						$colorslist[$j]['code']= $colors[$_POST['colors'][$i]];
+						$j++;
+					endfor;
+					if(count($colorslist)):
+						$this->mdproductscolors->delete_product_records($pid);
+						$this->mdproductscolors->group_insert($pid,$colorslist);
+					endif;
+					/**************************************************************/
+					$sizeslist = array();
+					for($i=0,$j=0;$i<count($_POST['sizes']);$i++):
+						$sizeslist[$j]['sizes_id'] = $_POST['sizes'][$i];
+						$sizeslist[$j]['code']= $pagevar['sizes'][$_POST['sizes'][$i]]['code'];
+						$j++;
+					endfor;
+					if(count($sizeslist)):
+						$this->mdproductssizes->delete_product_records($pid);
+						$this->mdproductssizes->group_insert($pid,$sizeslist);
+					endif;
+					/**************************************************************/
 					$this->session->set_userdata('msgs','Продукт создан успешно.');
 				endif;
 				redirect($this->uri->uri_string());
@@ -1183,148 +1214,6 @@ class Admin_interface extends CI_Controller{
 		endif;
 		
 		$this->load->view("admin_interface/products/add-product",$pagevar);
-	}
-	
-	public function control_product_colors(){
-		
-		$pid = $this->uri->segment(5);
-		$pagevar = array(
-			'title'			=> 'Панель администрирования | Цвета продукта',
-			'description'	=> '',
-			'author'		=> '',
-			'baseurl'		=> base_url(),
-			'loginstatus'	=> $this->loginstatus,
-			'userinfo'		=> $this->user,
-			'colors'		=> $this->mdcolors->read_records(),
-			'product'		=> $this->mdproducts->read_field($pid,'title'),
-			'prcolors'		=> $this->mdproductscolors->read_records($pid),
-			'msgs'			=> $this->session->userdata('msgs'),
-			'msgr'			=> $this->session->userdata('msgr'),
-		);
-		$this->session->unset_userdata('msgs');
-		$this->session->unset_userdata('msgr');
-		if($this->input->post('submit')):
-			unset($_POST['submit']);
-			$this->form_validation->set_rules('code[]',' ','required');
-			if(!$this->form_validation->run()):
-				$this->session->set_userdata('msgr','Ошибка. Вы должны выбрать хотя бы один цвет<br/>');
-				redirect($this->uri->uri_string());
-			else:
-				$colors = array();
-				for($i=0;$i<count($pagevar['colors']);$i++):
-					$colors[$pagevar['colors'][$i]['id']] = $pagevar['colors'][$i]['code'];
-				endfor;
-				$colorslist = array();
-				for($i=0,$j=0;$i<count($_POST['code']);$i++):
-					$colorslist[$j]['color_id'] = $_POST['code'][$i];
-					$colorslist[$j]['code']= $colors[$_POST['code'][$i]];
-					$j++;
-				endfor;
-				if(count($colorslist)):
-					$this->mdproductscolors->delete_product_records($pid);
-					$this->mdproductscolors->group_insert($pid,$colorslist);
-					$this->session->set_userdata('msgs','Цвета сохранены');
-				endif;
-				redirect($this->session->userdata('backpath'));
-			endif;
-		endif;
-		for($i=0;$i<count($pagevar['colors']);$i++):
-			$pagevar['colors'][$i]['checked'] = 0;
-			for($j=0;$j<count($pagevar['prcolors']);$j++):
-				if($pagevar['prcolors'][$j]['color_id'] == $pagevar['colors'][$i]['id']):
-					$pagevar['colors'][$i]['checked'] = 1;
-				endif;
-			endfor;
-		endfor;
-		
-		$this->load->view("admin_interface/products/product-colors",$pagevar);
-	}
-	
-	public function control_product_sizes(){
-		
-		$pid = $this->uri->segment(5);
-		$pagevar = array(
-			'title'			=> 'Панель администрирования | Размеры продукта',
-			'description'	=> '',
-			'author'		=> '',
-			'baseurl'		=> base_url(),
-			'loginstatus'	=> $this->loginstatus,
-			'userinfo'		=> $this->user,
-			'sizes'			=> array(),
-			'product'		=> $this->mdproducts->read_field($pid,'title'),
-			'prsizes'		=> $this->mdproductssizes->read_records($pid),
-			'msgs'			=> $this->session->userdata('msgs'),
-			'msgr'			=> $this->session->userdata('msgr'),
-		);
-		$this->session->unset_userdata('msgs');
-		$this->session->unset_userdata('msgr');
-		
-		for($i=0;$i<21;$i++):
-			$pagevar['sizes'][$i]['id'] = $i;
-			$pagevar['sizes'][$i]['code'] = '';
-		endfor;
-		$pagevar['sizes'][0]['code'] = '40(s)';
-		$pagevar['sizes'][1]['code'] = '42(M)';
-		$pagevar['sizes'][2]['code'] = '44(L)';
-		$pagevar['sizes'][3]['code'] = '46(XL)';
-		$pagevar['sizes'][4]['code'] = '48(XXL)';
-		$pagevar['sizes'][5]['code'] = '50(3XL)';
-		$pagevar['sizes'][6]['code'] = '52(4XL)';
-		$pagevar['sizes'][7]['code'] = '54(5XL)';
-		$pagevar['sizes'][8]['code'] = '56(6XL)';
-		
-		$pagevar['sizes'][9]['code'] = '44(s)';
-		$pagevar['sizes'][10]['code'] = '48(M)';
-		$pagevar['sizes'][11]['code'] = '52(L)';
-		$pagevar['sizes'][12]['code'] = '56(XL)';
-		$pagevar['sizes'][13]['code'] = '60(XXL)';
-		$pagevar['sizes'][14]['code'] = '64(3XL)';
-		$pagevar['sizes'][15]['code'] = '68(4XL)';
-		$pagevar['sizes'][16]['code'] = '72(5XL)';
-		
-		$pagevar['sizes'][17]['code'] = '44-46(s)';
-		$pagevar['sizes'][18]['code'] = '48-50(M)';
-		$pagevar['sizes'][19]['code'] = '52-54(L)';
-		$pagevar['sizes'][20]['code'] = '56-58(XL)';
-		
-		
-		$pagevar['sizes'][17]['code'] = '44-46(s)';
-		$pagevar['sizes'][18]['code'] = '48-50(M)';
-		$pagevar['sizes'][19]['code'] = '52-54(L)';
-		$pagevar['sizes'][20]['code'] = '56-58(XL)';
-		
-		if($this->input->post('submit')):
-			unset($_POST['submit']);
-			
-			$this->form_validation->set_rules('sizes[]',' ','required');
-			if(!$this->form_validation->run()):
-				$this->session->set_userdata('msgr','Ошибка. Вы должны выбрать хотя бы один размер<br/>');
-				redirect($this->uri->uri_string());
-			else:
-				$sizeslist = array();
-				for($i=0,$j=0;$i<count($_POST['sizes']);$i++):
-					$sizeslist[$j]['sizes_id'] = $_POST['sizes'][$i];
-					$sizeslist[$j]['code']= $pagevar['sizes'][$_POST['sizes'][$i]]['code'];
-					$j++;
-				endfor;
-				if(count($sizeslist)):
-					$this->mdproductssizes->delete_product_records($pid);
-					$this->mdproductssizes->group_insert($pid,$sizeslist);
-					$this->session->set_userdata('msgs','Размеры сохранены');
-				endif;
-				redirect($this->session->userdata('backpath'));
-			endif;
-		endif;
-		for($i=0;$i<count($pagevar['sizes']);$i++):
-			$pagevar['sizes'][$i]['checked'] = 0;
-			for($j=0;$j<count($pagevar['prsizes']);$j++):
-				if($pagevar['prsizes'][$j]['sizes_id'] == $pagevar['sizes'][$i]['id']):
-					$pagevar['sizes'][$i]['checked'] = 1;
-				endif;
-			endfor;
-		endfor;
-		
-		$this->load->view("admin_interface/products/product-sizes",$pagevar);
 	}
 	
 	public function control_product_images(){
@@ -1450,6 +1339,10 @@ class Admin_interface extends CI_Controller{
 			'gender'		=> array(),
 			'category'		=> $this->mdcategory->read_records(),
 			'brands'		=> $this->mdbrands->read_records(),
+			'prcolors'		=> $this->mdproductscolors->read_records($pid),
+			'colors'		=> $this->mdcolors->read_records(),
+			'prsizes'		=> $this->mdproductssizes->read_records($pid),
+			'sizes'			=> $this->get_sizes(),
 			'msgs'			=> $this->session->userdata('msgs'),
 			'msgr'			=> $this->session->userdata('msgr'),
 		);
@@ -1475,6 +1368,8 @@ class Admin_interface extends CI_Controller{
 			$this->form_validation->set_rules('art',' ','required|trim');
 			$this->form_validation->set_rules('text',' ','required|trim');
 			$this->form_validation->set_rules('gender[]',' ','required');
+			$this->form_validation->set_rules('sizes[]',' ','required');
+			$this->form_validation->set_rules('colors[]',' ','required');
 			$this->form_validation->set_rules('category',' ','required');
 			$this->form_validation->set_rules('brand',' ','required');
 			if(!$this->form_validation->run()):
@@ -1492,14 +1387,55 @@ class Admin_interface extends CI_Controller{
 					$_POST['showitem'] = 0;
 				endif;
 				$translit = $this->translite($_POST['title']);
-				$id = $this->mdproducts->update_record($pid,$_POST,$translit);
-				if($id):
-					$this->session->set_userdata('msgs','Продукт сохранен успешно.');
+				$this->mdproducts->update_record($pid,$_POST,$translit);
+				/**************************************************************/
+				$colors = array();
+				for($i=0;$i<count($pagevar['colors']);$i++):
+					$colors[$pagevar['colors'][$i]['id']] = $pagevar['colors'][$i]['code'];
+				endfor;
+				$colorslist = array();
+				for($i=0,$j=0;$i<count($_POST['colors']);$i++):
+					$colorslist[$j]['color_id'] = $_POST['colors'][$i];
+					$colorslist[$j]['code']= $colors[$_POST['colors'][$i]];
+					$j++;
+				endfor;
+				if(count($colorslist)):
+					$this->mdproductscolors->delete_product_records($pid);
+					$this->mdproductscolors->group_insert($pid,$colorslist);
 				endif;
+				/**************************************************************/
+				$sizeslist = array();
+				for($i=0,$j=0;$i<count($_POST['sizes']);$i++):
+					$sizeslist[$j]['sizes_id'] = $_POST['sizes'][$i];
+					$sizeslist[$j]['code']= $pagevar['sizes'][$_POST['sizes'][$i]]['code'];
+					$j++;
+				endfor;
+				if(count($sizeslist)):
+					$this->mdproductssizes->delete_product_records($pid);
+					$this->mdproductssizes->group_insert($pid,$sizeslist);
+				endif;
+				/**************************************************************/
+				$this->session->set_userdata('msgs','Продукт сохранен успешно.');
 				redirect($this->session->userdata('backpath'));
 			endif;
 		endif;
 		
+		for($i=0;$i<count($pagevar['colors']);$i++):
+			$pagevar['colors'][$i]['checked'] = 0;
+			for($j=0;$j<count($pagevar['prcolors']);$j++):
+				if($pagevar['prcolors'][$j]['color_id'] == $pagevar['colors'][$i]['id']):
+					$pagevar['colors'][$i]['checked'] = 1;
+				endif;
+			endfor;
+		endfor;
+		for($i=0;$i<count($pagevar['sizes']);$i++):
+			$pagevar['sizes'][$i]['checked'] = 0;
+			for($j=0;$j<count($pagevar['prsizes']);$j++):
+				if($pagevar['prsizes'][$j]['sizes_id'] == $pagevar['sizes'][$i]['id']):
+					$pagevar['sizes'][$i]['checked'] = 1;
+				endif;
+			endfor;
+		endfor;
 		$this->load->view("admin_interface/products/edit-product",$pagevar);
 	}
 	
@@ -1523,6 +1459,41 @@ class Admin_interface extends CI_Controller{
 	}
 	
 	/******************************************************** functions ******************************************************/	
+	
+	function get_sizes(){
+	
+		$sizes= array();
+		for($i=0;$i<21;$i++):
+			$sizes[$i]['id'] = $i;
+			$sizes[$i]['code'] = '';
+		endfor;
+		$sizes[0]['code'] = '40(s)';
+		$sizes[1]['code'] = '42(M)';
+		$sizes[2]['code'] = '44(L)';
+		$sizes[3]['code'] = '46(XL)';
+		$sizes[4]['code'] = '48(XXL)';
+		$sizes[5]['code'] = '50(3XL)';
+		$sizes[6]['code'] = '52(4XL)';
+		$sizes[7]['code'] = '54(5XL)';
+		$sizes[8]['code'] = '56(6XL)';
+		$sizes[9]['code'] = '44(s)';
+		$sizes[10]['code'] = '48(M)';
+		$sizes[11]['code'] = '52(L)';
+		$sizes[12]['code'] = '56(XL)';
+		$sizes[13]['code'] = '60(XXL)';
+		$sizes[14]['code'] = '64(3XL)';
+		$sizes[15]['code'] = '68(4XL)';
+		$sizes[16]['code'] = '72(5XL)';
+		$sizes[17]['code'] = '44-46(s)';
+		$sizes[18]['code'] = '48-50(M)';
+		$sizes[19]['code'] = '52-54(L)';
+		$sizes[20]['code'] = '56-58(XL)';
+		$sizes[17]['code'] = '44-46(s)';
+		$sizes[18]['code'] = '48-50(M)';
+		$sizes[19]['code'] = '52-54(L)';
+		$sizes[20]['code'] = '56-58(XL)';
+		return $sizes;
+	}
 	
 	function resize_image($tmpName,$wgt,$hgt,$dim,$ratio){
 			

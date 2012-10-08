@@ -25,7 +25,7 @@
 							<th class="w80">Фото</th>
 							<th class="w100">Название</th>
 							<th class="w400">Описание</th>
-							<th class="w100">&nbsp;</th>
+							<th class="w50">&nbsp;</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -38,15 +38,11 @@
 							</td>
 							<td>
 								<p><?=$products[$i]['text'];?></p>
-								<p>
-									<?=anchor('admin-panel/actions/products/productid/'.$products[$i]['id'].'/images','Фотографии');?>&nbsp;
-									<?=anchor('admin-panel/actions/products/productid/'.$products[$i]['id'].'/colors','Цвета');?>&nbsp;
-									<?=anchor('admin-panel/actions/products/productid/'.$products[$i]['id'].'/sizes','Размеры');?>
-								</p>
 							</td>
 							<td>
 								<div id="params<?=$i;?>" style="display:none" data-pid="<?=$products[$i]['id'];?>"></div>
-								<?=anchor('admin-panel/actions/products/edit/'.$products[$i]['id'],'<i class="icon-pencil"></i>',array('title'=>'Редактировать','class'=>'btn'));?>
+								<?=anchor('admin-panel/actions/products/edit/'.$products[$i]['id'],'<i class="icon-pencil"></i>',array('title'=>'Редактировать','class'=>'btn'));?><br/>
+								<?=anchor('admin-panel/actions/products/productid/'.$products[$i]['id'].'/images','<i class="icon-picture"></i>',array('title'=>'Фотографии','class'=>'btn'));?><br/>
 								<a class="deleteProduct btn" data-param="<?=$i;?>" data-toggle="modal" href="#deleteProduct" title="Удалить"><i class="icon-trash"></i></a>
 								<?php if(!$products[$i]['showitem']):?>
 									<i class="icon-eye-close"></i>

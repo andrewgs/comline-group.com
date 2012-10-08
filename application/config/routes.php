@@ -108,8 +108,6 @@ $route['admin-panel/actions/products/from/:num']= "admin_interface/control_produ
 $route['admin-panel/actions/products/add']		= "admin_interface/control_add_product";
 $route['admin-panel/actions/products/delete/productid/:num']= "admin_interface/control_delete_product";
 $route['admin-panel/actions/products/edit/:num']	= "admin_interface/control_edit_product";
-$route['admin-panel/actions/products/productid/:num/colors']= "admin_interface/control_product_colors";
-$route['admin-panel/actions/products/productid/:num/sizes']	= "admin_interface/control_product_sizes";
 
 $route['admin-panel/actions/products/productid/:num/images']= "admin_interface/control_product_images";
 $route['admin-panel/actions/products/productid/:num/images/add']= "admin_interface/control_product_images_add";

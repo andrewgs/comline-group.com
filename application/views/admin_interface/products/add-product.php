@@ -26,7 +26,8 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$('.redactor').redactor();
-			
+			$("#SetSizes").val(0);
+			$("#SetColors").val(<?=$colors[0]['id'];?>);
 			$(".chInput").click(function(){
 				if($(".chGender:checkbox:checked").length == 0){$(this).attr('checked','checked');}
 			});
