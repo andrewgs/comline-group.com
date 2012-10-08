@@ -1107,7 +1107,7 @@ class Admin_interface extends CI_Controller{
 		$config['uri_segment'] 		= 5;
 		$config['total_rows'] 		= $this->mdproducts->count_records();
 		$config['per_page'] 		= 5;
-		$config['num_links'] 		= 4;
+		$config['num_links'] 		= 3;
 		$config['first_link']		= 'В начало';
 		$config['last_link'] 		= 'В конец';
 		$config['next_link'] 		= 'Далее &raquo;';

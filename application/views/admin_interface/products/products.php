@@ -23,8 +23,8 @@
 					<thead>
 						<tr>
 							<th class="w80">Фото</th>
-							<th class="w100">Название</th>
-							<th class="w400">Описание</th>
+							<th class="w100">Артикул</th>
+							<th class="w400">Название/Описание</th>
 							<th class="w50">&nbsp;</th>
 						</tr>
 					</thead>
@@ -33,10 +33,10 @@
 						<tr class="align-center">
 							<td><img src="<?=$baseurl;?>productimage/viewimage/<?=$products[$i]['imgid'];?>" alt="" style="width:80px;" /></td>
 							<td>
-								<nobr><b><?=$products[$i]['title'];?></b></nobr><br/>
 								арт.<?=$products[$i]['art'];?><br/>
 							</td>
 							<td>
+								<b>"<?=$products[$i]['title'];?>"</b><br/>
 								<p><?=$products[$i]['text'];?></p>
 							</td>
 							<td>
