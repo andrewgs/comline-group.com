@@ -695,7 +695,7 @@ class Users_interface extends CI_Controller{
 			else:
 				$session_data = array('logon'=>md5($user['login']),'userid'=>$user['id']);
 				$this->session->set_userdata($session_data);
-				redirect("admin-panel/actions/control");
+				redirect("admin-panel/actions/events");
 			endif;
 		endif;
 		

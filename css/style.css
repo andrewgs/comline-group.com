@@ -15,6 +15,7 @@
 .w30{width: 30px;}
 .w600{width: 600px;}
 .w50{width: 50px;}
+.w10{width: 10px;}
 
 .inpval.empty-error {
 	background: none repeat scroll 0 0 #F2DEDE;
@@ -96,4 +97,73 @@ border-color: #BCE8F1;
 	visibility: hidden;
 	width: 0;
 	height: 0
+}
+#product-nav{
+	font-family: helvetica, tahoma, Sans-serif;
+	font-size: 13px;
+	margin: 20px 0 0 40px;
+	width: 650px;
+	font-weight: bold;
+}
+
+#product-nav a{
+	text-decoration: none;
+}
+
+#product-nav ul li{
+	display: inline-block;
+}
+
+#product-nav ul li a {
+	float:left;
+	position: relative;
+	display: block;
+	width: 150px;
+	text-align: center;
+}
+
+#product-nav .active a{
+	padding: 28px 0 20px 0;
+	background: -webkit-gradient(linear, left top, left bottom, from(#db0000), to(#9b0000));
+	background: -moz-linear-gradient(top center, #db0000, #9b0000);
+	border: 1px solid #8d0000;
+	text-shadow: 0 1px 1px black;
+	-webkit-border-radius: 10px 10px 0 0;
+	-webkit-background-clip: padding-box;
+	-webkit-box-shadow: inset 0 0 1px #fd0000;
+	-moz-border-radius: 10px 10px 0 0;
+	-moz-background-clip: padding-box;
+	-moz-box-shadow: inset 0 0 1px #fd0000;
+	margin-left: -5px;
+	z-index: 2;
+	color: white;
+	text-shadow: 0 1px 1px black;
+}
+
+#product-nav .active a:focus {
+	outline: none;
+}
+
+#product-nav .inactive a:hover {
+	background: -webkit-gradient(linear, left bottom, left top, from(#eee), to(#ddd));
+	background: -moz-linear-gradient(top center, #ddd, #eee);
+}
+
+#product-nav .inactive a {
+	color: #222;
+	text-shadow: 0 1px 1px white;
+	background: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ddd));
+	background: -moz-linear-gradient(top center, #eee, #ddd);
+	-webkit-box-shadow: inset 0 0 5px white;
+	-moz-box-shadow: inset 0 0 5px white;
+	padding: 20px 0;
+	-webkit-box-shadow: inset 0 0 5px white;
+	-moz-box-shadow: inset 0 0 5px white;
+	border: 1px solid #ccc;
+	margin-left: -5px;
+	z-index: 1;
+}
+
+#product-nav .inactive a:focus {
+	outline: none;
 }

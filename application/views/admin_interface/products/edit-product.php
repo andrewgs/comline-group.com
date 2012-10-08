@@ -28,8 +28,26 @@
 			$('.redactor').redactor();
 			$("#SetCategory [value='<?=$product['category'];?>']").attr("selected", "selected");
 			$("#SetBrand [value='<?=$product['brand'];?>']").attr("selected", "selected");
-			$(".chInput").click(function(){
+			
+			$(".product-li").click(function(){
+				var nav = $(this).attr("data-nav");
+				var number = $(this).index();
+				$(".dispnone").hide();
+				$("#"+nav).show();
+				$(".product-li").removeClass('inactive').addClass('active');
+				$(".product-li").not(this).removeClass('active').addClass('inactive');
+			});
+				
+			$(".dispnone").not(':first').hide();
+			
+			$(".chGender").click(function(){
 				if($(".chGender:checkbox:checked").length == 0){$(this).attr('checked','checked');}
+			});
+			$(".chColor").click(function(){
+				if($(".chColor:checkbox:checked").length == 0){$(this).attr('checked','checked');}
+			});
+			$(".chSize").click(function(){
+				if($(".chSize:checkbox:checked").length == 0){$(this).attr('checked','checked');}
 			});
 		});
 	</script>

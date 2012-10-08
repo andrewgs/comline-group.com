@@ -1160,8 +1160,8 @@ class Admin_interface extends CI_Controller{
 			$this->form_validation->set_rules('art',' ','required|trim');
 			$this->form_validation->set_rules('text',' ','required|trim');
 			$this->form_validation->set_rules('gender[]',' ','required');
-			$this->form_validation->set_rules('sizes[]',' ','required');
-			$this->form_validation->set_rules('colors[]',' ','required');
+			$this->form_validation->set_rules('sizes[]',' ','');
+			$this->form_validation->set_rules('colors[]',' ','');
 			$this->form_validation->set_rules('category',' ','required');
 			$this->form_validation->set_rules('brand',' ','required');
 			if(!$this->form_validation->run()):
@@ -1181,30 +1181,34 @@ class Admin_interface extends CI_Controller{
 				$pid = $this->mdproducts->insert_record($_POST,$gender,$translit);
 				if($pid):
 					/**************************************************************/
-					$colors = array();
-					for($i=0;$i<count($pagevar['colors']);$i++):
-						$colors[$pagevar['colors'][$i]['id']] = $pagevar['colors'][$i]['code'];
-					endfor;
-					$colorslist = array();
-					for($i=0,$j=0;$i<count($_POST['colors']);$i++):
-						$colorslist[$j]['color_id'] = $_POST['colors'][$i];
-						$colorslist[$j]['code']= $colors[$_POST['colors'][$i]];
-						$j++;
-					endfor;
-					if(count($colorslist)):
-						$this->mdproductscolors->delete_product_records($pid);
-						$this->mdproductscolors->group_insert($pid,$colorslist);
+					if(isset($_POST['colors'])):
+						$colors = array();
+						for($i=0;$i<count($pagevar['colors']);$i++):
+							$colors[$pagevar['colors'][$i]['id']] = $pagevar['colors'][$i]['code'];
+						endfor;
+						$colorslist = array();
+						for($i=0,$j=0;$i<count($_POST['colors']);$i++):
+							$colorslist[$j]['color_id'] = $_POST['colors'][$i];
+							$colorslist[$j]['code']= $colors[$_POST['colors'][$i]];
+							$j++;
+						endfor;
+						if(count($colorslist)):
+							$this->mdproductscolors->delete_product_records($pid);
+							$this->mdproductscolors->group_insert($pid,$colorslist);
+						endif;
 					endif;
 					/**************************************************************/
-					$sizeslist = array();
-					for($i=0,$j=0;$i<count($_POST['sizes']);$i++):
-						$sizeslist[$j]['sizes_id'] = $_POST['sizes'][$i];
-						$sizeslist[$j]['code']= $pagevar['sizes'][$_POST['sizes'][$i]]['code'];
-						$j++;
-					endfor;
-					if(count($sizeslist)):
-						$this->mdproductssizes->delete_product_records($pid);
-						$this->mdproductssizes->group_insert($pid,$sizeslist);
+					if(isset($_POST['sizes'])):
+						$sizeslist = array();
+						for($i=0,$j=0;$i<count($_POST['sizes']);$i++):
+							$sizeslist[$j]['sizes_id'] = $_POST['sizes'][$i];
+							$sizeslist[$j]['code']= $pagevar['sizes'][$_POST['sizes'][$i]]['code'];
+							$j++;
+						endfor;
+						if(count($sizeslist)):
+							$this->mdproductssizes->delete_product_records($pid);
+							$this->mdproductssizes->group_insert($pid,$sizeslist);
+						endif;
 					endif;
 					/**************************************************************/
 					$this->session->set_userdata('msgs','Продукт создан успешно.');
@@ -1368,8 +1372,8 @@ class Admin_interface extends CI_Controller{
 			$this->form_validation->set_rules('art',' ','required|trim');
 			$this->form_validation->set_rules('text',' ','required|trim');
 			$this->form_validation->set_rules('gender[]',' ','required');
-			$this->form_validation->set_rules('sizes[]',' ','required');
-			$this->form_validation->set_rules('colors[]',' ','required');
+			$this->form_validation->set_rules('sizes[]',' ','');
+			$this->form_validation->set_rules('colors[]',' ','');
 			$this->form_validation->set_rules('category',' ','required');
 			$this->form_validation->set_rules('brand',' ','required');
 			if(!$this->form_validation->run()):
@@ -1389,30 +1393,34 @@ class Admin_interface extends CI_Controller{
 				$translit = $this->translite($_POST['title']);
 				$this->mdproducts->update_record($pid,$_POST,$translit);
 				/**************************************************************/
-				$colors = array();
-				for($i=0;$i<count($pagevar['colors']);$i++):
-					$colors[$pagevar['colors'][$i]['id']] = $pagevar['colors'][$i]['code'];
-				endfor;
-				$colorslist = array();
-				for($i=0,$j=0;$i<count($_POST['colors']);$i++):
-					$colorslist[$j]['color_id'] = $_POST['colors'][$i];
-					$colorslist[$j]['code']= $colors[$_POST['colors'][$i]];
-					$j++;
-				endfor;
-				if(count($colorslist)):
-					$this->mdproductscolors->delete_product_records($pid);
-					$this->mdproductscolors->group_insert($pid,$colorslist);
+				if(isset($_POST['colors'])):
+					$colors = array();
+					for($i=0;$i<count($pagevar['colors']);$i++):
+						$colors[$pagevar['colors'][$i]['id']] = $pagevar['colors'][$i]['code'];
+					endfor;
+					$colorslist = array();
+					for($i=0,$j=0;$i<count($_POST['colors']);$i++):
+						$colorslist[$j]['color_id'] = $_POST['colors'][$i];
+						$colorslist[$j]['code']= $colors[$_POST['colors'][$i]];
+						$j++;
+					endfor;
+					if(count($colorslist)):
+						$this->mdproductscolors->delete_product_records($pid);
+						$this->mdproductscolors->group_insert($pid,$colorslist);
+					endif;
 				endif;
 				/**************************************************************/
-				$sizeslist = array();
-				for($i=0,$j=0;$i<count($_POST['sizes']);$i++):
-					$sizeslist[$j]['sizes_id'] = $_POST['sizes'][$i];
-					$sizeslist[$j]['code']= $pagevar['sizes'][$_POST['sizes'][$i]]['code'];
-					$j++;
-				endfor;
-				if(count($sizeslist)):
-					$this->mdproductssizes->delete_product_records($pid);
-					$this->mdproductssizes->group_insert($pid,$sizeslist);
+				if(isset($_POST['sizes'])):
+					$sizeslist = array();
+					for($i=0,$j=0;$i<count($_POST['sizes']);$i++):
+						$sizeslist[$j]['sizes_id'] = $_POST['sizes'][$i];
+						$sizeslist[$j]['code']= $pagevar['sizes'][$_POST['sizes'][$i]]['code'];
+						$j++;
+					endfor;
+					if(count($sizeslist)):
+						$this->mdproductssizes->delete_product_records($pid);
+						$this->mdproductssizes->group_insert($pid,$sizeslist);
+					endif;
 				endif;
 				/**************************************************************/
 				$this->session->set_userdata('msgs','Продукт сохранен успешно.');
@@ -1463,7 +1471,7 @@ class Admin_interface extends CI_Controller{
 	function get_sizes(){
 	
 		$sizes= array();
-		for($i=0;$i<21;$i++):
+		for($i=0;$i<39;$i++):
 			$sizes[$i]['id'] = $i;
 			$sizes[$i]['code'] = '';
 		endfor;
@@ -1492,6 +1500,27 @@ class Admin_interface extends CI_Controller{
 		$sizes[18]['code'] = '48-50(M)';
 		$sizes[19]['code'] = '52-54(L)';
 		$sizes[20]['code'] = '56-58(XL)';
+		
+		$sizes[21]['code'] = '42(XS)';
+		$sizes[22]['code'] = '44(S)';
+		$sizes[23]['code'] = '46(M)';
+		$sizes[24]['code'] = '48(L)';
+		$sizes[25]['code'] = '50(XL)';
+		$sizes[26]['code'] = '52(XXL)';
+		$sizes[27]['code'] = '54(3XL)';
+		$sizes[28]['code'] = '56(4XL)';
+		$sizes[29]['code'] = '58(5XL)';
+		
+		$sizes[30]['code'] = '42-44(XS)';
+		$sizes[31]['code'] = '44-46(S)';
+		$sizes[32]['code'] = '46-48(M)';
+		$sizes[33]['code'] = '48-50(L)';
+		$sizes[34]['code'] = '50-52(XL)';
+		$sizes[35]['code'] = '52-54(XXL)';
+		$sizes[36]['code'] = '54-56(3XL)';
+		$sizes[37]['code'] = '56-58(4XL)';
+		$sizes[38]['code'] = '58-60(5XL)';
+		
 		return $sizes;
 	}
 	
