@@ -27,7 +27,9 @@
 				</ul>
 			</div>
 			<h1><?=$catalog['title'];?></h1>
+			<?php if (mb_strlen($catalog['text']) > 10): ?>
 			<p><?=$catalog['text'];?></p>
+			<?php endif; ?>
 			<div class="catalog-content">
 				<?=$catalog['html'];?>
 			</div>
