@@ -17,7 +17,7 @@
 					</div>
 				</div>
 				<div class="control-group">
-					<label for="art" class="control-label">Артикл: </label>
+					<label for="art" class="control-label">Артикул: </label>
 					<div class="controls">
 						<input type="text" class="span2 input-valid" name="art" value="<?=$product['art'];?>">
 						<span class="help-inline" style="display:none;">&nbsp;</span>
@@ -62,7 +62,7 @@
 					<div class="controls">
 						<label class="checkbox">
 							<input type="checkbox" value="1" id="showitem" name="showitem" <?=($product['showitem'])?'checked="checked"':''?> />
-							Показывать товара</label>
+							Показывать товар</label>
 					</div>
 				</div>
 			</div>
