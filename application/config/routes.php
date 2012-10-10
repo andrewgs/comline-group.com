@@ -4,6 +4,7 @@ $route['default_controller'] = "users_interface";
 $route['404_override'] = '';
 
 /***************************************************	USERS INTRERFACE	***********************************************/
+
 $route[''] 			= "users_interface/index";
 $route['about'] 	= "users_interface/about";
 $route['clients'] 	= "users_interface/clients";
@@ -18,7 +19,7 @@ $route['catalogs/brands/:any/catalog/:any']	= "users_interface/catalogs";
 
 $route['catalog'] 				= "users_interface/catalog";
 $route['catalog/load-products'] = "users_interface/catalog_load";
-$route['catalog/come-back/:num-:num-:num'] = "users_interface/catalog";
+$route['catalog/come-back/:num-:num-:num-:num'] = "users_interface/catalog";
 
 $route['admin'] 	= "users_interface/admin_login";
 $route['send-mail/partners'] 	= "users_interface/send_mail";
@@ -36,7 +37,7 @@ $route['all-stock']				= "users_interface/all_stock";
 $route['all-stock/from']		= "users_interface/all_stock";
 $route['all-stock/from/:num']	= "users_interface/all_stock";
 
-$route['product/:num-:num-:num/:any'] = "users_interface/product";
+$route['product/:num-:num-:num-:num/:any'] = "users_interface/product";
 
 $route['news/viewimage/:num']		= "users_interface/viewimage";
 $route['stock/viewimage/:num']		= "users_interface/viewimage";

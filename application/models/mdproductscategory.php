@@ -10,7 +10,7 @@ class Mdproductscategory extends CI_Model{
 		parent::__construct();
 	}
 	
-	function insert_record($data,$product,$category){
+	function insert_record($product,$category){
 			
 		$this->product = $product;
 		$this->category = $category;

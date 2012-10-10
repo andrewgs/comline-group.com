@@ -48,7 +48,7 @@
 					</div>
 					<div class="attributes">
 						<div class="nav-links">
-							<a href="<?=($prslide['prew'])?$baseurl.'product/'.$this->uri->segment(2).'/'.$prslide['prew']:'#'?>" class="prSlide<?=(!$prslide['prew'])?' blockLink none':''?>" id="prPrew">&laquo;  Предыдущий</a> &nbsp;|&nbsp; <a href="<?=($prslide['next'])?$baseurl.'product/'.$this->uri->segment(2).'/'.$prslide['next']:'#'?>" class="prSlide<?=(!$prslide['next'])?' blockLink none':''?>" id="prNext">Следующий  &raquo;</a>
+							<a href="<?=($prslide['prew'])?$baseurl.'product/'.$urlparam[0].'-'.$urlparam[1].'-'.$urlparam[2].'-'.$prslide['prewid'].'/'.$prslide['prew']:'#'?>" class="prSlide<?=(!$prslide['prew'])?' blockLink none':''?>" id="prPrew">&laquo;  Предыдущий</a> &nbsp;|&nbsp; <a href="<?=($prslide['next'])?$baseurl.'product/'.$urlparam[0].'-'.$urlparam[1].'-'.$urlparam[2].'-'.$prslide['nextid'].'/'.$prslide['next']:'#'?>" class="prSlide<?=(!$prslide['next'])?' blockLink none':''?>" id="prNext">Следующий  &raquo;</a>
 						</div>
 						<h1 class="product-title"><?=$product['title'];?></h1>
 						<span class="articul">арт.<?=$product['art'];?></span>

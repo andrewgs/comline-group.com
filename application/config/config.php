@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url'] = "http://comfline.ru/";
+$config['base_url'] = "http://comline-group.com";
 
 /*
 |--------------------------------------------------------------------------

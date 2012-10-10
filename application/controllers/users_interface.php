@@ -631,7 +631,8 @@ class Users_interface extends CI_Controller{
 	public function product(){
 		
 		$urlparam = preg_split('/-/',$this->uri->segment(2));
-		$product = $this->mdproducts->read_field_translit($this->uri->segment(3),'id',$urlparam[0],$urlparam[1],$urlparam[2]);
+//		$product = $this->mdproducts->read_field_translit($this->uri->segment(3),'id',$urlparam[0],$urlparam[1],$urlparam[2]);
+		$product = $urlparam[3];
 		if(!$product):
 			redirect('');
 		endif;
@@ -661,9 +662,11 @@ class Users_interface extends CI_Controller{
 			if($products[$i]['id'] == $product):
 				if(isset($products[$i-1]['id'])):
 					$pagevar['prslide']['prew'] = $products[$i-1]['translit'];
+					$pagevar['prslide']['prewid'] = $products[$i-1]['id'];
 				endif;
 				if(isset($products[$i+1]['id'])):
 					$pagevar['prslide']['next'] = $products[$i+1]['translit'];
+					$pagevar['prslide']['nextid'] = $products[$i+1]['id'];
 				endif;
 			endif;
 		endfor;
