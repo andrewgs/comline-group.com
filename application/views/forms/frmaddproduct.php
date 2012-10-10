@@ -70,16 +70,37 @@
 				</div>
 			</div>
 			<div class="tab-pane fade" id="category">
-				<div class="control-group">
-					<label for="category" class="control-label">Категория: </label>
-					<div class="controls">
-						<select class="span4" name="category" id="SetCategory">
-						<?php for($i=0;$i<count($category);$i++):?>
-							<option value="<?=$category[$i]['id'];?>"><?=$category[$i]['title'];?></option>
-						<?php endfor;?>	
-						</select>
-					</div>
-				</div>
+				<table class="table table-striped table-bordered">
+					<thead>
+						<tr>
+							<th class="w200">Название</th>
+							<th class="w10">&nbsp;</th>
+							<th class="w200">Название</th>
+							<th class="w10">&nbsp;</th>
+						</tr>
+					</thead>
+					<tbody>
+					<?php for($i=0;$i<count($category);$i+=2):?>
+						<tr>
+						<?php if(isset($category[$i]['id'])):?>
+							<td class="w200"><?=$category[$i]['title'];?></td>
+							<td class="w10">
+								<input type="checkbox" class="chCategory" name="category[]" value="<?=$category[$i]['id'];?>" />
+							</td>
+						<?php endif;?>
+						<?php if(isset($category[$i+1]['id'])):?>
+							<td class="w200"><?=$category[$i+1]['title'];?></td>
+							<td class="w10">
+								<input type="checkbox" class="chCategory" name="category[]" value="<?=$category[$i+1]['id'];?>" />
+							</td>
+						<?php else:?>
+							<td class="w100">&nbsp;</td>
+							<td class="w10">&nbsp;</td>
+						<?php endif;?>
+						</tr>
+					<?php endfor; ?>
+					</tbody>
+				</table>
 			</div>
 			<div class="tab-pane fade" id="colors">
 				<table class="table table-striped table-bordered">

@@ -26,16 +26,13 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$(".redactor").redactor();
-			
-			$(".chGender").click(function(){
-				if($(".chGender:checkbox:checked").length == 0){$(this).attr('checked','checked');}
-			});
-			$(".chColor").click(function(){
-				if($(".chColor:checkbox:checked").length == 0){$(this).attr('checked','checked');}
-			});
-			$(".chSize").click(function(){
-				if($(".chSize:checkbox:checked").length == 0){$(this).attr('checked','checked');}
-			});
+			$(".chCategory").eq(0).attr("checked","checked");
+			$(".dispnone").not(':first').hide();
+			$(".chGender").click(function(){check('chGender',this);});
+			$(".chCategory").click(function(){check('chCategory',this);});
+			$(".chColor").click(function(){check('chColor',this);});
+			$(".chSize").click(function(){check('chSize',this);});
+			function check(objects,obj){if($("."+objects+":checkbox:checked").length == 0){$(obj).attr('checked','checked');}}
 		});
 	</script>
 </body>

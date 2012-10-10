@@ -13,7 +13,7 @@ class Mdproductscolors extends CI_Model{
 	
 	function insert_record($data,$product_id,$color_id,$code){
 			
-		$this->title = htmlspecialchars($code);
+		$this->code = htmlspecialchars($code);
 		$this->product_id = $product_id;
 		$this->color_id = $color_id;
 		

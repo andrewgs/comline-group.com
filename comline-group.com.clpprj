@@ -4836,21 +4836,21 @@
 				<treenode node="this;Php:Var Name;13;0;18;0;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</phptree>
-		</csfile><csfile name="S:\home\comline-group.com\www\application\views\forms\frmeditproduct.php" crc="-1938990611">
+		</csfile><csfile name="S:\home\comline-group.com\www\application\views\forms\frmeditproduct.php" crc="-15002161">
 			<phptree>
-				<treenode node="brands;Php:Var Name;28;55;35;55;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="brands;Php:Var Name;30;53;37;53;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="category;Php:Var Name;28;45;37;45;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="category;Php:Var Name;30;73;39;73;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="colors;Php:Var Name;101;66;108;66;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="colors;Php:Var Name;29;95;36;95;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="gender;Php:Var Name;27;33;34;33;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="gender;Php:Var Name;29;41;36;41;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="i;Php:Var Name;13;33;15;33;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="i;Php:Var Name;15;41;17;41;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="product;Php:Var Name;72;6;80;6;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="product;Php:Var Name;74;14;82;14;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="sizes;Php:Var Name;99;78;105;78;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="sizes;Php:Var Name;21;138;27;138;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 				<treenode node="this;Php:Var Name;23;0;28;0;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
@@ -4907,17 +4907,17 @@
 				<treenode node="this;Php:Var Name;13;0;18;0;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</phptree>
-		</csfile><csfile name="S:\home\comline-group.com\www\application\views\forms\frmaddproduct.php" crc="-278098710">
+		</csfile><csfile name="S:\home\comline-group.com\www\application\views\forms\frmaddproduct.php" crc="-1784390990">
 			<phptree>
-				<treenode node="brands;Php:Var Name;28;58;35;58;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="brands;Php:Var Name;30;56;37;56;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="category;Php:Var Name;28;48;37;48;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="category;Php:Var Name;30;76;39;76;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="colors;Php:Var Name;101;69;108;69;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="colors;Php:Var Name;29;98;36;98;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="i;Php:Var Name;14;48;16;48;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="i;Php:Var Name;16;56;18;56;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="sizes;Php:Var Name;99;81;105;81;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="sizes;Php:Var Name;21;141;27;141;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 				<treenode node="this;Php:Var Name;13;0;18;0;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
@@ -5050,7 +5050,7 @@
 				<treenode node="this;Php:Var Name;6;2;11;2;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</phptree>
-		</csfile><csfile name="S:\home\comline-group.com\www\application\views\admin_interface\products\edit-product.php" crc="1581152127">
+		</csfile><csfile name="S:\home\comline-group.com\www\application\views\admin_interface\products\edit-product.php" crc="-168401295">
 			<phptree>
 				<treenode node="baseurl;Php:Var Name;17;24;25;24;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
@@ -5059,6 +5059,10 @@
 			</phptree>
 			<jstree>
 				<treenode node="document;JS:JS Var Name;4;26;12;26;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="nav;JS:JS Var Name;8;32;11;32;34;;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="number;JS:JS Var Name;8;33;14;33;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</jstree>
 		</csfile><csfile name="S:\home\comline-group.com\www\application\views\admin_interface\products\edit-category.php" crc="1723646600">
@@ -5174,7 +5178,7 @@
 				<treenode node="this;Php:Var Name;6;2;11;2;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</phptree>
-		</csfile><csfile name="S:\home\comline-group.com\www\application\views\admin_interface\products\add-product.php" crc="280728994">
+		</csfile><csfile name="S:\home\comline-group.com\www\application\views\admin_interface\products\add-product.php" crc="554490650">
 			<phptree>
 				<treenode node="baseurl;Php:Var Name;17;24;25;24;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
@@ -5182,8 +5186,6 @@
 				</treenode>
 			</phptree>
 			<jstree>
-				<treenode node="colors;JS:JS Var Name;27;29;33;29;34;;;v;;r;;d-1,-1;;b0,0;;m">
-				</treenode>
 				<treenode node="document;JS:JS Var Name;4;26;12;26;34;;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</jstree>
@@ -6019,7 +6021,7 @@
 			</phptree>
 		</csfile><csfile name="S:\home\comline-group.com\www\application\errors\error_404.php" crc="-619807995">
 		</csfile><csfile name="S:\home\comline-group.com\www\application\core\index.html" crc="-1574479902">
-		</csfile><csfile name="S:\home\comline-group.com\www\application\controllers\users_interface.php" crc="1224807783">
+		</csfile><csfile name="S:\home\comline-group.com\www\application\controllers\users_interface.php" crc="996019103">
 			<phptree>
 				<treenode node="Users_interface;Php:Class Name;0;2;1;751;34;;;vCI_Controller;;c;;r;;d43,2;;b0,0;;m">
 					<treenode node="__construct;Php:Function Name;1;8;2;45;34;;;v;;r;;d23,8;;b0,0;;m">
@@ -6073,9 +6075,9 @@
 				</treenode>
 			</phptree>
 		</csfile><csfile name="S:\home\comline-group.com\www\application\controllers\index.html" crc="-1574479902">
-		</csfile><csfile name="S:\home\comline-group.com\www\application\controllers\admin_interface.php" crc="-108906542">
+		</csfile><csfile name="S:\home\comline-group.com\www\application\controllers\admin_interface.php" crc="-530940449">
 			<phptree>
-				<treenode node="Admin_interface;Php:Class Name;0;2;1;1560;34;;;vCI_Controller;;c;;r;;d43,2;;b0,0;;m">
+				<treenode node="Admin_interface;Php:Class Name;0;2;1;1589;34;;;vCI_Controller;;c;;r;;d43,2;;b0,0;;m">
 					<treenode node="__construct;Php:Function Name;1;9;2;56;34;;;v;;r;;d23,9;;b0,0;;m">
 					</treenode>
 					<treenode node="admin_add_catalogs;Php:Function Name;8;594;2;630;34;;;v;;r;;d37,594;;b1,0;;m">
@@ -6092,7 +6094,7 @@
 					</treenode>
 					<treenode node="admin_panel;Php:Function Name;8;58;2;75;34;;;v;;r;;d30,58;;b1,0;;m">
 					</treenode>
-					<treenode node="case_image;Php:Function Name;1;1518;2;1527;34;;;v;;r;;d27,1518;;b0,0;;mfile;;p">
+					<treenode node="case_image;Php:Function Name;1;1547;2;1556;34;;;v;;r;;d27,1547;;b0,0;;mfile;;p">
 					</treenode>
 					<treenode node="control_add_brand;Php:Function Name;8;551;2;592;34;;;v;;r;;d36,551;;b1,0;;m">
 					</treenode>
@@ -6102,7 +6104,7 @@
 					</treenode>
 					<treenode node="control_add_events;Php:Function Name;8;262;2;302;34;;;v;;r;;d37,262;;b1,0;;m">
 					</treenode>
-					<treenode node="control_add_product;Php:Function Name;8;1136;2;1216;34;;;v;;r;;d38,1136;;b1,0;;m">
+					<treenode node="control_add_product;Php:Function Name;8;1136;2;1220;34;;;v;;r;;d38,1136;;b1,0;;m">
 					</treenode>
 					<treenode node="control_add_storage;Php:Function Name;8;850;2;884;34;;;v;;r;;d38,850;;b1,0;;m">
 					</treenode>
@@ -6128,7 +6130,7 @@
 					</treenode>
 					<treenode node="control_delete_events;Php:Function Name;8;353;2;367;34;;;v;;r;;d40,353;;b1,0;;m">
 					</treenode>
-					<treenode node="control_delete_product;Php:Function Name;8;1441;2;1458;34;;;v;;r;;d41,1441;;b1,0;;m">
+					<treenode node="control_delete_product;Php:Function Name;8;1449;2;1466;34;;;v;;r;;d41,1449;;b1,0;;m">
 					</treenode>
 					<treenode node="control_delete_storage;Php:Function Name;8;924;2;938;34;;;v;;r;;d41,924;;b1,0;;m">
 					</treenode>
@@ -6138,33 +6140,33 @@
 					</treenode>
 					<treenode node="control_edit_events;Php:Function Name;8;304;2;351;34;;;v;;r;;d38,304;;b1,0;;m">
 					</treenode>
-					<treenode node="control_edit_product;Php:Function Name;8;1327;2;1439;34;;;v;;r;;d39,1327;;b1,0;;m">
+					<treenode node="control_edit_product;Php:Function Name;8;1331;2;1447;34;;;v;;r;;d39,1331;;b1,0;;m">
 					</treenode>
 					<treenode node="control_edit_storage;Php:Function Name;8;886;2;922;34;;;v;;r;;d39,886;;b1,0;;m">
 					</treenode>
 					<treenode node="control_events;Php:Function Name;8;202;2;260;34;;;v;;r;;d33,202;;b1,0;;m">
 					</treenode>
-					<treenode node="control_product_images;Php:Function Name;8;1218;2;1237;34;;;v;;r;;d41,1218;;b1,0;;m">
+					<treenode node="control_product_images;Php:Function Name;8;1222;2;1241;34;;;v;;r;;d41,1222;;b1,0;;m">
 					</treenode>
-					<treenode node="control_product_images_add;Php:Function Name;8;1239;2;1308;34;;;v;;r;;d45,1239;;b1,0;;m">
+					<treenode node="control_product_images_add;Php:Function Name;8;1243;2;1312;34;;;v;;r;;d45,1243;;b1,0;;m">
 					</treenode>
-					<treenode node="control_product_images_delete;Php:Function Name;8;1310;2;1325;34;;;v;;r;;d48,1310;;b1,0;;m">
+					<treenode node="control_product_images_delete;Php:Function Name;8;1314;2;1329;34;;;v;;r;;d48,1314;;b1,0;;m">
 					</treenode>
 					<treenode node="control_products;Php:Function Name;8;1074;2;1134;34;;;v;;r;;d35,1074;;b1,0;;m">
 					</treenode>
 					<treenode node="control_storage;Php:Function Name;8;830;2;848;34;;;v;;r;;d34,830;;b1,0;;m">
 					</treenode>
-					<treenode node="get_sizes;Php:Function Name;1;1462;2;1495;34;;;v;;r;;d21,1462;;b0,0;;m">
+					<treenode node="get_sizes;Php:Function Name;1;1470;2;1524;34;;;v;;r;;d21,1470;;b0,0;;m">
 					</treenode>
-					<treenode node="operation_date;Php:Function Name;8;1544;2;1551;34;;;v;;r;;d39,1544;;b1,0;;mfield;;p">
+					<treenode node="operation_date;Php:Function Name;8;1573;2;1580;34;;;v;;r;;d39,1573;;b1,0;;mfield;;p">
 					</treenode>
-					<treenode node="operation_dot_date;Php:Function Name;8;1553;2;1559;34;;;v;;r;;d43,1553;;b1,0;;mfield;;p">
+					<treenode node="operation_dot_date;Php:Function Name;8;1582;2;1588;34;;;v;;r;;d43,1582;;b1,0;;mfield;;p">
 					</treenode>
 					<treenode node="profile;Php:Function Name;8;77;2;116;34;;;v;;r;;d26,77;;b1,0;;m">
 					</treenode>
-					<treenode node="resize_image;Php:Function Name;1;1497;2;1516;34;;;v;;r;;d54,1497;;b0,0;;mtmpName;;pwgt;;phgt;;pdim;;pratio;;p">
+					<treenode node="resize_image;Php:Function Name;1;1526;2;1545;34;;;v;;r;;d54,1526;;b0,0;;mtmpName;;pwgt;;phgt;;pdim;;pratio;;p">
 					</treenode>
-					<treenode node="translite;Php:Function Name;8;1529;2;1542;34;;;v;;r;;d35,1529;;b1,0;;mstring;;p">
+					<treenode node="translite;Php:Function Name;8;1558;2;1571;34;;;v;;r;;d35,1558;;b1,0;;mstring;;p">
 					</treenode>
 					<treenode node="language;Php:Var Name;5;4;14;4;34;;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
@@ -6252,4 +6254,6 @@
 				</treenode>
 			</phptree>
 		</csfile><csfile name="S:\home\comline-group.com\www\.htaccess" crc="139727451">
-		</csfile></codestructure></project>
+		</csfile></codestructure><dbgurls>
+	</dbgurls>
+</project>

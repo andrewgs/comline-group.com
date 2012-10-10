@@ -20,6 +20,7 @@ class Admin_interface extends CI_Controller{
 		$this->load->model('mdproductscolors');
 		$this->load->model('mdproductsimages');
 		$this->load->model('mdproductssizes');
+		$this->load->model('mdproductscategory');
 		$this->load->model('mdrss');
 		$this->load->model('mdtexts');
 		$this->load->model('mdstorage');
@@ -1162,7 +1163,7 @@ class Admin_interface extends CI_Controller{
 			$this->form_validation->set_rules('gender[]',' ','required');
 			$this->form_validation->set_rules('sizes[]',' ','');
 			$this->form_validation->set_rules('colors[]',' ','');
-			$this->form_validation->set_rules('category',' ','required');
+			$this->form_validation->set_rules('category[]',' ','required|required');
 			$this->form_validation->set_rules('brand',' ','required');
 			if(!$this->form_validation->run()):
 				$this->session->set_userdata('msgr','Ошибка. Неверно заполены необходимые поля<br/>');
@@ -1193,9 +1194,21 @@ class Admin_interface extends CI_Controller{
 							$j++;
 						endfor;
 						if(count($colorslist)):
-							$this->mdproductscolors->delete_product_records($pid);
 							$this->mdproductscolors->group_insert($pid,$colorslist);
 						endif;
+					endif;
+					/**************************************************************/
+					if(isset($_POST['category'])):
+						$categorylist = array();
+						for($i=0;$i<count($_POST['category']);$i++):
+							$categorylist[$i]['category'] = $_POST['category'][$i];
+						endfor;
+						if(count($categorylist)):
+							$this->mdproductscategory->group_insert($pid,$categorylist);
+						endif;
+					else:
+						$this->session->set_userdata('msgr','Ошибка. Ну указана категория товара!');
+						redirect($this->uri->uri_string());
 					endif;
 					/**************************************************************/
 					if(isset($_POST['sizes'])):
@@ -1206,7 +1219,6 @@ class Admin_interface extends CI_Controller{
 							$j++;
 						endfor;
 						if(count($sizeslist)):
-							$this->mdproductssizes->delete_product_records($pid);
 							$this->mdproductssizes->group_insert($pid,$sizeslist);
 						endif;
 					endif;
@@ -1346,6 +1358,7 @@ class Admin_interface extends CI_Controller{
 			'prcolors'		=> $this->mdproductscolors->read_records($pid),
 			'colors'		=> $this->mdcolors->read_records(),
 			'prsizes'		=> $this->mdproductssizes->read_records($pid),
+			'prcategory'	=> $this->mdproductscategory->read_records($pid),
 			'sizes'			=> $this->get_sizes(),
 			'msgs'			=> $this->session->userdata('msgs'),
 			'msgr'			=> $this->session->userdata('msgr'),
@@ -1374,7 +1387,7 @@ class Admin_interface extends CI_Controller{
 			$this->form_validation->set_rules('gender[]',' ','required');
 			$this->form_validation->set_rules('sizes[]',' ','');
 			$this->form_validation->set_rules('colors[]',' ','');
-			$this->form_validation->set_rules('category',' ','required');
+			$this->form_validation->set_rules('category[]',' ','required|required');
 			$this->form_validation->set_rules('brand',' ','required');
 			if(!$this->form_validation->run()):
 				$this->session->set_userdata('msgr','Ошибка. Неверно заполены необходимые поля<br/>');
@@ -1410,6 +1423,20 @@ class Admin_interface extends CI_Controller{
 					endif;
 				endif;
 				/**************************************************************/
+					if(isset($_POST['category'])):
+						$categorylist = array();
+						for($i=0;$i<count($_POST['category']);$i++):
+							$categorylist[$i]['category'] = $_POST['category'][$i];
+						endfor;
+						if(count($categorylist)):
+							$this->mdproductscategory->delete_product_records($pid);
+							$this->mdproductscategory->group_insert($pid,$categorylist);
+						endif;
+					else:
+						$this->session->set_userdata('msgr','Ошибка. Ну указана категория товара!');
+						redirect($this->uri->uri_string());
+					endif;
+				/**************************************************************/
 				if(isset($_POST['sizes'])):
 					$sizeslist = array();
 					for($i=0,$j=0;$i<count($_POST['sizes']);$i++):
@@ -1444,6 +1471,14 @@ class Admin_interface extends CI_Controller{
 				endif;
 			endfor;
 		endfor;
+		for($i=0;$i<count($pagevar['category']);$i++):
+			$pagevar['category'][$i]['checked'] = 0;
+			for($j=0;$j<count($pagevar['prcategory']);$j++):
+				if($pagevar['prcategory'][$j]['category'] == $pagevar['category'][$i]['id']):
+					$pagevar['category'][$i]['checked'] = 1;
+				endif;
+			endfor;
+		endfor;
 		$this->load->view("admin_interface/products/edit-product",$pagevar);
 	}
 	
@@ -1456,6 +1491,7 @@ class Admin_interface extends CI_Controller{
 				$this->mdproductsimages->delete_records($pid);
 				$this->mdproductscolors->delete_product_records($pid);
 				$this->mdproductssizes->delete_product_records($pid);
+				$this->mdproductscategory->delete_product_records($pid);
 				$this->session->set_userdata('msgs','Товар удален успешно.');
 			else:
 				$this->session->set_userdata('msgr','Товар не удалена.');

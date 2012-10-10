@@ -51,9 +51,9 @@
 				var objGender = $(".chGender:checkbox:checked");
 				var objBrands = $(".chBrands:checkbox:checked");
 				var objCategory = $(".chCategory:checkbox:checked");
-				if($(objGender).length == 0){$(this).attr('checked','checked');}
-				if($(objBrands).length == 0){$(this).attr('checked','checked');}
-				if($(objCategory).length == 0){$(this).attr('checked','checked');}
+				if($(objGender).length == 0){$(this).attr('checked','checked'); return false;}
+				if($(objBrands).length == 0){$(this).attr('checked','checked'); return false;}
+				if($(objCategory).length == 0){$(this).attr('checked','checked'); return false;}
 				gender = $(objGender).serialize();
 				brands = $(objBrands).serialize();
 				category = $(objCategory).serialize();

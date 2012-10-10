@@ -19,6 +19,7 @@ class Users_interface extends CI_Controller{
 		$this->load->model('mdproductscolors');
 		$this->load->model('mdproductsimages');
 		$this->load->model('mdproductssizes');
+		$this->load->model('mdproductscategory');
 		$this->load->model('mdrss');
 		$this->load->model('mdtexts');
 		$this->load->model('mdstorage');
@@ -624,7 +625,6 @@ class Users_interface extends CI_Controller{
 		endfor;
 		$pagevar['category'] = $this->mdcategory->read_in_records($category);
 		$pagevar['products'] = $this->mdunion->read_products_in_brends($gender,$brands,$category);
-//		print_r($pagevar['products']);
 		$this->load->view('users_interface/products-list',$pagevar);
 	}
 	
