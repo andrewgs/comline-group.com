@@ -633,7 +633,7 @@ class Users_interface extends CI_Controller{
 		$urlparam = preg_split('/-/',$this->uri->segment(2));
 //		$product = $this->mdproducts->read_field_translit($this->uri->segment(3),'id',$urlparam[0],$urlparam[1],$urlparam[2]);
 		$product = $urlparam[3];
-		if(!$product):
+		if(!$this->mdproductsimages->read_main($product)):
 			redirect('');
 		endif;
 		$pagevar = array(
@@ -657,7 +657,7 @@ class Users_interface extends CI_Controller{
 		$this->session->unset_userdata('msgs');
 		$this->session->unset_userdata('msgr');
 		$pagevar['title'] .= $pagevar['product']['title'];
-		$products = $this->mdproducts->read_slider($urlparam[0],$urlparam[1],$urlparam[2]);
+		$products = $this->mdunion->read_products_slider($urlparam[0],$urlparam[1],$urlparam[2]);
 		for($i=0;$i<count($products);$i++):
 			if($products[$i]['id'] == $product):
 				if(isset($products[$i-1]['id'])):

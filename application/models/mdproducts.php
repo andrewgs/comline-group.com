@@ -80,7 +80,8 @@ class Mdproducts extends CI_Model{
 			$gender = '0,1,2';
 		endif;
 		
-		$query = "SELECT products.id,products.translit FROM products INNER JOIN products_category ON products.id = products_category.product WHERE gender IN ($gender) AND brand = $brand AND products_category.category = $category AND products.showitem = 1";
+		$query = "SELECT products.id,products.translit FROM products INNER JOIN products_category ON products.id = products_category.product WHERE gender IN ($gender) AND brand = $brand AND products_category.category = $category AND products.showitem = 1 AND ";
+		print_r($query);
 		$query = $this->db->query($query);
 		$data = $query->result_array();
 		if(count($data)) return $data;
