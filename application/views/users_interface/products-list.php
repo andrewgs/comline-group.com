@@ -11,9 +11,13 @@
 		<?php for($j=0;$j<count($products);$j++):?>
 			<?php if($products[$j]['category'] == $category[$i]['id']):?>
 			<div class="product-preview">
-				<a href="<?='product/'.$products[$j]['gender'].'-'.$products[$j]['brand'].'-'.$products[$j]['category'].'-'.$products[$j]['id'].'/'.$products[$j]['translit'] ?>"><img src="<?=$baseurl;?>productimage/viewimage/<?=$products[$j]['imgid'];?>" /></a>
-				<p class="title"><?=anchor('product/'.$products[$j]['gender'].'-'.$products[$j]['brand'].'-'.$products[$j]['category'].'-'.$products[$j]['id'].'/'.$products[$j]['translit'],$products[$j]['title']);?></p>
-				<p class="articul"><?=$products[$j]['btitle'];?></p>
+				<a class="thumb" href="<?='product/'.$products[$j]['gender'].'-'.$products[$j]['brand'].'-'.$products[$j]['category'].'-'.$products[$j]['id'].'/'.$products[$j]['translit'] ?>">
+					<img src="<?=$baseurl;?>productimage/viewimage/<?=$products[$j]['imgid'];?>" />
+				</a>
+				<p class="title">
+					<?=anchor('product/'.$products[$j]['gender'].'-'.$products[$j]['brand'].'-'.$products[$j]['category'].'-'.$products[$j]['id'].'/'.$products[$j]['translit'],$products[$j]['title']);?>
+					<span class="articul"><?=$products[$j]['btitle'];?></span>					
+				</p>
 			</div>
 			<?php endif;?>
 		<?php endfor;?>

@@ -215,14 +215,15 @@ p.em40 { max-width: 40em; }
 .substrate ul.categories-list li { color: #666; }
 .substrate ul.categories-list li label { margin-left: 0.25em; position: relative; top: -2px; }
 .substrate ul.categories-list li.disabled { color: #bdbdbd; }
-.product-preview { display: inline-block; margin: 0 0.725em 1.75em 0; }
+.product-preview { display: inline-block; margin: 0 0.725em 1.75em 0; height: 325px; width: 160px; position: relative; float: left; }
 .product-preview:nth-child(4n) { margin-right: 0; }
 .product-preview p { margin: 0 0 0.25em 0; }
-.product-preview p.title { color: #333; margin: 0; }
-.product-preview p.title a { color: #333; text-decoration: none; display: inline-block; max-width: 11.9em; }
-.product-preview p.title a:hover { text-decoration: underline; }
-.product-preview p.articul { }
-.product-preview img { border: 1px solid #E5E5E5; width: 150px; height: auto; }
+.product-preview p.title { color: #333; margin: 0; position: absolute; top: 220px; width: 160px; }
+.product-preview p.title a { color: #333; text-decoration: none; display: block; margin-bottom: 0.25em; }
+.product-preview p.title a:hover { text-decoration: none; }
+.product-preview .articul { color: #999; }
+.product-preview a.thumb { display: inline-block; height: 210px; width: 150px; position: absolute; top: 0; background: url('../images/ajax-loader.gif') no-repeat center center transparent; } 
+.product-preview img { border: 1px solid #E5E5E5; width: 150px; height: auto; max-height: 210px; position: absolute; bottom: 0; }
 #main.substrate.categories { padding: 2em; } 
 .categories h2 { border-bottom: 1px solid #D8D8D8; padding-bottom: 0.25em; } 
 .categories h2 { border-bottom: 1px solid #D8D8D8; padding-bottom: 0.25em; }
@@ -236,6 +237,7 @@ p.em40 { max-width: 40em; }
 .photos .pager { float: left; }
 .photos .pager img { margin-bottom: 0.4em; width: 93px; height: 140px; }
 
+.product-photos { width: 298px; min-height: 150px; background: url('../images/ajax-loader.gif') no-repeat center center transparent; }
 .product-photos img { margin: 0 0.85em 0.4em 0; width: 93px; height: 140px; }
 .product-photos img.main-photo { float: left; margin: 0 0.85em 0 0; width: 298px; height: auto; }
 
