@@ -29,7 +29,7 @@
 				</ul>
 				<ul class="categories-list category">
 				<?php for($i=0;$i<count($category);$i++):?>
-					<li><input type="checkbox" class="chCategory chInput" name="category<?=$i;?>" <?=($category[$i]['checked'])? 'checked="checked"' : '';?> value="<?=$category[$i]['id'];?>" /><label><?=$category[$i]['title'];?></label></li>
+					<li><input type="checkbox" class="chCategory chInput" name="category<?=$i;?>" <?=($category[$i]['checked'])? 'checked="checked"' : '';?> <?=($category[$i]['disable'])? 'disabled="disabled"' : '';?> value="<?=$category[$i]['id'];?>" /><label><?=$category[$i]['title'];?></label></li>
 				<?php endfor;?>
 				</ul>
 			</aside>
@@ -42,25 +42,54 @@
 	<?php $this->load->view("users_interface/includes/scripts");?>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			var gender = $(".chGender:checkbox:checked").serialize();
-			var brands = $(".chBrands:checkbox:checked").serialize();
-			var category = $(".chCategory:checkbox:checked").serialize();
-			offer_list(gender,brands,category);
+			refresh_data();
+			
+			$(".chBrands").click(function(){
+				var objGender = $(".chGender:checkbox:checked");
+				var objBrands = $(".chBrands:checkbox:checked");
+				gender = $(objGender).serialize();
+				brands = $(objBrands).serialize();
+				calegory_list(gender,brands);
+			});
 			
 			$(".chInput").click(function(){
 				var objGender = $(".chGender:checkbox:checked");
 				var objBrands = $(".chBrands:checkbox:checked");
-				var objCategory = $(".chCategory:checkbox:checked");
+				var objCategory = $(".chCategory:checkbox:checked").not(":disabled");
 				if($(objGender).length == 0){$(this).attr('checked','checked'); return false;}
 				if($(objBrands).length == 0){$(this).attr('checked','checked'); return false;}
-				if($(objCategory).length == 0){$(this).attr('checked','checked'); return false;}
+				if($(objCategory).length == 0){$(this).attr('checked','checked');return false;}
 				gender = $(objGender).serialize();
 				brands = $(objBrands).serialize();
 				category = $(objCategory).serialize();
 				offer_list(gender,brands,category);
 			});
+			
+			function refresh_data(){
+				var gender = $(".chGender:checkbox:checked").serialize();
+				var brands = $(".chBrands:checkbox:checked").serialize();
+				var category = $(".chCategory:checkbox:checked").not(":disabled").serialize();
+				offer_list(gender,brands,category);
+			}
+			
 			function offer_list(gender,brands,category){
 				$("#product-list").load("<?=$baseurl;?>catalog/load-products",{'gender':gender,'brands':brands,'category':category});
+			}
+			function calegory_list(gender,brands){
+				$.post("<?=$baseurl;?>catalog/calegory-list",
+					{'gender':gender,'brands':brands},
+					function(data){
+						$(".chCategory").attr("disabled","disabled");
+						$.each(data.category, function(){
+							$(".chCategory[value = "+this.id+"]").removeAttr("disabled");
+						});
+						var ch = $(".chCategory:enabled:checked");
+						if($(ch).size() == 0){
+							$(".chCategory:enabled:not(:checked)").attr("checked","checked");
+							refresh_data();
+						}
+					},'json'
+				);
 			}
 		});
 	</script>

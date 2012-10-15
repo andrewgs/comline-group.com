@@ -550,7 +550,20 @@ class Users_interface extends CI_Controller{
 					endif;
 				endfor;
 			endif;
+			$actcategory = $this->mdunion->read_showed_category(2,$this->session->userdata('bid'));
+			if($actcategory):
+				for($i=0;$i<count($pagevar['category']);$i++):
+					for($j=0;$j<count($actcategory);$j++):
+						if($pagevar['category'][$i]['id'] == $actcategory[$j]['id']):
+							$pagevar['category'][$i]['disable'] = 0;
+						else:
+							$pagevar['category'][$i]['disable'] = 1;
+						endif;
+					endfor;
+				endfor;
+			endif;
 		endif;
+		
 		$this->load->view("users_interface/catalog",$pagevar);
 	}
 	
@@ -626,6 +639,33 @@ class Users_interface extends CI_Controller{
 		$pagevar['category'] = $this->mdcategory->read_in_records($category);
 		$pagevar['products'] = $this->mdunion->read_products_in_brends($gender,$brands,$category);
 		$this->load->view('users_interface/products-list',$pagevar);
+	}
+	
+	public function calegory_list(){
+		
+		$statusval = array('category'=>array());
+		$gender = $this->input->post('gender');
+		$brands = $this->input->post('brands');
+		if(!$gender || !$brands):
+			show_404();
+		endif;
+		$gender = preg_split("/&/",$gender);
+		for($i=0;$i<count($gender);$i++):
+			$genid = preg_split("/=/",$gender[$i]);
+			$gender[$i] = $genid[1];
+		endfor;
+		if(count($gender) == 2):
+			$gender = 2;
+		else:
+			$gender = $gender[0];
+		endif;
+		$brands = preg_split("/&/",$brands);
+		for($i=0;$i<count($brands);$i++):
+			$brid = preg_split("/=/",$brands[$i]);
+			$brands[$i] = $brid[1];
+		endfor;
+		$statusval['category'] = $this->mdunion->read_showed_category($gender,$brands);
+		echo json_encode($statusval);
 	}
 	
 	public function product(){

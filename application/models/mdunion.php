@@ -75,4 +75,28 @@ class Mdunion extends CI_Model{
 		return NULL;
 	}
 	
+	function read_showed_category($gender,$brands){
+		
+		$gin = '';
+		if($gender == 2):
+			$gin = '0,1,2';
+		else:
+			$gin = $gender;
+		endif;
+		
+		$bin = '';
+		for($i=0;$i<count($brands);$i++):
+			$bin .=$brands[$i];
+			if(isset($brands[$i+1])):
+				$bin .= ',';
+			endif;
+		endfor;
+		
+		$query = "SELECT category.id FROM category,products_category,products ,products_images WHERE category.id = products_category.category AND products_category.product = products.id AND products_images.product_id = products.id AND products.gender IN ($gin) AND products.brand IN ($bin) AND products_images.main = 1 AND category.showitem = 1 GROUP BY category.id";
+		$query = $this->db->query($query);
+		$data = $query->result_array();
+		if(count($data)) return $data;
+		return NULL;
+	}
+	
 }

@@ -35,6 +35,8 @@ class Mdproductssizes extends CI_Model{
 	function read_records($product_id){
 		
 		$this->db->where('product_id',$product_id);
+		$this->db->order_by('id');
+		$this->db->order_by('code');
 		$query = $this->db->get('products_sizes');
 		$data = $query->result_array();
 		if(count($data)) return $data;
