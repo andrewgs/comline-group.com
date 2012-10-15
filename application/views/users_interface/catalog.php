@@ -29,7 +29,7 @@
 				</ul>
 				<ul class="categories-list category">
 				<?php for($i=0;$i<count($category);$i++):?>
-					<li><input type="checkbox" class="chCategory chInput" name="category<?=$i;?>" <?=($category[$i]['checked'])? 'checked="checked"' : '';?> <?=($category[$i]['disable'])? 'disabled="disabled"' : '';?> value="<?=$category[$i]['id'];?>" /><label><?=$category[$i]['title'];?></label></li>
+					<li><input type="checkbox" class="chCategory chInput" name="category<?=$i;?>" <?=($category[$i]['checked'] && !$category[$i]['disable'])? 'checked="checked"' : '';?> <?=($category[$i]['disable'])? 'disabled="disabled"' : '';?> value="<?=$category[$i]['id'];?>" /><label><?=$category[$i]['title'];?></label></li>
 				<?php endfor;?>
 				</ul>
 			</aside>
@@ -53,6 +53,7 @@
 			});
 			
 			$(".chInput").click(function(){
+				$("#product-list").html('<span class="ajax_request">Загрузка данных...</span>').show();
 				var objGender = $(".chGender:checkbox:checked");
 				var objBrands = $(".chBrands:checkbox:checked");
 				var objCategory = $(".chCategory:checkbox:checked").not(":disabled");
@@ -79,15 +80,11 @@
 				$.post("<?=$baseurl;?>catalog/calegory-list",
 					{'gender':gender,'brands':brands},
 					function(data){
-						$(".chCategory").attr("disabled","disabled");
+						$(".chCategory").attr("disabled","disabled").removeAttr("checked");
 						$.each(data.category, function(){
-							$(".chCategory[value = "+this.id+"]").removeAttr("disabled");
+							$(".chCategory[value = "+this.id+"]").removeAttr("disabled").attr("checked","checked");
 						});
-						var ch = $(".chCategory:enabled:checked");
-						if($(ch).size() == 0){
-							$(".chCategory:enabled:not(:checked)").attr("checked","checked");
-							refresh_data();
-						}
+						refresh_data();
 					},'json'
 				);
 			}

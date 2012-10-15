@@ -550,14 +550,21 @@ class Users_interface extends CI_Controller{
 					endif;
 				endfor;
 			endif;
-			$actcategory = $this->mdunion->read_showed_category(2,$this->session->userdata('bid'));
+			if($this->session->userdata('bid')):
+				$brands[0] = $this->session->userdata('bid');
+			else:
+				for($i=0;$i<count($pagevar['brands']);$i++):
+					$brands[$i] = $pagevar['brands'][$i]['id'];
+				endfor;
+			endif;
+			$actcategory = $this->mdunion->read_showed_category(2,$brands);
 			if($actcategory):
 				for($i=0;$i<count($pagevar['category']);$i++):
+					$pagevar['category'][$i]['disable'] = 1;
 					for($j=0;$j<count($actcategory);$j++):
 						if($pagevar['category'][$i]['id'] == $actcategory[$j]['id']):
 							$pagevar['category'][$i]['disable'] = 0;
-						else:
-							$pagevar['category'][$i]['disable'] = 1;
+							continue;
 						endif;
 					endfor;
 				endfor;
