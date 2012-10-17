@@ -570,7 +570,6 @@ class Users_interface extends CI_Controller{
 				endfor;
 			endif;
 		endif;
-		
 		$this->load->view("users_interface/catalog",$pagevar);
 	}
 	
@@ -616,13 +615,16 @@ class Users_interface extends CI_Controller{
 	
 	public function catalog_load(){
 		
-		$pagevar = array('baseurl'=>base_url(),'category'=>array(),'products'=>array());
+		$per_page = 3;
+		$pagevar = array('baseurl'=>base_url(),'category'=>array(),'products'=>array(),'pages'=>0,'page'=>0);
 		$gender = $this->input->post('gender');
 		$brands = $this->input->post('brands');
 		$category = $this->input->post('category');
-		if(!$gender || !$brands):
+		$page = $this->input->post('page');
+		if(!$gender || !$brands || !$page):
 			show_404();
 		endif;
+		$pagevar['page'] = $page;
 		if($category):
 			$gender = preg_split("/&/",$gender);
 			for($i=0;$i<count($gender);$i++):
@@ -644,8 +646,13 @@ class Users_interface extends CI_Controller{
 				$catid = preg_split("/=/",$category[$i]);
 				$category[$i] = $catid[1];
 			endfor;
-			$pagevar['category'] = $this->mdcategory->read_in_records($category);
-			$pagevar['products'] = $this->mdunion->read_products_in_brends($gender,$brands,$category);
+			$count = $this->mdunion->count_products_in_brends($gender,$brands,$category);
+			if($count):
+				$from = ($page-1)*$per_page;
+				$pagevar['category'] = $this->mdcategory->read_in_records($category);
+				$pagevar['products'] = $this->mdunion->read_products_in_brends($gender,$brands,$category,$per_page,$from);
+				$pagevar['pages'] = ceil($count/$per_page);
+			endif;
 			$this->load->view('users_interface/products-list',$pagevar);
 		else:
 			echo '<span class="ajax_request">Данные отсутствуют...</span>';
@@ -682,7 +689,6 @@ class Users_interface extends CI_Controller{
 	public function product(){
 		
 		$urlparam = preg_split('/-/',$this->uri->segment(2));
-//		$product = $this->mdproducts->read_field_translit($this->uri->segment(3),'id',$urlparam[0],$urlparam[1],$urlparam[2]);
 		$product = $urlparam[3];
 		if(!$this->mdproductsimages->read_main($product)):
 			redirect('');

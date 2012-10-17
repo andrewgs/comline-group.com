@@ -16,7 +16,7 @@
 				</a>
 				<p class="title">
 					<?=anchor('product/'.$products[$j]['gender'].'-'.$products[$j]['brand'].'-'.$products[$j]['category'].'-'.$products[$j]['id'].'/'.$products[$j]['translit'],$products[$j]['title']);?>
-					<span class="articul"><?=$products[$j]['btitle'];?></span>					
+					<span class="articul"><?=$products[$j]['btitle'];?></span>
 				</p>
 			</div>
 			<?php endif;?>
@@ -24,3 +24,31 @@
 		</div>
 	<?php endif;?>
 <?php endfor;?>
+<?php
+if($pages > 1):
+	$first = FALSE;
+	$last = FALSE;
+	if($page == 1):
+		$first = TRUE;
+		$from = 0;
+	endif;
+	if($page == $pages):
+		$last = TRUE;
+	endif;
+	$num = 1;
+	if($page >= 7):
+		$num = $page - 3;
+	endif;
+	?>
+	<div class="pagination">
+		<ul>
+			<li class="<?=($first)?'inactive':'active';?>" data-page="1">В начало</li>
+			<li class="<?=($first)?'inactive':'active';?>" data-page="<?=(($page-1)==0)?1:$page-1;?>">Предыдущая</li>
+		<?php for($i=$num;$i<=$pages;$i++):?>
+			<li class="<?=($i==$page)?'curpage':'active';?>" data-page="<?=$i?>"><?=$i?></li>
+		<?php endfor;?>
+			<li class="<?=($last)?'inactive':'active';?>" data-page="<?=$page+1;?>">Следующая</li>
+			<li class="<?=($last)?'inactive':'active';?>" data-page="<?=$pages;?>">В конец</li>
+		</ul>
+	</div>
+<?php endif;?>

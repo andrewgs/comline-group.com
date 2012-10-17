@@ -24,7 +24,7 @@
 				</ul>
 				<ul class="categories-list brands">
 				<?php for($i=0;$i<count($brands);$i++):?>
-					<li><input type="checkbox" class="chBrands chInput" name="brand<?=$i;?>" <?=($brands[$i]['checked'])? 'checked="checked"' : '';?> value="<?=$brands[$i]['id'];?>" /><label><?=$brands[$i]['title'];?></label></li>
+					<li><input type="checkbox" class="chBrands" name="brand<?=$i;?>" <?=($brands[$i]['checked'])? 'checked="checked"' : '';?> value="<?=$brands[$i]['id'];?>" /><label><?=$brands[$i]['title'];?></label></li>
 				<?php endfor;?>
 				</ul>
 				<ul class="categories-list category">
@@ -33,17 +33,16 @@
 				<?php endfor;?>
 				</ul>
 			</aside>
-			<div class="products-by-categories" id="product-list">
-				
-			</div>
+			<div class="products-by-categories" id="product-list"></div>
 		</div>
 	</div>
 	<?php $this->load->view("users_interface/includes/footer");?>
 	<?php $this->load->view("users_interface/includes/scripts");?>
+	<script src="<?=$baseurl;?>js/pagination.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			refresh_data();
-			
+			var page = 1;
+			refresh_data(page);
 			$(".chBrands").click(function(){
 				var objGender = $(".chGender:checkbox:checked");
 				var objBrands = $(".chBrands:checkbox:checked");
@@ -71,23 +70,24 @@
 				var category = $(".chCategory:checkbox:checked").not(":disabled").serialize();
 				offer_list(gender,brands,category);
 			}
-			
 			function offer_list(gender,brands,category){
 				$("#product-list").html('<span class="ajax_request">Загрузка данных...</span>').show();
-				$("#product-list").load("<?=$baseurl;?>catalog/load-products",{'gender':gender,'brands':brands,'category':category});
+				$("#product-list").load("<?=$baseurl;?>catalog/load-products",{'gender':gender,'brands':brands,'category':category,'page':page});
 			}
 			function calegory_list(gender,brands){
 				$.post("<?=$baseurl;?>catalog/calegory-list",
 					{'gender':gender,'brands':brands},
 					function(data){
 						$(".chCategory").attr("disabled","disabled");
-						$.each(data.category, function(){
-							$(".chCategory[value = "+this.id+"]").removeAttr("disabled");
-						});
-						refresh_data();
+						$.each(data.category, function(){$(".chCategory[value = "+this.id+"]").removeAttr("disabled");});
+						page = 1;refresh_data();
 					},'json'
 				);
 			}
+			$(".pagination li.active").live("click",function(){
+				page = $(this).attr("data-page");
+				refresh_data();
+			});
 		});
 	</script>
 </body>
