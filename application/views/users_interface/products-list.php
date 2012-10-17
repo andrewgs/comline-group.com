@@ -46,11 +46,11 @@ if($pages > 1):
 	<div class="pagination">
 		<ul>
 			<li class="<?=($first)?'inactive':'active';?>" data-page="1">В начало</li>
-			<li class="<?=($first)?'inactive':'active';?>" data-page="<?=(($page-1)==0)?1:$page-1;?>">Предыдущая</li>
+			<li class="<?=($first)?'inactive':'active';?>" data-page="<?=(($page-1)==0)?1:$page-1;?>">Пред.</li>
 		<?php for($i=$start;$i<=$stop;$i++):?>
 			<li class="<?=($i==$page)?'curpage':'active';?>" data-page="<?=$i?>"><?=$i?></li>
 		<?php endfor;?>
-			<li class="<?=($last)?'inactive':'active';?>" data-page="<?=$page+1;?>">Следующая</li>
+			<li class="<?=($last)?'inactive':'active';?>" data-page="<?=$page+1;?>">След.</li>
 			<li class="<?=($last)?'inactive':'active';?>" data-page="<?=$pages;?>">В конец</li>
 		</ul>
 	</div>

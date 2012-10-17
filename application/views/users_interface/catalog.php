@@ -81,7 +81,6 @@
 					function(){
 						$("#loading").hide();
 						$("#backdrop").removeClass("loading-backdrop");
-						$("body").animate({"scrollTop":0},0);
 					}
 				);
 			}
@@ -97,6 +96,7 @@
 			}
 			$(".pagination li.active").live("click",function(){
 				page = $(this).attr("data-page");
+				$("html, body").animate({scrollTop:'0'},"slow");
 				refresh_data();
 			});
 		});
