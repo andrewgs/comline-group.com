@@ -655,7 +655,7 @@ class Users_interface extends CI_Controller{
 			endif;
 			$this->load->view('users_interface/products-list',$pagevar);
 		else:
-			echo '<span class="ajax_request">Данные отсутствуют...</span>';
+			echo '<span class="no-products">Данные отсутствуют...</span>';
 		endif;
 	}
 	

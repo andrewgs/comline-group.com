@@ -54,6 +54,8 @@
 				calegory_list(gender,brands);
 			});
 			
+			$("input:checkbox").click(function(){page = 1;})
+			
 			$(".chInput").click(function(){
 				var objGender = $(".chGender:checkbox:checked");
 				var objBrands = $(".chBrands:checkbox:checked");
@@ -75,7 +77,13 @@
 			function offer_list(gender,brands,category){
 				$("#backdrop").addClass("loading-backdrop");
 				$("#loading").html('<span class="ajax_request">Загрузка данных...</span>').show();
-				$("#product-list").load("<?=$baseurl;?>catalog/load-products",{'gender':gender,'brands':brands,'category':category,'page':page},function(){$("#loading").hide();$("#backdrop").removeClass("loading-backdrop")});
+				$("#product-list").load("<?=$baseurl;?>catalog/load-products",{'gender':gender,'brands':brands,'category':category,'page':page},
+					function(){
+						$("#loading").hide();
+						$("#backdrop").removeClass("loading-backdrop");
+						$("body").animate({"scrollTop":0},0);
+					}
+				);
 			}
 			function calegory_list(gender,brands){
 				$.post("<?=$baseurl;?>catalog/calegory-list",
@@ -83,7 +91,7 @@
 					function(data){
 						$(".chCategory").attr("disabled","disabled");
 						$.each(data.category, function(){$(".chCategory[value = "+this.id+"]").removeAttr("disabled");});
-						page = 1;refresh_data();
+						refresh_data();
 					},'json'
 				);
 			}

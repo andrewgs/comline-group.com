@@ -99,27 +99,20 @@ border-color: #BCE8F1;
 	height: 0
 }
 
-.pagination ul li.inactive, #container .pagination ul li.inactive:hover {
+.pagination ul li.inactive, .pagination ul li.inactive:hover {
 	background-color: #EDEDED;
 	border: 1px solid #BABABA;
 	color: #BABABA;
 	cursor: default;
-}
-.data ul li {
-	color: #000000;
-	font-family: verdana;
-	font-size: 13px;
-	list-style: none outside none;
-	margin: 5px 0;
 }
 .pagination {
 	height: 25px;
 	width: 800px;
 }
 .pagination ul li {
-	background-color: #F2F2F2;
-	border: 1px solid #006699;
-	color: #006699;
+	background-color: #dfdfdf;
+	border: 1px solid #a0a0a4;
+	color: #999999;
 	float: left;
 	font-family: arial;
 	font-size: 14px;
@@ -129,11 +122,43 @@ border-color: #BCE8F1;
 	padding: 2px 6px;
 }
 .pagination ul li:hover {
-	background-color: #006699;
+	background-color: #808080;
 	color: #FFFFFF;
 	cursor: pointer;
 }
 .pagination .curpage{
 	color:#fff;
-	background-color:#006699;
+	background-color:#a0a0a4;
+}
+
+.ajax_request{
+	display: inline-block;
+	height: 100px;
+	position: fixed;
+	top:50%;
+	left:45%;
+	background: url('../images/ajax-loader.gif') no-repeat center center transparent;
+	text-align:center;
+	color: #1f5f03;
+	z-index: 1050;
+}
+.no-products{
+	display: inline-block;
+	height: 100px;
+	position: absolute;
+	top:250px;
+	left:400px;
+}
+
+.loading-backdrop{
+	background-color: #000000;
+	bottom: 0;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 1040;
+	-moz-opacity: 0.55;
+	-khtml-opacity: 0.55;
+	opacity: 0.3;
 }
