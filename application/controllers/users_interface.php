@@ -620,37 +620,41 @@ class Users_interface extends CI_Controller{
 		$gender = $this->input->post('gender');
 		$brands = $this->input->post('brands');
 		$category = $this->input->post('category');
-		if(!$gender || !$brands || !$category):
+		if(!$gender || !$brands):
 			show_404();
 		endif;
-		$gender = preg_split("/&/",$gender);
-		for($i=0;$i<count($gender);$i++):
-			$genid = preg_split("/=/",$gender[$i]);
-			$gender[$i] = $genid[1];
-		endfor;
-		if(count($gender) == 2):
-			$gender = 2;
+		if($category):
+			$gender = preg_split("/&/",$gender);
+			for($i=0;$i<count($gender);$i++):
+				$genid = preg_split("/=/",$gender[$i]);
+				$gender[$i] = $genid[1];
+			endfor;
+			if(count($gender) == 2):
+				$gender = 2;
+			else:
+				$gender = $gender[0];
+			endif;
+			$brands = preg_split("/&/",$brands);
+			for($i=0;$i<count($brands);$i++):
+				$brid = preg_split("/=/",$brands[$i]);
+				$brands[$i] = $brid[1];
+			endfor;
+			$category = preg_split("/&/",$category);
+			for($i=0;$i<count($category);$i++):
+				$catid = preg_split("/=/",$category[$i]);
+				$category[$i] = $catid[1];
+			endfor;
+			$pagevar['category'] = $this->mdcategory->read_in_records($category);
+			$pagevar['products'] = $this->mdunion->read_products_in_brends($gender,$brands,$category);
+			$this->load->view('users_interface/products-list',$pagevar);
 		else:
-			$gender = $gender[0];
+			echo '<span class="ajax_request">Данные отсутствуют...</span>';
 		endif;
-		$brands = preg_split("/&/",$brands);
-		for($i=0;$i<count($brands);$i++):
-			$brid = preg_split("/=/",$brands[$i]);
-			$brands[$i] = $brid[1];
-		endfor;
-		$category = preg_split("/&/",$category);
-		for($i=0;$i<count($category);$i++):
-			$catid = preg_split("/=/",$category[$i]);
-			$category[$i] = $catid[1];
-		endfor;
-		$pagevar['category'] = $this->mdcategory->read_in_records($category);
-		$pagevar['products'] = $this->mdunion->read_products_in_brends($gender,$brands,$category);
-		$this->load->view('users_interface/products-list',$pagevar);
 	}
 	
 	public function calegory_list(){
 		
-		$statusval = array('category'=>array());
+		$statusval = array('status'=>FALSE,'category'=>array());
 		$gender = $this->input->post('gender');
 		$brands = $this->input->post('brands');
 		if(!$gender || !$brands):
