@@ -315,10 +315,24 @@ aside { width: 100%; }
 .ajax_request{
 	display: inline-block;
 	height: 100px;
-	width: 150px;
-	position: absolute;
-	top:300px;
-	left:600px;
+	position: fixed;
+	top:50%;
+	left:45%;
 	background: url('../images/ajax-loader.gif') no-repeat center center transparent;
 	text-align:center;
+	color: #ff0000;
+	z-index: 1050;
+}
+
+.loading-backdrop{
+	background-color: #000000;
+	bottom: 0;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 1040;
+	-moz-opacity: 0.55;
+	-khtml-opacity: 0.55;
+	opacity: 0.3;
 }

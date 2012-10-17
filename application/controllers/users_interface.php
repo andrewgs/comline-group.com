@@ -615,7 +615,7 @@ class Users_interface extends CI_Controller{
 	
 	public function catalog_load(){
 		
-		$per_page = 3;
+		$per_page = 12;
 		$pagevar = array('baseurl'=>base_url(),'category'=>array(),'products'=>array(),'pages'=>0,'page'=>0);
 		$gender = $this->input->post('gender');
 		$brands = $this->input->post('brands');

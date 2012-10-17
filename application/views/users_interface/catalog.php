@@ -33,6 +33,8 @@
 				<?php endfor;?>
 				</ul>
 			</aside>
+			<div id="backdrop"></div>
+			<div id="loading"></div>
 			<div class="products-by-categories" id="product-list"></div>
 		</div>
 	</div>
@@ -71,8 +73,9 @@
 				offer_list(gender,brands,category);
 			}
 			function offer_list(gender,brands,category){
-				$("#product-list").html('<span class="ajax_request">Загрузка данных...</span>').show();
-				$("#product-list").load("<?=$baseurl;?>catalog/load-products",{'gender':gender,'brands':brands,'category':category,'page':page});
+				$("#backdrop").addClass("loading-backdrop");
+				$("#loading").html('<span class="ajax_request">Загрузка данных...</span>').show();
+				$("#product-list").load("<?=$baseurl;?>catalog/load-products",{'gender':gender,'brands':brands,'category':category,'page':page},function(){$("#loading").hide();$("#backdrop").removeClass("loading-backdrop")});
 			}
 			function calegory_list(gender,brands){
 				$.post("<?=$baseurl;?>catalog/calegory-list",
