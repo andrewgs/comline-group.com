@@ -121,12 +121,16 @@ border-color: #BCE8F1;
 	cursor: pointer;
 }
 .pagination .curpage{
-	border: 1px solid #a0a0a4;
+	border: 1px solid #999;
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
-	border-radius: 2px;
-	padding: 8px 4px;
+	border-radius: 30px;
+	margin-top: 3px;
+	padding: 4px 8px;
 	cursor: default !important;
+	-webkit-box-shadow: 0px 1px 7px #999;
+	-moz-box-shadow: 0px 1px 7px #999;
+	box-shadow: 0px 1px 7px #999;
 }
 
 #loading {
