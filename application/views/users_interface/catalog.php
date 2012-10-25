@@ -25,12 +25,12 @@
 				<ul class="categories-list brands">
 				<?php for($i=0;$i<count($brands);$i++):?>
 					<li>
-						<input type="checkbox" class="chBrands" name="brand<?=$i;?>" <?=($brands[$i]['checked'])? 'checked="checked"' : '';?> value="<?=$brands[$i]['id'];?>" /><label><?=$brands[$i]['title'];?></label>
+						<input type="checkbox" class="chBrands" name="brand<?=$brands[$i]['id'];?>" <?=($brands[$i]['checked'])? 'checked="checked"' : '';?> value="<?=$brands[$i]['id'];?>" /><label><?=$brands[$i]['title'];?></label>
 						<ul>
 					<?php for($j=0;$j<count($brseasons);$j++):?>
 						<?php if($brseasons[$j]['brand'] == $brands[$i]['id']):?>
 							<li>
-								<input type="checkbox" class="chSeason" data-brand="<?=$brands[$i]['id'];?>" name="season<?=$brseasons[$j]['id'];?>" <?=($brands[$i]['checked'])? 'checked="checked"' : '';?> value="<?=$brseasons[$j]['id'];?>" /><label><?=$seasons[$brseasons[$j]['season']]['title'];?></label>
+								<input type="checkbox" class="chSeason" data-brand="<?=$brands[$i]['id'];?>" name="season<?=$brseasons[$j]['id'];?>" <?=($brands[$i]['checked'])? 'checked="checked"' : '';?> value="<?=$brseasons[$j]['season'];?>" /><label><?=$seasons[$brseasons[$j]['season']]['title'];?></label>
 							</li>
 						<?endif;?>
 					<?php endfor;?>
@@ -43,6 +43,9 @@
 					<li><input type="checkbox" class="chCategory chInput" name="category<?=$i;?>" <?=($category[$i]['checked'] && !$category[$i]['disable'])? 'checked="checked"' : '';?> <?=($category[$i]['disable'])? 'disabled="disabled"' : '';?> value="<?=$category[$i]['id'];?>" /><label><?=$category[$i]['title'];?></label></li>
 				<?php endfor;?>
 				</ul>
+				<div class="ajax_submit">
+					<a href="#" class="none" id="Refresh">Поиск товаров</a>
+				</div>
 			</aside>
 			<div id="backdrop"></div>
 			<div id="loading"></div>
@@ -57,9 +60,12 @@
 			var page = 1;
 			refresh_data(page);
 			$(".chBrands").click(function(){
+				var BrThis = $(this).val();
+				if($(this).attr("checked")){$(".chSeason[data-brand='"+BrThis+"']").attr("checked","checked");
+				}else{$(".chSeason[data-brand='"+BrThis+"']").removeAttr("checked");}
 				var objGender = $(".chGender:checkbox:checked");
 				var objBrands = $(".chBrands:checkbox:checked");
-				if($(objBrands).length == 0){return false;}
+				if($(objBrands).length == 0){$(".chSeason[data-brand='"+BrThis+"']").attr("checked","checked");return false;}
 				gender = $(objGender).serialize();
 				brands = $(objBrands).serialize();
 				calegory_list(gender,brands);
@@ -73,22 +79,30 @@
 				var objCategory = $(".chCategory:checkbox:checked").not(":disabled");
 				if($(objGender).length == 0){$(this).attr('checked','checked'); return false;}
 				if($(objBrands).length == 0){$(this).attr('checked','checked'); return false;}
-				gender = $(objGender).serialize();
-				brands = $(objBrands).serialize();
-				category = $(objCategory).serialize();
-				offer_list(gender,brands,category);
+//				gender = $(objGender).serialize();
+//				brands = $(objBrands).serialize();
+//				category = $(objCategory).serialize();
+//				offer_list(gender,brands,category);
+			});
+			
+			$(".chSeason").click(function(){
+				var BrID = $(this).attr("data-brand");
+				$(".chBrands[name='brand"+BrID+"']").attr('checked','checked');
+				var SBLen = $(".chSeason[data-brand='"+BrID+"']:checked").length;
+				if(SBLen == 0){$(this).attr('checked','checked'); return false;}
 			});
 			
 			function refresh_data(){
 				var gender = $(".chGender:checkbox:checked").serialize();
 				var brands = $(".chBrands:checkbox:checked").serialize();
+				var seasons = $(".chSeason:checkbox:checked").serialize();
 				var category = $(".chCategory:checkbox:checked").not(":disabled").serialize();
-				offer_list(gender,brands,category);
+				offer_list(gender,brands,seasons,category);
 			}
-			function offer_list(gender,brands,category){
+			function offer_list(gender,brands,seasons,category){
 				$("#backdrop").addClass("loading-backdrop");
 				$("#loading").html('<span class="ajax_request">Загрузка данных...</span>').show();
-				$("#product-list").load("<?=$baseurl;?>catalog/load-products",{'gender':gender,'brands':brands,'category':category,'page':page},
+				$("#product-list").load("<?=$baseurl;?>catalog/load-products",{'gender':gender,'brands':brands,'seasons':seasons,'category':category,'page':page},
 					function(){
 						$("#loading").hide();
 						$("#backdrop").removeClass("loading-backdrop");
@@ -100,11 +114,14 @@
 					{'gender':gender,'brands':brands},
 					function(data){
 						$(".chCategory").attr("disabled","disabled");
-						$.each(data.category, function(){$(".chCategory[value = "+this.id+"]").removeAttr("disabled");});
-						refresh_data();
+						if(data.status){$.each(data.category, function(){$(".chCategory[value = "+this.id+"]").removeAttr("disabled");});}
+//						refresh_data();
 					},'json'
 				);
 			}
+			
+			$("#Refresh").click(function(){refresh_data();});
+			
 			$(".pagination li.active").live("click",function(){
 				page = $(this).attr("data-page");
 				$("html, body").animate({scrollTop:'0'},"slow");

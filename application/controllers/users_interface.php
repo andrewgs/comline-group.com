@@ -628,9 +628,10 @@ class Users_interface extends CI_Controller{
 		$pagevar = array('baseurl'=>base_url(),'category'=>array(),'products'=>array(),'pages'=>0,'page'=>0);
 		$gender = $this->input->post('gender');
 		$brands = $this->input->post('brands');
+		$seasons = $this->input->post('seasons');
 		$category = $this->input->post('category');
 		$page = $this->input->post('page');
-		if(!$gender || !$brands || !$page):
+		if(!$gender || !$brands || !$seasons || !$page):
 			show_404();
 		endif;
 		$pagevar['page'] = $page;
@@ -650,16 +651,32 @@ class Users_interface extends CI_Controller{
 				$brid = preg_split("/=/",$brands[$i]);
 				$brands[$i] = $brid[1];
 			endfor;
+			$seasons = preg_split("/&/",$seasons);
+			for($i=0;$i<count($seasons);$i++):
+				$sid = preg_split("/=/",$seasons[$i]);
+				$seasons[$i] = $sid[1];
+			endfor;
+			$seasons = array_unique($seasons);$i=0;
+			foreach($seasons AS $key=>$s):
+				$snew[$i] = $s;
+				$i++;
+			endforeach;
+			$seasons = $snew;
 			$category = preg_split("/&/",$category);
 			for($i=0;$i<count($category);$i++):
 				$catid = preg_split("/=/",$category[$i]);
 				$category[$i] = $catid[1];
 			endfor;
-			$count = $this->mdunion->count_products_in_brends($gender,$brands,$category);
+			$count = $this->mdunion->count_products_in_brends($gender,$brands,$seasons,$category);
 			if($count):
 				$from = ($page-1)*$per_page;
 				$pagevar['category'] = $this->mdcategory->read_in_records($category);
-				$pagevar['products'] = $this->mdunion->read_products_in_brends($gender,$brands,$category,$per_page,$from);
+				$pagevar['products'] = $this->mdunion->read_products_in_brends($gender,$brands,$seasons,$category,$per_page,$from);
+				$seasons = $this->mdseasons->read_records();
+				for($i=0;$i<count($pagevar['products']);$i++):
+					$pagevar['products'][$i]['stitle'] = $seasons[$pagevar['products'][$i]['season']]['title'];
+				endfor;
+				
 				$pagevar['pages'] = ceil($count/$per_page);
 			endif;
 			$this->load->view('users_interface/products-list',$pagevar);
@@ -670,7 +687,7 @@ class Users_interface extends CI_Controller{
 	
 	public function calegory_list(){
 		
-		$statusval = array('status'=>FALSE,'category'=>array());
+		$statusval = array('status'=>TRUE,'category'=>array());
 		$gender = $this->input->post('gender');
 		$brands = $this->input->post('brands');
 		if(!$gender || !$brands):
@@ -692,6 +709,9 @@ class Users_interface extends CI_Controller{
 			$brands[$i] = $brid[1];
 		endfor;
 		$statusval['category'] = $this->mdunion->read_showed_category($gender,$brands);
+		if(!$statusval['category']):
+			$statusval['status'] = FALSE;
+		endif;
 		echo json_encode($statusval);
 	}
 	

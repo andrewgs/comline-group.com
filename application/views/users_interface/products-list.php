@@ -16,7 +16,8 @@
 				</a>
 				<p class="title">
 					<?=anchor('product/'.$products[$j]['gender'].'-'.$products[$j]['brand'].'-'.$products[$j]['category'].'-'.$products[$j]['id'].'/'.$products[$j]['translit'],$products[$j]['title']);?>
-					<span class="articul"><?=$products[$j]['btitle'];?></span>
+					<span class="articul"><?=$products[$j]['btitle'];?></span><br/>
+					<span class="articul"><?=$products[$j]['stitle'];?></span>
 				</p>
 			</div>
 			<?php endif;?>
