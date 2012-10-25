@@ -27,6 +27,8 @@ class Admin_interface extends CI_Controller{
 		$this->load->model('mdmails');
 		$this->load->model('mdimages');
 		$this->load->model('mdcatalogs');
+		$this->load->model('mdbrandseasons');
+		$this->load->model('mdseasons');
 		
 		$cookieuid = $this->session->userdata('logon');
 		if(isset($cookieuid) and !empty($cookieuid)):
@@ -520,6 +522,113 @@ class Admin_interface extends CI_Controller{
 		$this->load->view("admin_interface/products/brands",$pagevar);
 	}
 	
+	public function admin_seasons(){
+		
+		$pagevar = array(
+			'title'			=> 'Панель администрирования | Сезонные коллекции',
+			'description'	=> '',
+			'author'		=> '',
+			'baseurl'		=> base_url(),
+			'loginstatus'	=> $this->loginstatus,
+			'userinfo'		=> $this->user,
+			'seasons'		=> $this->mdseasons->read_records(),
+			'msgs'			=> $this->session->userdata('msgs'),
+			'msgr'			=> $this->session->userdata('msgr'),
+		);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		$this->session->set_userdata('backpath',$pagevar['baseurl'].$this->uri->uri_string());
+		$this->load->view("admin_interface/products/seasons",$pagevar);
+	}
+	
+	public function admin_seasons_add(){
+		
+		$pagevar = array(
+			'title'			=> 'Панель администрирования | Добавдение коллекции',
+			'description'	=> '',
+			'author'		=> '',
+			'baseurl'		=> base_url(),
+			'loginstatus'	=> $this->loginstatus,
+			'userinfo'		=> $this->user,
+			'msgs'			=> $this->session->userdata('msgs'),
+			'msgr'			=> $this->session->userdata('msgr'),
+		);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		if($this->input->post('submit')):
+			unset($_POST['submit']);
+			$this->form_validation->set_rules('title',' ','required|trim');
+			if(!$this->form_validation->run()):
+				$this->session->set_userdata('msgr','Ошибка. Неверно заполены необходимые поля<br/>');
+				$this->admin_seasons_add();
+				return FALSE;
+			else:
+				$translit = $this->translite($_POST['title']);
+				$sid = $this->mdseasons->insert_record($_POST['title'],$translit);
+				if($sid):
+					$this->session->set_userdata('msgs','Запись создана успешно.');
+				endif;
+				redirect($this->uri->uri_string());
+			endif;
+		endif;
+		
+		$this->load->view("admin_interface/products/add-seasons",$pagevar);
+	}
+	
+	public function admin_seasons_edit(){
+		
+		$season = $this->uri->segment(5);
+		$pagevar = array(
+			'title'			=> 'Панель администрирования | Редактирование коллекции',
+			'description'	=> '',
+			'author'		=> '',
+			'baseurl'		=> base_url(),
+			'loginstatus'	=> $this->loginstatus,
+			'userinfo'		=> $this->user,
+			'season'		=> $this->mdseasons->read_record($season),
+			'msgs'			=> $this->session->userdata('msgs'),
+			'msgr'			=> $this->session->userdata('msgr'),
+		);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		if($this->input->post('submit')):
+			unset($_POST['submit']);
+			$this->form_validation->set_rules('title',' ','required|trim');
+			if(!$this->form_validation->run()):
+				$this->session->set_userdata('msgr','Ошибка. Неверно заполены необходимые поля<br/>');
+				$this->admin_seasons_edit();
+				return FALSE;
+			else:
+				$translit = $this->translite($_POST['title']);
+				$result = $this->mdseasons->update_record($season,$_POST['title'],$translit);
+				if($result):
+					$this->session->set_userdata('msgs','Запись сохранена успешно.');
+				endif;
+				redirect($this->session->userdata('backpath'));
+			endif;
+		endif;
+		
+		$this->load->view("admin_interface/products/edit-seasons",$pagevar);
+	}
+
+	public function admin_seasons_delete(){
+		
+		$sid = $this->uri->segment(6);
+		if($sid):
+			$result = $this->mdseasons->delete_record($sid);
+			if($result):
+				//товары пренадлежащие коллекции нужно сбрасывать
+				$this->session->set_userdata('msgs','Коллекция удалена успешно.');
+			endif;
+			redirect('admin-panel/actions/seasons');
+		else:
+			redirect($this->session->userdata('backpath'));
+		endif;
+	}
+	
 	public function admin_brands_catalogs(){
 		
 		$pagevar = array(
@@ -559,6 +668,7 @@ class Admin_interface extends CI_Controller{
 			'baseurl'		=> base_url(),
 			'loginstatus'	=> $this->loginstatus,
 			'userinfo'		=> $this->user,
+			'seasons'		=> $this->mdseasons->read_records(),
 			'msgs'			=> $this->session->userdata('msgs'),
 			'msgr'			=> $this->session->userdata('msgr'),
 		);
@@ -571,6 +681,7 @@ class Admin_interface extends CI_Controller{
 			$this->form_validation->set_rules('status_string',' ','trim');
 			$this->form_validation->set_rules('text',' ','trim');
 			$this->form_validation->set_rules('sort',' ','trim');
+			$this->form_validation->set_rules('seasons[]',' ','');
 			if(!$this->form_validation->run()):
 				$this->session->set_userdata('msgr','Ошибка. Неверно заполены необходимые поля<br/>');
 				$this->control_add_brand();
@@ -582,8 +693,20 @@ class Admin_interface extends CI_Controller{
 					$_POST['image'] = file_get_contents(base_url().'images/noimages/no_icon.jpg');
 				endif;
 				$translit = $this->translite($_POST['title']);
-				$cid = $this->mdbrands->insert_record($_POST,$translit);
-				if($cid):
+				$brand = $this->mdbrands->insert_record($_POST,$translit);
+				if($brand):
+					if(!isset($_POST['seasons'])):
+						$this->mdbrandseasons->insert_record($brand,0);
+					else:
+						$seasonslist = array();
+						for($i=0;$i<count($_POST['seasons']);$i++):
+							$seasonslist[$i]['sid'] = $_POST['seasons'][$i];
+						endfor;
+						$seasonslist[count($_POST['seasons'])]['sid'] = 0;
+						if(count($seasonslist)):
+							$this->mdbrandseasons->group_insert($brand,$seasonslist);
+						endif;
+					endif;
 					$this->session->set_userdata('msgs','Запись создана успешно.');
 				endif;
 				redirect($this->uri->uri_string());
@@ -633,10 +756,7 @@ class Admin_interface extends CI_Controller{
 	
 	public function control_edit_brand(){
 		
-		$bid = $this->mdbrands->read_field_translit($this->uri->segment(5),'id');
-		if(!$bid):
-			redirect($this->session->userdata('backpath'));
-		endif;
+		$bid = $this->uri->segment(5);
 		$pagevar = array(
 			'title'			=> 'Панель администрирования | Редактирование бренда',
 			'description'	=> '',
@@ -644,6 +764,8 @@ class Admin_interface extends CI_Controller{
 			'baseurl'		=> base_url(),
 			'loginstatus'	=> $this->loginstatus,
 			'userinfo'		=> $this->user,
+			'seasons'		=> $this->mdseasons->read_records(),
+			'brseasons'		=> $this->mdbrandseasons->read_records($bid),
 			'brand'			=> $this->mdbrands->read_record($bid),
 			'msgs'			=> $this->session->userdata('msgs'),
 			'msgr'			=> $this->session->userdata('msgr'),
@@ -657,6 +779,7 @@ class Admin_interface extends CI_Controller{
 			$this->form_validation->set_rules('status_string',' ','trim');
 			$this->form_validation->set_rules('text',' ','trim');
 			$this->form_validation->set_rules('sort',' ','trim');
+			$this->form_validation->set_rules('seasons[]',' ','');
 			if(!$this->form_validation->run()):
 				$this->session->set_userdata('msgr','Ошибка. Неверно заполены необходимые поля<br/>');
 				$this->control_edit_brand();
@@ -667,12 +790,35 @@ class Admin_interface extends CI_Controller{
 				endif;
 				$translit = $this->translite($_POST['title']);
 				$result = $this->mdbrands->update_record($bid,$_POST,$translit);
+				if(isset($_POST['seasons'])):
+					$seasonslist = array();
+					for($i=0;$i<count($_POST['seasons']);$i++):
+						$seasonslist[$i]['sid'] = $_POST['seasons'][$i];
+					endfor;
+					$seasonslist[count($_POST['seasons'])]['sid'] = 0;
+					if(count($seasonslist)):
+						$this->mdbrandseasons->delete_brand_records($bid);
+						$this->mdbrandseasons->group_insert($bid,$seasonslist);
+						$this->session->set_userdata('msgs','Коллекции сохранены.');
+					endif;
+				else:
+					$this->mdbrandseasons->delete_brand_records($bid);
+					$this->mdbrandseasons->insert_record($bid,0);
+				endif;
 				if($result):
 					$this->session->set_userdata('msgs','Запись сохранена успешно.');
 				endif;
 				redirect($this->session->userdata('backpath'));
 			endif;
 		endif;
+		for($i=0;$i<count($pagevar['seasons']);$i++):
+			$pagevar['seasons'][$i]['checked'] = 0;
+			for($j=0;$j<count($pagevar['brseasons']);$j++):
+				if($pagevar['brseasons'][$j]['season'] == $pagevar['seasons'][$i]['id']):
+					$pagevar['seasons'][$i]['checked'] = 1;
+				endif;
+			endfor;
+		endfor;
 		
 		$this->load->view("admin_interface/products/edit-brand",$pagevar);
 	}
@@ -723,8 +869,9 @@ class Admin_interface extends CI_Controller{
 		if($bid):
 			$result = $this->mdbrands->delete_record($bid);
 			if($result):
-				$this->mdproducts->delete_records_category($bid);
+				$this->mdproducts->delete_records_brand($bid);
 				$this->mdcatalogs->delete_records($bid);
+				$this->mdbrandseasons->delete_brand_records($bid);
 				$this->session->set_userdata('msgs','Бренд удален успешно.');
 			else:
 				$this->session->set_userdata('msgr','Бренд не удален.');
@@ -1148,6 +1295,7 @@ class Admin_interface extends CI_Controller{
 			'brands'		=> $this->mdbrands->read_records(),
 			'colors'		=> $this->mdcolors->read_records(),
 			'sizes'			=> $this->get_sizes(),
+			'seasons'		=> $this->mdseasons->read_records(),
 			'msgs'			=> $this->session->userdata('msgs'),
 			'msgr'			=> $this->session->userdata('msgr'),
 		);
@@ -1165,6 +1313,7 @@ class Admin_interface extends CI_Controller{
 			$this->form_validation->set_rules('colors[]',' ','');
 			$this->form_validation->set_rules('category[]',' ','required|required');
 			$this->form_validation->set_rules('brand',' ','required');
+			$this->form_validation->set_rules('seasons[]',' ','');
 			if(!$this->form_validation->run()):
 				$this->session->set_userdata('msgr','Ошибка. Неверно заполены необходимые поля<br/>');
 				$this->control_add_product();
@@ -1360,6 +1509,7 @@ class Admin_interface extends CI_Controller{
 			'prsizes'		=> $this->mdproductssizes->read_records($pid),
 			'prcategory'	=> $this->mdproductscategory->read_records($pid),
 			'sizes'			=> $this->get_sizes(),
+			'seasons'		=> $this->mdseasons->read_records(),
 			'msgs'			=> $this->session->userdata('msgs'),
 			'msgr'			=> $this->session->userdata('msgr'),
 		);
@@ -1389,6 +1539,7 @@ class Admin_interface extends CI_Controller{
 			$this->form_validation->set_rules('colors[]',' ','');
 			$this->form_validation->set_rules('category[]',' ','required|required');
 			$this->form_validation->set_rules('brand',' ','required');
+			$this->form_validation->set_rules('seasons[]',' ','');
 			if(!$this->form_validation->run()):
 				$this->session->set_userdata('msgr','Ошибка. Неверно заполены необходимые поля<br/>');
 				$this->control_edit_product();

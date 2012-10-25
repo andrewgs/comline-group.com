@@ -26,7 +26,7 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$(".redactor").redactor();
-			$("#SetBrand [value='<?=$product['brand'];?>']").attr("selected", "selected");
+			$("#SetBrand[value='<?=$product['brand'];?>']").attr("selected", "selected");
 			
 			$(".product-li").click(function(){
 				var nav = $(this).attr("data-nav");

@@ -3,6 +3,7 @@
 	<fieldset>
 		<ul id="ProductTab" class="nav nav-tabs">
 			<li class="active"><a href="#main" data-toggle="tab">Основные</a></li>
+			<li><a href="#seasons" data-toggle="tab">Коллекции</a></li>
 			<li><a href="#category" data-toggle="tab">Категории</a></li>
 			<li><a href="#colors" data-toggle="tab">Цвета</a></li>
 			<li><a href="#sizes" data-toggle="tab">Размеры</a></li>
@@ -65,6 +66,9 @@
 							Показывать товар</label>
 					</div>
 				</div>
+			</div>
+			<div class="tab-pane fade" id="seasons">
+				
 			</div>
 			<div class="tab-pane fade" id="category">
 				<table class="table table-striped table-bordered">

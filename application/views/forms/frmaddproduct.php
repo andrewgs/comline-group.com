@@ -3,6 +3,7 @@
 	<fieldset>
 		<ul id="ProductTab" class="nav nav-tabs">
 			<li class="active"><a href="#main" data-toggle="tab">Основные</a></li>
+			<li><a href="#seasons" data-toggle="tab">Коллекции</a></li>
 			<li><a href="#category" data-toggle="tab">Категории</a></li>
 			<li><a href="#colors" data-toggle="tab">Цвета</a></li>
 			<li><a href="#sizes" data-toggle="tab">Размеры</a></li>
@@ -68,6 +69,39 @@
 							Показывать товар</label>
 					</div>
 				</div>
+			</div>
+			<div class="tab-pane fade" id="seasons">
+				<table class="table table-striped table-bordered">
+					<thead>
+						<tr>
+							<th class="w200">Название</th>
+							<th class="w10">&nbsp;</th>
+							<th class="w200">Название</th>
+							<th class="w10">&nbsp;</th>
+						</tr>
+					</thead>
+					<tbody>
+					<?php for($i=0;$i<count($seasons);$i+=2):?>
+						<tr>
+						<?php if(isset($seasons[$i]['id'])):?>
+							<td class="w200"><?=$seasons[$i]['title'];?></td>
+							<td class="w10">
+								<input type="checkbox" class="chSeason" name="seasons[]" value="<?=$seasons[$i]['id'];?>" />
+							</td>
+						<?php endif;?>
+						<?php if(isset($seasons[$i+1]['id'])):?>
+							<td class="w200"><?=$seasons[$i+1]['title'];?></td>
+							<td class="w10">
+								<input type="checkbox" class="chSeason" name="seasons[]" value="<?=$seasons[$i+1]['id'];?>" />
+							</td>
+						<?php else:?>
+							<td class="w200">&nbsp;</td>
+							<td class="w10">&nbsp;</td>
+						<?php endif;?>
+						</tr>
+					<?php endfor; ?>
+					</tbody>
+				</table>
 			</div>
 			<div class="tab-pane fade" id="category">
 				<table class="table table-striped table-bordered">

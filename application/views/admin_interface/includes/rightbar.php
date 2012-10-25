@@ -5,6 +5,7 @@
 			<li num="events"><?=anchor('admin-panel/actions/events','Акции и новости');?></li>
 			<li num="category"><?=anchor('admin-panel/actions/category','Категории товаров');?></li>
 			<li num="brands"><?=anchor('admin-panel/actions/brands','Бренды');?></li>
+			<li num="seasons"><?=anchor('admin-panel/actions/seasons','Сезонные коллекции');?></li>
 			<li num="storage"><?=anchor('admin-panel/actions/storage','Склады');?></li>
 			<li num="colors"><?=anchor('admin-panel/actions/colors','Цвета');?></li>
 			<li num="products"><?=anchor('admin-panel/actions/products','Каталог товаров');?></li>

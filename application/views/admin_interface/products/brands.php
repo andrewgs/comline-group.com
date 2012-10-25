@@ -19,7 +19,7 @@
 						<tr>
 							<th class="w130">Логотип</th>
 							<th class="w600">Описание</th>
-							<th class="w130">&nbsp;</th>
+							<th>&nbsp;</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -29,13 +29,11 @@
 							<td>
 								<strong><?=$brands[$i]['title'];?></strong>
 								<p><?=$brands[$i]['text'];?></p>
-								<p>
-									<?=anchor('admin-panel/actions/brands/brandsid/'.$brands[$i]['id'].'/catalogs','Каталоги');?>&nbsp;
-								</p>
 							</td>
 							<td>
 								<div id="params<?=$i;?>" style="display:none" data-bid="<?=$brands[$i]['id'];?>"></div>
-								<?=anchor('admin-panel/actions/brands/edit/'.$brands[$i]['translit'],'<i class="icon-pencil"></i>',array('title'=>'Редактировать', 'class'=>'btn'));?>
+								<?=anchor('admin-panel/actions/brands/brandsid/'.$brands[$i]['id'].'/catalogs','<i class="icon-folder-close"></i>',array('title'=>'Каталоги', 'class'=>'btn'));?>
+								<?=anchor('admin-panel/actions/brands/edit/'.$brands[$i]['id'],'<i class="icon-pencil"></i>',array('title'=>'Редактировать', 'class'=>'btn'));?>
 								<a class="deleteBrand btn" data-param="<?=$i;?>" data-toggle="modal" href="#deleteBrand" title="Удалить"><i class="icon-trash"></i></a>
 							</td>
 						</tr>

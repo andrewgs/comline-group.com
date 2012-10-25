@@ -64,6 +64,10 @@ $route['admin-panel/actions/control']	= "admin_interface/admin_panel";
 
 $route['admin-panel/actions/category']	= "admin_interface/admin_category";
 $route['admin-panel/actions/brands']	= "admin_interface/admin_brands";
+$route['admin-panel/actions/seasons']	= "admin_interface/admin_seasons";
+$route['admin-panel/actions/seasons/add']	= "admin_interface/admin_seasons_add";
+$route['admin-panel/actions/seasons/edit/:num']	= "admin_interface/admin_seasons_edit";
+$route['admin-panel/actions/seasons/delete/seasonid/:num']	= "admin_interface/admin_seasons_delete";
 
 $route['admin-panel/actions/brands/brandsid/:num/catalogs']	= "admin_interface/admin_brands_catalogs";
 $route['admin-panel/actions/brands/brandid/:num/add-catalog']	= "admin_interface/admin_add_catalogs";

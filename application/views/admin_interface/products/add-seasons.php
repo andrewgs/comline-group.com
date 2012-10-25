@@ -8,7 +8,7 @@
 			<div class="span9">
 				<ul class="breadcrumb">
 					<li>
-						<?=anchor('',"Сезонные коллекции",array('class'=>'none backpath'));?><span class="divider">/</span>
+						<?=anchor('',"Категории товаров",array('class'=>'none backpath'));?><span class="divider">/</span>
 					</li>
 					<li class="active">
 						Добавление
@@ -16,7 +16,7 @@
 				</ul>
 				<?php $this->load->view("alert_messages/alert-error");?>
 				<?php $this->load->view("alert_messages/alert-success");?>
-				<?php $this->load->view("forms/frmaddcategory");?>
+				<?php $this->load->view("forms/frmaddseason");?>
 			</div>
 		<?php $this->load->view("admin_interface/includes/rightbar");?>
 		</div>
