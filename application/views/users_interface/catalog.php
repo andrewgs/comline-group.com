@@ -24,7 +24,18 @@
 				</ul>
 				<ul class="categories-list brands">
 				<?php for($i=0;$i<count($brands);$i++):?>
-					<li><input type="checkbox" class="chBrands" name="brand<?=$i;?>" <?=($brands[$i]['checked'])? 'checked="checked"' : '';?> value="<?=$brands[$i]['id'];?>" /><label><?=$brands[$i]['title'];?></label></li>
+					<li>
+						<input type="checkbox" class="chBrands" name="brand<?=$i;?>" <?=($brands[$i]['checked'])? 'checked="checked"' : '';?> value="<?=$brands[$i]['id'];?>" /><label><?=$brands[$i]['title'];?></label>
+						<ul>
+					<?php for($j=0;$j<count($brseasons);$j++):?>
+						<?php if($brseasons[$j]['brand'] == $brands[$i]['id']):?>
+							<li>
+								<input type="checkbox" class="chSeason" data-brand="<?=$brands[$i]['id'];?>" name="season<?=$brseasons[$j]['id'];?>" <?=($brands[$i]['checked'])? 'checked="checked"' : '';?> value="<?=$brseasons[$j]['id'];?>" /><label><?=$seasons[$brseasons[$j]['season']]['title'];?></label>
+							</li>
+						<?endif;?>
+					<?php endfor;?>
+						</ul>
+					</li>
 				<?php endfor;?>
 				</ul>
 				<ul class="categories-list category">

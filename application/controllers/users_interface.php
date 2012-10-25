@@ -26,6 +26,9 @@ class Users_interface extends CI_Controller{
 		$this->load->model('mdmails');
 		$this->load->model('mdimages');
 		$this->load->model('mdcatalogs');
+		$this->load->model('mdseasons');
+		$this->load->model('mdbrandseasons');
+		$this->load->model('mdproductsseasons');
 		
 		$cookieuid = $this->session->userdata('logon');
 		if(isset($cookieuid) and !empty($cookieuid)):
@@ -485,6 +488,8 @@ class Users_interface extends CI_Controller{
 			'userinfo'		=> $this->user,
 			'brands'		=> $this->mdbrands->read_records_notext(),
 			'category'		=> $this->mdcategory->read_showed_records(),
+			'seasons'		=> $this->mdseasons->read_records(),
+			'brseasons'		=> $this->mdbrandseasons->read_all_records(),
 			'msgs'			=> $this->session->userdata('msgs'),
 			'msgr'			=> $this->session->userdata('msgr'),
 		);

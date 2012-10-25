@@ -39,6 +39,15 @@ class Mdbrandseasons extends CI_Model{
 		return NULL;
 	}
 	
+	function read_all_records(){
+		
+		$this->db->order_by('season');
+		$query = $this->db->get('brand_seasons');
+		$data = $query->result_array();
+		if(count($data)) return $data;
+		return NULL;
+	}
+	
 	function count_records(){
 		
 		return $this->db->count_all('brand_seasons');
