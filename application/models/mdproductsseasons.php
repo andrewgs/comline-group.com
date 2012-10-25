@@ -4,38 +4,36 @@ class Mdproductsseasons extends CI_Model{
 
 	var $id			= 0;
 	var $product	= 0;
-	var $season	= 0;
-	var $brend		= '';
+	var $season		= 0;
 	
 	function __construct(){
 		parent::__construct();
 	}
 	
-	function insert_record($data,$product_id,$color_id,$code){
+	function insert_record($product,$season){
 			
-		$this->code = htmlspecialchars($code);
-		$this->product_id = $product_id;
-		$this->color_id = $color_id;
+		$this->product = $product;
+		$this->season = $season;
 		
-		$this->db->insert('products_colors',$this);
+		$this->db->insert('products_seasons',$this);
 		return $this->db->insert_id();
 	}
 	
-	function group_insert($product_id,$data){
+	function group_insert($product,$seasons){
 		$query = '';
-		for($i=0;$i<count($data);$i++):
-			$query .= '('.$product_id.','.$data[$i]['color_id'].',"'.$data[$i]['code'].'")';
-			if($i+1<count($data)):
+		for($i=0;$i<count($seasons);$i++):
+			$query .= '('.$product.','.$seasons[$i]['seasons'].')';
+			if($i+1<count($seasons)):
 				$query.=',';
 			endif;
 		endfor;
-		$this->db->query("INSERT INTO products_colors (product_id,color_id,code) VALUES ".$query);
+		$this->db->query("INSERT INTO products_seasons (product,season) VALUES ".$query);
 	}
 	
-	function read_records($product_id){
+	function read_records($product){
 		
-		$this->db->where('product_id',$product_id);
-		$query = $this->db->get('products_colors');
+		$this->db->where('product',$product);
+		$query = $this->db->get('products_seasons');
 		$data = $query->result_array();
 		if(count($data)) return $data;
 		return NULL;
@@ -43,13 +41,13 @@ class Mdproductsseasons extends CI_Model{
 	
 	function count_records(){
 		
-		return $this->db->count_all('products_colors');
+		return $this->db->count_all('products_seasons');
 	}
 	
 	function read_record($id){
 		
 		$this->db->where('id',$id);
-		$query = $this->db->get('products_colors',1);
+		$query = $this->db->get('products_seasons',1);
 		$data = $query->result_array();
 		if(isset($data[0])) return $data[0];
 		return NULL;
@@ -58,7 +56,7 @@ class Mdproductsseasons extends CI_Model{
 	function read_field($id,$field){
 			
 		$this->db->where('id',$id);
-		$query = $this->db->get('products_colors',1);
+		$query = $this->db->get('products_seasons',1);
 		$data = $query->result_array();
 		if(isset($data[0])) return $data[0][$field];
 		return FALSE;
@@ -67,21 +65,21 @@ class Mdproductsseasons extends CI_Model{
 	function delete_record($id){
 	
 		$this->db->where('id',$id);
-		$this->db->delete('products_colors');
+		$this->db->delete('products_seasons');
 		return $this->db->affected_rows();
 	}
 	
-	function delete_color_records($color_id){
+	function delete_season_records($season){
 	
-		$this->db->where('color_id',$color_id);
-		$this->db->delete('products_colors');
+		$this->db->where('season',$season);
+		$this->db->delete('products_seasons');
 		return $this->db->affected_rows();
 	}
 
-	function delete_product_records($product_id){
+	function delete_product_records($product){
 	
-		$this->db->where('product_id',$product_id);
-		$this->db->delete('products_colors');
+		$this->db->where('product',$product);
+		$this->db->delete('products_seasons');
 		return $this->db->affected_rows();
 	}
 }

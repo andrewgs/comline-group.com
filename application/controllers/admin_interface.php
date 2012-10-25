@@ -29,6 +29,7 @@ class Admin_interface extends CI_Controller{
 		$this->load->model('mdcatalogs');
 		$this->load->model('mdbrandseasons');
 		$this->load->model('mdseasons');
+		$this->load->model('mdproductsseasons');
 		
 		$cookieuid = $this->session->userdata('logon');
 		if(isset($cookieuid) and !empty($cookieuid)):
@@ -1331,6 +1332,19 @@ class Admin_interface extends CI_Controller{
 				$pid = $this->mdproducts->insert_record($_POST,$gender,$translit);
 				if($pid):
 					/**************************************************************/
+					if(isset($_POST['seasons'])):
+						$categorylist = array();
+						for($i=0;$i<count($_POST['seasons']);$i++):
+							$seasonslist[$i]['seasons'] = $_POST['seasons'][$i];
+						endfor;
+						if(count($seasonslist)):
+							$this->mdproductsseasons->group_insert($pid,$seasonslist);
+						endif;
+					else:
+						$this->session->set_userdata('msgr','Ошибка. Ну указана коллекция товара!');
+						redirect($this->uri->uri_string());
+					endif;
+					/**************************************************************/
 					if(isset($_POST['colors'])):
 						$colors = array();
 						for($i=0;$i<count($pagevar['colors']);$i++):
@@ -1510,6 +1524,7 @@ class Admin_interface extends CI_Controller{
 			'prcategory'	=> $this->mdproductscategory->read_records($pid),
 			'sizes'			=> $this->get_sizes(),
 			'seasons'		=> $this->mdseasons->read_records(),
+			'prseasons'		=> $this->mdproductsseasons->read_records($pid),
 			'msgs'			=> $this->session->userdata('msgs'),
 			'msgr'			=> $this->session->userdata('msgr'),
 		);
@@ -1556,6 +1571,20 @@ class Admin_interface extends CI_Controller{
 				endif;
 				$translit = $this->translite($_POST['title']);
 				$this->mdproducts->update_record($pid,$_POST,$translit);
+				/**************************************************************/
+					if(isset($_POST['seasons'])):
+						$seasonslist = array();
+						for($i=0;$i<count($_POST['seasons']);$i++):
+							$seasonslist[$i]['seasons'] = $_POST['seasons'][$i];
+						endfor;
+						if(count($seasonslist)):
+							$this->mdproductsseasons->delete_product_records($pid);
+							$this->mdproductsseasons->group_insert($pid,$seasonslist);
+						endif;
+					else:
+						$this->session->set_userdata('msgr','Ошибка. Ну указана коллекция товара!');
+						redirect($this->uri->uri_string());
+					endif;
 				/**************************************************************/
 				if(isset($_POST['colors'])):
 					$colors = array();
@@ -1630,6 +1659,14 @@ class Admin_interface extends CI_Controller{
 				endif;
 			endfor;
 		endfor;
+		for($i=0;$i<count($pagevar['seasons']);$i++):
+			$pagevar['seasons'][$i]['checked'] = 0;
+			for($j=0;$j<count($pagevar['prseasons']);$j++):
+				if($pagevar['prseasons'][$j]['season'] == $pagevar['seasons'][$i]['id']):
+					$pagevar['seasons'][$i]['checked'] = 1;
+				endif;
+			endfor;
+		endfor;
 		$this->load->view("admin_interface/products/edit-product",$pagevar);
 	}
 	
@@ -1639,13 +1676,14 @@ class Admin_interface extends CI_Controller{
 		if($pid):
 			$result = $this->mdproducts->delete_record($pid);
 			if($result):
+				$this->mdproductsseasons->delete_product_records($pid);
 				$this->mdproductsimages->delete_records($pid);
 				$this->mdproductscolors->delete_product_records($pid);
 				$this->mdproductssizes->delete_product_records($pid);
 				$this->mdproductscategory->delete_product_records($pid);
 				$this->session->set_userdata('msgs','Товар удален успешно.');
 			else:
-				$this->session->set_userdata('msgr','Товар не удалена.');
+				$this->session->set_userdata('msgr','Товар не удален.');
 			endif;
 			redirect($this->session->userdata('backpath'));
 		else:

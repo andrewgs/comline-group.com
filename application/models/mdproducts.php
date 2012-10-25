@@ -12,7 +12,6 @@ class Mdproducts extends CI_Model{
 	var $text		= '';
 	var $gender		= 2;
 	var $brand		= '';
-	var $season		= 0;
 	
 	function __construct(){
 		parent::__construct();
@@ -29,7 +28,6 @@ class Mdproducts extends CI_Model{
 		$this->text		= $data['text'];
 		$this->gender	= $gender;
 		$this->brand	= $data['brand'];
-		$this->season	= $data['season'];
 		
 		$this->db->insert('products',$this);
 		return $this->db->insert_id();
@@ -45,7 +43,6 @@ class Mdproducts extends CI_Model{
 		$this->db->set('text',$data['text']);
 		$this->db->set('gender',$data['gender']);
 		$this->db->set('brand',$data['brand']);
-		$this->db->set('season',$data['season']);
 		
 		$this->db->where('id',$id);
 		$this->db->update('products');

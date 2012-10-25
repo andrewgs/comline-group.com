@@ -27,7 +27,9 @@
 		$(document).ready(function(){
 			$(".redactor").redactor();
 			$(".chCategory").eq(0).attr("checked","checked");
+			$(".chSeason").eq(0).attr("checked","checked");
 			$(".dispnone").not(':first').hide();
+			$(".chSeason").click(function(){check('chSeason',this);});
 			$(".chGender").click(function(){check('chGender',this);});
 			$(".chCategory").click(function(){check('chCategory',this);});
 			$(".chColor").click(function(){check('chColor',this);});
