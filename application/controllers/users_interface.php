@@ -568,6 +568,10 @@ class Users_interface extends CI_Controller{
 						endif;
 					endfor;
 				endfor;
+			else:
+				for($i=0;$i<count($pagevar['category']);$i++):
+					$pagevar['category'][$i]['disable'] = 1;
+				endfor;
 			endif;
 		endif;
 		$this->load->view("users_interface/catalog",$pagevar);

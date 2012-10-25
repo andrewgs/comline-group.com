@@ -121,11 +121,10 @@ class Mdunion extends CI_Model{
 			endif;
 		endfor;
 		
-		$query = "SELECT category.id FROM category,products_category,products ,products_images WHERE category.id = products_category.category AND products_category.product = products.id AND products_images.product_id = products.id AND products.gender IN ($gin) AND products.brand IN ($bin) AND products_images.main = 1 AND category.showitem = 1 GROUP BY category.id";
+		$query = "SELECT category.id FROM category,products_category,products,products_images WHERE category.id = products_category.category AND products_category.product = products.id AND products_images.product_id = products.id AND products.gender IN ($gin) AND products.brand IN ($bin) AND products_images.main = 1 AND category.showitem = 1 GROUP BY category.id";
 		$query = $this->db->query($query);
 		$data = $query->result_array();
 		if(count($data)) return $data;
 		return NULL;
 	}
-	
 }
