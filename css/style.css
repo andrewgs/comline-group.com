@@ -99,9 +99,8 @@ border-color: #BCE8F1;
 	height: 0
 }
 
+.pagination ul { margin: 0.5em 0 1em; padding: 0; }
 .pagination ul li.inactive, .pagination ul li.inactive:hover {
-	background-color: #EDEDED;
-	border: 1px solid #BABABA;
 	color: #BABABA;
 	cursor: default;
 }
@@ -110,44 +109,52 @@ border-color: #BCE8F1;
 	width: 800px;
 }
 .pagination ul li {
-	background-color: #dfdfdf;
-	border: 1px solid #a0a0a4;
-	color: #999999;
 	float: left;
-	font-family: arial;
-	font-size: 14px;
-	font-weight: bold;
 	list-style: none outside none;
-	margin: 0 3px;
-	padding: 2px 6px;
+	margin: 0 0.5em 0 0;
+	font-size: 1em;
+	padding: 8px 0;
+	line-height: 1em;
 }
 .pagination ul li:hover {
-	background-color: #808080;
-	color: #FFFFFF;
+	/*text-decoration: underline;*/
 	cursor: pointer;
 }
 .pagination .curpage{
-	color:#fff;
-	background-color:#a0a0a4;
+	border: 1px solid #999;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 30px;
+	margin-top: 3px;
+	padding: 4px 8px;
+	cursor: default !important;
+	-webkit-box-shadow: 0px 1px 7px #999;
+	-moz-box-shadow: 0px 1px 7px #999;
+	box-shadow: 0px 1px 7px #999;
 }
 
-.ajax_request{
-	display: inline-block;
-	height: 100px;
+#loading {
+	background: rgba(255, 255, 255, 0.5);
+	height: 100%;
 	position: fixed;
-	top:50%;
-	left:45%;
+	top: 0;
+	left: 0;
+	z-index: 1049;
+	width: 100%;
+}
+.ajax_request{
+	display: block;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
 	background: url('../images/ajax-loader.gif') no-repeat center center transparent;
-	text-align:center;
-	color: #1f5f03;
+	text-align: center;
 	z-index: 1050;
+	width: 100%;
 }
 .no-products{
 	display: inline-block;
-	height: 100px;
-	position: absolute;
-	top:250px;
-	left:400px;
 }
 
 .loading-backdrop{
