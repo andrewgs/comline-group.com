@@ -634,6 +634,7 @@ class Users_interface extends CI_Controller{
 		if(!$gender || !$brands || !$seasons || !$page):
 			show_404();
 		endif;
+		
 		$pagevar['page'] = $page;
 		if($category):
 			$gender = preg_split("/&/",$gender);
@@ -794,7 +795,18 @@ class Users_interface extends CI_Controller{
 		
 		$this->load->view("admin_interface/login",$pagevar);
 	}
-
+	
+	
+	public function setseason(){
+		
+		$products = $this->mdproducts->read_records();
+		for($i=0;$i<count($products);$i++):
+			$this->mdproductsseasons->insert_record($products[$i]['id'],0);
+		endfor;
+		$seasons = $this->mdproductsseasons->read_all_records();
+		print_r($seasons);
+	}
+	
 	/******************************************************** functions ******************************************************/	
 	
 	public function viewimage(){

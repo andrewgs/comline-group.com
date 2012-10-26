@@ -5,6 +5,7 @@ $route['404_override'] = '';
 
 /***************************************************	USERS INTRERFACE	***********************************************/
 
+$route['setseason'] 			= "users_interface/setseason";
 $route[''] 			= "users_interface/index";
 $route['about'] 	= "users_interface/about";
 $route['clients'] 	= "users_interface/clients";
