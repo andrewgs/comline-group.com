@@ -44,7 +44,7 @@
 				<?php endfor;?>
 				</ul>
 				<div class="ajax_submit">
-					<a href="#" class="none" id="Refresh">Поиск товаров</a>
+					<a href="#" class="none action-btn" id="Refresh">Применить фильтр</a>
 				</div>
 			</aside>
 			<div id="backdrop"></div>
