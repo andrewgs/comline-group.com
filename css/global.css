@@ -185,7 +185,7 @@ footer .copyright { color: #C0C0C0; font-size: 0.8em; margin: 0.75em 0 0; text-a
 .substrate h1 { font-size: 28px; font-weight: bold; margin: 0 0 0.7em 0; -webkit-text-shadow: 0 1px 0 #fff; -moz-text-shadow: 0px 1px 0 #fff; text-shadow: 0 1px 0 #fff; }
 .substrate h2 { font-size: 23px; margin: 0 0 0.7em 0; -webkit-text-shadow: 0 1px 0 #fff; -moz-text-shadow: 0px 1px 0 #fff; text-shadow: 0 1px 0 #fff; letter-spacing: 0.25px; }
 .substrate h3 { font-size: 18px;  }
-.substrate ul li { color: #999;  font-size: 0.85em; line-height: 1.5em; margin-bottom: 0.5em; }
+.substrate ul li, .substrate ol li { color: #999;  font-size: 0.85em; line-height: 1.5em; margin-bottom: 0.5em; }
 p.em40 { max-width: 40em; }
 .substrate form input, .substrate form textarea { background: none repeat scroll 0 0 #F9F9F9; border: medium none; border-radius: 3px 3px 3px 3px; color: #999999; display: inline-block; font-family: trebuchet ms; font-size: 0.8em; height: 25px; margin: 0 0 0.5em; padding: 0.5em 0.75em; width: 22em; }
 .substrate form textarea { height: 5em; }
@@ -209,7 +209,8 @@ p.em40 { max-width: 40em; }
 #brands-list { margin: 1em 0 0; padding: 0; }
 #brands-list li { margin-bottom: 3.5em; }
 #brands-list li a { color: #f89146; font-size: 1em; text-decoration: none; display: inline-block; border-bottom: 1px solid; margin-right: 1em; line-height: 1em; }
-#brands-list li p { color: #666; font-size: 1em; margin: 1.75em 0 1.25em; } 
+#brands-list li p { color: #666; font-size: 1em; margin: 1.75em 0 1.25em; }
+#brands-list li p a { margin: 0; } 
 .underlined { display: inline-block; border-bottom: 1px solid; line-height: 1em; }  
 
 .categories-list { margin-bottom: 2em; margin-left: 0; margin-top: 0.4em; padding-left: 0; }
@@ -293,6 +294,9 @@ a.hash { width: 1px !important; margin: 0 0 0 -1px !important; }
 .catalog-content p {  }
 .catalog-content p.bright { text-align: center; margin: 1em 0 0em; font: 21px/30px 'trebuchet ms', Arial, Helvetica, sans-serif; color: #B75E52; }
 .catalog-content h2 { text-transform: uppercase; font-size: 1.7em; line-height: 1.25em; margin: 1.2em 0 0.5em; } 
+
+#videos { width: 880px; }
+#videos iframe { padding: 9px; margin: 5px 5px 0 0; background: #fff; border: 1px solid #ccc; border-radius: 3px; }
 
 
 /* 6. CUSTOM LAYOUT & TYPOGRAPHY (Baby bear)
