@@ -187,7 +187,7 @@ class Users_interface extends CI_Controller{
 	public function vakansii(){
 		
 		$pagevar = array(
-			'title'			=> 'Комфорт Лайн :: Вакансии компании в Москве и регионах',
+			'title'			=> 'Комфорт Лайн | Вакансии компании в Москве и регионах России',
 			'description'	=> '',
 			'author'		=> '',
 			'baseurl' 		=> base_url(),
@@ -302,7 +302,7 @@ class Users_interface extends CI_Controller{
 		
 		$from = intval($this->uri->segment(3));
 		$pagevar = array(
-			'title'			=> 'Комфорт Лайн :: Все акции компании',
+			'title'			=> 'Комфорт Лайн | Все акции компании',
 			'description'	=> '',
 			'author'		=> '',
 			'baseurl' 		=> base_url(),
@@ -739,7 +739,7 @@ class Users_interface extends CI_Controller{
 			redirect('');
 		endif;
 		$pagevar = array(
-			'title'			=> 'Комфорт Лайн :: ',
+			'title'			=> 'Комфорт Лайн | ',
 			'description'	=> '',
 			'author'		=> '',
 			'baseurl' 		=> base_url(),
