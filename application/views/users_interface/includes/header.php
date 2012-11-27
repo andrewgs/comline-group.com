@@ -1,5 +1,5 @@
 <header class="cf">
-	<h1><?=anchor('','Comfort Line - одежда для дома и отдыха',array('id'=>'logo'));?></h1>
+	<h1><?=anchor('','Comfort Line - белье и одежда на каждый день',array('id'=>'logo'));?></h1>
 	<ul id="main-nav">
 		<li class="home"><?=anchor('','Главная');?></li>
 		<li class="about"><?=anchor('about','О компании');?></li>

@@ -52,7 +52,7 @@ class Users_interface extends CI_Controller{
 	public function index(){
 		
 		$pagevar = array(
-			'title'			=> 'Комфорт Лайн :: Одежда для дома и отдыха',
+			'title'			=> 'Моделирующее белье | Антибактериальное бесшовное нижнее белье | Женская и мужская домашняя одежда | Ночные пижамы, одежда для беременных',
 			'description'	=> '',
 			'author'		=> '',
 			'baseurl' 		=> base_url(),
@@ -168,7 +168,7 @@ class Users_interface extends CI_Controller{
 	public function about(){
 		
 		$pagevar = array(
-			'title'			=> 'Комфорт Лайн :: О компании',
+			'title'			=> 'Комфорт Лайн | О компании | Корректирующее белье оптом, пижамы, халаты, домашняя одежда, утягивающее бесшовное белье, одежда на каждый день',
 			'description'	=> '',
 			'author'		=> '',
 			'baseurl' 		=> base_url(),
@@ -187,7 +187,7 @@ class Users_interface extends CI_Controller{
 	public function vakansii(){
 		
 		$pagevar = array(
-			'title'			=> 'Комфорт Лайн :: Вакансии',
+			'title'			=> 'Комфорт Лайн | Вакансии компании в Москве и регионах России',
 			'description'	=> '',
 			'author'		=> '',
 			'baseurl' 		=> base_url(),
@@ -212,7 +212,7 @@ class Users_interface extends CI_Controller{
 			redirect('');
 		endif;
 		$pagevar = array(
-			'title'			=> 'Комфорт Лайн :: ',
+			'title'			=> 'Новости компании | Модное антибактериальное нижнее бесшовное белье, домашние летние яркие коллекции | Белье и одежда на каждый день',
 			'description'	=> '',
 			'author'		=> '',
 			'baseurl' 		=> base_url(),
@@ -236,7 +236,7 @@ class Users_interface extends CI_Controller{
 			redirect('');
 		endif;
 		$pagevar = array(
-			'title'			=> 'Комфорт Лайн :: ',
+			'title'			=> 'Комфорт Лайн | Акции и информация о скидках',
 			'description'	=> '',
 			'author'		=> '',
 			'baseurl' 		=> base_url(),
@@ -257,7 +257,7 @@ class Users_interface extends CI_Controller{
 		
 		$from = intval($this->uri->segment(3));
 		$pagevar = array(
-			'title'			=> 'Комфорт Лайн :: Новости',
+			'title'			=> 'Новости компании | Модное антибактериальное нижнее бесшовное белье, домашние летние яркие коллекции | Белье и одежда на каждый день',
 			'description'	=> '',
 			'author'		=> '',
 			'baseurl' 		=> base_url(),
@@ -302,7 +302,7 @@ class Users_interface extends CI_Controller{
 		
 		$from = intval($this->uri->segment(3));
 		$pagevar = array(
-			'title'			=> 'Комфорт Лайн :: Акции',
+			'title'			=> 'Комфорт Лайн | Все акции компании',
 			'description'	=> '',
 			'author'		=> '',
 			'baseurl' 		=> base_url(),
@@ -346,7 +346,7 @@ class Users_interface extends CI_Controller{
 	public function clients(){
 		
 		$pagevar = array(
-			'title'			=> 'Комфорт Лайн :: Клиентам',
+			'title'			=> 'Информация для клиентов и партнеров | Корректирующее утягивающее белье оптом, домашний трикотаж, пижамы, халаты оптом',
 			'description'	=> '',
 			'author'		=> '',
 			'baseurl' 		=> base_url(),
@@ -403,7 +403,7 @@ class Users_interface extends CI_Controller{
 	public function brands(){
 		
 		$pagevar = array(
-			'title'			=> 'Комфорт Лайн :: Список брендов',
+			'title'			=> 'Мужское и женское корректирующее моделирующее белье | Модная домашняя одежда из Италии | Нижнее утягивающее антибактериальное бесшовное белье | Экологически чистая одежда',
 			'description'	=> '',
 			'author'		=> '',
 			'baseurl' 		=> base_url(),
@@ -426,7 +426,7 @@ class Users_interface extends CI_Controller{
 	public function contacts(){
 		
 		$pagevar = array(
-			'title'			=> 'Комфорт Лайн :: Контактная информация',
+			'title'			=> 'Комфорт Лайн | Контактная информация | Офис компании и шоу-рум',
 			'description'	=> '',
 			'author'		=> '',
 			'baseurl' 		=> base_url(),
@@ -480,7 +480,7 @@ class Users_interface extends CI_Controller{
 	public function catalog(){
 	
 		$pagevar = array(
-			'title'			=> 'Комфорт Лайн :: Каталог продукции',
+			'title'			=> 'Пижамы, мужская и женская одежда для отдыха, моделирующее белье, одежда для беременных, домашняя одежда, нижнее корректирующее бесшовное белье',
 			'description'	=> '',
 			'author'		=> '',
 			'baseurl' 		=> base_url(),
@@ -595,7 +595,7 @@ class Users_interface extends CI_Controller{
 			redirect('');
 		endif;
 		$pagevar = array(
-			'title'			=> 'Комфорт Лайн :: Каталоги бренда',
+			'title'			=> 'Комфорт Лайн | Каталоги брендов',
 			'description'	=> '',
 			'author'		=> '',
 			'baseurl' 		=> base_url(),
@@ -739,7 +739,7 @@ class Users_interface extends CI_Controller{
 			redirect('');
 		endif;
 		$pagevar = array(
-			'title'			=> 'Комфорт Лайн :: ',
+			'title'			=> 'Комфорт Лайн | ',
 			'description'	=> '',
 			'author'		=> '',
 			'baseurl' 		=> base_url(),
