@@ -148,7 +148,7 @@ class Users_interface extends CI_Controller{
 			$config['mailtype'] = 'html';
 			
 			$this->email->initialize($config);
-			$this->email->to('vkharseev@gmail.com');
+			$this->email->to('brand@comline-group.com');
 			$this->email->from('robot@comfline.ru','Пользователь сайта');
 			$this->email->bcc('');
 			$this->email->subject('Сообщение от пользователя');
@@ -579,6 +579,12 @@ class Users_interface extends CI_Controller{
 				endfor;
 			endif;
 		endif;
+		$seasons = array();
+		foreach($pagevar['seasons'] AS $key=>$season):
+			$seasons[$season['id']]['title'] = $season['title'];
+			$seasons[$season['id']]['translit'] = $season['translit'];
+		endforeach;
+		$pagevar['seasons'] = $seasons;
 		$this->load->view("users_interface/catalog",$pagevar);
 	}
 	
@@ -674,13 +680,22 @@ class Users_interface extends CI_Controller{
 				$pagevar['category'] = $this->mdcategory->read_in_records($category);
 				$pagevar['products'] = $this->mdunion->read_products_in_brends($gender,$brands,$seasons,$category,$per_page,$from);
 				$seasons = $this->mdseasons->read_records();
+				
+				$stmp = array();
+				foreach($seasons AS $key=>$season):
+					$stmp[$season['id']]['title'] = $season['title'];
+				endforeach;
+				$seasons = $stmp;
+				
 				for($i=0;$i<count($pagevar['products']);$i++):
 					$pagevar['products'][$i]['stitle'] = $seasons[$pagevar['products'][$i]['season']]['title'];
 				endfor;
 				
 				$pagevar['pages'] = ceil($count/$per_page);
+				$this->load->view('users_interface/products-list',$pagevar);
+			else:
+				echo '<span class="no-products">Не нашлось ни одного товара. Измените условия выборки.</span>';
 			endif;
-			$this->load->view('users_interface/products-list',$pagevar);
 		else:
 			echo '<span class="no-products">Не нашлось ни одного товара. Измените условия выборки.</span>';
 		endif;
