@@ -2,11 +2,13 @@
 
 class Mdcategory extends CI_Model{
 
-	var $id			= 0;
-	var $title		= '';
-	var $translit	= '';
-	var $date		= '';
-	var $showitem	= '';
+	var $id							= 0;
+	var $page_title					= '';
+	var $titlepage_description		= '';
+	var $page_content				= '';
+	var $translit					= '';
+	var $date						= '';
+	var $showitem					= '';
 	
 	function __construct(){
 		parent::__construct();
@@ -15,6 +17,7 @@ class Mdcategory extends CI_Model{
 	function insert_record($data,$translit){
 			
 		$this->title	= htmlspecialchars($data['title']);
+		$this->page_title	= htmlspecialchars($data['title']);
 		$this->translit	= $translit;
 		$this->date		= date("Y-m-d");
 		$this->showitem	= $data['showitem'];
@@ -26,6 +29,7 @@ class Mdcategory extends CI_Model{
 	function update_record($id,$data,$translit){
 		
 		$this->db->set('title',htmlspecialchars($data['title']));
+		$this->db->set('page_title',htmlspecialchars($data['title']));
 		$this->db->set('translit',$translit);
 		$this->db->set('showitem',$data['showitem']);
 		

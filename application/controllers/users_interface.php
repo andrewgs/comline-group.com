@@ -502,6 +502,9 @@ class Users_interface extends CI_Controller{
 									if(!$categoryid):
 										redirect('');
 									endif;
+									$pagevar['title'] = $this->mdcategory->read_field($categoryid,'page_title');
+									$pagevar['description'] = $this->mdcategory->read_field($categoryid,'page_description');
+									$pagevar['about_category'] = $this->mdcategory->read_field($categoryid,'page_content');
 									$this->session->unset_userdata('bid');
 									$this->session->unset_userdata('gender');
 									$this->session->set_userdata('cid',$categoryid);
@@ -513,71 +516,71 @@ class Users_interface extends CI_Controller{
 									$this->session->unset_userdata('gender');
 									$this->session->unset_userdata('cid');
 									$this->session->set_userdata('bid',$brandid);
+									redirect('catalog');
 									break;
 				case 'come-back':	$urlparam = preg_split('/-/',$this->uri->segment(3));
 									
 									$this->session->set_userdata('gender',$urlparam[0]);
 									$this->session->set_userdata('bid',$urlparam[1]);
 									$this->session->set_userdata('cid',$urlparam[2]);
+									redirect('catalog');
 									break;
-				default			: redirect('');
+				default				: redirect('');
 			endswitch;
-			redirect('catalog');
+		endif;
+		if(!$this->session->userdata('cid') && !$this->session->userdata('bid')):
+			redirect('');
+		endif;
+		if($this->session->userdata('cid')):
+			for($i=0;$i<count($pagevar['category']);$i++):
+				if($pagevar['category'][$i]['id'] == $this->session->userdata('cid')):
+					$pagevar['category'][$i]['checked'] = 1;
+				else:
+					$pagevar['category'][$i]['checked'] = 0;
+				endif;
+			endfor;
+			if(!$this->session->userdata('bid')):
+				for($i=0;$i<count($pagevar['brands']);$i++):
+					$pagevar['brands'][$i]['checked'] = 1;
+				endfor;
+			endif;
+		endif;
+		if($this->session->userdata('bid')):
+			if(!$this->session->userdata('cid')):
+				for($i=0;$i<count($pagevar['category']);$i++):
+					$pagevar['category'][$i]['checked'] = 1;
+				endfor;
+			endif;
+			for($i=0;$i<count($pagevar['brands']);$i++):
+				if($pagevar['brands'][$i]['id'] == $this->session->userdata('bid')):
+					$pagevar['brands'][$i]['checked'] = 1;
+				else:
+					$pagevar['brands'][$i]['checked'] = 0;
+				endif;
+			endfor;
+		endif;
+		if($this->session->userdata('bid')):
+			$brands[0] = $this->session->userdata('bid');
 		else:
-			if(!$this->session->userdata('cid') && !$this->session->userdata('bid')):
-				redirect('');
-			endif;
-			if($this->session->userdata('cid')):
-				for($i=0;$i<count($pagevar['category']);$i++):
-					if($pagevar['category'][$i]['id'] == $this->session->userdata('cid')):
-						$pagevar['category'][$i]['checked'] = 1;
-					else:
-						$pagevar['category'][$i]['checked'] = 0;
+			for($i=0;$i<count($pagevar['brands']);$i++):
+				$brands[$i] = $pagevar['brands'][$i]['id'];
+			endfor;
+		endif;
+		$actcategory = $this->mdunion->read_showed_category(2,$brands);
+		if($actcategory):
+			for($i=0;$i<count($pagevar['category']);$i++):
+				$pagevar['category'][$i]['disable'] = 1;
+				for($j=0;$j<count($actcategory);$j++):
+					if($pagevar['category'][$i]['id'] == $actcategory[$j]['id']):
+						$pagevar['category'][$i]['disable'] = 0;
+						continue;
 					endif;
 				endfor;
-				if(!$this->session->userdata('bid')):
-					for($i=0;$i<count($pagevar['brands']);$i++):
-						$pagevar['brands'][$i]['checked'] = 1;
-					endfor;
-				endif;
-			endif;
-			if($this->session->userdata('bid')):
-				if(!$this->session->userdata('cid')):
-					for($i=0;$i<count($pagevar['category']);$i++):
-						$pagevar['category'][$i]['checked'] = 1;
-					endfor;
-				endif;
-				for($i=0;$i<count($pagevar['brands']);$i++):
-					if($pagevar['brands'][$i]['id'] == $this->session->userdata('bid')):
-						$pagevar['brands'][$i]['checked'] = 1;
-					else:
-						$pagevar['brands'][$i]['checked'] = 0;
-					endif;
-				endfor;
-			endif;
-			if($this->session->userdata('bid')):
-				$brands[0] = $this->session->userdata('bid');
-			else:
-				for($i=0;$i<count($pagevar['brands']);$i++):
-					$brands[$i] = $pagevar['brands'][$i]['id'];
-				endfor;
-			endif;
-			$actcategory = $this->mdunion->read_showed_category(2,$brands);
-			if($actcategory):
-				for($i=0;$i<count($pagevar['category']);$i++):
-					$pagevar['category'][$i]['disable'] = 1;
-					for($j=0;$j<count($actcategory);$j++):
-						if($pagevar['category'][$i]['id'] == $actcategory[$j]['id']):
-							$pagevar['category'][$i]['disable'] = 0;
-							continue;
-						endif;
-					endfor;
-				endfor;
-			else:
-				for($i=0;$i<count($pagevar['category']);$i++):
-					$pagevar['category'][$i]['disable'] = 1;
-				endfor;
-			endif;
+			endfor;
+		else:
+			for($i=0;$i<count($pagevar['category']);$i++):
+				$pagevar['category'][$i]['disable'] = 1;
+			endfor;
 		endif;
 		$seasons = array();
 		foreach($pagevar['seasons'] AS $key=>$season):

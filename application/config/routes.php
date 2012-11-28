@@ -13,8 +13,9 @@ $route['brands'] 	= "users_interface/brands";
 $route['contacts'] 	= "users_interface/contacts";
 $route['vakansii'] 	= "users_interface/vakansii";
 
-$route['catalog/category/:any']	= "users_interface/catalog";
-$route['catalog/brands/:any']	= "users_interface/catalog";
+$route['catalog/category/:any']				= "users_interface/catalog";
+
+$route['catalog/brands/:any']				= "users_interface/catalog";
 $route['catalogs/brands/:any']				= "users_interface/catalogs";
 $route['catalogs/brands/:any/catalog/:any']	= "users_interface/catalogs";
 
