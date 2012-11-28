@@ -48,13 +48,14 @@
 				</div>
 			</aside>
 			<div id="backdrop"></div>
+			<div id="loading"></div>
+			<div class="products-by-categories" id="product-list"></div>
+			<div class="clear"></div>
 		<?php if(isset($about_category) && !empty($about_category)):?>
 			<div class="category_content">
 				<?=$about_category;?>
 			</div>
 		<?php endif;?>
-			<div id="loading"></div>
-			<div class="products-by-categories" id="product-list"></div>
 		</div>
 	</div>
 	<?php $this->load->view("users_interface/includes/footer");?>
