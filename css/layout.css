@@ -26,6 +26,7 @@ aside#map {
 }
 aside.sorting { float: left; margin: 0; width: 14em; clear: left; }
 .products-by-categories, .product-page { margin-left: 14.5em; width: 42.25em; }
+.category_content { margin: 2.5em 0 0 14.5em; width: 42.25em; }
   
 
 /* 9. CUSTOM LAYOUT & TYPOGRAPHY (Mummy bear)
