@@ -73,6 +73,7 @@
 					<div id="message_box"></div>
 					<?php $this->load->view("forms/frmsubscribe");?>
 					<p>Получайте уведомления о поступлениях товара, обновлениях новостей и новых акциях.</p>
+					<p>Следите за новостями в <a class="link" href="https://www.facebook.com/oakeysi.oakeysi">facebook</a></p>
 				</div>
 			</div>
 		</div>

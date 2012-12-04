@@ -11,7 +11,7 @@
 		<?php for($j=0;$j<count($products);$j++):?>
 			<?php if($products[$j]['category'] == $category[$i]['id']):?>
 			<div class="product-preview">
-				<a class="thumb" href="<?='product/'.$products[$j]['gender'].'-'.$products[$j]['brand'].'-'.$products[$j]['category'].'-'.$products[$j]['id'].'/'.$products[$j]['translit'] ?>">
+				<a class="thumb" href="<?=$baseurl.'product/'.$products[$j]['gender'].'-'.$products[$j]['brand'].'-'.$products[$j]['category'].'-'.$products[$j]['id'].'/'.$products[$j]['translit'] ?>">
 					<img src="<?=$baseurl;?>productimage/viewimage/<?=$products[$j]['imgid'];?>" />
 				</a>
 				<p class="title">

@@ -15,11 +15,11 @@
 			<h1><?=$events['title'];?></h1>
 		<?php if($events['type'] == 1):?>
 			<?php if(!$events['noimage']):?>
-			<img src="<?=$baseurl;?>news/viewimage/<?=$events['id'];?>" alt="" width="150"/><br/><br/>
+			<img src="<?=$baseurl;?>news/viewimage/<?=$events['id'];?>" alt="" /><br/>
 			<?php endif;?>
 		<?php else:?>
 			<?php if(!$events['noimage']):?>
-			<img src="<?=$baseurl;?>stock/viewimage/<?=$events['id'];?>" alt="" width="150"/><br/><br/>
+			<img src="<?=$baseurl;?>stock/viewimage/<?=$events['id'];?>" alt="" /><br/>
 			<?php endif;?>
 		<?php endif;?>
 			<p class="descr"><?=$events['text'];?></p>
