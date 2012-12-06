@@ -194,7 +194,7 @@ p.em40 { max-width: 40em; }
 .substrate address { background: rgba(255, 255, 255, 0.5);  font-size: 0.925em; font-weight: bold; line-height: 1.5em; padding: 0.75em 1em 0.5em; 
 	-webkit-text-shadow: 0 1px 0 #fafafa; -moz-text-shadow: 0 1px 0 #fafafa; text-shadow: 0 1px 0 #fafafa; margin-bottom: 2em;
 }
-.contacts ul li .show-map { color: #c0c0c0; border-bottom: 1px dashed; display: inline-block; line-height: 1.1em; }
+.contacts ul li .show-map { color: #999; border-bottom: 1px dotted; display: inline-block; line-height: 1.1em; margin: 0 0 0.5em; }
 .contacts ul { margin: 0 0 0 1em; padding: 0; } 
 .contacts ul li { color: #777; font-weight: bold; line-height: 1.25em; margin-bottom: 0.85em; }
 .contacts .descr { color: #888; font-size: 0.8em; line-height: 1.5em; margin: 0.5em 0 1.5em; }
@@ -297,14 +297,19 @@ a.hash { width: 1px !important; margin: 0 0 0 -1px !important; }
 
 #videos { width: 880px; }
 #videos iframe { padding: 9px; margin: 5px 5px 0 0; background: #fff; border: 1px solid #ccc; border-radius: 3px; }
-
+.cities-promo-block { padding: 1.25em 0 2em; font-size: 0.8em; line-height: 1.1em; color: #888; }
+.cities-promo-block p { max-width: none; margin-bottom: 0.5em; }
+a.link { color: #999; }
+.noweight { font-weight: normal !important; }
+.noweight strong { display: inline-block; margin: 0.5em 0 0; }
+img.storage-map { border: 1px solid #e0e0e0; border-top: 4px double #e0e0e0; display: none; }
 
 /* 6. CUSTOM LAYOUT & TYPOGRAPHY (Baby bear)
 ----------------------------------------------------------------------------------------*/
 .container {
     padding: 0 0.809em;
     max-width: 30em;
-    /*!!!!!*/	min-width: 60em;
+    /*!!!!!*/ min-width: 60em;
     margin: auto;
   }
 

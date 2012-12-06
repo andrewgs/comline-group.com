@@ -22,19 +22,28 @@
 				<!-- Этот блок кода нужно вставить в ту часть страницы, где вы хотите разместить карту (начало) -->
 				<div id="ya-map" style="width: 450px; height: 505px;"></div>
 				<!-- Этот блок кода нужно вставить в ту часть страницы, где вы хотите разместить карту (конец) -->
+				<img class="storage-map" src="<?= base_url(); ?>/images/storage_map.jpg" alt="" />
 			</aside>
 			<h3>Склад<?php if (count($storage)>1): ?>ы<?php endif; ?></h3>
 			<ul class="warehouses">
 			<?php for($i=0;$i<count($storage);$i++):?>
 				<li>
-					<?=$storage[$i]['title'];?> на м.<?=$storage[$i]['metro'];?>, <?=$storage[$i]['address'];?><br />
+					<?=$storage[$i]['title'];?> на м.<?=$storage[$i]['metro'];?>
+					<br/> <span class="noweight"><?=$storage[$i]['address'];?></span><br />
 					<a class="show-map" data-address="<?=$storage[$i]['address'];?>" href="#">Показать на карте</a>
+					<p class="noweight">
+						<strong>Описание проезда из Москвы:</strong> <br/>
+						По Киевскому шоссе, поворот направо после ТЦ «Румянцево» на мост (развязка). Пересечь Киевское шоссе и продолжить движение в сторону д. Саларьево. Далее вдоль строительного рынка до указателя «СКЛАД С7». По указателю направо. Через 100 м. бело-голубой складской комплекс с синими воротами.
+						<br/>
+						<strong>Описание проезда из области:</strong> <br/>
+						По Киевскому шоссе, поворот направо после указателя «Саларьево». Далее вдоль строительного рынка до указателя «СКЛАД С7». По указателю направо. Через 100 м. бело-голубой складской комплекс с синими воротами.
+					</p>					
 				</li>
 			<?php endfor;?>
 			</ul>
 			<h3>Обратная связь</h3>
 			<div class="descr">
-				Вы можете задать свой вопрос по e-mail, заполнив эту форму, или позвонить по телефону +7 (495) 729-51-22
+				Вы можете задать свой вопрос по e-mail, заполнив эту форму, или <br/>позвонить по телефону +7 (495) 729-51-22
 			</div>
 			<?php $this->load->view("alert_messages/alert-error");?>
 			<?php $this->load->view("alert_messages/alert-success");?>
@@ -60,33 +69,31 @@
 			});
 			
 			$('address a.show-map').click(function(e){
-				//myMap.destroy();// Деструктор карты
-                //myMap = null;
+				// myMap.destroy(); // Деструктор карты
+                // myMap = null;
                 e.preventDefault();
                 $('#ya-map').html('');
-            	init();                 
+				$('img.storage-map').hide();                
+            	init();
 			});
 			
 			$('ul.warehouses li:first a.show-map').click(function(e){
-				//myMap.destroy();// Деструктор карты
-                //myMap = null;
+				// myMap.destroy(); // Деструктор карты
+                // myMap = null;
                 e.preventDefault();
                 $('#ya-map').html('');
 				
 				var map = new ymaps.Map("ya-map", {
-					center : [37.59321899999998, 55.79945197388315],
-					zoom : 14
+					center: [37.440441664558705, 55.62150895057685],
+        			zoom: 13,
 				});
 				map.controls.add("zoomControl").add("mapTools").add(new ymaps.control.TypeSelector(["yandex#map", "yandex#satellite", "yandex#hybrid", "yandex#publicMap"]));
-				map.geoObjects.add(new ymaps.Placemark([37.57086, 55.778021], {
-					balloonContent : ""
+				map.geoObjects.add(new ymaps.Placemark([37.441986616951304, 55.61451437943528], {
+					balloonContent : 'Склад компании "Логолэнд"'
 				}, {
-					preset : "twirl#darkblueDotIcon"
-				})).add(new ymaps.Placemark([37.593219, 55.798763], {
-					balloonContent : ""
-				}, {
-					preset : "twirl#darkblueDotIcon"
+					preset : "twirl#blueDotIcon"
 				}));
+				$('img.storage-map').show();
 			});
 		});
 
