@@ -36,12 +36,17 @@
 						<div class="product-photos">
 						<?php for($i=0;$i<count($primages);$i++):?>
 							<?php if($primages[$i]['main']):?>
-							<img class="main-photo" src="<?=$baseurl;?>productimage/viewimage/<?=$primages[$i]['id'];?>" />
+							<a class="fancybox" rel="group" href="<?=$baseurl;?>productimage/viewimage/<?=$primages[$i]['id'];?>">
+								<img class="main-photo" src="<?=$baseurl;?>productimage/viewimage/<?=$primages[$i]['id'];?>" alt="<?=$product['title'];?>" />
+								<b></b>
+							</a>
 							<?php endif;?>
 						<?php endfor;?>
 						<?php for($i=0;$i<count($primages);$i++):?>
 							<?php if(!$primages[$i]['main']):?>
-							<img src="<?=$baseurl;?>productimage/viewimage/<?=$primages[$i]['id'];?>" />	
+							<a href="<?=$baseurl;?>productimage/viewimage/<?=$primages[$i]['id'];?>" class="fancybox" rel="group">
+								<img src="<?=$baseurl;?>productimage/viewimage/<?=$primages[$i]['id'];?>" />
+							</a>	
 							<?php endif;?>
 						<?php endfor;?>
 						</div>
@@ -77,9 +82,18 @@
 	</div>
 	<?php $this->load->view("users_interface/includes/footer");?>
 	<?php $this->load->view("users_interface/includes/scripts");?>
+	
+	<!-- Add mousewheel plugin (this is optional) -->
+	<script type="text/javascript" src="<?= base_url(); ?>js/libs/jquery.mousewheel-3.0.6.pack.js"></script>
+	
+	<!-- Add fancyBox -->
+	<link rel="stylesheet" href="<?= base_url(); ?>css/jquery.fancybox.css?v=2.1.3" type="text/css" media="screen" />
+	<script type="text/javascript" src="<?= base_url(); ?>js/libs/jquery.fancybox.pack.js?v=2.1.3"></script>
+	
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$(".chInput").click(function(){$(this).attr('checked','checked');});
+			$(".fancybox").fancybox({"type": "image"});
 		});
 	</script>
 </body>

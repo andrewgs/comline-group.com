@@ -148,7 +148,7 @@ class Users_interface extends CI_Controller{
 			$config['mailtype'] = 'html';
 			
 			$this->email->initialize($config);
-			$this->email->to('brand@comline-group.com');
+			$this->email->to('sale@comline-group.com');
 			$this->email->from('robot@comfline.ru','Пользователь сайта');
 			$this->email->bcc('');
 			$this->email->subject('Сообщение от пользователя');
@@ -386,7 +386,7 @@ class Users_interface extends CI_Controller{
 				$config['mailtype'] = 'html';
 				
 				$this->email->initialize($config);
-				$this->email->to('brand@comline-group.com');
+				$this->email->to('sale@comline-group.com');
 				$this->email->from($_POST['email'],$_POST['name']);
 				$this->email->bcc('');
 				$this->email->subject('Форма партнерства Комфорт Лайн');
@@ -463,7 +463,7 @@ class Users_interface extends CI_Controller{
 				$config['mailtype'] = 'html';
 				
 				$this->email->initialize($config);
-				$this->email->to($pagevar['text'][1]);
+				$this->email->to('sale@comline-group.com');
 				$this->email->from($_POST['email'],$_POST['name']);
 				$this->email->bcc('');
 				$this->email->subject('Форма обратной связи Комфорт Лайн');
@@ -814,7 +814,6 @@ class Users_interface extends CI_Controller{
 		$this->load->view("admin_interface/login",$pagevar);
 	}
 	
-	
 	public function setseason(){
 		
 		$products = $this->mdproducts->read_records();
@@ -839,7 +838,8 @@ class Users_interface extends CI_Controller{
 			case 'baner' 	: $image = $this->mdimages->get_image($id); break;
 			case 'text' 	: $image = $this->mdtexts->get_image($id); break;
 		endswitch;
-		header('Content-type: image/gif');
+		// Output the image
+    	header('Content-Type: image/jpeg');
 		echo $image;
 	}
 	

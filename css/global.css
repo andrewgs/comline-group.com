@@ -242,6 +242,9 @@ p.em40 { max-width: 40em; }
 .product-photos { width: 298px; min-height: 150px; background: url('../images/ajax-loader.gif') no-repeat center center transparent; }
 .product-photos img { margin: 0 0.85em 0.4em 0; width: 93px; height: 140px; }
 .product-photos img.main-photo { float: left; margin: 0 0.85em 0 0; width: 298px; height: auto; background: #fff; padding: 7px; border: 1px solid #E0E0E0; -webkit-box-shadow: 0 0 40px #CCC inset; -moz-box-shadow: 0 0 40px #CCC inset; box-shadow: 0 0 40px #CCC inset; }
+.product-photos a { position: relative; display: inline-block; }
+.product-photos a b { position: absolute; background: url('../img/cursors.png') no-repeat scroll -21px -42px; height: 20px; width: 20px; top: 15px; left: 15px; display: block; }
+.product-photos a:hover b  { background: url('../img/cursors.png') no-repeat scroll -21px -62px; }
 
 .attributes { width: 19.5em; }
 .attributes .product-title { font-size: 1.5em; font-weight: normal; margin-bottom: 0; }

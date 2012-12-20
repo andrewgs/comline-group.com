@@ -25,6 +25,24 @@ function myserialize(objects){
 };
 
 function backpath(path){window.location=path;}
+
+function addLink() {
+    var body_element = document.getElementsByTagName('body')[0];
+    var selection;
+    selection = window.getSelection();
+    var pagelink = "<br /><br /> Ссылка на первоисточник: <a href='"+document.location.href+"'>"+document.location.href+"</a><br />ООО \"Комфорт Лайн\""; // change this if you want
+    var copytext = selection + pagelink;
+    var newdiv = document.createElement('div');
+    newdiv.style.position='absolute';
+    newdiv.style.left='-99999px';
+    body_element.appendChild(newdiv);
+    newdiv.innerHTML = copytext;
+    selection.selectAllChildren(newdiv);
+    window.setTimeout(function() {
+        body_element.removeChild(newdiv);
+    },0);
+}
+
 (function($){
 	var baseurl = "http://comfline.ru/";
 	$("#msgeclose").click(function(){$("#msgdealert").fadeOut(1000,function(){$(this).remove();});});
@@ -83,4 +101,10 @@ function backpath(path){window.location=path;}
 			$('div.popup').hide();
 		}
 	});
+	
+	$(document).bind('copy cut', function(e) {
+		alert("Спасибо за интерес, проявленный к нашему сайту.\n\nИспользование предоставленных на сайте материалов требует особого согласования.\n\nСсылка на источник www.comfline.ru обязательна. Полное или частичное копирование без согласования с ООО \"Комфорт Лайн\" расценивается как нарушение авторских прав и является незаконным.");
+		addLink();
+	});
+	
 })(window.jQuery);
