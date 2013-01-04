@@ -7808,62 +7808,110 @@
 				<treenode node="translit;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcatalogs.php;f5;6;14;6;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</treenode>
-			<treenode node="Mdcategory;PHP:Class Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f0;2;1;104;;;;vpos;;vCI_Model;;c;;r;;d33,2;;b0,0;;m">
-				<treenode node="__construct;PHP:Function Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f1;10;2;12;;;;vpos;;v;;r;;d23,10;;b0,0;;m">
+			<treenode node="Mdcategory;PHP:Class Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f0;2;1;108;;;;vpos;;vCI_Model;;c;;r;;d33,2;;b0,0;;m">
+				<treenode node="__construct;PHP:Function Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f1;12;2;14;;;;vpos;;v;;r;;d23,12;;b0,0;;m">
 				</treenode>
-				<treenode node="count_records;PHP:Function Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f1;55;2;58;;;;vpos;;v;;r;;d25,55;;b0,0;;m">
-				</treenode>
-				<treenode node="delete_record;PHP:Function Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f1;87;2;92;;;;vpos;;v;;r;;d28,87;;b0,0;;mid;;p">
-					<treenode node="id;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f24;87;27;87;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="count_records;PHP:Function Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f1;59;2;62;;;;vpos;;v;;r;;d25,59;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f9;61;14;61;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="insert_record;PHP:Function Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f1;14;2;23;;;;vpos;;v;;r;;d40,14;;b0,0;;mdata;;ptranslit;;p">
-					<treenode node="data;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f24;14;29;14;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="delete_record;PHP:Function Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f1;91;2;96;;;;vpos;;v;;r;;d28,91;;b0,0;;mid;;p">
+					<treenode node="id;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f24;91;27;91;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="translit;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f30;14;39;14;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="read_field;PHP:Function Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f1;69;2;76;;;;vpos;;v;;r;;d32,69;;b0,0;;mid;;pfield;;p">
-					<treenode node="field;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f25;69;31;69;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="id;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f21;69;24;69;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f2;93;7;93;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="read_field_translit;PHP:Function Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f1;78;2;85;;;;vpos;;v;;r;;d47,78;;b0,0;;mtranslit;;pfield;;p">
-					<treenode node="field;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f40;78;46;78;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="insert_record;PHP:Function Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f1;16;2;26;;;;vpos;;v;;r;;d40,16;;b0,0;;mdata;;ptranslit;;p">
+					<treenode node="data;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f24;16;29;16;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="translit;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f30;78;39;78;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f2;18;7;18;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-				</treenode>
-				<treenode node="read_in_records;PHP:Function Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f1;94;2;103;;;;vpos;;v;;r;;d31,94;;b0,0;;mids;;p">
-					<treenode node="ids;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f26;94;30;94;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="translit;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f30;16;39;16;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="read_record;PHP:Function Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f1;60;2;67;;;;vpos;;v;;r;;d26,60;;b0,0;;mid;;p">
-					<treenode node="id;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f22;60;25;60;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="read_field;PHP:Function Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f1;73;2;80;;;;vpos;;v;;r;;d32,73;;b0,0;;mid;;pfield;;p">
+					<treenode node="data;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f2;77;7;77;;;;vposarray;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="field;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f25;73;31;73;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="id;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f21;73;24;73;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="query;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f2;76;8;76;;;;vposCI_DB_result;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f2;75;7;75;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="read_records;PHP:Function Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f1;36;2;43;;;;vpos;;v;;r;;d24,36;;b0,0;;m">
-				</treenode>
-				<treenode node="read_showed_records;PHP:Function Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f1;45;2;53;;;;vpos;;v;;r;;d31,45;;b0,0;;m">
-				</treenode>
-				<treenode node="update_record;PHP:Function Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f1;25;2;34;;;;vpos;;v;;r;;d44,25;;b0,0;;mid;;pdata;;ptranslit;;p">
-					<treenode node="data;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f28;25;33;25;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="read_field_translit;PHP:Function Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f1;82;2;89;;;;vpos;;v;;r;;d47,82;;b0,0;;mtranslit;;pfield;;p">
+					<treenode node="data;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f2;86;7;86;;;;vposarray;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="id;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f24;25;27;25;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="field;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f40;82;46;82;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="translit;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f34;25;43;25;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="query;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f2;85;8;85;;;;vposCI_DB_result;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f2;84;7;84;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="translit;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f30;82;39;82;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="date;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f5;7;10;7;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="read_in_records;PHP:Function Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f1;98;2;107;;;;vpos;;v;;r;;d31,98;;b0,0;;mids;;p">
+					<treenode node="data;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f2;104;7;104;;;;vposarray;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="ids;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f26;98;30;98;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="query;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f2;103;8;103;;;;vposCI_DB_result;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f2;100;7;100;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="read_record;PHP:Function Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f1;64;2;71;;;;vpos;;v;;r;;d26,64;;b0,0;;mid;;p">
+					<treenode node="data;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f2;68;7;68;;;;vposarray;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="id;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f22;64;25;64;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="query;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f2;67;8;67;;;;vposCI_DB_result;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f2;66;7;66;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="read_records;PHP:Function Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f1;40;2;47;;;;vpos;;v;;r;;d24,40;;b0,0;;m">
+					<treenode node="data;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f2;44;7;44;;;;vposarray;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="query;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f2;43;8;43;;;;vposCI_DB_result;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f2;42;7;42;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="read_showed_records;PHP:Function Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f1;49;2;57;;;;vpos;;v;;r;;d31,49;;b0,0;;m">
+					<treenode node="data;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f2;54;7;54;;;;vposarray;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="query;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f2;53;8;53;;;;vposCI_DB_result;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f2;51;7;51;;;;vposCI_DB_result;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="update_record;PHP:Function Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f1;28;2;38;;;;vpos;;v;;r;;d44,28;;b0,0;;mid;;pdata;;ptranslit;;p">
+					<treenode node="data;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f28;28;33;28;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="id;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f24;28;27;28;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f2;30;7;30;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="translit;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f34;28;43;28;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="date;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f5;9;10;9;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 				<treenode node="id;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f5;4;8;4;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="showitem;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f5;8;14;8;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="page_content;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f5;7;18;7;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="title;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f5;5;11;5;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="page_title;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f5;5;16;5;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="translit;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f5;6;14;6;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="showitem;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f5;10;14;10;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="titlepage_description;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f5;6;27;6;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="translit;PHP:Var Name;S:\home\comline-group.com\www\application\models\mdcategory.php;f5;8;14;8;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</treenode>
 			<treenode node="Mdcolors;PHP:Class Name;S:\home\comline-group.com\www\application\models\mdcolors.php;f0;2;1;61;;;;vpos;;vCI_Model;;c;;r;;d31,2;;b0,0;;m">
@@ -8662,7 +8710,7 @@
 					</treenode>
 				</treenode>
 			</treenode>
-			<treenode node="Users_interface;PHP:Class Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f0;2;1;867;;;;vpos;;vCI_Controller;;c;;r;;d43,2;;b0,0;;m">
+			<treenode node="Users_interface;PHP:Class Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f0;2;1;869;;;;vpos;;vCI_Controller;;c;;r;;d43,2;;b0,0;;m">
 				<treenode node="__construct;PHP:Function Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f1;8;2;49;;;;vpos;;v;;r;;d23,8;;b0,0;;m">
 					<treenode node="cookieuid;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;32;12;32;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
@@ -8677,16 +8725,16 @@
 					<treenode node="this;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f20;174;25;174;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="admin_login;PHP:Function Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f8;778;2;811;;;;vpos;;v;;r;;d30,778;;b1,0;;m">
-					<treenode node="_POST;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f3;794;9;794;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="admin_login;PHP:Function Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f8;781;2;814;;;;vpos;;v;;r;;d30,781;;b1,0;;m">
+					<treenode node="_POST;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f3;797;9;797;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="pagevar;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;780;10;780;;;;vposstring;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="pagevar;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;783;10;783;;;;vposstring;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="session_data;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f4;800;17;800;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="session_data;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f4;803;17;803;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f20;785;25;785;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f20;788;25;788;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="user;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f3;795;8;795;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="user;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f3;798;8;798;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
 				<treenode node="all_news;PHP:Function Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f8;255;2;298;;;;vpos;;v;;r;;d27,255;;b1,0;;m">
@@ -8725,98 +8773,98 @@
 					<treenode node="this;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f20;409;25;409;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="calegory_list;PHP:Function Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f8;703;2;731;;;;vpos;;v;;r;;d32,703;;b1,0;;m">
-					<treenode node="brands;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;707;9;707;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="calegory_list;PHP:Function Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f8;706;2;734;;;;vpos;;v;;r;;d32,706;;b1,0;;m">
+					<treenode node="brands;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;710;9;710;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="brid;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f3;723;8;723;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="brid;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f3;726;8;726;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="gender;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;706;9;706;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="gender;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;709;9;709;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="genid;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f3;713;9;713;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="genid;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f3;716;9;716;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="i;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f6;712;8;712;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="i;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f6;715;8;715;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="statusval;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;705;12;705;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="statusval;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;708;12;708;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f12;706;17;706;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f12;709;17;709;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="catalog;PHP:Function Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f8;479;2;588;;;;vpos;;v;;r;;d26,479;;b1,0;;m">
-					<treenode node="actcategory;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f3;564;15;564;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="catalog;PHP:Function Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f8;479;2;591;;;;vpos;;v;;r;;d26,479;;b1,0;;m">
+					<treenode node="actcategory;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;568;14;568;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="brandid;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f20;508;28;508;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="brandid;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f20;511;28;511;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="brands;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f4;558;11;558;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="brands;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f3;562;10;562;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 					<treenode node="categoryid;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f22;500;33;500;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="i;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f8;530;10;530;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="i;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f7;534;9;534;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="j;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f9;568;11;568;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="j;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f8;572;10;572;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="key;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f33;582;37;582;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="key;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f33;585;37;585;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 					<treenode node="pagevar;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;481;10;481;;;;vposstring;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="season;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f39;582;46;582;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="season;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f39;585;46;585;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="seasons;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;581;10;581;;;;vposstring;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="seasons;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;584;10;584;;;;vposstring;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 					<treenode node="this;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f20;486;25;486;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="urlparam;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f22;516;31;516;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="urlparam;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f22;520;31;520;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="catalog_load;PHP:Function Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f8;630;2;701;;;;vpos;;v;;r;;d31,630;;b1,0;;m">
-					<treenode node="brands;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;635;9;635;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="catalog_load;PHP:Function Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f8;633;2;704;;;;vpos;;v;;r;;d31,633;;b1,0;;m">
+					<treenode node="brands;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;638;9;638;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="brid;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f4;657;9;657;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="brid;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f4;660;9;660;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="category;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;637;11;637;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="category;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;640;11;640;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="catid;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f4;673;10;673;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="catid;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f4;676;10;676;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="count;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f3;676;9;676;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="count;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f3;679;9;679;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="from;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f4;678;9;678;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="from;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f4;681;9;681;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="gender;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;634;9;634;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="gender;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;637;9;637;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="genid;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f4;647;10;647;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="genid;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f4;650;10;650;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="i;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f7;646;9;646;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="i;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f7;649;9;649;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="key;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f23;666;27;666;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="key;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f23;669;27;669;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="page;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;638;7;638;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="page;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;641;7;641;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="pagevar;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;633;10;633;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="pagevar;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;636;10;636;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="per_page;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;632;11;632;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="per_page;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;635;11;635;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="s;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f29;666;31;666;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="s;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f29;669;31;669;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="season;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f30;684;37;684;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="season;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f30;687;37;687;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="seasons;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;636;10;636;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="seasons;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;639;10;639;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="sid;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f4;662;8;662;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="sid;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f4;665;8;665;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="snew;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f4;667;9;667;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="snew;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f4;670;9;670;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="stmp;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f4;683;9;683;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="stmp;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f4;686;9;686;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f12;634;17;634;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f12;637;17;637;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="catalogs;PHP:Function Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f8;590;2;628;;;;vpos;;v;;r;;d27,590;;b1,0;;m">
-					<treenode node="brandid;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;592;10;592;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="catalogs;PHP:Function Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f8;593;2;631;;;;vpos;;v;;r;;d27,593;;b1,0;;m">
+					<treenode node="brandid;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;595;10;595;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="catalogid;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f3;617;13;617;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="catalogid;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f3;620;13;620;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="pagevar;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;596;10;596;;;;vposstring;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="pagevar;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;599;10;599;;;;vposstring;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f13;592;18;592;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f13;595;18;595;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
 				<treenode node="clients;PHP:Function Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f8;345;2;400;;;;vpos;;v;;r;;d26,345;;b1,0;;m">
@@ -8857,52 +8905,52 @@
 					<treenode node="this;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f20;58;25;58;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="operation_date;PHP:Function Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f8;842;2;849;;;;vpos;;v;;r;;d39,842;;b1,0;;mfield;;p">
-					<treenode node="field;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f32;842;38;842;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="operation_date;PHP:Function Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f8;844;2;851;;;;vpos;;v;;r;;d39,844;;b1,0;;mfield;;p">
+					<treenode node="field;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f32;844;38;844;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="list;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;844;7;844;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="list;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;846;7;846;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="nmonth;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;845;9;845;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="nmonth;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;847;9;847;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="pattern;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;846;10;846;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="pattern;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;848;10;848;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="replacement;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;847;14;847;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="replacement;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;849;14;849;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f12;845;17;845;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="operation_dot_date;PHP:Function Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f8;851;2;857;;;;vpos;;v;;r;;d43,851;;b1,0;;mfield;;p">
-					<treenode node="field;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f36;851;42;851;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="list;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;853;7;853;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="pattern;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;854;10;854;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="replacement;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;855;14;855;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f12;847;17;847;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="operation_no_year;PHP:Function Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f8;859;2;865;;;;vpos;;v;;r;;d42,859;;b1,0;;mfield;;p">
-					<treenode node="field;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f35;859;41;859;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="operation_dot_date;PHP:Function Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f8;853;2;859;;;;vpos;;v;;r;;d43,853;;b1,0;;mfield;;p">
+					<treenode node="field;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f36;853;42;853;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="list;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;861;7;861;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="list;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;855;7;855;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="pattern;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;862;10;862;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="pattern;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;856;10;856;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="replacement;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;863;14;863;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="replacement;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;857;14;857;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="product;PHP:Function Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f8;733;2;776;;;;vpos;;v;;r;;d26,733;;b1,0;;m">
-					<treenode node="i;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f6;762;8;762;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="operation_no_year;PHP:Function Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f8;861;2;867;;;;vpos;;v;;r;;d42,861;;b1,0;;mfield;;p">
+					<treenode node="field;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f35;861;41;861;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="pagevar;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;740;10;740;;;;vposstring;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="list;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;863;7;863;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="product;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;736;10;736;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="pattern;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;864;10;864;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="products;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;761;11;761;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="replacement;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;865;14;865;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f31;735;36;735;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="product;PHP:Function Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f8;736;2;779;;;;vpos;;v;;r;;d26,736;;b1,0;;m">
+					<treenode node="i;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f6;765;8;765;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="urlparam;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;735;11;735;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="pagevar;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;743;10;743;;;;vposstring;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="product;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;739;10;739;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="products;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;764;11;764;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f31;738;36;738;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="urlparam;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;738;11;738;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
 				<treenode node="send_mail;PHP:Function Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f8;111;2;165;;;;vpos;;v;;r;;d28,111;;b1,0;;m">
@@ -8925,14 +8973,14 @@
 					<treenode node="uemail;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f4;133;11;133;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="setseason;PHP:Function Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f8;814;2;822;;;;vpos;;v;;r;;d28,814;;b1,0;;m">
-					<treenode node="i;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f6;817;8;817;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="setseason;PHP:Function Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f8;816;2;824;;;;vpos;;v;;r;;d28,816;;b1,0;;m">
+					<treenode node="i;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f6;819;8;819;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="products;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;816;11;816;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="products;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;818;11;818;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="seasons;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;820;10;820;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="seasons;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;822;10;822;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f14;816;19;816;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f14;818;19;818;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
 				<treenode node="vakansii;PHP:Function Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f8;186;2;205;;;;vpos;;v;;r;;d27,186;;b1,0;;m">
@@ -8957,14 +9005,14 @@
 					<treenode node="this;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f11;233;16;233;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="viewimage;PHP:Function Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f8;826;2;840;;;;vpos;;v;;r;;d28,826;;b1,0;;m">
-					<treenode node="id;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;829;5;829;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="viewimage;PHP:Function Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f8;828;2;842;;;;vpos;;v;;r;;d28,828;;b1,0;;m">
+					<treenode node="id;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;831;5;831;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="image;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f18;831;24;831;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="image;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f18;833;24;833;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="section;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;828;10;828;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="section;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f2;830;10;830;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f13;828;18;828;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f13;830;18;830;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
 				<treenode node="loginstatus;PHP:Var Name;S:\home\comline-group.com\www\application\controllers\users_interface.php;f5;5;17;5;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
@@ -10048,6 +10096,8 @@
 			</treenode>
 			<treenode node="_doctypes;PHP:Var Name;S:\home\comline-group.com\www\application\config\doctypes.php;f0;2;10;2;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
+			<treenode node="about_category;PHP:Var Name;S:\home\comline-group.com\www\application\views\users_interface\catalog.php;f17;53;32;53;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			</treenode>
 			<treenode node="active_group;PHP:Var Name;S:\home\comline-group.com\www\application\config\database.php;f0;2;13;2;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
 			<treenode node="active_record;PHP:Var Name;S:\home\comline-group.com\www\application\config\database.php;f0;3;14;3;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
@@ -10062,7 +10112,7 @@
 			</treenode>
 			<treenode node="baners;PHP:Var Name;S:\home\comline-group.com\www\application\views\admin_interface\baners\images.php;f28;16;35;16;;S:\home\comline-group.com\www\application\views\users_interface\index.php;f28;16;35;16;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
-			<treenode node="baseurl;PHP:Var Name;S:\home\comline-group.com\www\application\views\users_interface\includes\head.php;f36;8;44;8;;S:\home\comline-group.com\www\application\views\users_interface\view-events.php;f16;17;24;17;;S:\home\comline-group.com\www\application\views\users_interface\vakansii.php;f17;16;25;16;;S:\home\comline-group.com\www\application\views\users_interface\products-list.php;f18;14;26;14;;S:\home\comline-group.com\www\application\views\users_interface\product.php;f39;38;47;38;;S:\home\comline-group.com\www\application\views\users_interface\catalogs.php;f18;19;26;19;;S:\home\comline-group.com\www\application\views\users_interface\brands.php;f18;18;26;18;;S:\home\comline-group.com\www\application\views\users_interface\all-events.php;f18;26;26;26;;S:\home\comline-group.com\www\application\views\forms\frmeditevent.php;f17;29;25;29;;S:\home\comline-group.com\www\application\views\admin_interface\texts\edit-text.php;f20;28;28;28;;S:\home\comline-group.com\www\application\views\admin_interface\products\products.php;f24;33;32;33;;S:\home\comline-group.com\www\application\views\admin_interface\products\products-list.php;f16;6;24;6;;S:\home\comline-group.com\www\application\views\admin_interface\products\product-images.php;f54;21;62;21;;S:\home\comline-group.com\www\application\views\admin_interface\products\edit-product.php;f17;24;25;24;;S:\home\comline-group.com\www\application\views\admin_interface\products\edit-catalog.php;f17;27;25;27;;S:\home\comline-group.com\www\application\views\admin_interface\products\edit-brand.php;f17;24;25;24;;S:\home\comline-group.com\www\application\views\admin_interface\products\brands.php;f24;27;32;27;;S:\home\comline-group.com\www\application\views\admin_interface\products\add-product.php;f17;24;25;24;;S:\home\comline-group.com\www\application\views\admin_interface\products\add-colors.php;f17;24;25;24;;S:\home\comline-group.com\www\application\views\admin_interface\products\add-catalog.php;f17;27;25;27;;S:\home\comline-group.com\www\application\views\admin_interface\products\add-brand.php;f17;24;25;24;;S:\home\comline-group.com\www\application\views\admin_interface\includes\scripts.php;f16;2;24;2;;S:\home\comline-group.com\www\application\views\admin_interface\includes\head.php;f36;8;44;8;;S:\home\comline-group.com\www\application\views\admin_interface\includes\head-color.php;f36;8;44;8;;S:\home\comline-group.com\www\application\views\admin_interface\events\edit-events.php;f17;24;25;24;;S:\home\comline-group.com\www\application\views\admin_interface\events\add-events.php;f17;24;25;24;;S:\home\comline-group.com\www\application\views\admin_interface\baners\images.php;f40;18;48;18;;S:\home\comline-group.com\www\application\views\users_interface\index.php;f18;17;26;17;;S:\home\comline-group.com\www\application\views\users_interface\includes\scripts.php;f16;2;24;2;;S:\home\comline-group.com\www\application\views\users_interface\catalog.php;f17;56;25;56;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			<treenode node="baseurl;PHP:Var Name;S:\home\comline-group.com\www\application\views\users_interface\includes\head.php;f36;8;44;8;;S:\home\comline-group.com\www\application\views\users_interface\vakansii.php;f17;16;25;16;;S:\home\comline-group.com\www\application\views\users_interface\product.php;f39;38;47;38;;S:\home\comline-group.com\www\application\views\users_interface\catalogs.php;f18;19;26;19;;S:\home\comline-group.com\www\application\views\users_interface\brands.php;f18;18;26;18;;S:\home\comline-group.com\www\application\views\forms\frmeditevent.php;f17;29;25;29;;S:\home\comline-group.com\www\application\views\admin_interface\texts\edit-text.php;f20;28;28;28;;S:\home\comline-group.com\www\application\views\admin_interface\products\products.php;f24;33;32;33;;S:\home\comline-group.com\www\application\views\admin_interface\products\products-list.php;f16;6;24;6;;S:\home\comline-group.com\www\application\views\admin_interface\products\product-images.php;f54;21;62;21;;S:\home\comline-group.com\www\application\views\admin_interface\products\edit-product.php;f17;24;25;24;;S:\home\comline-group.com\www\application\views\admin_interface\products\edit-catalog.php;f17;27;25;27;;S:\home\comline-group.com\www\application\views\admin_interface\products\edit-brand.php;f17;24;25;24;;S:\home\comline-group.com\www\application\views\admin_interface\products\brands.php;f24;27;32;27;;S:\home\comline-group.com\www\application\views\admin_interface\products\add-product.php;f17;24;25;24;;S:\home\comline-group.com\www\application\views\admin_interface\products\add-colors.php;f17;24;25;24;;S:\home\comline-group.com\www\application\views\admin_interface\products\add-catalog.php;f17;27;25;27;;S:\home\comline-group.com\www\application\views\admin_interface\products\add-brand.php;f17;24;25;24;;S:\home\comline-group.com\www\application\views\admin_interface\includes\scripts.php;f16;2;24;2;;S:\home\comline-group.com\www\application\views\admin_interface\includes\head.php;f36;8;44;8;;S:\home\comline-group.com\www\application\views\admin_interface\includes\head-color.php;f36;8;44;8;;S:\home\comline-group.com\www\application\views\admin_interface\events\edit-events.php;f17;24;25;24;;S:\home\comline-group.com\www\application\views\admin_interface\events\add-events.php;f17;24;25;24;;S:\home\comline-group.com\www\application\views\admin_interface\baners\images.php;f40;18;48;18;;S:\home\comline-group.com\www\application\views\users_interface\index.php;f18;17;26;17;;S:\home\comline-group.com\www\application\views\users_interface\includes\scripts.php;f16;2;24;2;;S:\home\comline-group.com\www\application\views\users_interface\catalog.php;f17;62;25;62;;S:\home\comline-group.com\www\application\views\users_interface\products-list.php;f30;13;38;13;;S:\home\comline-group.com\www\application\views\users_interface\view-events.php;f16;17;24;17;;S:\home\comline-group.com\www\application\views\users_interface\all-events.php;f18;26;26;26;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
 			<treenode node="BM;PHP:Var Name;S:\home\comline-group.com\www\system\core\CodeIgniter.php;f1;114;4;114;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
@@ -10078,7 +10128,7 @@
 			</treenode>
 			<treenode node="catalogs;PHP:Var Name;S:\home\comline-group.com\www\application\views\users_interface\catalogs.php;f28;23;37;23;;S:\home\comline-group.com\www\application\views\admin_interface\products\catalogs.php;f29;29;38;29;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
-			<treenode node="category;PHP:Var Name;S:\home\comline-group.com\www\application\views\users_interface\products-list.php;f24;0;33;0;;S:\home\comline-group.com\www\application\views\users_interface\product.php;f28;25;37;25;;S:\home\comline-group.com\www\application\views\forms\frmeditproduct.php;f29;113;38;113;;S:\home\comline-group.com\www\application\views\forms\frmeditcategory.php;f79;6;88;6;;S:\home\comline-group.com\www\application\views\forms\frmaddproduct.php;f29;116;38;116;;S:\home\comline-group.com\www\application\views\admin_interface\products\products-list.php;f24;0;33;0;;S:\home\comline-group.com\www\application\views\admin_interface\products\category.php;f29;23;38;23;;S:\home\comline-group.com\www\application\views\users_interface\index.php;f27;24;36;24;;S:\home\comline-group.com\www\application\views\users_interface\catalog.php;f28;41;37;41;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			<treenode node="category;PHP:Var Name;S:\home\comline-group.com\www\application\views\users_interface\product.php;f28;25;37;25;;S:\home\comline-group.com\www\application\views\forms\frmeditproduct.php;f29;113;38;113;;S:\home\comline-group.com\www\application\views\forms\frmeditcategory.php;f79;6;88;6;;S:\home\comline-group.com\www\application\views\forms\frmaddproduct.php;f29;116;38;116;;S:\home\comline-group.com\www\application\views\admin_interface\products\products-list.php;f24;0;33;0;;S:\home\comline-group.com\www\application\views\admin_interface\products\category.php;f29;23;38;23;;S:\home\comline-group.com\www\application\views\users_interface\index.php;f27;24;36;24;;S:\home\comline-group.com\www\application\views\users_interface\catalog.php;f28;41;37;41;;S:\home\comline-group.com\www\application\views\users_interface\products-list.php;f24;0;33;0;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
 			<treenode node="CFG;PHP:Var Name;S:\home\comline-group.com\www\system\core\CodeIgniter.php;f1;137;5;137;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
@@ -10096,7 +10146,7 @@
 			</treenode>
 			<treenode node="event;PHP:Var Name;S:\home\comline-group.com\www\application\views\forms\frmeditevent.php;f72;6;78;6;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
-			<treenode node="events;PHP:Var Name;S:\home\comline-group.com\www\application\views\users_interface\view-events.php;f10;14;17;14;;S:\home\comline-group.com\www\application\views\users_interface\all-events.php;f27;20;34;20;;S:\home\comline-group.com\www\application\views\admin_interface\events\list-events.php;f29;24;36;24;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			<treenode node="events;PHP:Var Name;S:\home\comline-group.com\www\application\views\admin_interface\events\list-events.php;f29;24;36;24;;S:\home\comline-group.com\www\application\views\users_interface\view-events.php;f10;14;17;14;;S:\home\comline-group.com\www\application\views\users_interface\all-events.php;f27;20;34;20;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
 			<treenode node="exist;PHP:Var Name;S:\home\comline-group.com\www\application\views\users_interface\products-list.php;f7;1;13;1;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
@@ -10114,13 +10164,13 @@
 			</treenode>
 			<treenode node="heading;PHP:Var Name;S:\home\comline-group.com\www\application\errors\error_general.php;f17;57;25;57;;S:\home\comline-group.com\www\application\errors\error_db.php;f17;57;25;57;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
-			<treenode node="i;PHP:Var Name;S:\home\comline-group.com\www\application\views\users_interface\products-list.php;f10;0;12;0;;S:\home\comline-group.com\www\application\views\users_interface\product.php;f14;20;16;20;;S:\home\comline-group.com\www\application\views\users_interface\contacts.php;f13;27;15;27;;S:\home\comline-group.com\www\application\views\users_interface\catalogs.php;f14;23;16;23;;S:\home\comline-group.com\www\application\views\users_interface\brands.php;f13;15;15;15;;S:\home\comline-group.com\www\application\views\users_interface\all-events.php;f13;20;15;20;;S:\home\comline-group.com\www\application\views\forms\frmeditproduct.php;f15;42;17;42;;S:\home\comline-group.com\www\application\views\forms\frmeditbrands.php;f15;57;17;57;;S:\home\comline-group.com\www\application\views\forms\frmaddproduct.php;f16;57;18;57;;S:\home\comline-group.com\www\application\views\forms\frmaddimages.php;f12;36;14;36;;S:\home\comline-group.com\www\application\views\forms\frmaddbrands.php;f15;57;17;57;;S:\home\comline-group.com\www\application\views\admin_interface\storage\storage.php;f15;23;17;23;;S:\home\comline-group.com\www\application\views\admin_interface\products\seasons.php;f15;23;17;23;;S:\home\comline-group.com\www\application\views\admin_interface\products\products.php;f15;31;17;31;;S:\home\comline-group.com\www\application\views\admin_interface\products\products-list.php;f10;0;12;0;;S:\home\comline-group.com\www\application\views\admin_interface\products\product-images.php;f14;19;16;19;;S:\home\comline-group.com\www\application\views\admin_interface\products\colors.php;f15;29;17;29;;S:\home\comline-group.com\www\application\views\admin_interface\products\category.php;f15;23;17;23;;S:\home\comline-group.com\www\application\views\admin_interface\products\catalogs.php;f15;29;17;29;;S:\home\comline-group.com\www\application\views\admin_interface\products\brands.php;f15;25;17;25;;S:\home\comline-group.com\www\application\views\admin_interface\events\list-events.php;f15;24;17;24;;S:\home\comline-group.com\www\application\views\admin_interface\baners\images.php;f14;16;16;16;;S:\home\comline-group.com\www\application\views\users_interface\index.php;f14;16;16;16;;S:\home\comline-group.com\www\application\views\users_interface\catalog.php;f14;25;16;25;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			<treenode node="i;PHP:Var Name;S:\home\comline-group.com\www\application\views\users_interface\product.php;f14;20;16;20;;S:\home\comline-group.com\www\application\views\users_interface\contacts.php;f13;27;15;27;;S:\home\comline-group.com\www\application\views\users_interface\catalogs.php;f14;23;16;23;;S:\home\comline-group.com\www\application\views\users_interface\brands.php;f13;15;15;15;;S:\home\comline-group.com\www\application\views\forms\frmeditproduct.php;f15;42;17;42;;S:\home\comline-group.com\www\application\views\forms\frmeditbrands.php;f15;57;17;57;;S:\home\comline-group.com\www\application\views\forms\frmaddproduct.php;f16;57;18;57;;S:\home\comline-group.com\www\application\views\forms\frmaddimages.php;f12;36;14;36;;S:\home\comline-group.com\www\application\views\forms\frmaddbrands.php;f15;57;17;57;;S:\home\comline-group.com\www\application\views\admin_interface\storage\storage.php;f15;23;17;23;;S:\home\comline-group.com\www\application\views\admin_interface\products\seasons.php;f15;23;17;23;;S:\home\comline-group.com\www\application\views\admin_interface\products\products.php;f15;31;17;31;;S:\home\comline-group.com\www\application\views\admin_interface\products\products-list.php;f10;0;12;0;;S:\home\comline-group.com\www\application\views\admin_interface\products\product-images.php;f14;19;16;19;;S:\home\comline-group.com\www\application\views\admin_interface\products\colors.php;f15;29;17;29;;S:\home\comline-group.com\www\application\views\admin_interface\products\category.php;f15;23;17;23;;S:\home\comline-group.com\www\application\views\admin_interface\products\catalogs.php;f15;29;17;29;;S:\home\comline-group.com\www\application\views\admin_interface\products\brands.php;f15;25;17;25;;S:\home\comline-group.com\www\application\views\admin_interface\events\list-events.php;f15;24;17;24;;S:\home\comline-group.com\www\application\views\admin_interface\baners\images.php;f14;16;16;16;;S:\home\comline-group.com\www\application\views\users_interface\index.php;f14;16;16;16;;S:\home\comline-group.com\www\application\views\users_interface\catalog.php;f14;25;16;25;;S:\home\comline-group.com\www\application\views\users_interface\products-list.php;f10;0;12;0;;S:\home\comline-group.com\www\application\views\users_interface\all-events.php;f13;20;15;20;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
 			<treenode node="image;PHP:Var Name;S:\home\comline-group.com\www\application\views\users_interface\vakansii.php;f46;16;52;16;;S:\home\comline-group.com\www\application\views\forms\frmeditbaners.php;f79;13;85;13;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
 			<treenode node="IN;PHP:Var Name;S:\home\comline-group.com\www\system\core\CodeIgniter.php;f1;212;4;212;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
-			<treenode node="j;PHP:Var Name;S:\home\comline-group.com\www\application\views\users_interface\products-list.php;f11;2;13;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\products-list.php;f11;3;13;3;;S:\home\comline-group.com\www\application\views\users_interface\catalog.php;f15;29;17;29;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			<treenode node="j;PHP:Var Name;S:\home\comline-group.com\www\application\views\admin_interface\products\products-list.php;f11;3;13;3;;S:\home\comline-group.com\www\application\views\users_interface\catalog.php;f15;29;17;29;;S:\home\comline-group.com\www\application\views\users_interface\products-list.php;f11;2;13;2;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
 			<treenode node="lang;PHP:Var Name;S:\home\comline-group.com\www\system\language\english\upload_lang.php;f0;2;5;2;;S:\home\comline-group.com\www\system\language\english\unit_test_lang.php;f0;2;5;2;;S:\home\comline-group.com\www\system\language\english\profiler_lang.php;f0;2;5;2;;S:\home\comline-group.com\www\system\language\english\number_lang.php;f0;2;5;2;;S:\home\comline-group.com\www\system\language\english\migration_lang.php;f0;2;5;2;;S:\home\comline-group.com\www\system\language\english\imglib_lang.php;f0;2;5;2;;S:\home\comline-group.com\www\system\language\english\ftp_lang.php;f0;2;5;2;;S:\home\comline-group.com\www\system\language\english\form_validation_lang.php;f0;2;5;2;;S:\home\comline-group.com\www\system\language\english\email_lang.php;f0;2;5;2;;S:\home\comline-group.com\www\system\language\english\db_lang.php;f0;2;5;2;;S:\home\comline-group.com\www\system\language\english\date_lang.php;f0;2;5;2;;S:\home\comline-group.com\www\system\language\english\calendar_lang.php;f0;2;5;2;;S:\home\comline-group.com\www\application\language\russian\upload_lang.php;f0;2;5;2;;S:\home\comline-group.com\www\application\language\russian\unit_test_lang.php;f0;2;5;2;;S:\home\comline-group.com\www\application\language\russian\profiler_lang.php;f0;2;5;2;;S:\home\comline-group.com\www\application\language\russian\number_lang.php;f0;2;5;2;;S:\home\comline-group.com\www\application\language\russian\imglib_lang.php;f0;2;5;2;;S:\home\comline-group.com\www\application\language\russian\ftp_lang.php;f0;2;5;2;;S:\home\comline-group.com\www\application\language\russian\form_validation_lang.php;f0;2;5;2;;S:\home\comline-group.com\www\application\language\russian\email_lang.php;f0;2;5;2;;S:\home\comline-group.com\www\application\language\russian\db_lang.php;f0;2;5;2;;S:\home\comline-group.com\www\application\language\russian\date_lang.php;f0;2;5;2;;S:\home\comline-group.com\www\application\language\russian\calendar_lang.php;f0;2;5;2;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
@@ -10150,7 +10200,7 @@
 			</treenode>
 			<treenode node="page;PHP:Var Name;S:\home\comline-group.com\www\application\views\users_interface\products-list.php;f4;31;9;31;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
-			<treenode node="pages;PHP:Var Name;S:\home\comline-group.com\www\application\views\users_interface\products-list.php;f3;28;9;28;;S:\home\comline-group.com\www\application\views\users_interface\all-events.php;f12;39;18;39;;S:\home\comline-group.com\www\application\views\admin_interface\products\products.php;f13;17;19;17;;S:\home\comline-group.com\www\application\views\admin_interface\events\list-events.php;f13;42;19;42;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			<treenode node="pages;PHP:Var Name;S:\home\comline-group.com\www\application\views\admin_interface\products\products.php;f13;17;19;17;;S:\home\comline-group.com\www\application\views\admin_interface\events\list-events.php;f13;42;19;42;;S:\home\comline-group.com\www\application\views\users_interface\products-list.php;f3;28;9;28;;S:\home\comline-group.com\www\application\views\users_interface\all-events.php;f12;39;18;39;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
 			<treenode node="platforms;PHP:Var Name;S:\home\comline-group.com\www\application\config\user_agents.php;f0;12;10;12;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
@@ -10160,7 +10210,7 @@
 			</treenode>
 			<treenode node="product;PHP:Var Name;S:\home\comline-group.com\www\application\views\users_interface\product.php;f35;52;43;52;;S:\home\comline-group.com\www\application\views\forms\frmeditproduct.php;f74;15;82;15;;S:\home\comline-group.com\www\application\views\admin_interface\products\product-images.php;f9;13;17;13;;S:\home\comline-group.com\www\application\views\admin_interface\products\add-image.php;f9;16;17;16;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
-			<treenode node="products;PHP:Var Name;S:\home\comline-group.com\www\application\views\users_interface\products-list.php;f25;2;34;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\products.php;f29;31;38;31;;S:\home\comline-group.com\www\application\views\admin_interface\products\products-list.php;f25;3;34;3;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			<treenode node="products;PHP:Var Name;S:\home\comline-group.com\www\application\views\admin_interface\products\products.php;f29;31;38;31;;S:\home\comline-group.com\www\application\views\admin_interface\products\products-list.php;f25;3;34;3;;S:\home\comline-group.com\www\application\views\users_interface\products-list.php;f25;2;34;2;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
 			<treenode node="prsizes;PHP:Var Name;S:\home\comline-group.com\www\application\views\users_interface\product.php;f30;65;38;65;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
@@ -10198,7 +10248,7 @@
 			</treenode>
 			<treenode node="text;PHP:Var Name;S:\home\comline-group.com\www\application\views\users_interface\vakansii.php;f6;18;11;18;;S:\home\comline-group.com\www\application\views\users_interface\contacts.php;f7;17;12;17;;S:\home\comline-group.com\www\application\views\users_interface\clients.php;f6;15;11;15;;S:\home\comline-group.com\www\application\views\users_interface\about.php;f6;15;11;15;;S:\home\comline-group.com\www\application\views\admin_interface\texts\edit-text.php;f49;28;54;28;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
-			<treenode node="this;PHP:Var Name;S:\home\comline-group.com\www\application\views\users_interface\view-events.php;f7;7;12;7;;S:\home\comline-group.com\www\application\views\users_interface\vakansii.php;f7;7;12;7;;S:\home\comline-group.com\www\application\views\users_interface\product.php;f7;7;12;7;;S:\home\comline-group.com\www\application\views\users_interface\contacts.php;f7;7;12;7;;S:\home\comline-group.com\www\application\views\users_interface\clients.php;f7;7;12;7;;S:\home\comline-group.com\www\application\views\users_interface\catalogs.php;f7;7;12;7;;S:\home\comline-group.com\www\application\views\users_interface\brands.php;f7;7;12;7;;S:\home\comline-group.com\www\application\views\users_interface\all-events.php;f7;7;12;7;;S:\home\comline-group.com\www\application\views\users_interface\about.php;f7;7;12;7;;S:\home\comline-group.com\www\application\views\forms\frmuserprofile.php;f13;0;18;0;;S:\home\comline-group.com\www\application\views\forms\frmsubscribe.php;f13;0;18;0;;S:\home\comline-group.com\www\application\views\forms\frmlogin.php;f13;0;18;0;;S:\home\comline-group.com\www\application\views\forms\frmeditstorage.php;f13;0;18;0;;S:\home\comline-group.com\www\application\views\forms\frmeditseason.php;f13;0;18;0;;S:\home\comline-group.com\www\application\views\forms\frmeditproduct.php;f23;0;28;0;;S:\home\comline-group.com\www\application\views\forms\frmeditevent.php;f23;0;28;0;;S:\home\comline-group.com\www\application\views\forms\frmeditcategory.php;f13;0;18;0;;S:\home\comline-group.com\www\application\views\forms\frmeditcatalog.php;f13;0;18;0;;S:\home\comline-group.com\www\application\views\forms\frmeditbrands.php;f23;0;28;0;;S:\home\comline-group.com\www\application\views\forms\frmeditbaners.php;f23;0;28;0;;S:\home\comline-group.com\www\application\views\forms\frmcontact.php;f13;0;18;0;;S:\home\comline-group.com\www\application\views\forms\frmclients.php;f13;0;18;0;;S:\home\comline-group.com\www\application\views\forms\frmaddstorage.php;f13;0;18;0;;S:\home\comline-group.com\www\application\views\forms\frmaddseason.php;f13;0;18;0;;S:\home\comline-group.com\www\application\views\forms\frmaddproduct.php;f13;0;18;0;;S:\home\comline-group.com\www\application\views\forms\frmaddimages.php;f23;0;28;0;;S:\home\comline-group.com\www\application\views\forms\frmaddevent.php;f23;0;28;0;;S:\home\comline-group.com\www\application\views\forms\frmaddcolor.php;f13;0;18;0;;S:\home\comline-group.com\www\application\views\forms\frmaddcategory.php;f13;0;18;0;;S:\home\comline-group.com\www\application\views\forms\frmaddcatalog.php;f13;0;18;0;;S:\home\comline-group.com\www\application\views\forms\frmaddbrands.php;f23;0;28;0;;S:\home\comline-group.com\www\application\views\forms\frmaddbaners.php;f23;0;28;0;;S:\home\comline-group.com\www\application\views\admin_interface\texts\edit-text.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\storage\storage.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\storage\edit-storage.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\storage\add-storage.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\seasons.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\products.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\product-images.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\edit-seasons.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\edit-product.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\edit-category.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\edit-catalog.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\edit-brand.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\colors.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\category.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\catalogs.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\brands.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\add-seasons.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\add-product.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\add-image.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\add-colors.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\add-category.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\add-catalog.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\add-brand.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\events\list-events.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\events\edit-events.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\events\add-events.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\baners\images.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\baners\edit-image.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\baners\add-image.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\login.php;f4;2;9;2;;S:\home\comline-group.com\www\application\views\admin_interface\admin-profile.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\admin-panel.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\users_interface\index.php;f7;7;12;7;;S:\home\comline-group.com\www\application\views\users_interface\includes\header.php;f15;28;20;28;;S:\home\comline-group.com\www\application\views\users_interface\catalog.php;f7;7;12;7;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			<treenode node="this;PHP:Var Name;S:\home\comline-group.com\www\application\views\users_interface\vakansii.php;f7;7;12;7;;S:\home\comline-group.com\www\application\views\users_interface\product.php;f7;7;12;7;;S:\home\comline-group.com\www\application\views\users_interface\contacts.php;f7;7;12;7;;S:\home\comline-group.com\www\application\views\users_interface\clients.php;f7;7;12;7;;S:\home\comline-group.com\www\application\views\users_interface\catalogs.php;f7;7;12;7;;S:\home\comline-group.com\www\application\views\users_interface\brands.php;f7;7;12;7;;S:\home\comline-group.com\www\application\views\users_interface\about.php;f7;7;12;7;;S:\home\comline-group.com\www\application\views\forms\frmuserprofile.php;f13;0;18;0;;S:\home\comline-group.com\www\application\views\forms\frmsubscribe.php;f13;0;18;0;;S:\home\comline-group.com\www\application\views\forms\frmlogin.php;f13;0;18;0;;S:\home\comline-group.com\www\application\views\forms\frmeditstorage.php;f13;0;18;0;;S:\home\comline-group.com\www\application\views\forms\frmeditseason.php;f13;0;18;0;;S:\home\comline-group.com\www\application\views\forms\frmeditproduct.php;f23;0;28;0;;S:\home\comline-group.com\www\application\views\forms\frmeditevent.php;f23;0;28;0;;S:\home\comline-group.com\www\application\views\forms\frmeditcategory.php;f13;0;18;0;;S:\home\comline-group.com\www\application\views\forms\frmeditcatalog.php;f13;0;18;0;;S:\home\comline-group.com\www\application\views\forms\frmeditbrands.php;f23;0;28;0;;S:\home\comline-group.com\www\application\views\forms\frmeditbaners.php;f23;0;28;0;;S:\home\comline-group.com\www\application\views\forms\frmcontact.php;f13;0;18;0;;S:\home\comline-group.com\www\application\views\forms\frmclients.php;f13;0;18;0;;S:\home\comline-group.com\www\application\views\forms\frmaddstorage.php;f13;0;18;0;;S:\home\comline-group.com\www\application\views\forms\frmaddseason.php;f13;0;18;0;;S:\home\comline-group.com\www\application\views\forms\frmaddproduct.php;f13;0;18;0;;S:\home\comline-group.com\www\application\views\forms\frmaddimages.php;f23;0;28;0;;S:\home\comline-group.com\www\application\views\forms\frmaddevent.php;f23;0;28;0;;S:\home\comline-group.com\www\application\views\forms\frmaddcolor.php;f13;0;18;0;;S:\home\comline-group.com\www\application\views\forms\frmaddcategory.php;f13;0;18;0;;S:\home\comline-group.com\www\application\views\forms\frmaddcatalog.php;f13;0;18;0;;S:\home\comline-group.com\www\application\views\forms\frmaddbrands.php;f23;0;28;0;;S:\home\comline-group.com\www\application\views\forms\frmaddbaners.php;f23;0;28;0;;S:\home\comline-group.com\www\application\views\admin_interface\texts\edit-text.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\storage\storage.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\storage\edit-storage.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\storage\add-storage.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\seasons.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\products.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\product-images.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\edit-seasons.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\edit-product.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\edit-category.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\edit-catalog.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\edit-brand.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\colors.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\category.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\catalogs.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\brands.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\add-seasons.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\add-product.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\add-image.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\add-colors.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\add-category.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\add-catalog.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\products\add-brand.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\events\list-events.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\events\edit-events.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\events\add-events.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\baners\images.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\baners\edit-image.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\baners\add-image.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\login.php;f4;2;9;2;;S:\home\comline-group.com\www\application\views\admin_interface\admin-profile.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\admin_interface\admin-panel.php;f6;2;11;2;;S:\home\comline-group.com\www\application\views\users_interface\index.php;f7;7;12;7;;S:\home\comline-group.com\www\application\views\users_interface\includes\header.php;f15;28;20;28;;S:\home\comline-group.com\www\application\views\users_interface\catalog.php;f7;7;12;7;;S:\home\comline-group.com\www\application\views\users_interface\view-events.php;f7;7;12;7;;S:\home\comline-group.com\www\application\views\users_interface\all-events.php;f7;7;12;7;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
 			<treenode node="title;PHP:Var Name;S:\home\comline-group.com\www\application\views\users_interface\includes\head.php;f11;2;17;2;;S:\home\comline-group.com\www\application\views\admin_interface\includes\head.php;f11;2;17;2;;S:\home\comline-group.com\www\application\views\admin_interface\includes\head-color.php;f11;2;17;2;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
@@ -14996,7 +15046,7 @@
 			</treenode>
 			<treenode node="dispatch;JS:JS Var Name;S:\home\comline-group.com\www\js\libs\jquery-1.7.2.min.js;f3826;2;3834;2;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
-			<treenode node="document;JS:JS Var Name;S:\home\comline-group.com\www\js\scripts.js;f3;80;11;80;;S:\home\comline-group.com\www\js\bootstrap.js;f17;34;25;34;;S:\home\comline-group.com\www\application\views\users_interface\index.php;f5;84;13;84;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			<treenode node="document;JS:JS Var Name;S:\home\comline-group.com\www\js\scripts.js;f3;80;11;80;;S:\home\comline-group.com\www\js\bootstrap.js;f17;34;25;34;;S:\home\comline-group.com\www\application\views\users_interface\index.php;f5;84;13;84;;S:\home\comline-group.com\www\application\views\users_interface\catalog.php;f4;64;12;64;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
 			<treenode node="Dropdown;JS:JS Var Name;S:\home\comline-group.com\www\js\bootstrap.js;f2;611;10;611;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
@@ -15482,17 +15532,17 @@
 		<file name="S:\home\comline-group.com\www\application\views\users_interface\includes\header.php" crc="-920679969"/>
 		<file name="S:\home\comline-group.com\www\application\views\users_interface\includes\head.php" crc="-1362388689"/>
 		<file name="S:\home\comline-group.com\www\application\views\users_interface\includes\footer.php" crc="385290884"/>
-		<file name="S:\home\comline-group.com\www\application\views\users_interface\view-events.php" crc="-191326348"/>
+		<file name="S:\home\comline-group.com\www\application\views\users_interface\view-events.php" crc="-508757546"/>
 		<file name="S:\home\comline-group.com\www\application\views\users_interface\vakansii.php" crc="458677740"/>
-		<file name="S:\home\comline-group.com\www\application\views\users_interface\products-list.php" crc="-1367293777"/>
+		<file name="S:\home\comline-group.com\www\application\views\users_interface\products-list.php" crc="-912477304"/>
 		<file name="S:\home\comline-group.com\www\application\views\users_interface\product.php" crc="1859387970"/>
 		<file name="S:\home\comline-group.com\www\application\views\users_interface\index.php" crc="1472333720"/>
 		<file name="S:\home\comline-group.com\www\application\views\users_interface\contacts.php" crc="1127913699"/>
 		<file name="S:\home\comline-group.com\www\application\views\users_interface\clients.php" crc="-805244630"/>
 		<file name="S:\home\comline-group.com\www\application\views\users_interface\catalogs.php" crc="1186139339"/>
-		<file name="S:\home\comline-group.com\www\application\views\users_interface\catalog.php" crc="1883603243"/>
+		<file name="S:\home\comline-group.com\www\application\views\users_interface\catalog.php" crc="-1263887061"/>
 		<file name="S:\home\comline-group.com\www\application\views\users_interface\brands.php" crc="-1160975963"/>
-		<file name="S:\home\comline-group.com\www\application\views\users_interface\all-events.php" crc="1798242116"/>
+		<file name="S:\home\comline-group.com\www\application\views\users_interface\all-events.php" crc="-318424670"/>
 		<file name="S:\home\comline-group.com\www\application\views\users_interface\about.php" crc="164429716"/>
 		<file name="S:\home\comline-group.com\www\application\views\forms\frmuserprofile.php" crc="-378380440"/>
 		<file name="S:\home\comline-group.com\www\application\views\forms\frmsubscribe.php" crc="1430846374"/>
@@ -15584,7 +15634,7 @@
 		<file name="S:\home\comline-group.com\www\application\models\mdimages.php" crc="-470895591"/>
 		<file name="S:\home\comline-group.com\www\application\models\mdevents.php" crc="-1602928820"/>
 		<file name="S:\home\comline-group.com\www\application\models\mdcolors.php" crc="-771079751"/>
-		<file name="S:\home\comline-group.com\www\application\models\mdcategory.php" crc="2093326163"/>
+		<file name="S:\home\comline-group.com\www\application\models\mdcategory.php" crc="753712795"/>
 		<file name="S:\home\comline-group.com\www\application\models\mdcatalogs.php" crc="893684964"/>
 		<file name="S:\home\comline-group.com\www\application\models\mdbrandseasons.php" crc="1332181768"/>
 		<file name="S:\home\comline-group.com\www\application\models\mdbrands.php" crc="1316792876"/>
@@ -15613,12 +15663,12 @@
 		<file name="S:\home\comline-group.com\www\application\errors\error_db.php" crc="-1726591355"/>
 		<file name="S:\home\comline-group.com\www\application\errors\error_404.php" crc="-619807995"/>
 		<file name="S:\home\comline-group.com\www\application\core\index.html" crc="-1574479902"/>
-		<file name="S:\home\comline-group.com\www\application\controllers\users_interface.php" crc="-1370669943"/>
+		<file name="S:\home\comline-group.com\www\application\controllers\users_interface.php" crc="-845770293"/>
 		<file name="S:\home\comline-group.com\www\application\controllers\index.html" crc="-1574479902"/>
 		<file name="S:\home\comline-group.com\www\application\controllers\admin_interface.php" crc="-1351337685"/>
 		<file name="S:\home\comline-group.com\www\application\config\user_agents.php" crc="-484381080"/>
 		<file name="S:\home\comline-group.com\www\application\config\smileys.php" crc="-749249654"/>
-		<file name="S:\home\comline-group.com\www\application\config\routes.php" crc="-1489958500"/>
+		<file name="S:\home\comline-group.com\www\application\config\routes.php" crc="-829007420"/>
 		<file name="S:\home\comline-group.com\www\application\config\profiler.php" crc="806934376"/>
 		<file name="S:\home\comline-group.com\www\application\config\mimes.php" crc="767988074"/>
 		<file name="S:\home\comline-group.com\www\application\config\migration.php" crc="357593659"/>

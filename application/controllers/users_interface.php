@@ -148,7 +148,7 @@ class Users_interface extends CI_Controller{
 			$config['mailtype'] = 'html';
 			
 			$this->email->initialize($config);
-			$this->email->to('brand@comline-group.com');
+			$this->email->to('sale@comline-group.com');
 			$this->email->from('robot@comfline.ru','Пользователь сайта');
 			$this->email->bcc('');
 			$this->email->subject('Сообщение от пользователя');
@@ -386,7 +386,7 @@ class Users_interface extends CI_Controller{
 				$config['mailtype'] = 'html';
 				
 				$this->email->initialize($config);
-				$this->email->to('brand@comline-group.com');
+				$this->email->to('sale@comline-group.com');
 				$this->email->from($_POST['email'],$_POST['name']);
 				$this->email->bcc('');
 				$this->email->subject('Форма партнерства Комфорт Лайн');
@@ -463,7 +463,7 @@ class Users_interface extends CI_Controller{
 				$config['mailtype'] = 'html';
 				
 				$this->email->initialize($config);
-				$this->email->to($pagevar['text'][1]);
+				$this->email->to('sale@comline-group.com');
 				$this->email->from($_POST['email'],$_POST['name']);
 				$this->email->bcc('');
 				$this->email->subject('Форма обратной связи Комфорт Лайн');
@@ -490,6 +490,9 @@ class Users_interface extends CI_Controller{
 			'category'		=> $this->mdcategory->read_showed_records(),
 			'seasons'		=> $this->mdseasons->read_records(),
 			'brseasons'		=> $this->mdbrandseasons->read_all_records(),
+			'products'		=> array(),
+			'product_category'=> array(),
+			'pages'			=> array(),
 			'msgs'			=> $this->session->userdata('msgs'),
 			'msgr'			=> $this->session->userdata('msgr'),
 		);
@@ -584,10 +587,71 @@ class Users_interface extends CI_Controller{
 		endif;
 		$seasons = array();
 		foreach($pagevar['seasons'] AS $key=>$season):
+			$seasons[$season['id']]['id'] = $season['id'];
 			$seasons[$season['id']]['title'] = $season['title'];
 			$seasons[$season['id']]['translit'] = $season['translit'];
 		endforeach;
 		$pagevar['seasons'] = $seasons;
+		
+		$category = $brands = $seasons = array();
+		for($i=0;$i<count($pagevar['category']);$i++):
+			if($pagevar['category'][$i]['checked']):
+				$category[] = $pagevar['category'][$i]['id'];
+			endif;
+		endfor;
+		for($i=0;$i<count($pagevar['brands']);$i++):
+			if($pagevar['brands'][$i]['checked']):
+				$brands[] = $pagevar['brands'][$i]['id'];
+			endif;
+		endfor;
+		foreach($pagevar['seasons'] AS $key=>$season):
+			$seasons[] = $season['id'];
+		endforeach;
+		$count = $this->mdunion->count_products_in_brends(2,$brands,$seasons,$category);
+		if($count):
+			$from = $this->uri->segment(5);
+			if(!$from):
+				$from = 0;
+			endif;
+			$pagevar['product_category'] = $this->mdcategory->read_in_records($category);
+			$pagevar['products'] = $this->mdunion->read_products_in_brends(2,$brands,$seasons,$category,12,$from);
+			$seasons = $this->mdseasons->read_records();
+			$stmp = array();
+			foreach($seasons AS $key=>$season):
+				$stmp[$season['id']]['title'] = $season['title'];
+			endforeach;
+			$seasons = $stmp;
+			for($i=0;$i<count($pagevar['products']);$i++):
+				$pagevar['products'][$i]['stitle'] = $seasons[$pagevar['products'][$i]['season']]['title'];
+			endfor;
+			
+			$config['base_url'] 		= base_url().'catalog/category/'.$this->uri->segment(3).'/page-from/';
+			$config['uri_segment'] 		= 5;
+			$config['total_rows'] 		= $count;
+			$config['per_page'] 		= 12;
+			$config['num_links'] 		= 4;
+			$config['first_link']		= 'В начало';
+			$config['last_link'] 		= 'В конец';
+			$config['next_link'] 		= 'Далее &raquo;';
+			$config['prev_link'] 		= '&laquo; Назад';
+			$config['cur_tag_open']		= '<li class="active"><a href="#">';
+			$config['cur_tag_close'] 	= '</a></li>';
+			$config['full_tag_open'] 	= '<div class="pagination"><ul>';
+			$config['full_tag_close'] 	= '</ul></div>';
+			$config['first_tag_open'] 	= '<li>';
+			$config['first_tag_close'] 	= '</li>';
+			$config['last_tag_open'] 	= '<li>';
+			$config['last_tag_close'] 	= '</li>';
+			$config['next_tag_open'] 	= '<li>';
+			$config['next_tag_close'] 	= '</li>';
+			$config['prev_tag_open'] 	= '<li>';
+			$config['prev_tag_close'] 	= '</li>';
+			$config['num_tag_open'] 	= '<li>';
+			$config['num_tag_close'] 	= '</li>';
+			
+			$this->pagination->initialize($config);
+			$pagevar['pages'] = $this->pagination->create_links();
+		endif;
 		$this->load->view("users_interface/catalog",$pagevar);
 	}
 	
@@ -813,7 +877,6 @@ class Users_interface extends CI_Controller{
 		
 		$this->load->view("admin_interface/login",$pagevar);
 	}
-	
 	
 	public function setseason(){
 		

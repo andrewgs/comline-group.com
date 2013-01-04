@@ -24,16 +24,16 @@
 					<p class="descr"><?=$events[$i]['text'];?></p>
 				<?php if($events[$i]['type'] == 1):?>
 				<?php if(!$events[$i]['noimage']):?>
-					<img src="<?=$baseurl;?>news/viewimage/<?=$events[$i]['id'];?>" alt="" width="150"/><br/><br/>
+					<img src="<?=$baseurl;?>news/viewimage/<?=$events[$i]['id'];?>" alt="" width="400"/><br/><br/>
 				<?php endif;?>
 					<?=anchor('news/'.$events[$i]['translit'],'Подробнее &raquo;',array('class'=>'more'));?>
 				<?php else:?>
 				<?php if(!$events[$i]['noimage']):?>
-					<img src="<?=$baseurl;?>stock/viewimage/<?=$events[$i]['id'];?>" alt="" width="150"/><br/><br/>
+					<img src="<?=$baseurl;?>stock/viewimage/<?=$events[$i]['id'];?>" alt="" width="400"/><br/><br/>
 				<?php endif;?>
 					<?=anchor('stock/'.$events[$i]['translit'],'Подробнее &raquo;',array('class'=>'more'));?>
 				<?php endif;?>
-					<p class="date"><?=$events	[$i]['date'];?></p>
+					<p class="date"><?=$events[$i]['date'];?></p>
 				</li>
 			<?php endfor;?>
 			</ul>

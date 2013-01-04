@@ -56,6 +56,38 @@
 				<?=$about_category;?>
 			</div>
 		<?php endif;?>
+		<noscript>
+		<?php for($i=0;$i<count($product_category);$i++):?>
+			<?php $exist = 0;?>
+			<?php for($j=0;$j<count($products);$j++):?>
+				<?php if($products[$j]['category'] == $product_category[$i]['id']):?>
+					<?php $exist = 1;?>
+				<?php endif;?>
+			<?php endfor;?>
+			<?php if($exist):?>
+				<h2><?=$product_category[$i]['title'];?></h2>
+				<div class="products-group cf">
+				<?php for($j=0;$j<count($products);$j++):?>
+					<?php if($products[$j]['category'] == $product_category[$i]['id']):?>
+					<div class="product-preview">
+						<a class="thumb" href="<?=$baseurl.'product/'.$products[$j]['gender'].'-'.$products[$j]['brand'].'-'.$products[$j]['category'].'-'.$products[$j]['id'].'/'.$products[$j]['translit'] ?>">
+							<img src="<?=$baseurl;?>productimage/viewimage/<?=$products[$j]['imgid'];?>" />
+						</a>
+						<p class="title">
+							<?=anchor('product/'.$products[$j]['gender'].'-'.$products[$j]['brand'].'-'.$products[$j]['category'].'-'.$products[$j]['id'].'/'.$products[$j]['translit'],$products[$j]['title']);?>
+							<span class="articul"><?=$products[$j]['btitle'];?></span><br/>
+							<span class="articul"><?=$products[$j]['stitle'];?></span>
+						</p>
+					</div>
+					<?php endif;?>
+				<?php endfor;?>
+				</div>
+			<?php endif;?>
+		<?php endfor;?>
+		<?php if($pages): ?>
+			<?=$pages;?>
+		<?php endif;?>
+		</noscript>
 		</div>
 	</div>
 	<?php $this->load->view("users_interface/includes/footer");?>
