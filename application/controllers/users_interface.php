@@ -902,7 +902,8 @@ class Users_interface extends CI_Controller{
 			case 'baner' 	: $image = $this->mdimages->get_image($id); break;
 			case 'text' 	: $image = $this->mdtexts->get_image($id); break;
 		endswitch;
-		header('Content-type: image/gif');
+		// Output the image
+    	header('Content-Type: image/jpeg');
 		echo $image;
 	}
 	

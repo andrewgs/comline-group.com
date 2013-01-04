@@ -20,12 +20,13 @@ aside#map {
 	-webkit-box-shadow: 0 3px 7px #C0C0C0;
 	   -moz-box-shadow: 0 3px 7px #C0C0C0;
 			box-shadow: 0 3px 7px #C0C0C0;
-	margin-top: -7.5em;
+	margin-top: -10.5em;
 	padding: 0.75em;
 	width: 28.1em;
 }
 aside.sorting { float: left; margin: 0; width: 14em; clear: left; }
 .products-by-categories, .product-page { margin-left: 14.5em; width: 42.25em; }
+.category_content { margin: 2.5em 0 0 14.5em; width: 42.25em; }
   
 
 /* 9. CUSTOM LAYOUT & TYPOGRAPHY (Mummy bear)
